@@ -1,0 +1,25 @@
+-- Unit Select Tests
+SELECT *
+FROM Kingdom; 
+
+SELECT *
+FROM Character;
+
+-- Integration : Kingdom, Character
+SELECT k.name as kingdom,
+       c.name
+FROM Kingdom k
+     INNER JOIN Character c ON k.name = c.dynasty;
+ Select weapon AS Type from (    
+SELECT *
+FROM diver
+UNION ALL
+SELECT *
+FROM dasher
+UNION ALL
+SELECT *
+FROM ShadowSprinter
+UNION ALL
+SELECT *
+FROM WindMaster)
+inner join WeaponType wt /*On wt.type = Type*/;
