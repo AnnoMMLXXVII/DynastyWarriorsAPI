@@ -4,3 +4,9 @@ FROM Kingdom;
 
 SELECT *
 FROM Character;
+
+-- Integration : Kingdom, Character
+SELECT k.name as kingdom,
+       c.name
+FROM Kingdom k
+     INNER JOIN Character c ON k.name = c.dynasty;
