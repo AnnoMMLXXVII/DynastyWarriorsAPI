@@ -1,7 +1,3 @@
 
-
 -- Drops Character Table
-DROP TABLE IF EXISTS Character;
-
--- Drops Kingdom Table
-DROP TABLE IF EXISTS Kingdom; 
+DROP TABLE IF EXISTS Character; 
