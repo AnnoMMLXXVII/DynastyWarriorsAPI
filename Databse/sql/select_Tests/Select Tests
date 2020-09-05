@@ -1,3 +1,6 @@
-select * from Kingdom;
+-- Unit Select Tests
+SELECT *
+FROM Kingdom; 
 
-select * from Character;
+SELECT *
+FROM Character;
