@@ -1,0 +1,4 @@
+
+
+-- Drops Kingdom Table
+DROP TABLE IF EXISTS Kingdom; 
