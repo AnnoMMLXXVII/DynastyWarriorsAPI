@@ -1,0 +1,3 @@
+Weapon will have many tables but not directly dependant to Character. 
+	- Character can exist with out a weapon existing and vice-versa
+
