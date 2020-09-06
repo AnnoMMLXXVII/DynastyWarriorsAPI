@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS weaponNormalAttributes;
+
+CREATE TABLE IF NOT EXISTS weaponNormalAttributes ( 
+    name VARCHAR ( 15 ) NOT NULL PRIMARY KEY,
+    description VARCHAR
+);
+
+INSERT INTO weaponNormalAttributes VALUES
+    ("Thorns", "Inflicts a portion of damage received against the enemy"),
+    ("Velocity", "Raises overall attack speed"),
+    ("Cyclone", "Inflicts chip damage against blocking enemies, and deals percentage damage of their total HP"),
+    ("Slash", "May instantly defeat any enemies while also greatly damage enemy officers out of chance"),
+    ("Recovery", "Heals the user with each attack"),
+    ("Thunder", "Electrocutes enemies, doing additional damage against them while stunning them"),
+    ("Whirlwind", "Raises damage caused by knock back attacks"),
+    ("Frost", "Freezes enemies, preventing them from moving momentarily");
+
+
+
