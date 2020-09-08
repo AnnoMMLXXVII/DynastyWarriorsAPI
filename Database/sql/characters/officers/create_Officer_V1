@@ -12,4 +12,5 @@ INSERT INTO Officer (name, dynasty, weapon) VALUES
     ("Wang Yuanji", "Wei", "Throwing Knives"),
     ("Zhou Tai", "Wu", "Curved Sword"),
     ("Zima Zhao", "Jin", "Striking Sword"),
+    ("Zhang Liao", "Wei", "Twin Axes"),
     ("Lu Lingqi", "Other", "Crossed Pike");
