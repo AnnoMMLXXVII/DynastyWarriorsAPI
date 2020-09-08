@@ -1,0 +1,7 @@
+SELECT k.name, o.name, w.name AS weapon
+FROM Officer o
+     INNER JOIN Weapon w
+     INNER JOIN Kingdom k
+WHERE w.type = o.weapon AND 
+      o.dynasty = k.name;
+
