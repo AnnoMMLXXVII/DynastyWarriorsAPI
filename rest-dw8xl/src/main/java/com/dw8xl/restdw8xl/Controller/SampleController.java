@@ -23,9 +23,6 @@ import com.dw8xl.restdw8xl.model.weapon.attribute.level.Level;
  */
 public class SampleController {
 
-//	private List<CharacterI> characters;
-//	private List<KingdomI> kingdoms;
-//	private List<Weapon> weapons;
 	private CharacterI officer;
 	private KingdomI kingdom;
 	private Weapon weapon;
