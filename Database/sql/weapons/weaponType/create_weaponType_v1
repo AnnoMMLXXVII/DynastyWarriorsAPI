@@ -34,7 +34,9 @@ INSERT INTO WeaponType (type, name) VALUES
     ("Wind Master", "Wheeled Halberd"),
     ("Wind Master", "Rake"),
     ("Wind Master", "Dual-Headed Mace"),
+    ("Wind Master", "Revolving Crossbow"),
     ("Wind Master", "War Trident"),
+    ("Wind Master", "Sele"),
     
     ("Dasher", "Sword"),
     ("Dasher", "Rapier"),
