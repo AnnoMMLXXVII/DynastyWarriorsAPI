@@ -26,4 +26,6 @@ public class SampleListController {
 	private List<List<AttributeI>> attributes;
 	
 	
+	
+	
 }
