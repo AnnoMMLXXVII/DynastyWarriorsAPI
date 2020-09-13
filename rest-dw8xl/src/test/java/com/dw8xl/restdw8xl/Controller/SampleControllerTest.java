@@ -3,15 +3,14 @@
  */
 package com.dw8xl.restdw8xl.Controller;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import com.dw8xl.restdw8xl.model.weapon.Weapon;
 
 /**
  * @author Haku Wei
@@ -48,6 +47,7 @@ class SampleControllerTest {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
+
 
 	@Test
 	void testOfficerIsNotNull() {

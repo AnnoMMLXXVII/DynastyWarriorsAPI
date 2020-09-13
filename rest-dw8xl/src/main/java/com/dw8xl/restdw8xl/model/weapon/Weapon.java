@@ -12,7 +12,7 @@ import com.dw8xl.restdw8xl.model.weapon.attribute.AttributeI;
  * @author Haku Wei
  *
  */
-public class Weapon {
+public class Weapon implements WeaponI {
 	
 	private String name;
 	private Integer baseAttk, star;
