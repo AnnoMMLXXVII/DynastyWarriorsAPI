@@ -1,0 +1,3 @@
+
+-- Drops Character Table
+DROP TABLE IF EXISTS Character; 
