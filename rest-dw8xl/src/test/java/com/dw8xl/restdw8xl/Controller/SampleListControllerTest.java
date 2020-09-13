@@ -94,7 +94,7 @@ class SampleListControllerTest {
 		mockSubOfficers.stream().forEach(so -> {
 			String name = so.getName();
 			String dyn = so.getDynasty().getName();
-			System.out.printf("(%s, %s),\n", name, dyn);
+			System.out.printf("(\"%s\", \"%s\"),\n", name, dyn);
 		});
 	}
 	
