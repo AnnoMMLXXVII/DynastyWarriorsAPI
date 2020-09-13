@@ -1,4 +1,0 @@
-Weapon Type includes 4 major categories : Wind Master, Dasher, Shadow Sprint, Diver
-
-Each category includes various weapons in which a character's primary weapon falls under. 
-
