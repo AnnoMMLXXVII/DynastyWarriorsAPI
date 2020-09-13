@@ -1,0 +1,2 @@
+Characters has two types. Main Officers which will be Officers and Other Officers which will be Other_Officers (will need to find a better name)
+
