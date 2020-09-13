@@ -1,0 +1,6 @@
+Officer will most likely be changed along the way
+
+This will include the Name, dynasty he/she belongs to, and the primary weapon he/she uses. 
+
+Weapon itself is NOT directly related to the character as the character can hold/equip other weapons
+
