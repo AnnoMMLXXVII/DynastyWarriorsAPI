@@ -1,0 +1,43 @@
+08/30/2020 : 
+
+	- This file will layout some ideas of what the databse will consist of and perhaps the relationships between the various tables that will be made in the future. 
+
+
+	- Possible Tables : 
+		Kingdoms
+			- name (PK)
+				(Shu, Jin, Wu, Other, Wei)
+		Characters
+			- First
+			- Last 
+			- FK (Kingdom.name)
+			- PK -> (First & Last)
+		Weapons
+			- Name (NN)
+			- Type FK -> WeaponType.Type
+			- Base Attack
+			- Affinity FK -> Affinity.Type
+			- Length
+			- Star
+			- Attribute Level
+				(1-10)
+		Affinity
+			- Type
+				(Heaven, Earth, Man)
+		Weapon Type
+			- Types (PK)
+				(Wind Master, Dasher, Shadow Sprinter, Diver)
+		Stages
+			- Stage Name
+				(Battle of ...)
+		Weapon Attributes
+			- Normal Attributes
+			- Special Attributes
+		Normal Attributes
+			- Attribute
+			- Effects
+		Special Attributes
+			- Attribute
+			- Effects
+
+		
