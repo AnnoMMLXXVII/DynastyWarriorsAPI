@@ -1,0 +1,48 @@
+Radiant Flash Spear, 49, Heaven, 6, Spear
+Dragon's Jaw, 56, Heaven, 6, Pike
+Double Demon Flash, 61, Heaven, 6, Double Voulge
+Wing of Mortality, 67, Heaven, 6, Great Sword
+Crystal Cleaver, 56, Heaven, 6, Club
+Manic Thunder Gloves, 65, Heaven, 6, Gloves
+Explosive Halberd, 79, Heaven, 6, Halberd
+Shadow Slayers, 56, Heaven, 6, Twin Axes
+Spiral Thunder Lance, 58, Heaven, 6, Lance
+Frozen Demon Rods, 65, Heaven, 6, Twin Rods
+Thunder Axe, 61, Heaven, 6, Axe
+Icicle Tonfa, 44, Heaven, 6, Tonfa
+Peng Crossbow, 52, Heaven, 6, Crossbow
+Spark Cannon, 65, Heaven, 6, Arm Cannon
+Precious Frost Brush, 43, Heaven, 6, Brush
+Holy Light Striker, 43, Heaven, 6, Dagger Axe
+Unavoidable Bomb, 61, Heaven, 6, Bomb
+Thunderbolt Pike, 56, Heaven, 6, Short Pike
+Sharp Destruction, 61, Heaven, 6, Great Axe
+Dream Wrecker, 56, Heaven, 6, Mace
+Steel Fang and Scale, 62, Heaven, 6, Spiked Shield
+Imperial Warship, 66, Heaven, 6, Arm Blade
+Flashing Wind Gold, 61, Heaven, 6, Circle Blade
+Frost Breaker, 67, Heaven, 6, Siege Spear
+Dawn Bringer, 52, Heaven, 6, Bow & Rod
+Sirius Wind, 61, Heaven, 6, Wheeled Halberd
+Suzaku's Claws, 60, Heaven, 6, Rake
+Violet Storm, 68, Heaven, 6, Dual-Headed Mace
+Heaven Conqueror, 56, Heaven, 6, War Trident
+Brimstone Wrath, 56, Heaven, 6, Stele
+
+
+
+
+
+
+
+
+
+
+
+
+Dark Dragon Spear, 62, Heaven, 6, Dragon Spear
+Mercurial Rain, 42, Heaven, 6, Throwing Knives
+Dazzler, 48, Heaven, 6, Curved Sword
+Strike Sealing Sword, 49, Heaven, 6, Striking Sword
+Shadow Slayers, 56, Heaven, 6, Twin Axes
+Soaring Wings, 56, Heaven, 6, Crossed Pike
