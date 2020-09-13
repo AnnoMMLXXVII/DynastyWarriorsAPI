@@ -1,5 +1,0 @@
-List of attributes that have two types: Normal & Special. 
-
-Each table will have 2 columns: name and description. 
-
-PK will be the name
