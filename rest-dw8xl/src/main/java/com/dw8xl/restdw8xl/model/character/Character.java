@@ -1,7 +1,9 @@
+/**
+ * 
+ */
 package com.dw8xl.restdw8xl.model.character;
 
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
-import com.dw8xl.restdw8xl.model.weapon.WeaponDNE;
 import com.dw8xl.restdw8xl.model.weapon.WeaponI;
 
 /**
@@ -12,24 +14,39 @@ import com.dw8xl.restdw8xl.model.weapon.WeaponI;
  * @author Haku Wei
  *
  */
-public class SubOfficer extends Character {
+public abstract class Character implements CharacterI {
 
 	private String name;
 	private KingdomI dynasty;
 	
-	/**
-	 * @param name
-	 * @param dynasty
-	 */
-	public SubOfficer(String name, KingdomI dynasty) {
-		super(name, dynasty);
+	public Character(String name, KingdomI dynasty) {
+		this.name = name;
+		this.dynasty = dynasty;
+	}
+	
+	@Override
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
-	public WeaponI getWeapon() {
-		// TODO Auto-generated method stub
-		return new WeaponDNE();
+	public String getName() {
+		return name;
 	}
+
+	@Override
+	public void setDynasty(KingdomI dynasty) {
+		this.dynasty = dynasty;
+	}
+
+	@Override
+	public KingdomI getDynasty() {
+		// TODO Auto-generated method stub
+		return dynasty;
+	}
+
+
+	public abstract WeaponI getWeapon();
 
 	@Override
 	public int hashCode() {
@@ -48,7 +65,7 @@ public class SubOfficer extends Character {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SubOfficer other = (SubOfficer) obj;
+		Character other = (Character) obj;
 		if (dynasty == null) {
 			if (other.dynasty != null)
 				return false;
@@ -64,9 +81,9 @@ public class SubOfficer extends Character {
 
 	@Override
 	public String toString() {
-		return "SubOfficer [name=" + name + ", dynasty=" + dynasty + "]";
+		return "Character [name=" + name + ", dynasty=" + dynasty + "]";
 	}
-	
-	
 
+	
+	
 }
