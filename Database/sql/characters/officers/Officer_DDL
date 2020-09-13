@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS Officer (
             dynasty VARCHAR        NOT NULL,
             weapon  VARCHAR        NOT NULL,
 FOREIGN KEY ( dynasty ) REFERENCES Kingdom ( name ),
-FOREIGN KEY ( weapon ) REFERENCES WeaponType ( name ) );
+FOREIGN KEY ( weapon ) REFERENCES Type ( name ) );
 
 INSERT INTO Officer (name, dynasty, weapon) VALUES 
     ("Zhao You", "Shu", "Dragon Spear"),
