@@ -1,7 +1,19 @@
-SELECT k.name, o.name, w.name AS weapon
+SELECT k.name,
+       o.name,
+       w.name AS weapon
 FROM Officer o
      INNER JOIN Weapon w
      INNER JOIN Kingdom k
 WHERE w.type = o.weapon AND 
       o.dynasty = k.name;
+
+SELECT * FROM Affinity;
+SELECT * FROM Attribute_Normal;
+SELECT * FROM Attribute_Special;
+SELECT * FROM Category;
+SELECT * FROM Kingdom;
+SELECT * FROM Officer;
+SELECT * FROM SubOfficer;
+SELECT * FROM Type;
+SELECT * FROM Weapon;
 
