@@ -43,6 +43,3 @@ INSERT INTO Attribute_Normal VALUES
     ("Thunderclap", "The user will not flinch from attacks while running"),
     ("Efflorescence", "Raises duration of strength boost provided by switch counter"),
     ("Conflagration", "Causes eneimes sent flying to explode when colliding with others");
-
-
-
