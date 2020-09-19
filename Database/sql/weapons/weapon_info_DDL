@@ -17,5 +17,3 @@ INSERT INTO Weapon VALUES
     ("Strike Sealing Sword", 49, "Heaven", 6, "Striking Sword"),
     ("Shadow Slayers", 56, "Heaven", 6, "Twin Axes"),
     ("Soaring Wings", 56, "Heaven", 6, "Crossed Pike");
-
-
