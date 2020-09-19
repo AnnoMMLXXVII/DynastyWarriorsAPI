@@ -1,0 +1,28 @@
+Dropping When Data exists...
+	Affinity
+		--> Cannnot Drop if Weapon Exists
+	Category
+		--> Cannot Drop if Type exists
+	Kingdom
+		--> Cannot Drop if Officer/SubOfficer Exists
+	Type
+		--> Cannot Drop if Officer/Weapon exists
+-------------------------------------------------------------
+	Normal_Attr
+		--> Can Drop at any moment
+	Special_Attr
+		--> Can Drop at any moment
+	Officer
+		--> Can Drop at any moment
+	SubOfficer
+		--> Can Drop at any moment
+	Weapon
+		--> Can Drop at any Moment
+-------------------------------------------------------------
+	Drop Order w/ Constraints
+		--> Type before Category
+		--> Kingdom, Category,Affinity in any order
+-------------------------------------------------------------
+	Drop Order w/out Constraints
+		--> No order
+	
