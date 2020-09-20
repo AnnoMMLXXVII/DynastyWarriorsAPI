@@ -5,6 +5,7 @@ package com.dw8xl.restdw8xl.model.character;
 
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
 import com.dw8xl.restdw8xl.model.weapon.Weapon;
+import com.dw8xl.restdw8xl.model.weapon.WeaponI;
 
 /**
  * @author Haku Wei
@@ -12,20 +13,20 @@ import com.dw8xl.restdw8xl.model.weapon.Weapon;
  */
 public class Officer extends Character{
 
-	private Weapon weapon;
+	private WeaponI weapon;
 
 	/**
 	 * @param name
 	 * @param dynasty
 	 * @param weapon
 	 */
-	public Officer(String name, KingdomI dynasty, Weapon weapon) {
+	public Officer(String name, KingdomI dynasty, WeaponI weapon) {
 		super(name, dynasty);
 		this.weapon = weapon;
 	}
 
 	@Override
-	public Weapon getWeapon() {
+	public WeaponI getWeapon() {
 		return weapon;
 	}
 
@@ -59,14 +60,6 @@ public class Officer extends Character{
 		return "Officer [weapon=" + weapon + "]";
 	}
 
-	
-	
-
-	
-
-	
-
-	
 	
 	
 	
