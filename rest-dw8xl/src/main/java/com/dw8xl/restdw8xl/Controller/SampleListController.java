@@ -4,9 +4,12 @@
 package com.dw8xl.restdw8xl.Controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -14,10 +17,21 @@ import com.dw8xl.restdw8xl.model.character.CharacterI;
 import com.dw8xl.restdw8xl.model.character.SubOfficer;
 import com.dw8xl.restdw8xl.model.kingdom.Kingdom;
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
-import com.dw8xl.restdw8xl.model.weapon.Affinity;
-import com.dw8xl.restdw8xl.model.weapon.Type;
-import com.dw8xl.restdw8xl.model.weapon.Weapon;
+import com.dw8xl.restdw8xl.model.weapon.WeaponI;
+import com.dw8xl.restdw8xl.model.weapon.affinity.Affinity;
+import com.dw8xl.restdw8xl.model.weapon.attribute.AttributeDNE;
 import com.dw8xl.restdw8xl.model.weapon.attribute.AttributeI;
+import com.dw8xl.restdw8xl.model.weapon.attribute.Normal;
+import com.dw8xl.restdw8xl.model.weapon.attribute.Special;
+import com.dw8xl.restdw8xl.model.weapon.attribute.level.Level;
+import com.dw8xl.restdw8xl.model.weapon.attribute.level.LevelI;
+import com.dw8xl.restdw8xl.model.weapon.category.Category;
+import com.dw8xl.restdw8xl.model.weapon.category.CategoryI;
+import com.dw8xl.restdw8xl.model.weapon.classifications.Legend;
+import com.dw8xl.restdw8xl.model.weapon.classifications.Rare;
+import com.dw8xl.restdw8xl.model.weapon.classifications.Unique;
+import com.dw8xl.restdw8xl.model.weapon.length.Length;
+import com.dw8xl.restdw8xl.model.weapon.type.Type;
 
 /**
  * @author Haku Wei
@@ -35,7 +49,7 @@ public class SampleListController {
 	private List<Type> types;
 	private List<Affinity> affinities;
 	private List<KingdomI> kingdoms;
-	private List<Weapon> weapons;
+	private List<WeaponI> weapons;
 	private List<List<AttributeI>> attributes;
 
 	public SampleListController() {
@@ -64,8 +78,29 @@ public class SampleListController {
 		
 	}
 	
+	public Map<String,List<AttributeI>> parseThroughWeaponAttributeLevelTextFiles() {
+		String path = "whirlwind\\WeaponAttributeLevel.txt";
+		Map<String, List<AttributeI>> attLvlMap = parseThroughWeaponAttributeLevelTextFile(path);
+		return attLvlMap;
+	}
+	
+	public List<WeaponI> parseThroughMultipleWeaponTextFiles() {
+		String[] weaponPaths = {
+				"whirlwind\\NormalWeapons.txt",
+				"whirlwind\\RareWeapons.txt",
+				"whirlwind\\UniqueWeapons-5-Stars.txt",
+				"whirlwind\\XLWeapons-6-Stars.txt"
+		};
+		
+		for (int i = 0; i < weaponPaths.length; i++) {
+			weapons = parseThroughWeaponTextFile(weaponPaths[i]);
+		}
+		
+		return weapons;
+	}
+	
 	public List<CharacterI> parseThroughMultipleSubOfficersTextFiles() {
-		String[] paths = {
+		String[] characterPaths = {
 				"Text-Files\\characters\\sub-officer\\SubOfficer-List-Jin.txt",
 				"Text-Files\\characters\\sub-officer\\SubOfficer-List-Other.txt",
 				"Text-Files\\characters\\sub-officer\\SubOfficer-List-Shu.txt",
@@ -80,8 +115,8 @@ public class SampleListController {
 				new Kingdom("Wu")
 		};
 		
-		for (int i = 0 ; i < paths.length; i++) {
-			subOfficers = parseThroughSubOfficerTextFile(paths[i], subOfficers, kingdoms[i]);
+		for (int i = 0 ; i < characterPaths.length; i++) {
+			subOfficers = parseThroughSubOfficerTextFile(characterPaths[i], subOfficers, kingdoms[i]);
 		};
 		
 		return subOfficers;
@@ -105,6 +140,174 @@ public class SampleListController {
 		}
 		return subOfficers;
 	}
+	
+	private List<WeaponI> parseThroughNormalWeaponTextFile(String path) {
+		File file = new File(path);
+		List<WeaponI> weapons = new ArrayList<WeaponI>();
+		WeaponI weapon;
+		CategoryI whirl = new Category("Whirlwind Master");
+		try {
+			Scanner z = new Scanner(new FileReader(file));
+			String[] weaponLine = null;
+			while(z.hasNextLine()) {
+				String line = z.nextLine();
+				weaponLine = line.split(",");
+				weapon = new com.dw8xl.restdw8xl.model.weapon.classifications.Normal(
+						weaponLine[0],
+						Integer.parseInt(weaponLine[1]),
+						new Length(weaponLine[2]),
+						Integer.parseInt(weaponLine[3]),
+						new Type(weaponLine[4], whirl)
+						);
+				weapons.add(weapon);
+			}
+			z.close();
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return weapons;
+	}
+	
+	public List<WeaponI> parseThroughRareWeaponTextFile(String path, Map<String, List<AttributeI>> mapped) {
+		File file = new File(path);
+		List<WeaponI> weapons = new ArrayList<WeaponI>();
+		WeaponI weapon;
+		CategoryI whirl = new Category("Whirlwind Master");
+		try {
+			Scanner z = new Scanner(new FileReader(file));
+			String[] weaponLine = null;
+			while(z.hasNextLine()) {
+				String line = z.nextLine();
+				weaponLine = line.split(",");
+				List<AttributeI> attributes = mapped.get(weaponLine[0]);
+				weapon = new Rare(
+						weaponLine[0].trim(),
+						Integer.parseInt(weaponLine[1].trim()),
+						new Affinity(weaponLine[2].trim()),
+						Integer.parseInt(weaponLine[3].trim()),
+						new Type(weaponLine[4].trim(), whirl),
+						attributes
+						);
+				weapons.add(weapon);
+			}
+			z.close();
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return weapons;
+	}
+	
+	private List<WeaponI> parseThroughUniqueWeaponTextFile(String path, Map<String, List<AttributeI>> mapped) {
+		File file = new File(path);
+		List<WeaponI> weapons = new ArrayList<WeaponI>();
+		WeaponI weapon;
+		CategoryI whirl = new Category("Whirlwind Master");
+		try {
+			Scanner z = new Scanner(new FileReader(file));
+			String[] weaponLine = null;
+			while(z.hasNextLine()) {
+				String line = z.nextLine();
+				weaponLine = line.split(",");
+				List<AttributeI> attributes = mapped.get(weaponLine[0]);
+				weapon = new Unique(
+						weaponLine[0].trim(),
+						Integer.parseInt(weaponLine[1].trim()),
+						new Affinity(weaponLine[2].trim()),
+						Integer.parseInt(weaponLine[3].trim()),
+						new Type(weaponLine[4].trim(), whirl),
+						attributes
+						);
+				weapons.add(weapon);
+			}
+			z.close();
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return weapons;
+	}
+	
+	private List<WeaponI> parseThroughLegendWeaponTextFile(String path, Map<String, List<AttributeI>> mapped) {
+		File file = new File(path);
+		List<WeaponI> weapons = new ArrayList<WeaponI>();
+		WeaponI weapon;
+		CategoryI whirl = new Category("Whirlwind Master");
+		try {
+			Scanner z = new Scanner(new FileReader(file));
+			String[] weaponLine = null;
+			while(z.hasNextLine()) {
+				String line = z.nextLine();
+				weaponLine = line.split(",");
+				List<AttributeI> attributes = mapped.get(weaponLine[0]);
+				weapon = new Legend(
+						weaponLine[0].trim(),
+						Integer.parseInt(weaponLine[1].trim()),
+						new Affinity(weaponLine[2].trim()),
+						Integer.parseInt(weaponLine[3].trim()),
+						new Type(weaponLine[4].trim(), whirl),
+						attributes
+						);
+				weapons.add(weapon);
+			}
+			z.close();
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return weapons;
+	}
+	
+	
+	private List<WeaponI> parseThroughWeaponTextFile(String path) {
+		return null;
+	}
+	
+	private Map<String, List<AttributeI>> parseThroughWeaponAttributeLevelTextFile(String path) {
+		Map<String, List<AttributeI>> temp = new HashMap<String, List<AttributeI>>();
+		Scanner z;
+		String[] attributeLine = null;
+		try {
+			z = new Scanner(new FileReader(path));
+			while(z.hasNextLine()) {
+				String line = z.nextLine();
+				attributeLine = line.split(",");
+				temp.put(attributeLine[0], listifyAttributes(attributeLine));
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return temp;
+	}
+	
+	private List<AttributeI> listifyAttributes(String...attr) {
+		List<AttributeI> temp = new ArrayList<>();
+		for(int i = 1; i < attr.length; i++) {
+			temp.add(mapThroughAttribute(attr[i]));
+		}
+		return temp;
+	}
+	
+	private AttributeI mapThroughAttribute(String str) {
+		LevelI lvl;
+		AttributeI attribute = new AttributeDNE();
+		Scanner z = new Scanner(str);
+		String[] regex = null;
+		while(z.hasNextLine()) {
+			String line = z.nextLine().trim();
+//			System.out.println(line);
+			// Normal vs Special Attribute
+			if(!line.contains(":")) {
+				attribute = new Special(line.trim());
+			}
+			else {
+				regex = line.split(":");
+				lvl = new Level(Integer.parseInt(regex[1].trim()));
+				attribute = new Normal(regex[0].trim(), lvl);
+			}
+		}
+		z.close();
+		return attribute; 
+	}
+	
 	
 	public Integer getSubOfficerCount() {
 		return subOfficers.size();
