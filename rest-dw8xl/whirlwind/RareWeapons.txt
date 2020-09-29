@@ -60,3 +60,13 @@ Purgatory's Door, 18, Heaven, 1, War Trident
 Conversion Prayer, 27, Earth, 2, War Trident
 Infernal Column, 23, Earth, 1, Stele
 Winds of Turmoil, 31, Man, 3, Stele
+
+
+
+
+
+
+
+
+
+

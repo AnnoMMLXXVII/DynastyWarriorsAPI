@@ -3,132 +3,76 @@
  */
 package com.dw8xl.restdw8xl.model.weapon;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.dw8xl.restdw8xl.model.weapon.affinity.Affinity;
+import com.dw8xl.restdw8xl.model.weapon.affinity.AffinityI;
 import com.dw8xl.restdw8xl.model.weapon.attribute.AttributeI;
+import com.dw8xl.restdw8xl.model.weapon.category.CategoryI;
+import com.dw8xl.restdw8xl.model.weapon.type.Type;
 
 /**
  * @author Haku Wei
  *
  */
-public class Weapon implements WeaponI {
+public abstract class Weapon implements WeaponI {
 	
 	private String name;
 	private Integer baseAttk, star;
 	private Type type;
-	private Affinity affinity;
-	private List<AttributeI> attribute;
+	private Affinity affinity;	
 	
+	/**
+	 * 
+	 */
+	public Weapon() {
+		super();
+	}
+
 	/**
 	 * @param name
 	 * @param baseAttk
 	 * @param star
 	 * @param type
-	 * @param affinity
 	 */
-	public Weapon(String name, Integer baseAttk, Integer star, Type type, Affinity affinity, List<AttributeI> attribute) {
+	public Weapon(String name, Integer baseAttk, Integer star, Type type) {
 		super();
 		this.name = name;
 		this.baseAttk = baseAttk;
 		this.star = star;
 		this.type = type;
-		this.affinity = affinity;
-		this.attribute = attribute;
 	}
 	
-	public Weapon(String name, Integer baseAttk, Integer star, Type type, Affinity affinity) {
-		super();
-		this.name = name;
-		this.baseAttk = baseAttk;
-		this.star = star;
-		this.type = type;
-		this.affinity = affinity;
-		setAttributes(attribute);
-	}
-	
-	/**
-	 * @return the name
-	 */
+	@Override
 	public String getName() {
 		return name;
 	}
-	/**
-	 * @return the baseAttk
-	 */
+
+	@Override
 	public Integer getBaseAttk() {
 		return baseAttk;
 	}
-	/**
-	 * @return the star
-	 */
-	public Integer getStar() {
-		return star;
-	}
-	/**
-	 * @return the type
-	 */
+
+	@Override
 	public Type getType() {
 		return type;
 	}
-	/**
-	 * @return the affinity
-	 */
-	public Affinity getAffinity() {
-		return affinity;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	/**
-	 * @param baseAttk the baseAttk to set
-	 */
-	public void setBaseAttk(Integer baseAttk) {
-		this.baseAttk = baseAttk;
-	}
-	/**
-	 * @param star the star to set
-	 */
-	public void setStar(Integer star) {
-		this.star = star;
-	}
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(Type type) {
-		this.type = type;
-	}
-	/**
-	 * @param affinity the affinity to set
-	 */
-	public void setAffinity(Affinity affinity) {
-		this.affinity = affinity;
+
+	@Override
+	public Integer getStar() {
+		return star;
 	}
 
-	/**
-	 * @return the attributes
-	 */
-	public List<AttributeI> getAttributes() {
-		return (attribute == null) 
-				? new ArrayList<AttributeI>() : attribute;
-	}
-
-	/**
-	 * @param attributes the attributes to set
-	 */
-	public void setAttributes(List<AttributeI> attribute) {
-		this.attribute = attribute;
-	}
+	public abstract AffinityI getAffinity();
+	public abstract CategoryI getCategory();
+	public abstract List<AttributeI> getAttributes();
+	public abstract WeaponI getInstance();
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((affinity == null) ? 0 : affinity.hashCode());
-		result = prime * result + ((attribute == null) ? 0 : attribute.hashCode());
 		result = prime * result + ((baseAttk == null) ? 0 : baseAttk.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((star == null) ? 0 : star.hashCode());
@@ -149,11 +93,6 @@ public class Weapon implements WeaponI {
 			if (other.affinity != null)
 				return false;
 		} else if (!affinity.equals(other.affinity))
-			return false;
-		if (attribute == null) {
-			if (other.attribute != null)
-				return false;
-		} else if (!attribute.equals(other.attribute))
 			return false;
 		if (baseAttk == null) {
 			if (other.baseAttk != null)
@@ -181,12 +120,7 @@ public class Weapon implements WeaponI {
 	@Override
 	public String toString() {
 		return "Weapon [name=" + name + ", baseAttk=" + baseAttk + ", star=" + star + ", type=" + type + ", affinity="
-				+ affinity + ", attribute=" + attribute + "]";
+				+ affinity + "]";
 	}
-	
-	
-	
-	
-	
 	
 }

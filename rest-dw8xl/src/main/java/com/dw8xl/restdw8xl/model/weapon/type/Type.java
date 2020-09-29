@@ -1,7 +1,9 @@
 /**
  * 
  */
-package com.dw8xl.restdw8xl.model.weapon;
+package com.dw8xl.restdw8xl.model.weapon.type;
+
+import com.dw8xl.restdw8xl.model.weapon.category.CategoryI;
 
 /**
  * @author Haku Wei
@@ -9,63 +11,56 @@ package com.dw8xl.restdw8xl.model.weapon;
  */
 public class Type {
 
-	private String type, name;
+	private String type;
+	private CategoryI category;
 	
 	/**
-	 * @param name
-	 */
-	public Type(String name) {
-		super();
-		this.name = name;
-	}
-
-	/**
 	 * @param type
-	 * @param name
+	 * @param category
 	 */
-	public Type(String type, String name) {
+	public Type(String type, CategoryI category) {
 		super();
 		this.type = type;
-		this.name = name;
+		this.category = category;
 	}
-
 	/**
 	 * @return the type
 	 */
 	public String getType() {
 		return type;
 	}
-
 	/**
-	 * @return the name
+	 * @return the category
 	 */
-	public String getName() {
-		return name;
+	public CategoryI getCategory() {
+		return category;
 	}
-
 	/**
 	 * @param type the type to set
 	 */
 	public void setType(String type) {
 		this.type = type;
 	}
-
 	/**
-	 * @param name the name to set
+	 * @param category the category to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setCategory(CategoryI category) {
+		this.category = category;
 	}
-
+	/**
+	 * @return
+	 */
+	public Type getInstance() {
+		return this;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -75,10 +70,10 @@ public class Type {
 		if (getClass() != obj.getClass())
 			return false;
 		Type other = (Type) obj;
-		if (name == null) {
-			if (other.name != null)
+		if (category == null) {
+			if (other.category != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!category.equals(other.category))
 			return false;
 		if (type == null) {
 			if (other.type != null)
@@ -87,13 +82,9 @@ public class Type {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
-		return "Type [type=" + type + ", name=" + name + "]";
+		return "Type [type=" + type + ", category=" + category + "]";
 	}
-
-	
-	
 	
 }

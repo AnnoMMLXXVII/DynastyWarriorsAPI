@@ -4,14 +4,17 @@ import com.dw8xl.restdw8xl.model.weapon.attribute.level.LevelI;
 
 public interface AttributeI {
 
-	public abstract void setAttribute(String name);
+	public void setAttribute(String name);
 
-	public abstract String getAttribute();
+	public String getAttribute();
 
-	public abstract void setDescription(String description);
+	public void setDescription(String description);
 
-	public abstract String getDescription();
+	public String getDescription();
 
-	public abstract void setLevel(LevelI level);
-	public abstract LevelI getLevel();
+	public void setLevel(LevelI level);
+	public LevelI getLevel();
+	
+	public int hashCode();
+	public boolean equals(Object obj);
 }

@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.dw8xl.restdw8xl.model.weapon;
+package com.dw8xl.restdw8xl.model.weapon.affinity;
 
 /**
  * @author Haku Wei
  *
  */
-public class Affinity {
+public class Affinity implements AffinityI {
 
 	private String affinity;
 
@@ -19,18 +19,14 @@ public class Affinity {
 		this.affinity = affinity;
 	}
 
-	/**
-	 * @return the affinity
-	 */
+	@Override
 	public String getAffinity() {
 		return affinity;
 	}
 
-	/**
-	 * @param affinity the affinity to set
-	 */
-	public void setAffinity(String affinity) {
-		this.affinity = affinity;
+	@Override
+	public AffinityI getInstance() {
+		return this;
 	}
 
 	@Override
@@ -62,6 +58,10 @@ public class Affinity {
 	public String toString() {
 		return "Affinity [affinity=" + affinity + "]";
 	}
+	
+	
+
+	
 	
 	
 }

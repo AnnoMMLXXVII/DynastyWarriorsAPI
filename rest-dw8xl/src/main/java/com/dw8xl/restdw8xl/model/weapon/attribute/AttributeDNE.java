@@ -13,14 +13,10 @@ import com.dw8xl.restdw8xl.model.weapon.attribute.level.LevelI;
 public class AttributeDNE implements AttributeI {
 
 	/**
-	 * @param name
-	 * @param description
+	 * 
 	 */
-	public AttributeDNE(String attribute, String description, LevelI level) {
+	public AttributeDNE() {
 		super();
-		setAttribute(attribute);
-		setDescription(description);
-		setLevel(level);
 	}
 
 	@Override

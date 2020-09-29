@@ -19,6 +19,13 @@ public class Attribute implements AttributeI{
 	private LevelI level;
 	
 	/**
+	 * 
+	 */
+	public Attribute() {
+		super();
+	}
+
+	/**
 	 * @param attribute
 	 */
 	public Attribute(String attribute) {
@@ -126,11 +133,5 @@ public class Attribute implements AttributeI{
 	@Override
 	public String toString() {
 		return "Attribute [attribute=" + attribute + ", description=" + description + ", level=" + level + "]";
-	}
-	
-	
-
-
-	
-	
+	}	
 }
