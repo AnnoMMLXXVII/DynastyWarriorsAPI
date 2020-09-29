@@ -86,3 +86,13 @@ Binding(COMMAND+SHIFT+T,
 
 !ENTRY org.eclipse.jface.text 2 0 2020-09-29 00:53:05.701
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2020-09-29 00:57:56.554
+!MESSAGE No repository found at file:/Library/Java/javafx-sdk-11.0.2/.
+
+!ENTRY org.eclipse.equinox.p2.updatechecker 4 0 2020-09-29 00:58:24.510
+!MESSAGE Exception in update check thread
+!STACK 0
+java.lang.IllegalArgumentException: timeout value is negative
+	at java.base/java.lang.Thread.sleep(Native Method)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:90)
