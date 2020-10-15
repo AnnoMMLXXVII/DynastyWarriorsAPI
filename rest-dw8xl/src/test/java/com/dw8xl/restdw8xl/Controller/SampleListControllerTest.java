@@ -194,6 +194,7 @@ class SampleListControllerTest {
 			String name = s.getName();
 			String king = s.getDynasty().getName();
 			System.out.printf("(\"%s\", \"%s),\n", name, king);
+
 		});
 	}
 	

@@ -1,0 +1,5 @@
+Affinity will belong to weapon. Affinity must exist first. Cannot Create weapon without an affinity. 
+
+1 to many : Affinity can belong to many weapons
+
+Affinity Table : Type column (NN PK)

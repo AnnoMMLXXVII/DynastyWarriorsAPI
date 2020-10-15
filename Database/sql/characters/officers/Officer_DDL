@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS Officer;
+
+CREATE TABLE IF NOT EXISTS Officer ( 
+            name    VARCHAR ( 24 ) NOT NULL PRIMARY KEY,
+            dynasty VARCHAR        NOT NULL,
+            weapon  VARCHAR        NOT NULL,
+FOREIGN KEY ( dynasty ) REFERENCES Kingdom ( name ),
+FOREIGN KEY ( weapon ) REFERENCES Type ( name ) );
+
+INSERT INTO Officer (name, dynasty, weapon) VALUES 
+    ("Zhao You", "Shu", "Dragon Spear"),
+    ("Wang Yuanji", "Wei", "Throwing Knives"),
+    ("Zhou Tai", "Wu", "Curved Sword"),
+    ("Zima Zhao", "Jin", "Striking Sword"),
+    ("Zhang Liao", "Wei", "Twin Axes"),
+    ("Lu Lingqi", "Other", "Crossed Pike");
