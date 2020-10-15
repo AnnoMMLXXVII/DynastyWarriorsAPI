@@ -6,7 +6,7 @@ Thunder Piercer, Thunder: 10, Spurt: 10, Barricade: 10, Roar: 10, Awe: 10
 Radiant Flash Spear, Flash: 10, Explosive: 9, Whirlwind: 9, Resolve, Thorns: 8
 Spraycutter, Thunder: 8, Fury, Vigor: 7
 Shadowless, Spurt: 7, Whirlwind: 9, Survival: 7
-Cimson Fury, Cyclone: 10, Jubilation: 9, Survival: 9, Triumph: 8
+Crimson Fury, Cyclone: 10, Jubilation: 9, Survival: 9, Triumph: 8
 Excavator Shovel, Flash: 10, Protection: 10, Swiftness, Frenzy: 10
 Divine Phoenix, Inferno: 10, Enlightenment: 10, Jubilation: 10, Frenzy: 10
 Dragon's Jaw, Slash: 10, Awe: 9, Roar: 9, Harmony: 8, Protection: 8
@@ -18,7 +18,7 @@ Twilight Flash, Slash: 10, Frenzy: 10, Flurry: 10, Spurt: 10, Enlightenment: 10
 Double Demon Flash, Flash: 10, Fear: 9, Swiftness, Agility, Rigidity
 Sky Splitter, Roar: 7, Rigidity, Inferno: 9
 Sea Splitter, Resolve, Recovery: 8, Venom: 7
-Soring Dragon, Venom: 10, Recovery: 9, Enlightenment: 9, Protection: 8
+Soaring Dragon, Venom: 10, Recovery: 9, Enlightenment: 9, Protection: 8
 Suitcase, Frost: 10, Fear: 10, Recovery: 10, Resolve, Harmony: 10
 Thunder SLiver, Thunder: 10, Induction: 10, Triumph: 10, Agility, Rigidity
 Wing of Mortality, Slash: 10, Aggression: 9, Vigor: 9, Flurry: 8, Fear: 8

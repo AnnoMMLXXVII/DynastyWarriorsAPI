@@ -9,7 +9,7 @@ import com.dw8xl.restdw8xl.model.weapon.category.CategoryI;
  * @author Haku Wei
  *
  */
-public class Type {
+public class Type implements TypeI {
 
 	private String type;
 	private CategoryI category;
@@ -34,18 +34,6 @@ public class Type {
 	 */
 	public CategoryI getCategory() {
 		return category;
-	}
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
-	/**
-	 * @param category the category to set
-	 */
-	public void setCategory(CategoryI category) {
-		this.category = category;
 	}
 	/**
 	 * @return
@@ -84,7 +72,7 @@ public class Type {
 	}
 	@Override
 	public String toString() {
-		return "Type [type=" + type + ", category=" + category + "]";
+		return "[type=" + type + ", category=" + category + "]";
 	}
 	
 }

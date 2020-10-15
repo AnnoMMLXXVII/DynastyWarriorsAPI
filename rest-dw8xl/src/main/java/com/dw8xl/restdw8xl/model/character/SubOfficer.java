@@ -1,8 +1,8 @@
 package com.dw8xl.restdw8xl.model.character;
 
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
-import com.dw8xl.restdw8xl.model.weapon.WeaponDNE;
-import com.dw8xl.restdw8xl.model.weapon.WeaponI;
+import com.dw8xl.restdw8xl.model.weapon.type.TypeDNE;
+import com.dw8xl.restdw8xl.model.weapon.type.TypeI;
 
 /**
  * @author Haku Wei
@@ -17,6 +17,8 @@ public class SubOfficer extends Character {
 	private String name;
 	private KingdomI dynasty;
 	
+	public SubOfficer() {};
+	
 	/**
 	 * @param name
 	 * @param dynasty
@@ -26,9 +28,8 @@ public class SubOfficer extends Character {
 	}
 
 	@Override
-	public WeaponI getWeapon() {
-		// TODO Auto-generated method stub
-		return new WeaponDNE();
+	public TypeI getType() {
+		return new TypeDNE();
 	}
 
 	@Override

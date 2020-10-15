@@ -64,25 +64,25 @@ class SampleControllerTest {
 		assertEquals("Shu", dao.getOfficer().getDynasty().getName());
 	}
 	
-	@Test
-	void testOfficerWeaponNameEqualsExpected() {
-		assertEquals("Dark Dragon Spear", dao.getOfficer().getWeapon().getName());
-	}
-	
-	@Test
-	void testOfficerWeaponAttributeEqualsExpected() {
-		assertEquals("Thunder", dao.getOfficer().getWeapon().getAttributes().get(0).getAttribute());
-	}
-	
-	@Test
-	void testOfficerWeaponAttributeLevelEqualsExpected() {
-		assertEquals(10, dao.getOfficer().getWeapon().getAttributes().get(1).getLevel().getLevel());
-	}
-	
-	@Test
-	void testOfficerWeaponStarEqualsExpected() {
-		assertEquals(6, dao.getOfficer().getWeapon().getStar());
-	}
+//	@Test
+//	void testOfficerWeaponNameEqualsExpected() {
+//		assertEquals("Dark Dragon Spear", dao.getOfficer().getWeapon().getName());
+//	}
+//	
+//	@Test
+//	void testOfficerWeaponAttributeEqualsExpected() {
+//		assertEquals("Thunder", dao.getOfficer().getWeapon().getAttributes().get(0).getAttribute());
+//	}
+//	
+//	@Test
+//	void testOfficerWeaponAttributeLevelEqualsExpected() {
+//		assertEquals(10, dao.getOfficer().getWeapon().getAttributes().get(1).getLevel().getLevel());
+//	}
+//	
+//	@Test
+//	void testOfficerWeaponStarEqualsExpected() {
+//		assertEquals(6, dao.getOfficer().getWeapon().getStar());
+//	}
 	
 	
 	
