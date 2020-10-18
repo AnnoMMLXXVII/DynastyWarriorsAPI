@@ -1,3 +1,32 @@
+DROP TABLE IF EXISTS SubOfficer;
+
+CREATE TABLE IF NOT EXISTS SubOfficer (
+    name VARCHAR(16) NOT NULL,
+    kingdom VARCHAR(6),
+    FOREIGN KEY (kingdom)
+        REFERENCES Kingdom (name)
+);
+
+SELECT * FROM SubOfficer;
+SELECT * FROM SubOfficer WHERE kingdom = "SHU";
+SELECT * FROM SubOfficer WHERE kingdom = "WU";
+SELECT * FROM SubOfficer WHERE kingdom = "WEI";
+SELECT * FROM SubOfficer WHERE kingdom = "JIN";
+SELECT * FROM SubOfficer WHERE kingdom = "OTHER";
+
+SELECT s.name, kingdom AS 'kingdom'
+	FROM SubOfficer s
+	INNER JOIN Kingdom k 
+	WHERE s.kingdom = k.name
+	ORDER BY kingdom ASC;
+
+SELECT DISTINCT s.name AS 'kingdom'
+	FROM SubOfficer s
+	INNER JOIN Kingdom k 
+	WHERE s.kingdom = "Shu"
+	ORDER BY s.name ASC;
+
+INSERT INTO SubOfficer  (name, kingdom) VALUES
 ("Ahu Nan","Other"),
 ("Bai Rao","Other"),
 ("Bao Long","Other"),
@@ -731,5 +760,4 @@
 ("Zong Ziqing","Wei"),
 ("Zou Dan","Other"),
 ("Zu Mao","Wu"),
-("Zuozi Zhangba","Other")
-;
+("Zuozi Zhangba","Other");
