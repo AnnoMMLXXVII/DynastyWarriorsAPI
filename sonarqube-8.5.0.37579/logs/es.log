@@ -136,3 +136,26 @@ Caused by: java.nio.file.FileSystemException: C:\Users\Haku Wei\Downloads\sonarq
 2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [-1] to [30s]
 2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [-1] to [30s]
 2020.10.18 22:43:53 WARN  es[][o.e.d.i.q.BoolQueryBuilder] Should clauses in the filter context will no longer automatically set the minimum should match to 1 in the next major version. You should group them in a [filter] clause or explicitly set [minimum_should_match] to 1 to restore this behavior in the next major version.
+2020.10.18 22:55:30 INFO  es[][o.e.e.NodeEnvironment] using [1] data paths, mounts [[(C:)]], net usable_space [483.5gb], net total_space [930.7gb], types [NTFS]
+2020.10.18 22:55:30 INFO  es[][o.e.e.NodeEnvironment] heap size [494.9mb], compressed ordinary object pointers [true]
+2020.10.18 22:55:30 INFO  es[][o.e.n.Node] node name [sonarqube], node ID [N7tokb_jSuONCmtZGce8Rg]
+2020.10.18 22:55:30 INFO  es[][o.e.n.Node] version[6.8.4], pid[4156], build[unknown/unknown/bca0c8d/2019-10-16T06:19:49.319352Z], OS[Windows 10/10.0/amd64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/11.0.8/11.0.8+10-LTS]
+2020.10.18 22:55:30 INFO  es[][o.e.n.Node] JVM arguments [-XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp, -XX:ErrorFile=../logs/es_hs_err_pid%p.log, -Xmx512m, -Xms512m, -XX:+HeapDumpOnOutOfMemoryError, -Delasticsearch, -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch, -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] loaded module [analysis-common]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] loaded module [lang-painless]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] loaded module [mapper-extras]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] loaded module [parent-join]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] loaded module [percolator]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] loaded module [repository-url]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] loaded module [transport-netty4]
+2020.10.18 22:55:30 INFO  es[][o.e.p.PluginsService] no plugins loaded
+2020.10.18 22:55:32 WARN  es[][o.e.d.c.s.Settings] [http.enabled] setting was deprecated in Elasticsearch and will be removed in a future release! See the breaking changes documentation for the next major version.
+2020.10.18 22:55:33 INFO  es[][o.e.d.DiscoveryModule] using discovery type [zen] and host providers [settings]
+2020.10.18 22:55:33 INFO  es[][o.e.n.Node] initialized
+2020.10.18 22:55:33 INFO  es[][o.e.n.Node] starting ...
+2020.10.18 22:55:33 INFO  es[][o.e.t.TransportService] publish_address {127.0.0.1:9001}, bound_addresses {127.0.0.1:9001}
+2020.10.18 22:55:36 INFO  es[][o.e.c.s.MasterService] zen-disco-elected-as-master ([0] nodes joined), reason: new_master {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{9q68NFJ1SZ-4C4RUe4Qavw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube}
+2020.10.18 22:55:36 INFO  es[][o.e.c.s.ClusterApplierService] new_master {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{9q68NFJ1SZ-4C4RUe4Qavw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube}, reason: apply cluster state (from master [master {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{9q68NFJ1SZ-4C4RUe4Qavw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube} committed version [1] source [zen-disco-elected-as-master ([0] nodes joined)]])
+2020.10.18 22:55:36 INFO  es[][o.e.n.Node] started
+2020.10.18 22:55:37 INFO  es[][o.e.g.GatewayService] recovered [7] indices into cluster_state
+2020.10.18 22:55:37 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [RED] to [GREEN] (reason: [shards started [[metadatas][0]] ...]).
