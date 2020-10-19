@@ -1,0 +1,138 @@
+2020.10.18 22:30:56 INFO  es[][o.e.e.NodeEnvironment] using [1] data paths, mounts [[(C:)]], net usable_space [484.6gb], net total_space [930.7gb], types [NTFS]
+2020.10.18 22:30:56 INFO  es[][o.e.e.NodeEnvironment] heap size [494.9mb], compressed ordinary object pointers [true]
+2020.10.18 22:30:56 INFO  es[][o.e.n.Node] node name [sonarqube], node ID [N7tokb_jSuONCmtZGce8Rg]
+2020.10.18 22:30:56 INFO  es[][o.e.n.Node] version[6.8.4], pid[17100], build[unknown/unknown/bca0c8d/2019-10-16T06:19:49.319352Z], OS[Windows 10/10.0/amd64], JVM[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/11.0.8/11.0.8+10-LTS]
+2020.10.18 22:30:56 INFO  es[][o.e.n.Node] JVM arguments [-XX:+UseConcMarkSweepGC, -XX:CMSInitiatingOccupancyFraction=75, -XX:+UseCMSInitiatingOccupancyOnly, -Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Djava.io.tmpdir=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp, -XX:ErrorFile=../logs/es_hs_err_pid%p.log, -Xmx512m, -Xms512m, -XX:+HeapDumpOnOutOfMemoryError, -Delasticsearch, -Des.path.home=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\elasticsearch, -Des.path.conf=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp\conf\es]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] loaded module [analysis-common]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] loaded module [lang-painless]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] loaded module [mapper-extras]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] loaded module [parent-join]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] loaded module [percolator]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] loaded module [repository-url]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] loaded module [transport-netty4]
+2020.10.18 22:30:56 INFO  es[][o.e.p.PluginsService] no plugins loaded
+2020.10.18 22:30:57 WARN  es[][o.e.d.c.s.Settings] [http.enabled] setting was deprecated in Elasticsearch and will be removed in a future release! See the breaking changes documentation for the next major version.
+2020.10.18 22:30:58 INFO  es[][o.e.d.DiscoveryModule] using discovery type [zen] and host providers [settings]
+2020.10.18 22:30:58 INFO  es[][o.e.n.Node] initialized
+2020.10.18 22:30:58 INFO  es[][o.e.n.Node] starting ...
+2020.10.18 22:30:59 INFO  es[][o.e.t.TransportService] publish_address {127.0.0.1:9001}, bound_addresses {127.0.0.1:9001}
+2020.10.18 22:31:02 INFO  es[][o.e.c.s.MasterService] zen-disco-elected-as-master ([0] nodes joined), reason: new_master {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{UkBQLaDxR9ubTV6q6Uasbw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube}
+2020.10.18 22:31:02 INFO  es[][o.e.c.s.ClusterApplierService] new_master {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{UkBQLaDxR9ubTV6q6Uasbw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube}, reason: apply cluster state (from master [master {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{UkBQLaDxR9ubTV6q6Uasbw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube} committed version [1] source [zen-disco-elected-as-master ([0] nodes joined)]])
+2020.10.18 22:31:02 INFO  es[][o.e.n.Node] started
+2020.10.18 22:31:02 INFO  es[][o.e.g.GatewayService] recovered [0] indices into cluster_state
+2020.10.18 22:31:09 INFO  es[][o.e.c.m.MetaDataCreateIndexService] [metadatas] creating index, cause [api], templates [], shards [1]/[0], mappings []
+2020.10.18 22:31:09 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[metadatas][0]] ...]).
+2020.10.18 22:31:09 INFO  es[][o.e.c.m.MetaDataMappingService] [metadatas/W0DaKVvVTcSmQNXFJT1NBA] create_mapping [metadata]
+2020.10.18 22:31:10 INFO  es[][o.e.c.m.MetaDataCreateIndexService] [components] creating index, cause [api], templates [], shards [5]/[0], mappings []
+2020.10.18 22:31:10 WARN  es[][o.e.i.c.IndicesClusterStateService] [[components][3]] marking and sending shard failed due to [failed recovery]
+org.elasticsearch.indices.recovery.RecoveryFailedException: [components][3]: Recovery failed on {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{UkBQLaDxR9ubTV6q6Uasbw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube}
+	at org.elasticsearch.index.shard.IndexShard.lambda$startRecovery$9(IndexShard.java:2396) [elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingRunnable.run(ThreadContext.java:681) [elasticsearch-6.8.4.jar:6.8.4]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+Caused by: org.elasticsearch.index.shard.IndexShardRecoveryException: failed to recover from gateway
+	at org.elasticsearch.index.shard.StoreRecovery.internalRecoverFromStore(StoreRecovery.java:445) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.lambda$recoverFromStore$0(StoreRecovery.java:95) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.executeRecovery(StoreRecovery.java:310) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.recoverFromStore(StoreRecovery.java:93) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.recoverFromStore(IndexShard.java:1739) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.lambda$startRecovery$9(IndexShard.java:2392) ~[elasticsearch-6.8.4.jar:6.8.4]
+	... 4 more
+Caused by: java.nio.file.FileSystemException: C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\data\es6\nodes\0\indices\_-JxQDfiSW6jxIa4LJeGFQ\3\index: The process cannot access the file because it is being used by another process.
+
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:86) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:523) ~[?:?]
+	at java.nio.file.Files.newDirectoryStream(Files.java:471) ~[?:?]
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:215) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:234) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:58) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:58) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:669) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:640) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:442) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.elasticsearch.common.lucene.Lucene.readSegmentInfos(Lucene.java:145) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.store.Store.readSegmentsInfo(Store.java:201) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.store.Store.readLastCommittedSegmentsInfo(Store.java:186) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.innerOpenEngineAndTranslog(IndexShard.java:1484) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.openEngineAndRecoverFromTranslog(IndexShard.java:1446) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.internalRecoverFromStore(StoreRecovery.java:440) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.lambda$recoverFromStore$0(StoreRecovery.java:95) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.executeRecovery(StoreRecovery.java:310) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.recoverFromStore(StoreRecovery.java:93) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.recoverFromStore(IndexShard.java:1739) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.lambda$startRecovery$9(IndexShard.java:2392) ~[elasticsearch-6.8.4.jar:6.8.4]
+	... 4 more
+2020.10.18 22:31:10 WARN  es[][o.e.c.r.a.AllocationService] failing shard [failed shard, shard [components][3], node[N7tokb_jSuONCmtZGce8Rg], [P], recovery_source[new shard recovery], s[INITIALIZING], a[id=wHqD2q-wTYarq2g09VJinQ], unassigned_info[[reason=INDEX_CREATED], at[2020-10-19T02:31:10.270Z], delayed=false, allocation_status[no_attempt]], message [failed recovery], failure [RecoveryFailedException[[components][3]: Recovery failed on {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{UkBQLaDxR9ubTV6q6Uasbw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube}]; nested: IndexShardRecoveryException[failed to recover from gateway]; nested: FileSystemException[C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\data\es6\nodes\0\indices\_-JxQDfiSW6jxIa4LJeGFQ\3\index: The process cannot access the file because it is being used by another process.
+]; ], markAsStale [true]]
+org.elasticsearch.indices.recovery.RecoveryFailedException: [components][3]: Recovery failed on {sonarqube}{N7tokb_jSuONCmtZGce8Rg}{UkBQLaDxR9ubTV6q6Uasbw}{127.0.0.1}{127.0.0.1:9001}{rack_id=sonarqube}
+	at org.elasticsearch.index.shard.IndexShard.lambda$startRecovery$9(IndexShard.java:2396) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.common.util.concurrent.ThreadContext$ContextPreservingRunnable.run(ThreadContext.java:681) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+Caused by: org.elasticsearch.index.shard.IndexShardRecoveryException: failed to recover from gateway
+	at org.elasticsearch.index.shard.StoreRecovery.internalRecoverFromStore(StoreRecovery.java:445) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.lambda$recoverFromStore$0(StoreRecovery.java:95) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.executeRecovery(StoreRecovery.java:310) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.recoverFromStore(StoreRecovery.java:93) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.recoverFromStore(IndexShard.java:1739) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.lambda$startRecovery$9(IndexShard.java:2392) ~[elasticsearch-6.8.4.jar:6.8.4]
+	... 4 more
+Caused by: java.nio.file.FileSystemException: C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\data\es6\nodes\0\indices\_-JxQDfiSW6jxIa4LJeGFQ\3\index: The process cannot access the file because it is being used by another process.
+
+	at sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:92) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at sun.nio.fs.WindowsDirectoryStream.<init>(WindowsDirectoryStream.java:86) ~[?:?]
+	at sun.nio.fs.WindowsFileSystemProvider.newDirectoryStream(WindowsFileSystemProvider.java:523) ~[?:?]
+	at java.nio.file.Files.newDirectoryStream(Files.java:471) ~[?:?]
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:215) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:234) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:58) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:58) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:669) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:640) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:442) ~[lucene-core-7.7.2.jar:7.7.2 d4c30fc2856154f2c1fefc589eb7cd070a415b94 - janhoy - 2019-05-28 23:30:25]
+	at org.elasticsearch.common.lucene.Lucene.readSegmentInfos(Lucene.java:145) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.store.Store.readSegmentsInfo(Store.java:201) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.store.Store.readLastCommittedSegmentsInfo(Store.java:186) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.innerOpenEngineAndTranslog(IndexShard.java:1484) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.openEngineAndRecoverFromTranslog(IndexShard.java:1446) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.internalRecoverFromStore(StoreRecovery.java:440) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.lambda$recoverFromStore$0(StoreRecovery.java:95) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.executeRecovery(StoreRecovery.java:310) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.StoreRecovery.recoverFromStore(StoreRecovery.java:93) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.recoverFromStore(IndexShard.java:1739) ~[elasticsearch-6.8.4.jar:6.8.4]
+	at org.elasticsearch.index.shard.IndexShard.lambda$startRecovery$9(IndexShard.java:2392) ~[elasticsearch-6.8.4.jar:6.8.4]
+	... 4 more
+2020.10.18 22:31:10 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [YELLOW] to [RED] (reason: [shards failed [[components][3]] ...]).
+2020.10.18 22:31:10 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [RED] to [GREEN] (reason: [shards started [[components][3]] ...]).
+2020.10.18 22:31:10 INFO  es[][o.e.c.m.MetaDataMappingService] [components/_-JxQDfiSW6jxIa4LJeGFQ] create_mapping [auth]
+2020.10.18 22:31:10 INFO  es[][o.e.c.m.MetaDataCreateIndexService] [projectmeasures] creating index, cause [api], templates [], shards [5]/[0], mappings []
+2020.10.18 22:31:11 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[projectmeasures][4]] ...]).
+2020.10.18 22:31:11 INFO  es[][o.e.c.m.MetaDataMappingService] [projectmeasures/0FoL4Zq_Qb2_ag8ILOGRbw] create_mapping [auth]
+2020.10.18 22:31:11 INFO  es[][o.e.c.m.MetaDataCreateIndexService] [rules] creating index, cause [api], templates [], shards [2]/[0], mappings []
+2020.10.18 22:31:11 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[rules][0]] ...]).
+2020.10.18 22:31:11 INFO  es[][o.e.c.m.MetaDataMappingService] [rules/HuXun-qeR7S0qEhIoe4Naw] create_mapping [rule]
+2020.10.18 22:31:11 INFO  es[][o.e.c.m.MetaDataCreateIndexService] [issues] creating index, cause [api], templates [], shards [5]/[0], mappings []
+2020.10.18 22:31:11 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[issues][4]] ...]).
+2020.10.18 22:31:12 INFO  es[][o.e.c.m.MetaDataMappingService] [issues/EAPb0W7sTQCwFeBcubUDiQ] create_mapping [auth]
+2020.10.18 22:31:12 INFO  es[][o.e.c.m.MetaDataCreateIndexService] [users] creating index, cause [api], templates [], shards [1]/[0], mappings []
+2020.10.18 22:31:12 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[users][0]] ...]).
+2020.10.18 22:31:12 INFO  es[][o.e.c.m.MetaDataMappingService] [users/ivvNzg9OSAC8aNuytefSWQ] create_mapping [user]
+2020.10.18 22:31:12 INFO  es[][o.e.c.m.MetaDataCreateIndexService] [views] creating index, cause [api], templates [], shards [5]/[0], mappings []
+2020.10.18 22:31:12 INFO  es[][o.e.c.r.a.AllocationService] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[views][4]] ...]).
+2020.10.18 22:31:12 INFO  es[][o.e.c.m.MetaDataMappingService] [views/ERXvYVutQEO4eVmU7R53uQ] create_mapping [view]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [30s] to [-1]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [30s] to [-1]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [-1] to [30s]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [-1] to [30s]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [30s] to [-1]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [30s] to [-1]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [-1] to [30s]
+2020.10.18 22:31:23 INFO  es[][o.e.c.s.IndexScopedSettings] updating [index.refresh_interval] from [-1] to [30s]
+2020.10.18 22:43:53 WARN  es[][o.e.d.i.q.BoolQueryBuilder] Should clauses in the filter context will no longer automatically set the minimum should match to 1 in the next major version. You should group them in a [filter] clause or explicitly set [minimum_should_match] to 1 to restore this behavior in the next major version.
