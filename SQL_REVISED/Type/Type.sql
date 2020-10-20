@@ -3,8 +3,7 @@ DROP TABLE IF EXISTS Type;
 CREATE TABLE IF NOT EXISTS Type ( 
     name VARCHAR (19)  NOT NULL PRIMARY KEY,
     category VARCHAR (17) NOT NULL,
-    FOREIGN KEY (category) REFERENCES Category (category)
-    
+    FOREIGN KEY (category) REFERENCES Category (category)  
 );
 
 INSERT INTO Type (category, name) VALUES 
