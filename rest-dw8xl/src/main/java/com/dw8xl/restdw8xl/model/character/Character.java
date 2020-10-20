@@ -4,7 +4,7 @@
 package com.dw8xl.restdw8xl.model.character;
 
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
-import com.dw8xl.restdw8xl.model.weapon.WeaponI;
+import com.dw8xl.restdw8xl.model.weapon.type.TypeI;
 
 /**
  * @author Haku Wei
@@ -18,6 +18,8 @@ public abstract class Character implements CharacterI {
 
 	private String name;
 	private KingdomI dynasty;
+	
+	public Character() {};
 	
 	public Character(String name, KingdomI dynasty) {
 		this.name = name;
@@ -46,7 +48,7 @@ public abstract class Character implements CharacterI {
 	}
 
 
-	public abstract WeaponI getWeapon();
+	public abstract TypeI getType();
 
 	@Override
 	public int hashCode() {
