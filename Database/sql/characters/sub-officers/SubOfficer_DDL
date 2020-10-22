@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS SubOfficer;
+
+CREATE TABLE IF NOT EXISTS SubOfficer(
+    name varchar NOT NULL PRIMARY KEY, 
+    kingdom varchar NOT NULL, 
+    FOREIGN KEY (kingdom) REFERENCES Kingdom (name)
+);

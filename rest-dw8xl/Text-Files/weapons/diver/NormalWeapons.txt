@@ -1,0 +1,4 @@
+Dragn Fang, 15, 9'10", 1, Dragon Spear
+Dragon's Tail, 20, 9'10", 2, Dragon Spear
+Dragon Spike, 27, 9'10", 3, Dragon Spear
+Rising Dragon, 35, 9'10", 4, Dragon Spear
