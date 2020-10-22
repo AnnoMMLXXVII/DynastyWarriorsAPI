@@ -4,17 +4,14 @@
 package com.anno.dw8xl.attribute.model;
 
 import com.anno.dw8xl.rarity.model.Rarity;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
  * @author Haku Wei
  *
  */
+@JsonTypeName("N")
 public class Normal extends Attribute{
-
-	public Normal() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @param name
@@ -28,5 +25,12 @@ public class Normal extends Attribute{
 	public Rarity getType() {
 		return Rarity.NORMAL;
 	}
+	
+//	/**
+//	 * @return the id
+//	 */
+//	public int getId() {
+//		return super.id;
+//	}
 	
 }

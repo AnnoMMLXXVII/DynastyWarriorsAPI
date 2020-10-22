@@ -30,19 +30,19 @@ public class KingdomController {
 	
 	@GetMapping(value = "/ping", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String>getPing() {
-		return new ResponseEntity<String>("PING TEST", HttpStatus.OK);
+		return new ResponseEntity<>("PING TEST", HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<KingdomI>>getAllKingdoms() {
-		return new ResponseEntity<List<KingdomI>>(dao.getAllKingdoms(), HttpStatus.OK);
+		return new ResponseEntity<>(dao.getAllKingdoms(), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "kingdoms", produces = MediaType.APPLICATION_JSON_VALUE) 
 	public ResponseEntity<KingdomI> getKingdomByName(@RequestParam(required = false) String kingdom) {
 		dao.getAllKingdoms();
 		KingdomI temp = dao.getKingdomByName(kingdom);
-		return (temp == null) ? new ResponseEntity<KingdomI>(temp, HttpStatus.BAD_REQUEST)
-				: new ResponseEntity<KingdomI>(temp , HttpStatus.OK);
+		return (temp == null) ? new ResponseEntity<>(temp, HttpStatus.BAD_REQUEST)
+				: new ResponseEntity<>(temp , HttpStatus.OK);
 	}
 }

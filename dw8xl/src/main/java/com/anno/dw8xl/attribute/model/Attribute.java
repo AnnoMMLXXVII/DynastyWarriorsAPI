@@ -3,14 +3,19 @@
  */
 package com.anno.dw8xl.attribute.model;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * @author Haku Wei
  *
  */
+
 public abstract class Attribute implements AttributeI{
 	
+//	private static final AtomicInteger ID = new AtomicInteger(0);
 	private String name;
 	private String description;
+//	protected int id;
 	
 	public Attribute() {}
 	
@@ -18,12 +23,13 @@ public abstract class Attribute implements AttributeI{
 	 * @param name
 	 * @param description
 	 */
-	public Attribute(String name, String description) {
+	protected Attribute(String name, String description) {
 		super();
 		this.name = name;
 		this.description = description;
+//		id = ID.incrementAndGet();
 	}
-
+	
 	/**
 	 * @return the name
 	 */
@@ -37,7 +43,21 @@ public abstract class Attribute implements AttributeI{
 	public String getDescription() {
 		return description;
 	}
-	
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

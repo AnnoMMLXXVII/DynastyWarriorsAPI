@@ -31,15 +31,15 @@ public class CharacterController {
 	
 	@GetMapping(value = "/sub-officers/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterI>> getAllSubOfficers() {
-		return new ResponseEntity<List<CharacterI>>(dao.queryAllSubOfficers(), HttpStatus.OK);
+		return new ResponseEntity<>(dao.queryAllSubOfficers(), HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/sub-officers/{kingdom}")
 	public ResponseEntity<List<CharacterI>> getSubOfficersByKingdom(@PathVariable(value = "kingdom") String kingdom) {
 		if(kingdom.equalsIgnoreCase("shu")) {
-			return new ResponseEntity<List<CharacterI>>(dao.queryShuSubOfficers(), HttpStatus.OK);
+			return new ResponseEntity<>(dao.queryShuSubOfficers(), HttpStatus.OK);
 		}
-		return new ResponseEntity<List<CharacterI>>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
 	}
 
 

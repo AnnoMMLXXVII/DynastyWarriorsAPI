@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication (scanBasePackages = {
+		"com.anno.dw8xl.attribute.controller", "com.anno.dw8xl.attribute.facade", "com.anno.dw8xl.attribute.dao",
 		"com.anno.dw8xl.character.controller", "com.anno.dw8xl.character.dao",
 		"com.anno.dw8xl.kingdom.controller", "com.anno.dw8xl.kingdom.dao",
-//		"com.anno.dw8xl.kingdom", "com.anno.dw8xl.character"
 }, exclude = {DataSourceAutoConfiguration.class})
 public class Dw8XlApiApplication {
 
