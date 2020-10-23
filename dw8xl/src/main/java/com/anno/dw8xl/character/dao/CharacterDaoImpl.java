@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import com.anno.dw8xl.character.model.CharacterI;
 import com.anno.dw8xl.character.model.SubOfficer;
 import com.anno.dw8xl.kingdom.model.KingdomI;
-import com.anno.dw8xl.kingdom.model.Kingdoms;
+import com.anno.dw8xl.kingdom.model.Kingdom;
 
 /**
  * @author Haku Wei
@@ -54,7 +54,7 @@ public class CharacterDaoImpl {
 	
 	private List<CharacterI> parseThroughMultipleSubOfficersTextFiles() {
 		List<CharacterI> subOfficers = new ArrayList<>();
-		List<KingdomI> kingdoms = new ArrayList<>(EnumSet.allOf(Kingdoms.class)); 
+		List<KingdomI> kingdoms = new ArrayList<>(EnumSet.allOf(Kingdom.class)); 
 		String[] characterPaths = getAllSubOfficerTextFiles();
 		
 		for (int i = 0 ; i < characterPaths.length; i++) {
@@ -100,7 +100,7 @@ public class CharacterDaoImpl {
 	private List<CharacterI> parseThroughShuSubOfficer() {
 		String path = "Text-Files\\characters\\sub-officer\\SubOfficer-List-Shu.txt";
 		List<CharacterI> temps = new ArrayList<>();
-		KingdomI shu = Kingdoms.SHU;
+		KingdomI shu = Kingdom.SHU;
 		File file = new File(path);
 		try {
 			CharacterI subTemp;
@@ -123,7 +123,7 @@ public class CharacterDaoImpl {
 	private List<CharacterI> parseThroughWuSubOfficer() {
 		String path = "Text-Files\\characters\\sub-officer\\SubOfficer-List-Wu.txt";
 		List<CharacterI> temps = new ArrayList<>();
-		KingdomI wu = Kingdoms.WU;
+		KingdomI wu = Kingdom.WU;
 		File file = new File(path);
 		try {
 			CharacterI subTemp;
@@ -145,7 +145,7 @@ public class CharacterDaoImpl {
 	private List<CharacterI> parseThroughWeiSubOfficer() {
 		String path = "Text-Files\\characters\\sub-officer\\SubOfficer-List-Wei.txt";
 		List<CharacterI> temps = new ArrayList<>();
-		KingdomI wei = Kingdoms.WEI;
+		KingdomI wei = Kingdom.WEI;
 		File file = new File(path);
 		try {
 			CharacterI subTemp;
@@ -167,7 +167,7 @@ public class CharacterDaoImpl {
 	private List<CharacterI> parseThroughJinSubOfficer() {
 		String path = "Text-Files\\characters\\sub-officer\\SubOfficer-List-Jin.txt";
 		List<CharacterI> temps = new ArrayList<>();
-		KingdomI jin = Kingdoms.JIN;
+		KingdomI jin = Kingdom.JIN;
 		File file = new File(path);
 		try {
 			CharacterI subTemp;
@@ -189,7 +189,7 @@ public class CharacterDaoImpl {
 	private List<CharacterI> parseThroughOtherSubOfficer() {
 		String path = "Text-Files\\characters\\sub-officer\\SubOfficer-List-Other.txt";
 		List<CharacterI> temps = new ArrayList<>();
-		KingdomI other = Kingdoms.OTHER;
+		KingdomI other = Kingdom.OTHER;
 		File file = new File(path);
 		try {
 			CharacterI subTemp;

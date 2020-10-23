@@ -3,24 +3,23 @@
  */
 package com.anno.dw8xl.kingdom.model;
 
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Haku Wei
  *
  */
-@Component
-public enum Kingdoms implements KingdomI {
+public enum Kingdom implements KingdomI {
 	
-	SHU ("Shu"), 
-	WU ("Wu"), 
-	WEI ("Wei"), 
-	JIN ("Jin"), 
-	OTHER ("Other");
+	@JsonProperty SHU ("Shu"), 
+	@JsonProperty WU ("Wu"), 
+	@JsonProperty WEI ("Wei"), 
+	@JsonProperty JIN ("Jin"), 
+	@JsonProperty OTHER ("Other");
 
 	private String kingdom;
 	
-	Kingdoms(String kingdom) {
+	Kingdom(String kingdom) {
 		this.kingdom = kingdom;
 	}
 	
