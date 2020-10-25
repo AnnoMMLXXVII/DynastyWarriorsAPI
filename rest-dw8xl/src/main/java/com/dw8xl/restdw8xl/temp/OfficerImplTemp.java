@@ -36,7 +36,7 @@ public class OfficerImplTemp {
 		other = getOtherOfficers();
 	}
 
-	public List<CharacterI> getAllOfficerFiles() throws FileNotFoundException {
+	public List<CharacterI> getAllOfficerFiles() {
 		return parseThroughAllOfficers();
 	}
 	

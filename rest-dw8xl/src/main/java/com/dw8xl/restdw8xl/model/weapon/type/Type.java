@@ -72,7 +72,7 @@ public class Type implements TypeI {
 	}
 	@Override
 	public String toString() {
-		return "[type=" + type + ", category=" + category + "]";
+		return "[type=" + type + ", category=" + category.toString() + "]";
 	}
 	
 }
