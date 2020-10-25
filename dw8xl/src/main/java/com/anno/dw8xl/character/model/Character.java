@@ -79,7 +79,7 @@ public abstract class Character implements CharacterI {
 
 	@Override
 	public String toString() {
-		return "Character [name=" + name + ", kingdom=" + kingdom + "]";
+		return  name + ", "+kingdom ;
 	}
 	
 	
