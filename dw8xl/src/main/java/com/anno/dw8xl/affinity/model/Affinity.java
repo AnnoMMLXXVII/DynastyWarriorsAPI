@@ -2,7 +2,7 @@ package com.anno.dw8xl.affinity.model;
 
 public class Affinity implements AffinityI {
 
-	private String affinity;
+	private String name;
 	
 	public Affinity() {
 	
@@ -11,20 +11,20 @@ public class Affinity implements AffinityI {
 	/**
 	 * @param affinity
 	 */
-	public Affinity(String affinity) {
+	public Affinity(String name) {
 		super();
-		this.affinity = affinity;
+		this.name = name;
 	}
 	
-	public String getAffinity() {
-		return affinity;
+	public String getName() {
+		return name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((affinity == null) ? 0 : affinity.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -37,17 +37,17 @@ public class Affinity implements AffinityI {
 		if (getClass() != obj.getClass())
 			return false;
 		Affinity other = (Affinity) obj;
-		if (affinity == null) {
-			if (other.affinity != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!affinity.equals(other.affinity))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return affinity;
+		return name;
 	}
 	
 	

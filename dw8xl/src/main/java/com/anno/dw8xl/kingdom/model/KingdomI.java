@@ -15,17 +15,16 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 @JsonTypeInfo(
 use = JsonTypeInfo.Id.NAME, 
 include = As.PROPERTY, 
-property = "ID-Kingdom"
+property = "Kingdom-Type"
 )
 @JsonSubTypes({
-@Type(value = Kingdom.class, name = "K"),
-@Type(value = NullKingdom.class, name = "NK"),
+@Type(value = Kingdom.class, name = "Kingdom"),
+@Type(value = NullKingdom.class, name = "NULL-Kingdom"),
 })
 public interface KingdomI {
-	public String getKingdom();
-	public KingdomI getInstance();
-	
+	public String getName();
 	public int hashCode();
 	public boolean equals(Object obj);
+	public String toString();
 	
 }

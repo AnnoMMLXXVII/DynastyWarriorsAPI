@@ -77,7 +77,7 @@ public class AffinityDAO implements AffinityDAO_I{
 		}
 		idx++;
 		for (AffinityI a : affinities) {
-			if(a.getAffinity().equals(affinity)) {
+			if(a.getName().equals(affinity)) {
 				return idx; 
 			}
 			idx++;

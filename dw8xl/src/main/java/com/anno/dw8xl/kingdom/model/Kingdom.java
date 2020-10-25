@@ -3,39 +3,53 @@
  */
 package com.anno.dw8xl.kingdom.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * @author Haku Wei
  *
  */
-public enum Kingdom implements KingdomI {
-	
-	@JsonProperty SHU ("Shu"), 
-	@JsonProperty WU ("Wu"), 
-	@JsonProperty WEI ("Wei"), 
-	@JsonProperty JIN ("Jin"), 
-	@JsonProperty OTHER ("Other");
+public class Kingdom implements KingdomI {
 
-	private String kingdom;
+	private String name;
 	
-	Kingdom(String kingdom) {
-		this.kingdom = kingdom;
+	public Kingdom() {}
+	
+	public Kingdom(String name) {
+		this.name = name;
 	}
 	
 	@Override
-	public String getKingdom() {
-		return kingdom;
+	public String getName() {
+		return name;
 	}
 
 	@Override
-	public KingdomI getInstance() {
-		return this;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Kingdom other = (Kingdom) obj;
+		if (name == null) {
+			if (other.name!= null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString();
+		return name;
 	}
 	
 }

@@ -1,4 +1,4 @@
-Whirlwind Master
-Shadow Sprinter
-Dasher
-Diver
+Whirlwind Master,
+Shadow Sprinter,
+Dasher,
+Diver,
