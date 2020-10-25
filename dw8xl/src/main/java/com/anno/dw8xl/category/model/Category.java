@@ -56,10 +56,7 @@ public class Category implements CategoryI {
 	@Override
 	public String toString() {
 		return name;
-	}
-	
-	
-	
+	}	
 	
 
 }

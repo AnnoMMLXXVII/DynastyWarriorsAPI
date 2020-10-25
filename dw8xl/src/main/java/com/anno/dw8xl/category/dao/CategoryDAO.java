@@ -3,24 +3,36 @@
  */
 package com.anno.dw8xl.category.dao;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Scanner;
+
+import org.springframework.stereotype.Service;
 
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.category.model.CategoryI;
+import com.anno.dw8xl.category.model.NullCategory;
+import com.anno.dw8xl.dao.DAO;
 
 /**
  * @author Haku Wei
  *
  */
-public class CategoryDAO implements CategoryDAO_I{
+@Service("categoryDAO")
+public class CategoryDAO implements DAO<CategoryI, Object>{
 	
-	private List<CategoryI> categories;
-	private static CategoryDAO_I instance = null;
+	private Map<Integer, CategoryI> categories;
+	private static DAO<CategoryI, Object> instance = null;
 	
-	public static CategoryDAO_I getInstance() {
+	public static DAO<CategoryI, Object> getInstance() {
 		if(instance == null) {
-			synchronized (CategoryDAO_I.class) {
+			synchronized (DAO.class) {
 				if(instance == null) {
 					return new CategoryDAO();
 				}
@@ -30,128 +42,67 @@ public class CategoryDAO implements CategoryDAO_I{
 	}
 	
 	private CategoryDAO() {
-		categories = new ArrayList<>();
+		categories = new HashMap<>();
 		initializeValues();
 	}
-
-	@Override
-	public List<CategoryI> getAllCategory() {
-		return categories;
-	}
-
-	@Override
-	public CategoryI getCategoryByName(String name) {
-		int idx = findIndex(name);
-		if(idx < 0) {
-			return null;
-		}
-		return categories.get(idx);
-	}
-
-	@Override
-	public boolean isExist(CategoryI category) {
-		boolean flag = false;
-		return (findIndex(category) > -1) ? !flag: flag;
-	}
-
-	@Override
-	public void createCategory(CategoryI category) {
-		if(category == null) {
-			throw new NullPointerException("Cannot create Category of Null Value");
-		}
-		if(!validateCategoryName(category.getName())) {
-			return;
-		}
-		categories.add(category);
-	}
-
-	@Override
-	public void removeCategory(CategoryI category) {
-		categories.removeIf(c -> c.equals(category));
-	}
-
-	@Override
-	public void removeCategory(String name) {
-		categories.removeIf(c -> c.getName().equals(name));
-	}
-
-	@Override
-	public void updateCategory(CategoryI old, CategoryI category) {
-		int idx = findIndex(old);
-		if(idx < 0) {
-			return;
-		}
-		removeCategory(old);
-		categories.add(idx, category);
-	}
-
-	@Override
-	public void updateCategory(CategoryI old, String name) {
-		int idx = findIndex(old);
-		if(idx < 0) {
-			return;
-		}
-		CategoryI temp = new Category(name);
-		removeCategory(old);
-		categories.add(idx, temp);
-	}
-
-	@Override
-	public void updateCategory(String existing, String name) {
-		int idx = findIndex(existing);
-		if(idx < 0) {
-			return;
-		}
-		CategoryI temp = new Category(name);
-		removeCategory(existing);
-		categories.add(idx, temp);
-	}
-
-	@Override
-	public void updateCategory(String existing, CategoryI category) {
-		int idx = findIndex(existing);
-		if(idx < 0) {
-			return;
-		}
-		removeCategory(existing);
-		categories.add(idx, category);
-	}
 	
-	private int findIndex(CategoryI category) {
-		int idx = 0;
-		for(CategoryI c : categories) {
-			if(c.equals(category)) {
-				return idx;
-			}
-			idx++;
-		}
-		return -1;
+	@Override
+	public Collection<CategoryI> getAll() {
+		return new ArrayList<>(categories.values());
 	}
-	
-	private int findIndex(String name) {
-		int idx = 0;
-		for(CategoryI c : categories) {
-			if(c.getName().equals(name)) {
-				return idx;
-			}
-			idx++;
+
+	@Override
+	public Optional<CategoryI> getBy(Object criteria) {
+		CategoryI temp = new NullCategory();
+		if (criteria instanceof CategoryI) {
+			temp = (CategoryI) criteria;
 		}
-		return -1;
+		else if (criteria instanceof String) {
+			temp = new Category(DAO.formatName((String)criteria));
+		}
+		return categories.containsValue(temp) ? Optional.of(temp) : Optional.ofNullable(new NullCategory());
+		
 	}
-	
-	private boolean validateCategoryName(String name) {
-		boolean flag = false;
-		if(name.equals("") || name.length() > 24) {
+
+	@Override
+	public void add(CategoryI entity) {
+		if(categories.containsValue(entity)) {
+			return;
+		}
+		if(entity.getName().length() > 24) {
 			throw new IllegalArgumentException("Illegal Category name: empty or length(0-24)");
 		}
-		return !flag; 
+		if(!entity.getName().equals("")) {
+			categories.put(categories.size()+1, entity);
+		}
 	}
-	
+
+	@Override
+	public void remove(CategoryI entity) {
+		if(!categories.containsValue(entity)) {
+			throw new IllegalArgumentException("Category does not exist!");
+		}
+		categories.remove(DAO.getKey(categories, entity), entity);
+		
+	}
+
 	private void initializeValues() {
-		categories.add(new Category("Whirlwind Master"));
-		categories.add(new Category("Dasher"));
-		categories.add(new Category("Diver"));
-		categories.add(new Category("Shadow Sprinter"));
+		String path = "Text-Files/category/category.txt";
+		CategoryI category = null;
+		File file = new File(URL_ROOT+path);
+		try (Scanner z = new Scanner(new FileReader(file))) {
+			String[] categoryLine = null;
+			int i = 1; 
+			while (z.hasNextLine()) {
+				String line = z.nextLine();
+				categoryLine = line.split(",");
+				category = new Category(categoryLine[0].trim());  
+				categories.put(i++, category);
+			}
+		}
+		catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
