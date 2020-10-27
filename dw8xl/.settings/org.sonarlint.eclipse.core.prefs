@@ -1,6 +1,11 @@
 autoEnabled=true
 eclipse.preferences.version=1
 idePrefixKey=
+<<<<<<< HEAD
 projectKey=DynastyWarriors8XtremeLegends
 serverId=DW8XL_REST CONN
+=======
+projectKey=com.anno.dw8xl
+serverId=DW8XL_DB CONN
+>>>>>>> a14b44e97c846950142053ce7f0ff45e064f126d
 sqPrefixKey=

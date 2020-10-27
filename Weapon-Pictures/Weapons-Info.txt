@@ -1,0 +1,5 @@
+As of 08/30/2020 : 
+	Working progress for 5 and 6 Star weapons. Will most likely need to add the other weapons for each player. 
+
+	If 1-4 star weapons do get added, most likely will need to do some refactoring and reorganizing of folders. 
+		: kingdom / character / weapon / star-weapon / weapon-pic

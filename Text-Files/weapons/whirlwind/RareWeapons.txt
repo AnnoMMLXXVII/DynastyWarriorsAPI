@@ -1,0 +1,62 @@
+Flying Formation, 22, Earth, 2, Spear
+Spring's Light, 27, Man, 3, Spear
+Spraycutter, 21, Heaven, 1, Pike
+Shadowless, 29, Earth, 3, Pike
+Netherworld's Fury, 23, Man, 1, Double Voulge
+Stinging Barb, 31, Earth, 3, Double Voulge
+Sky Splitter, 27, Man, 2, Great Sword
+Sea Splitter, 33, Heaven, 3, Great Sword
+Boulderstrike, 21, Man, 1, Club
+Heavenly Summit, 29, Earth, 3, Club
+Sublimity, 23, Heaven, 1, Gloves
+Jawbreaker, 33, Earth, 3, Gloves
+Towerstopper, 25, Earth, 1, Halberd
+Nine-layered Heaven, 28, Heaven, 2, Halberd
+Snakedealer, 18, Heaven, 1, Twin Axes
+Wolfbringer, 27, Earth, 3, Twin Axes
+Aurora, 21, Earth, 1, Lance
+Endless Abyss, 25, Man, 2, Lance
+Thunderpeal, 28, Earth, 2, Twin Rods
+Windwhip, 33, Man, 3, Twin Rods
+Dustscatter, 23, Man, 1, Axe
+Helmsplitter, 28, Earth, 2, Axe
+Thunderclap, 22, Earth, 2, Tonfa
+Hellfire, 27, Man, 3, Tonfa
+Thunderstrike, 18, Heaven, 1, Crossbow
+Arctic Storm, 28, Earth, 3, Crossbow
+Evening Flame, 23, Heaven, 1, Arm Cannon
+Chaotic Flame, 33, Man, 3, Arm Cannon
+Nature's Beauty, 14, Man, 1, Brush
+Birds & Beasts, 20, Heaven, 2, Brush
+Bottom Tide, 16, Heaven, 1, Dagger Axe
+Lotus Bottom, 25, Earth, 3, Dagger Axe
+Ego Booster, 26, Heaven, 2, Bomb
+Blooming Desire, 31, Earth, 3, Bomb
+Triple Thunder, 21, Earth, 1, Short Pike
+Explosive Bolt, 27, Man, 2, Short Pike
+Mistcleaver, 26, Man, 2, Great Axe
+Armbender, 31, Heaven, 3, Great Axe
+Resonant Ambition, 23, Earth, 1, Mace
+Crystal Crusher, 31, Man, 3, Mace
+Victory Wall, 18, Heaven, 1, Spiked Shield
+Brightflash, 28, Man, 3, Spiked Shield
+Seacrusher, 27, Earth, 2, Arm Blade
+Eternal Voyage, 33, Heaven, 3, Arm Blade
+Nightcleaver, 23, Earth, 1, Circle Blade
+Gleaming Dawn, 33, Heaven, 3, Circle Blade
+Kingdom Crasher, 23, Man, 1, Siege Spear
+Army Slayer, 28, Earth, 2, Siege Spear
+Heaven's Drill, 24, Heaven, 2, Bow & Rod
+Seabringer , 28, Earth, 3, Bow & Rod
+Dancing Ring, 29, Man, 2, Wheeled Halberd
+Hellish Wheel, 33, Heaven, 3, Wheeled Halberd
+Ground Drill, 21, Heaven, 1, Rake
+Heavenly Pillar, 28, Man, 2, Rake
+Flower Spindle, 23, Man, 1, Dual-Headed Mace
+Roaring Wave, 28, Man, 2, Dual-Headed Mace
+Blazing Wind, 20, Heaven, 2, Revolving Crossbow
+Flashfire, 28, Earth, 3, Revolving Crossbow
+Purgatory's Door, 18, Heaven, 1, War Trident
+Conversion Prayer, 27, Earth, 2, War Trident
+Infernal Column, 23, Earth, 1, Stele
+Winds of Turmoil, 31, Man, 3, Stele

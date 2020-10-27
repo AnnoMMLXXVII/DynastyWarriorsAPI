@@ -1,0 +1,12 @@
+Pictures File Naming conventions
+	[5_Star_Weapon_Name]-5-[Character Last Name].png
+	- Camel Case
+
+This folder shall hold all 5-star weapon pictures for the DW8XL
+
+Other folders Shu, Wei, Wu, Jin, Other shall help separate the weapons
+with respect to their Kingdom. 
+
+Credit to All Pictures and Information :
+
+https://steamcommunity.com/sharedfiles/filedetails/?id=596231364 
