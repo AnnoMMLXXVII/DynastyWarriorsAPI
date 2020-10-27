@@ -11,7 +11,7 @@ Liu Bei, Shu, Twin Swords
 Liu Shan, Shu, Rapier
 Ma Chao, Shu, Spear
 Ma Dai, Shu, Brush
-Pang Ton, Shu, Shadow Fan
+Pang Tong, Shu, Shadow Fan
 Wei Yan, Shu, Double Voulge
 Xingcai, Shu, Sword & Shield
 Xu Shu, Shu, Sword & Hook
