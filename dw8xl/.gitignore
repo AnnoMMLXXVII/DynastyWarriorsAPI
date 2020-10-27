@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-sonarqube-8.5.0.37579
+../sonarqube-8.5.0.37579/
 
 ### STS ###
 .apt_generated
