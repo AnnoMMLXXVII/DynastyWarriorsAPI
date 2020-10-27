@@ -1,0 +1,156 @@
+Iron Sword, 15, 4'3", Sword
+Wolf's Fang, 20, 4'3", Sword
+Cloudburst, 27, 4'3", Sword
+Sword of Judgement, 35, 4'3", Sword
+Iron Needle, 10, 4'11", Rapier
+Steel Needle, 16, 4'11", Rapier
+Apex Rapier, 21, 5'1", Rapier
+Scarlet Fury, 29, 5'1", Rapier
+Sparrow Wing, 10, 2'11", War Fan
+Swallow Wing, 15, 2'11", War Fan
+Raven Wing, 21, 2'11" War Fan
+Crimson Wing, 29, 2'11", War Fan
+Twin Swords, 10, 4'5", Twin Swords
+Splendid Swords, 13, 4'5", Twin Swords
+Azure Swords, 20, 4'5" - 4'7", Twin, Swords
+Exquisite Swords, 27, 4'7", Twin Swords
+Throwing Blades, 10, 1'0", Throwing Knives
+Comabt Blades, 16, 1'0", Throwing Knives
+Rose Thorns, 23, 1'0", Throwing Knives
+Thunder Blades, 29, 1'0", Throwing Knives
+Harvest Sickle, 10, 9'8", Chain & Sickle
+Hunting Sickle, 16, 9'8", Chain & Sickle
+Dark Thresher, 21, 9'8", Chain & Sickle
+Shadow Sickle, 29, 9'8", Chain & Sickle
+Wood Nunchaku, 14, 2'6", Nunchaku
+Iron Nunchaku, 20, 2'8", Nunchaku
+Rising Phoenix, 27, 2'8", Nunchaku
+Crimson Wave, 35, 2'8", Nunchaku
+Oaken Staff, 10, 8'6", Staff
+Teak Staff, 15, 8'6", Staff
+Bronze-Studded Staff, 21, 8'6", Staff
+Yellow Dragon Staff, 29, 8'10", Staff
+Long Bow, 14, 5'1" - 3'3", Bow
+Recurve Bow, 20, 5'1" - 3'3", Bow
+Wind Shooter, 27, 5'1" - 3'3", Bow
+Qilin Bow, 35, 5'1" - 3'3", Bow
+Shaman Rod, 14, 7'7", Shaman Rod
+Conjurer Wand, 18, 7'9", Shaman Rod
+Turquoise Wand, 26, 7'9", Shaman Rod
+Divine Rod, 33, 7'9", Shaman Rod
+Iron Fan, 10, 2'6", Iron Fan
+Battle Fan, 15, 2'8", Iron Fan
+Sparkling Draft, 23, 2'8", Iron Fan
+Nine Heavens Fan, 25, 2'10", Iron Fan
+Guard Set, 14, 4'7" - 3'3", Sword & Shield
+Solder Set, 22, 4'7" - 3'3", Sword & Shield
+Mercenary Set, 27, 4'7" - 3'3", Sword & Shield
+Imperial Set, 37, 4'7" - 3'3", Sword & Shield
+Razor Dance, 14, 4'5", Flying Swords
+Razor Wind, 20, 4'9", Flying Swords
+Gliding Cobra, 27, 4'9", Flying Swords
+Flying Dragon, 35, 4'11", Flying Swords
+Claw Blade, 12, 4'7" - 3'9", Curved Sword
+Swift Blade, 16, 4'7 - 3'11", Curved Sword
+Dawn, 24, 4'7 - 3'11", Curved Sword
+Twilight Blade, 31, 4'7 - 3'11", Curved Sword
+// Godly Apex, 10, 5'1", Claws
+Steel Claws, 16, 5'3", Claws
+Leopard Claws, 20, 5'11", Claws
+Ghostly Claws, 25, 5'11", Claws
+Iron Hoops, 12, 3'7", Wheels
+Battle Hoops, 16, 3'11", Wheels
+Wind & Fire Wheels, 24, 3'11", Wheels
+Astral Wheels, 31, 4'5, Wheels
+Iron Whip, 12, 9'10", Chain Whip
+Steel Whip, 16, 9'10", Chain Whip
+Jeweled Whip, 26, 9'10", Chain Whip
+Dragon Bone, 32, 9'10", Chain Whip
+Chopper, 12, 7'11", Spinnner
+Slasher, 18, 8'1", Spinnner
+Bloodspray, 26, 8'2", Spinnner
+Spinning Inferno, 32, 8'2", Spinnner
+Iron Flute, 10, 3'9", Flute
+Battle Flute, 15, 3'9", Flute
+Spirit Song, 21, 3'9", Flute
+Crimson Flute, 29, 3'9", Flute
+Simple Harp, 10, 2'4", Harp
+Battle Harp, 14, 2'4", Harp
+Combat Harp, 21, 3'3", Harp
+Royal Harp, 28, 2'11", Harp
+Battle Staff, 10, 6'11" - 10", Orb & Scepter
+Darkness Staff, 15, 6'11" - 10", Orb & Scepter
+Dapeng Rod, 21, 6'11" - 10", Orb & Scepter
+Winged Grace, 28, 7'1" - 10", Orb & Scepter
+Trifork, 10, 4'7", Trishula
+Bronze Trifork, 15, 4'7", Trishula
+Peacock's Talons, 20, 4'9", Trishula
+Silver Trifork, 28, 4'11", Trishula
+Budding Staff, 10, 3'5", Pugil Stick
+Elegant Staff, 15, 3'5", Pugil Stick
+Staff of Hearts, 20, 3'11", Pugil Stick
+Staff of Dreams, 27, 4'5", Pugil Stick
+Flashpoint, 10, 8'2", Lightning Sword
+Blinkblade, 16, 8'2", Lightning Sword
+Imperial Flame, 23, 8'4", Lightning Sword
+Winged Glory, 29, 8'10", Lightning Sword
+Iron Bommerang, 10, 3'11", Bommerang
+Flying Shadow, 18, 3'11", Bommerang
+Triple Edge, 24, 4'3", Bommerang
+Trident Tusk, 30, 4'5", Bommerang
+Piercing Blade, 16, 3'11" - 1'8", Sword & Hook
+Kan Blade, 24, 3'11" - 1'8", Sword & Hook
+Soaring Blade, 32, 3'11" - 1'8", Sword & Hook
+Sapphire Blade, 37, 3'11" - 1'8", Sword & Hook
+Aerial Blades, 10, 4'7", Swallow Swords
+Swallow's Edge, 16, 4'7", Swallow Swords
+Petrel Blades, 23, 4'7", Swallow Swords
+Swallow's Fury, 28, 4'7", Swallow Swords
+Sanjiegun, 12, 8'6", Three Sectional Staff
+Triple Iron, 18, 8'6", Three Sectional Staff
+Rising Clouds, 26, 8'6", Three Sectional Staff
+Raging Hail, 32, 8'6", Three Sectional Staff
+Floral Fan, 12, 7'1", Shadow Fan
+Winged Fan, 16, 7'1", Shadow Fan
+Emerald Fan, 23, 7'3", Shadow Fan
+Stormy Fan, 29, 7'3", Shadow Fan
+Distant Blade, 10, 4'9" - 13'0", Extension Blade
+Distance Bronze Blade, 15, 4'9" - 13'0", Extension Blade
+Thorny Blade, 21, 4'9" - 13'0", Extension Blade
+Echo Blade, 27, 4'9" - 13'0", Extension Blade
+Twin Hook, 14, 5'7", Dual Hookblades
+Wicked Hook, 24, 5'7", Dual Hookblades
+Fury Hook, 36, 5'7", Dual Hookblades
+Conical Blade, 42, 5'7", Dual Hookblades
+Swooping Blade, 12, 5'7", Wingblades
+Sturdy Wingblade, 20, 5'7", Wingblades
+Steel Wingblade, 26, 5'7", Wingblades
+Mighty Blade, 33, 5'7", Wingblades
+Dancing Shadows, 10, 2'0", Throwing Axes
+Dancing Darkness, 18, 2'0", Throwing Axes
+Dancing Enigma, 24, 2'0", Throwing Axes
+Dancing Peng, 29, 2'0", Throwing Axes
+Sturdy Claws, 10, 10", Wired Gloves
+Threaded Claws, 16, 10", Wired Gloves
+Razor Claws, 21, 10", Wired Gloves
+Stinger Claws, 29, 10", Wired Gloves
+Sparrow Foot, 14, -, Sabatons
+Swallow Foot, 19, -, Sabatons
+Lion Foot, 27, -, Sabatons
+Tiger Foot, 34, -, Sabatons
+Iron Piercer, 10, -, Emei Piercers
+Ornate Piercer, 15, -, Emei Piercers
+Phantom Piercer, 20, -, Emei Piercers
+Dark Piercer, 29, -, Emei Piercers
+Performance Fan, 10, -, Paired Fans
+Peach Fan, 15, -, Paired Fans
+Elegant Beauty, 22, -, Paired Fans
+Stately Beauty, 25, -, Paired Fans
+Torch Bow, 14, -, Flaming Bow
+Temple Flame, 20, -, Flaming Bow
+Soaring Blace, 28, -, Flaming Bow
+Eternal Conflagration, 32, -, Flaming Bow
+Bamboo Scroll, 14, - Art of War Scroll
+Refined Bamboo Scroll, 20, - Art of War Scroll
+General's Command Scroll, 27, - Art of War Scroll
+Imperial Edict Scroll, 35, - Art of War Scroll
