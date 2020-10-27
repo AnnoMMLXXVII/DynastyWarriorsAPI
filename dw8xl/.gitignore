@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 ../sonarqube-8.5.0.37579/
+.sonar-dw8xl.properties
+
 
 ### STS ###
 .apt_generated
