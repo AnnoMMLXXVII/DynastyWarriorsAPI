@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anno.dw8xl.category.facade.CategoryFacade_I;
+import com.anno.dw8xl.category.facade.CategoryFacadeInterface;
 import com.anno.dw8xl.category.model.CategoryI;
 import com.anno.dw8xl.category.model.NullCategory;
 
@@ -32,7 +32,7 @@ import com.anno.dw8xl.category.model.NullCategory;
 public class CategoryController {
 
 	@Autowired 
-	private CategoryFacade_I facade;
+	private CategoryFacadeInterface facade;
 	
 	@GetMapping(value = "/ping", produces = MediaType.APPLICATION_JSON) 
 	public ResponseEntity<String> ping() {

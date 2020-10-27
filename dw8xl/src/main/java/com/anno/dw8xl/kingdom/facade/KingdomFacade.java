@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.anno.dw8xl.dao.DAO;
+import com.anno.dw8xl.kingdom.dao.KingdomDAOInterface;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.kingdom.model.NullKingdom;
 
@@ -20,10 +20,10 @@ import com.anno.dw8xl.kingdom.model.NullKingdom;
  *
  */
 @Service("kingomFacade")
-public class KingdomFacade implements KingdomFacade_I {
+public class KingdomFacade implements KingdomFacadeInterface {
 
 	@Autowired
-	private DAO<KingdomI, Object> dao;
+	private KingdomDAOInterface dao;
 	private static final Logger log = LoggerFactory.getLogger(KingdomFacade.class);
 	
 	@Override
@@ -34,16 +34,6 @@ public class KingdomFacade implements KingdomFacade_I {
 
 	@Override
 	public <E> KingdomI getKingdomsBy(E criteria) {
-//		KingdomI temp = new NullKingdom();
-//		log.info("Checking criteria type...");
-//		if(criteria instanceof KingdomI) {
-//			log.info("Criteria checking by KingdomI...");
-//			temp = (KingdomI)criteria;
-//		}
-//		else if(criteria instanceof String) {
-//			log.info("Criteria checking by String...");
-//			temp = new Kingdom(DAO.formatName((String)criteria));
-//		}
 		Optional<KingdomI> res = dao.getBy(criteria);
 		return (res.isPresent()) ? res.get() : res.orElse(new NullKingdom());
 	}

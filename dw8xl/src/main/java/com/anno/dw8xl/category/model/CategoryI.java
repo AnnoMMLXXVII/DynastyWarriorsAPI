@@ -9,18 +9,17 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
  * @author venividivicihofneondeion010101
  *
  */
-@JsonTypeInfo(
-use = JsonTypeInfo.Id.NAME, 
-include = As.PROPERTY, 
-property = "CategoryI-Type"
-)
-@JsonSubTypes({
-@Type(value = Category.class, name = "Category"),
-@Type(value = NullCategory.class, name = "NullCategory"),
-})
+@JsonTypeInfo(use = JsonTypeInfo.Id.NONE, include = As.PROPERTY)
+@JsonSubTypes({ @Type(value = Category.class, name = "Category"), @Type(value = NullCategory.class, name = "Null"), })
 public interface CategoryI {
 	public String getName();
+
+	@Override
 	public int hashCode();
+
+	@Override
 	public boolean equals(Object obj);
+
+	@Override
 	public String toString();
 }

@@ -3,15 +3,28 @@
  */
 package com.anno.dw8xl.category.model;
 
+import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+
 /**
  * @author Haku Wei
  *
  */
+@JsonView({CharacterView.Category.class})
 public class Category implements CategoryI {
-
-	private String name;
 	
-	public Category() {}
+	@JsonView({CharacterView.Type.class, CharacterView.Weapon.class})
+	@JsonProperty("category")
+	private String name;
+
+	public Category() {
+		/*
+		 * Empty for security
+		 * Also to Satisfy Sonar Compilation
+		 * Empty Constructor
+		 */
+	}
 
 	/**
 	 * @param category
@@ -24,6 +37,7 @@ public class Category implements CategoryI {
 	/**
 	 * @return the name
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -56,7 +70,6 @@ public class Category implements CategoryI {
 	@Override
 	public String toString() {
 		return name;
-	}	
-	
+	}
 
 }

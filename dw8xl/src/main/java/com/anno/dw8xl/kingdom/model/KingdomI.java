@@ -12,19 +12,19 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
  * @author Haku Wei
  *
  */
-@JsonTypeInfo(
-use = JsonTypeInfo.Id.NAME, 
-include = As.PROPERTY, 
-property = "Kingdom-Type"
-)
-@JsonSubTypes({
-@Type(value = Kingdom.class, name = "Kingdom"),
-@Type(value = NullKingdom.class, name = "NULL-Kingdom"),
-})
+@JsonTypeInfo(use = JsonTypeInfo.Id.NONE, include = As.PROPERTY)
+@JsonSubTypes({ @Type(value = Kingdom.class, name = "Kingdom"), @Type(value = NullKingdom.class, name = "null"), })
 public interface KingdomI {
+
 	public String getName();
+
+	@Override
 	public int hashCode();
+
+	@Override
 	public boolean equals(Object obj);
+
+	@Override
 	public String toString();
-	
+
 }

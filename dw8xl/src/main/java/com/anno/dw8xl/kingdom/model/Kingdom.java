@@ -3,20 +3,30 @@
  */
 package com.anno.dw8xl.kingdom.model;
 
+import org.springframework.stereotype.Component;
+
+import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+
 /**
  * @author Haku Wei
  *
  */
+@JsonView({CharacterView.Kingdom.class})
+@Component
 public class Kingdom implements KingdomI {
-
+	@JsonView({CharacterView.Officer.class, CharacterView.SubOfficer.class})
+	@JsonProperty("kingdom")
 	private String name;
-	
-	public Kingdom() {}
-	
+
+	/**
+	 * @param name
+	 */
 	public Kingdom(String name) {
 		this.name = name;
 	}
-	
+
 	@Override
 	public String getName() {
 		return name;
@@ -40,7 +50,7 @@ public class Kingdom implements KingdomI {
 			return false;
 		Kingdom other = (Kingdom) obj;
 		if (name == null) {
-			if (other.name!= null)
+			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
@@ -51,5 +61,5 @@ public class Kingdom implements KingdomI {
 	public String toString() {
 		return name;
 	}
-	
+
 }

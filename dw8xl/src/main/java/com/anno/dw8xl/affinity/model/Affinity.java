@@ -1,11 +1,23 @@
 package com.anno.dw8xl.affinity.model;
 
+import org.springframework.stereotype.Component;
+
+import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonView;
+
+@Component
+@JsonView(CharacterView.Affinity.class)
 public class Affinity implements AffinityI {
 
+	@JsonView({CharacterView.Weapon.Affinity.class})
 	private String name;
-	
-	public Affinity() {
-	
+
+	protected Affinity() {
+		/*
+		 * Empty Constructor
+		 * Security Reasons
+		 * Sonar Resolve Compilation
+		 */
 	}
 
 	/**
@@ -15,7 +27,8 @@ public class Affinity implements AffinityI {
 		super();
 		this.name = name;
 	}
-	
+
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -49,7 +62,5 @@ public class Affinity implements AffinityI {
 	public String toString() {
 		return name;
 	}
-	
-	
 
 }

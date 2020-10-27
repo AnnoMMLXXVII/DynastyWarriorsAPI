@@ -1,12 +1,10 @@
-/**
- * 
- */
 package com.anno.dw8xl.character.model;
 
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.kingdom.model.KingdomI;
-import com.anno.dw8xl.type.model.TypeI;
+import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * @author Haku Wei
@@ -14,11 +12,15 @@ import com.anno.dw8xl.type.model.TypeI;
  */
 @Component
 public abstract class Character implements CharacterI {
-
 	private String name;
-	private KingdomI kingdom;
 	
-	public Character() {}
+	private KingdomI kingdom;
+
+	protected Character() {
+		/*
+		 * Empty On purpose Must Be empty Commenting to resolve sonar
+		 */
+	}
 
 	/**
 	 * @param name
@@ -33,6 +35,7 @@ public abstract class Character implements CharacterI {
 	/**
 	 * @return the name
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -40,11 +43,11 @@ public abstract class Character implements CharacterI {
 	/**
 	 * @return the kingdom
 	 */
-	public KingdomI getKingdom() {
-		return kingdom;
+	@Override
+	@JsonView({CharacterView.Officer.class, CharacterView.SubOfficer.class})
+	public String getKingdom() {
+		return kingdom.getName();
 	}
-
-	public abstract TypeI getType();
 
 	@Override
 	public int hashCode() {
@@ -79,8 +82,7 @@ public abstract class Character implements CharacterI {
 
 	@Override
 	public String toString() {
-		return  name + ", "+kingdom ;
+		return name + ", " + kingdom;
 	}
-	
-	
+
 }

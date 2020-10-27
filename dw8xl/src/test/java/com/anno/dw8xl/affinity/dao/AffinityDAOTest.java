@@ -12,7 +12,7 @@ import com.anno.dw8xl.affinity.model.AffinityI;
 
 class AffinityDAOTest {
 
-	private AffinityDAO_I dao;
+	private AffinityDAOInterface dao;
 	private AffinityI expected;
 	@BeforeEach
 	void setUp() throws Exception {

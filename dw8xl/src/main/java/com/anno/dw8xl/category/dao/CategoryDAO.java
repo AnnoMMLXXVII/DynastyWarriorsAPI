@@ -13,27 +13,32 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.category.model.CategoryI;
 import com.anno.dw8xl.category.model.NullCategory;
-import com.anno.dw8xl.dao.DAO;
+import com.anno.dw8xl.dao.DataAccessObjectInterface;
+import com.anno.dw8xl.dao.PATH;
 
 /**
  * @author Haku Wei
  *
  */
 @Service("categoryDAO")
-public class CategoryDAO implements DAO<CategoryI, Object>{
+public class CategoryDAO implements CategoryDAOInterface{
 	
 	private Map<Integer, CategoryI> categories;
-	private static DAO<CategoryI, Object> instance = null;
+	private static CategoryDAOInterface instance = null;
+	private static final Logger log = LoggerFactory.getLogger(CategoryDAO.class);
 	
-	public static DAO<CategoryI, Object> getInstance() {
+	public static CategoryDAOInterface getInstance() {
 		if(instance == null) {
-			synchronized (DAO.class) {
+			synchronized (DataAccessObjectInterface.class) {
 				if(instance == null) {
+					log.info("CategoryDAO singleton instantiation...");
 					return new CategoryDAO();
 				}
 			}
@@ -48,48 +53,54 @@ public class CategoryDAO implements DAO<CategoryI, Object>{
 	
 	@Override
 	public Collection<CategoryI> getAll() {
+		log.info("Returning Categories collection...");
 		return new ArrayList<>(categories.values());
 	}
 
 	@Override
 	public Optional<CategoryI> getBy(Object criteria) {
-		CategoryI temp = new NullCategory();
+		CategoryI temp;
 		if (criteria instanceof CategoryI) {
 			temp = (CategoryI) criteria;
+			temp = categories.get(DataAccessObjectInterface.getKey(categories, temp));
+			return (temp != null) ? Optional.of(temp) : Optional.of(new NullCategory());
 		}
-		else if (criteria instanceof String) {
-			temp = new Category(DAO.formatName((String)criteria));
+		else if ((temp = categories.get(criteria)) != null) {
+			return Optional.of(temp);
 		}
-		return categories.containsValue(temp) ? Optional.of(temp) : Optional.ofNullable(new NullCategory());
+		return  Optional.of(new NullCategory());
 		
 	}
 
 	@Override
 	public void add(CategoryI entity) {
-		if(categories.containsValue(entity)) {
+		if(!CategoryDAOInterface.isValidToAdd(entity)) {
 			return;
 		}
-		if(entity.getName().length() > 24) {
-			throw new IllegalArgumentException("Illegal Category name: empty or length(0-24)");
+		if(categories.containsValue(entity)) {
+			log.debug("Cannot add Category to due duplicate...");
+			return;
 		}
-		if(!entity.getName().equals("")) {
-			categories.put(categories.size()+1, entity);
-		}
+		log.info("Adding Category...");
+		categories.put(categories.size()+1, entity);
 	}
 
 	@Override
 	public void remove(CategoryI entity) {
-		if(!categories.containsValue(entity)) {
-			throw new IllegalArgumentException("Category does not exist!");
+		if(!CategoryDAOInterface.isValidToRemove(entity)) {
+			return;
 		}
-		categories.remove(DAO.getKey(categories, entity), entity);
-		
+		if(!categories.containsValue(entity)) {
+			log.debug("Cannot find Category to remove...");
+			return;
+		}
+		log.info("Removing Category...");
+		categories.remove(DataAccessObjectInterface.getKey(categories, entity), entity);
 	}
 
 	private void initializeValues() {
-		String path = "Text-Files/category/category.txt";
 		CategoryI category = null;
-		File file = new File(URL_ROOT+path);
+		File file = new File(PATH.CATEGORY_PATH.getStringUrl());
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String[] categoryLine = null;
 			int i = 1; 
@@ -101,7 +112,7 @@ public class CategoryDAO implements DAO<CategoryI, Object>{
 			}
 		}
 		catch(FileNotFoundException e) {
-			e.printStackTrace();
+			log.debug(String.format("Error: %s...", e.getMessage()));
 		}
 	}
 

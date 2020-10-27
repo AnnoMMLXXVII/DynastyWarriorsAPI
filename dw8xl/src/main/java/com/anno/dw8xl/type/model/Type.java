@@ -3,29 +3,33 @@
  */
 package com.anno.dw8xl.type.model;
 
+import org.springframework.stereotype.Component;
+
 import com.anno.dw8xl.category.model.CategoryI;
 import com.anno.dw8xl.category.model.NullCategory;
+import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
+@Component
+@JsonView({CharacterView.Type.class})
 public class Type implements TypeI {
-
-	
+	@JsonView({CharacterView.Weapon.Type.class})
 	private String name;
 	private CategoryI category;
-	
-	/**
-	 * 
-	 */
-	public Type() {	}
 
+	/**
+	 * @param name
+	 */
 	public Type(String name) {
 		this.name = name;
 		this.category = new NullCategory();
 	}
-	
+
 	/**
 	 * @param type
 	 * @param category
@@ -35,20 +39,21 @@ public class Type implements TypeI {
 		this.name = name;
 		this.category = category;
 	}
-	
+
 	@Override
 	public void setCategory(CategoryI category) {
 		this.category = category;
 	}
-	
+
 	@Override
 	public String getName() {
 		return name;
 	}
 
 	@Override
-	public CategoryI getCategory() {
-		return category;
+	@JsonProperty("category")
+	public String getCategory() {
+		return category.getName();
 	}
 
 	@Override
@@ -86,9 +91,5 @@ public class Type implements TypeI {
 	public String toString() {
 		return name + ", " + category.toString();
 	}
-	
-	
-	
-	
 
 }

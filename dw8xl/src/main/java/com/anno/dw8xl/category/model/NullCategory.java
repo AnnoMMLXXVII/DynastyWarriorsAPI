@@ -12,7 +12,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class NullCategory implements CategoryI {
 
-	public NullCategory() {	}
+	public NullCategory() {
+		/*
+		 * Empty Contructor
+		 * Security Reasons
+		 * Sonar Compilation Resolution
+		 */
+	}
 
 	@Override
 	public String getName() {
