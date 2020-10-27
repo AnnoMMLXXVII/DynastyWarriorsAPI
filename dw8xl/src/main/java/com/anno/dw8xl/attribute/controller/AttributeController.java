@@ -3,7 +3,8 @@
  */
 package com.anno.dw8xl.attribute.controller;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
@@ -16,70 +17,79 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anno.dw8xl.attribute.facade.AttributeFacade_I;
+import com.anno.dw8xl.attribute.facade.AttributeFacadeInterface;
 import com.anno.dw8xl.attribute.model.AttributeI;
+import com.anno.dw8xl.attribute.model.NullAttribute;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
 @RestController
-@SuppressWarnings("unchecked")
-public class AttributeController<E> {
+@RequestMapping(value = "/attributes")
+public class AttributeController {
 	
 	@Autowired
-	private AttributeFacade_I facade;
+	private AttributeFacadeInterface facade;
 	
 	@GetMapping(value = "/ping", produces = MediaType.APPLICATION_JSON)
-	public ResponseEntity<E> ping() {
-		return (ResponseEntity<E>) new ResponseEntity<>(Arrays.asList("Attributes", "Controller", "Ping", "Works", "As", "Expected"), HttpStatus.OK);
+	public ResponseEntity<String> ping() {
+		return  new ResponseEntity<>(String.format("%s %s %s %s %s %s","Attributes", "Controller", "Ping", "Works", "As", "Expected"), HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/attributes", produces = MediaType.APPLICATION_JSON)
-	public ResponseEntity<E> getAttributes(
+	@GetMapping(produces = MediaType.APPLICATION_JSON)
+	public ResponseEntity<Collection<AttributeI>> getAttributes(
 			@RequestParam(value = "type", required = false, defaultValue = "") String type) {
 		if(type.equals("normal")) {
-			return (ResponseEntity<E>) new ResponseEntity<>(facade.getNormalAttributes(), HttpStatus.OK);
+			return new ResponseEntity<>(facade.getNormalAttributes(), HttpStatus.OK);
 		}
 		else if (type.equals("special")) {
-			return (ResponseEntity<E>) new ResponseEntity<>(facade.getSpecialAttributes(), HttpStatus.OK);
+			return new ResponseEntity<>(facade.getSpecialAttributes(), HttpStatus.OK);
 		}
 		else {
-			return (ResponseEntity<E>) new ResponseEntity<>(facade.getAllAttributes(), HttpStatus.OK);			
+			return new ResponseEntity<>(facade.getAllAttributes(), HttpStatus.OK);			
 		}
 	}
 	
-	@PostMapping(value = "/attributes", produces = MediaType.APPLICATION_JSON)
+	@PostMapping(value = "/", produces = MediaType.APPLICATION_JSON)
 	@ResponseBody
-	public ResponseEntity<E> createAttribute(
+	public ResponseEntity<AttributeI> createAttribute(
 			@RequestBody(required = true) AttributeI attribute) {
 		AttributeI result = facade.createAttribute(attribute);
 		return (result == null) ?
-			(ResponseEntity<E>) new ResponseEntity<>("Cannot Create due to already-existing Attribute!", HttpStatus.BAD_REQUEST)
-		: (ResponseEntity<E>) new ResponseEntity<>(result, HttpStatus.OK);
+			new ResponseEntity<>(new NullAttribute(), HttpStatus.BAD_REQUEST)
+		: new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
 	
-	@PutMapping(value = "/attributes", produces = MediaType.APPLICATION_JSON)
+	@PutMapping(produces = MediaType.APPLICATION_JSON)
 	@ResponseBody
-	public ResponseEntity<E> updateAttribute(
+	public ResponseEntity<Collection<AttributeI>> updateAttribute(
 			@RequestBody(required = true) List<AttributeI> attribute,
 			@RequestParam(value = "name", required = true) String...name) {
-		List<AttributeI> result = facade.updateAttributes(attribute, name);
+		Collection<AttributeI> result = facade.updateAttributes(attribute, name);
 		
 		return (result.isEmpty()) ?
-			(ResponseEntity<E>) new ResponseEntity<>("Cannot find attribute to update".toUpperCase(), HttpStatus.BAD_REQUEST)
-		: (ResponseEntity<E>) new ResponseEntity<>(result, HttpStatus.OK);
+			new ResponseEntity<>(new ArrayList<>() , HttpStatus.BAD_REQUEST)
+			: new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value = "/attributes", produces = MediaType.APPLICATION_JSON)
-	public ResponseEntity<E> deleteAttribute(
+	@DeleteMapping(produces = MediaType.APPLICATION_JSON)
+	public ResponseEntity<String> deleteAttribute(
 			@RequestBody(required = true) List<AttributeI> attribute) {
-		return (ResponseEntity<E>) new ResponseEntity<>(facade.removeAttribute(attribute), HttpStatus.OK);
+		List<AttributeI> before = facade.getAllAttributes();
+		int size = before.size();
+		int result = (size - attribute.size());
+		facade.removeAttribute(attribute);
+		List<AttributeI> after = facade.getAllAttributes();
+		int postSize = after.size();
+		return (postSize != result) ? new ResponseEntity<>("Could not Delete One or More!", HttpStatus.BAD_REQUEST)
+		: new ResponseEntity<>(after.toString(), HttpStatus.OK);
 	}
 	
 	

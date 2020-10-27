@@ -6,9 +6,9 @@ package com.anno.dw8xl.category.dao;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Optional;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.category.model.CategoryI;
+import com.anno.dw8xl.category.model.NullCategory;
 
 /**
  * @author Haku Wei
@@ -24,9 +25,10 @@ import com.anno.dw8xl.category.model.CategoryI;
  */
 class CategoryDAOTest {
 
-	private CategoryDAO_I dao;
+	private CategoryDAOInterface dao;
 	private CategoryI expected;
 	private long start, finish;
+	private Collection<CategoryI> categories;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -49,129 +51,93 @@ class CategoryDAOTest {
 	@DisplayName("Categories is greater than 0")
 	@Test
 	void testGetAllCategories() {
-		List<CategoryI> categories = dao.getAllCategory();
+		categories = dao.getAll();
 		assertEquals(4, categories.size());
-	}
-
-	@DisplayName("Category exists in Categories")
-	@Test
-	void testCheckIfCategoryExists() {
-		assertEquals(true, dao.isExist(expected));
 	}
 	
 	@DisplayName("Category equals Expected [Dasher]")
 	@Test
-	void testGetCategoryByNameEqualsExpected() {
-		CategoryI actual = dao.getCategoryByName("Dasher");
-		assertEquals(expected, actual);
+	void testGetCategoryByNumberEqualsExpected() {
+		Optional<CategoryI> actual = dao.getBy(3);
+		assertEquals(expected, actual.get());
+	}
+	
+	@DisplayName("Category equals Expected [NullCategory]")
+	@Test
+	void testGetCategoryByNameEqualsNullCategory() {
+		// Due to Map Key. Cannot search by String. Only Integer;
+		Optional<CategoryI> actual = dao.getBy("Dasher");
+		assertEquals(new NullCategory().getName(), actual.get().getName());
 	}
 	
 	@DisplayName("Category !equals Expected [Void]")
 	@Test
 	void testGetCategoryByNameDoesNotEqualExpected() {
-		CategoryI actual = dao.getCategoryByName("Void");
+		CategoryI actual = dao.getBy(new Category("Void")).get();
 		assertNotEquals(expected, actual);
 	}
 	
-	@DisplayName("Category create Expected [VOID]")
+	@DisplayName("Category add Expected [VOID]")
 	@Test
 	void testCreateCategory() {
-		List<CategoryI> categories = dao.getAllCategory();
-		dao.createCategory(new Category("Void"));
-		categories = dao.getAllCategory();
-		assertEquals(5, categories.size());
+		categories = dao.getAll();
+		int size = categories.size();
+		dao.add(new Category("Void"));
+		categories = dao.getAll();
+		assertEquals(size+1, categories.size());
 	}
 	
-	@DisplayName("Category create FAIL Expected [NULL]")
+	@DisplayName("Category add Dupicate Expected [Dasher] and Size Increases by 0")
 	@Test
-	void testCreateCategory_FAIL_NULL() {
-		Exception e = assertThrows(NullPointerException.class, () -> {
-			dao.createCategory(null);			
-		});
-		assertEquals("Cannot create Category of Null Value", e.getMessage());
+	void testAddExpectedDuplicateAndSizeIncreasesByZero() {
+		categories = dao.getAll();
+		int size = categories.size();
+		dao.add(expected);
+		categories = dao.getAll();
+		assertEquals(size, categories.size());
 	}
 	
 	@DisplayName("Category create FAIL Expected [A-z]*25")
 	@Test
 	void testCreateCategory_FAIL_LENGTH() {
 		Exception e = assertThrows(IllegalArgumentException.class, () -> {
-			dao.createCategory(new Category("abcefghijklmnopqrstuvwxyz"));			
+			dao.add(new Category("abcefghijklmnopqrstuvwxyz"));			
 		});
 		assertEquals("Illegal Category name: empty or length(0-24)", e.getMessage());
 	}
 	
-	@DisplayName("Category remove by Name Expected [Dasher] - v1")
+	@DisplayName("Test add Category with Null and Size increases by 0 && Throws")
 	@Test
-	void testRemoveExpectedCategory() {
-		List<CategoryI> categories = dao.getAllCategory();
-		dao.removeCategory("Dasher");
-		categories = dao.getAllCategory();
-		assertEquals(3, categories.size());
+	void testAddWithNullAndSizeIncreasesByZero() {
+		categories = dao.getAll();
+		int size = categories.size();
+		Exception e = assertThrows(NullPointerException.class, () -> {
+			dao.add(null);			
+		});
+		categories = dao.getAll();
+		assertEquals(size, categories.size());
+		assertEquals("Category cannot be added due to Null!", e.getMessage());
 	}
 	
-	@DisplayName("Category remove by Object Expected [Dasher] - v2")
+	@DisplayName("Test Remove Expected Category 'Object' and size decrease by 1")
 	@Test
-	void testRemoveExpectedCategory_Object() {
-		List<CategoryI> categories = dao.getAllCategory();
-		dao.removeCategory(expected);
-		categories = dao.getAllCategory();
-		assertEquals(3, categories.size());
+	void testRemoveExpectedCategoryAndSizeDecreasesByOne() {
+		categories = dao.getAll();
+		int size = categories.size(); 
+		dao.remove(expected);
+		categories = dao.getAll();
+		assertEquals(size-1, categories.size());
 	}
 	
-	@DisplayName("Category remove by Name FAIL for Expected [VOID]")
+	@DisplayName("Test Remove Non-Existent Category 'Object' and size decrease by 0")
 	@Test
-	void testRemoveExpectedCategory_FAIL() {
-		List<CategoryI> categories = dao.getAllCategory();
-		dao.removeCategory("Void");
-		categories = dao.getAllCategory();
-		assertEquals(4, categories.size());
+	void testRemoveDNEAndReturnsEqualMapSize_Special() {
+		categories = dao.getAll();
+		int size = categories.size();
+		CategoryI expected = new Category("VOID");
+		dao.remove(expected);
+		categories = dao.getAll();;
+		assertEquals(size, categories.size());
 	}
-	
-	@DisplayName("Category remove by Object FAIL for Expected [VOID]")
-	@Test
-	void testRemoveExpectedCategory_Object_FAIL() {
-		List<CategoryI> categories = dao.getAllCategory();
-		dao.removeCategory(new Category("Void"));
-		categories = dao.getAllCategory();
-		assertEquals(4, categories.size());
-	}
-	
-	@DisplayName("Category update by Objects [Object, Object]")
-	@Test
-	void testUpdateCategoryByObjects() {
-		List<CategoryI> categories = dao.getAllCategory();
-		CategoryI temp = new Category("Void");
-		dao.updateCategory(expected, temp);
-		assertTrue(categories.contains(temp));	
-	}
-	
-	@DisplayName("Category update by Names [name, name]")
-	@Test
-	void testUpdateCategoryByNames() {
-		List<CategoryI> categories = dao.getAllCategory();
-		CategoryI temp = new Category("Void");
-		dao.updateCategory("Dasher", "Void");
-		assertTrue(categories.contains(temp));	
-	}
-	
-	@DisplayName("Category update by Object & Name [Object, name]")
-	@Test
-	void testUpdateCategory_Combo_V1() {
-		List<CategoryI> categories = dao.getAllCategory();
-		CategoryI temp = new Category("Void");
-		dao.updateCategory(expected, "Void");
-		assertEquals(temp.getName(), categories.get(1).getName());
-	}
-	
-	@DisplayName("Category update by Object & Name [name, Object]")
-	@Test
-	void testUpdateCategory_Combo_V2() {
-		List<CategoryI> categories = dao.getAllCategory();
-		CategoryI temp = new Category("Void");
-		dao.updateCategory("Shadow Sprinter", temp);
-		assertEquals(temp.getName(), categories.get(3).getName());	
-	}
-	
-	
 	
 }

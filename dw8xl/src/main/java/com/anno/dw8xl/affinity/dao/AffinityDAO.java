@@ -13,14 +13,14 @@ import com.anno.dw8xl.affinity.model.AffinityI;
  * @author Haku Wei
  *
  */
-public class AffinityDAO implements AffinityDAO_I{
+public class AffinityDAO implements AffinityDAOInterface{
 
 	private List<AffinityI> affinities;
-	private static AffinityDAO_I instance = null;
+	private static AffinityDAOInterface instance = null;
 	
-	public static AffinityDAO_I getInstance() {
+	public static AffinityDAOInterface getInstance() {
 		if(instance == null) {
-			synchronized(AffinityDAO_I.class) {
+			synchronized(AffinityDAOInterface.class) {
 				if(instance == null) {
 					return new AffinityDAO();
 				}
@@ -77,7 +77,7 @@ public class AffinityDAO implements AffinityDAO_I{
 		}
 		idx++;
 		for (AffinityI a : affinities) {
-			if(a.getAffinity().equals(affinity)) {
+			if(a.getName().equals(affinity)) {
 				return idx; 
 			}
 			idx++;

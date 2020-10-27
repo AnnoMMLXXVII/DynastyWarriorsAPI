@@ -3,17 +3,22 @@
  */
 package com.anno.dw8xl.kingdom.dao;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.anno.dw8xl.dao.DAO;
+import com.anno.dw8xl.dao.DataAccessObjectInterface;
+import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.model.Kingdom;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.kingdom.model.NullKingdom;
@@ -23,77 +28,94 @@ import com.anno.dw8xl.kingdom.model.NullKingdom;
  *
  */
 @Service("kingdomDAO")
-public class KingdomDAO implements DAO<KingdomI, Object>{
-	
-	
+public class KingdomDAO implements KingdomDAOInterface {
+
 	private static final Logger log = LoggerFactory.getLogger(KingdomDAO.class);
-	private static DAO<KingdomI, Object> instance = null;
 	private Map<String, KingdomI> kingdoms;
-	
-	public DAO<KingdomI, Object> getInstance() {
-		if(instance == null) {
-			synchronized (DAO.class) {
-				if(instance == null) {
+	private static KingdomDAOInterface instance = null;
+
+	public static KingdomDAOInterface getInstance() {
+		if (instance == null) {
+			synchronized (KingdomDAOInterface.class) {
+				if (instance == null) {
+					log.info("KingdomDAO singleton instantiation...");
 					return new KingdomDAO();
 				}
 			}
 		}
 		return instance;
 	}
-	
+
 	private KingdomDAO() {
 		log.info("Initializing Kingdom HashMap...");
-		kingdoms = initializeKingdoms();
+		initializeKingdoms();
 	}
-	
 
 	@Override
 	public Collection<KingdomI> getAll() {
-		log.info("Returning new ArrayList of Kingdoms...");
+		log.info("Returning kingdom collections...");
 		return new ArrayList<>(kingdoms.values());
 	}
 
 	@Override
 	public Optional<KingdomI> getBy(Object criteria) {
-		log.info("Searching and Returning for Mapped Value...");
-		KingdomI temp = kingdoms.get(criteria);
-		log.info("Returning Optional instance of Kingdom...");
-		return Optional.of(temp);
+		KingdomI temp;
+		log.info("Checking criteria type...");
+		if (criteria instanceof KingdomI) {
+			log.info("Criteria checking by KingdomI...");
+			temp = (KingdomI) criteria;
+			temp = kingdoms.get(DataAccessObjectInterface.formatName(temp.getName()));
+			return (temp != null) ? Optional.of(temp) : Optional.of(new NullKingdom());
+		} else if ((temp = kingdoms.get(criteria)) != null) {
+			log.info("Returning Optional instance of Kingdom...");
+			return Optional.of(temp);
+		} else {
+			log.info("Returning Optional instance of NullKingdom...");
+			return Optional.of(new NullKingdom());
+		}
 	}
 
 	@Override
 	public void add(KingdomI entity) {
-		log.info("Checking if new Kingdom already exists...");
-		if(kingdoms.get(entity.getKingdom().toUpperCase()) == null) {
-			log.info("Adding new Kingdom into mapped key-values...");
-			kingdoms.put(entity.getKingdom().toUpperCase(), entity);
+		if (!KingdomDAOInterface.isValidToAdd(entity)) {
+			return;
 		}
+		if (kingdoms.containsValue(entity)) {
+			log.info("Cannot add Kingdom due to duplicate...");
+			return;
+		}
+		log.info("Adding Kingdom...");
+		kingdoms.put(entity.getName(), entity);
 	}
 
 	@Override
 	public void remove(KingdomI entity) {
-		log.info("Checking if kingdom exists...");
-		if(kingdoms.get(entity.getKingdom().toUpperCase()) != null) {
-			log.info("Removing kingdom from mapped key-values...");
-			kingdoms.remove(entity.getKingdom().toUpperCase(), entity);
+		if (!KingdomDAOInterface.isValidToRemove(entity)) {
+			return;
 		}
-		
+		if (kingdoms.containsKey(entity.getName())) {
+			log.debug("Could not find Kingdom to remove...");
+			return;
+		}
+		log.info("Removing Kingdom...");
+		kingdoms.remove(DataAccessObjectInterface.getKey(kingdoms, entity), entity);
 	}
 
-	private Map<String, KingdomI> initializeKingdoms() {
-		log.info("New instance of Map with String, KingdomI key-value pairs...");
-		Map<String, KingdomI> temp = new HashMap<>();
-		log.info("Adding SHU...");
-		temp.put("SHU", Kingdom.SHU);
-		log.info("Adding WU...");
-		temp.put("WU", Kingdom.WU);
-		log.info("Adding Wei...");
-		temp.put("WEI", Kingdom.WEI);
-		log.info("Adding Jin...");
-		temp.put("JIN", Kingdom.JIN);
-		log.info("Adding Other...");
-		temp.put("OTHER", Kingdom.OTHER);
-		return temp;
+	private void initializeKingdoms() {
+		KingdomI kingdom = null;
+		kingdoms = new HashMap<>();
+		File file = new File(PATH.KINGDOM_PATH.getStringUrl());
+		try (Scanner z = new Scanner(new FileReader(file))) {
+			String[] kingdomLine = null;
+			while (z.hasNextLine()) {
+				String line = z.nextLine();
+				kingdomLine = line.split(",");
+				kingdom = new Kingdom(kingdomLine[0].trim());
+				kingdoms.put(kingdom.getName(), kingdom);
+			}
+		} catch (FileNotFoundException e) {
+			log.debug(String.format("Error: %s", e.getMessage()));
+		}
 	}
 
 }

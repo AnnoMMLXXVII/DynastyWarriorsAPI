@@ -13,5 +13,7 @@ public interface TypeI {
 
 	public String getType();
 	public CategoryI getCategory();
+	public boolean equals(Object obj);
+	public int hashCode();
 	public String toString();
 }

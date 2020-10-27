@@ -1,30 +1,43 @@
 package com.anno.dw8xl.affinity.model;
 
+import org.springframework.stereotype.Component;
+
+import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonView;
+
+@Component
+@JsonView(CharacterView.Affinity.class)
 public class Affinity implements AffinityI {
 
-	private String affinity;
-	
-	public Affinity() {
-	
+	@JsonView({CharacterView.Weapon.Affinity.class})
+	private String name;
+
+	protected Affinity() {
+		/*
+		 * Empty Constructor
+		 * Security Reasons
+		 * Sonar Resolve Compilation
+		 */
 	}
 
 	/**
 	 * @param affinity
 	 */
-	public Affinity(String affinity) {
+	public Affinity(String name) {
 		super();
-		this.affinity = affinity;
+		this.name = name;
 	}
-	
-	public String getAffinity() {
-		return affinity;
+
+	@Override
+	public String getName() {
+		return name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((affinity == null) ? 0 : affinity.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -37,19 +50,17 @@ public class Affinity implements AffinityI {
 		if (getClass() != obj.getClass())
 			return false;
 		Affinity other = (Affinity) obj;
-		if (affinity == null) {
-			if (other.affinity != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!affinity.equals(other.affinity))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return affinity;
+		return name;
 	}
-	
-	
 
 }

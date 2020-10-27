@@ -4,13 +4,16 @@
 package com.anno.dw8xl.attribute.model;
 
 import com.anno.dw8xl.rarity.model.Rarity;
+import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * @author Haku Wei
  *
  */
-@JsonTypeName("S")
+@JsonTypeName("Special")
+@JsonView({CharacterView.Officer.class, CharacterView.Attribute.class, CharacterView.Weapon.Attribute.class})
 public class Special extends Attribute {	
 
 	/**
@@ -22,15 +25,7 @@ public class Special extends Attribute {
 	}
 
 	@Override
-	public Rarity getType() {
-		return Rarity.SPECIAL;
+	public String getRarity() {
+		return new Rarity("SPECIAL").getType();
 	}
-	
-	/**
-	 * @return the id
-	 */
-//	public int getId() {
-//		return super.id;
-//	}
-
 }

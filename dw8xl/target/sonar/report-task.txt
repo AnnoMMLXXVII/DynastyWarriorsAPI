@@ -1,6 +1,6 @@
-projectKey=DynastyWarriors8XtremeLegends
+projectKey=com.anno:dw8xl
 serverUrl=http://localhost:9000
 serverVersion=8.5.0.37579
-dashboardUrl=http://localhost:9000/dashboard?id=DynastyWarriors8XtremeLegends
-ceTaskId=AXVE65Lxad12vG6sPavX
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXVE65Lxad12vG6sPavX
+dashboardUrl=http://localhost:9000/dashboard?id=com.anno%3Adw8xl
+ceTaskId=AXVnoKOL2V87MLVukwBp
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXVnoKOL2V87MLVukwBp

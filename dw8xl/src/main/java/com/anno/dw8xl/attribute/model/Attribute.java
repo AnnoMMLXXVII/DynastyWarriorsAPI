@@ -1,23 +1,26 @@
-/**
- * 
- */
 package com.anno.dw8xl.attribute.model;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * @author Haku Wei
  *
  */
-
-public abstract class Attribute implements AttributeI{
+public abstract class Attribute implements AttributeI {
 	
-//	private static final AtomicInteger ID = new AtomicInteger(0);
+	@JsonView({CharacterView.Attribute.class, CharacterView.Weapon.Attribute.class})
 	private String name;
+	@JsonView({CharacterView.Attribute.class})
 	private String description;
-//	protected int id;
 	
-	public Attribute() {}
+	protected Attribute() {
+		/*
+		 * Empty On purpose
+		 * Must Be empty
+		 * Commenting to resolve sonar
+		 */
+	}
 	
 	/**
 	 * @param name
@@ -27,12 +30,12 @@ public abstract class Attribute implements AttributeI{
 		super();
 		this.name = name;
 		this.description = description;
-//		id = ID.incrementAndGet();
 	}
 	
 	/**
 	 * @return the name
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -40,6 +43,7 @@ public abstract class Attribute implements AttributeI{
 	/**
 	 * @return the description
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -91,7 +95,7 @@ public abstract class Attribute implements AttributeI{
 
 	@Override
 	public String toString() {
-		return name + ", " + description + ", "+ getType().toString();
+		return name + ", " + description + ", "+ getRarity();
 	}
 
 }

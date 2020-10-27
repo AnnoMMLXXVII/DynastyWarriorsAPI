@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -17,77 +19,117 @@ import org.springframework.stereotype.Service;
 import com.anno.dw8xl.attribute.model.AttributeI;
 import com.anno.dw8xl.attribute.model.Normal;
 import com.anno.dw8xl.attribute.model.Special;
+import com.anno.dw8xl.dao.PATH;
 
 /**
  * @author Haku Wei
  *
  */
 @Service
-public class AttributeDAO implements AttributeDAO_I{
-	
-	private static final String URL = "src/main/resources/Text-Files/attributes";
-	private static final String NORMAL= "/normal/normal";
-	private static final String SPECIAL= "/special/special";
-	private static final Logger LOGGER = LoggerFactory.getLogger(AttributeDAO.class);
-	private Map<String, AttributeI> mapAttributes;
-	private static AttributeDAO instance = null;
-	
+public class AttributeDAO implements AttributeDAOInterface {
+
+	private static final Logger log = LoggerFactory.getLogger(AttributeDAO.class);
+	private Map<String, AttributeI> attributes;
+	private static AttributeDAOInterface instance = null;
+
 	/*
 	 * Singleton to get AttrbuteDAO_I Instance
 	 */
-	public static AttributeDAO getInstance() {
-		if(instance == null) {
-			synchronized(AttributeDAO.class) {
-				if(instance == null) {
-					LOGGER.debug("Instantiaing AttributeDAO");
+	public static AttributeDAOInterface getInstance() {
+		if (instance == null) {
+			synchronized (AttributeDAOInterface.class) {
+				if (instance == null) {
+					log.info("AttributeDAO singleton instantiation...");
 					return new AttributeDAO();
 				}
 			}
 		}
 		return instance;
 	}
-	
+
 	private AttributeDAO() {
-		mapAttributes = new HashMap<>();
-		try {
-			LOGGER.debug("Reading Files");
-			listNormalAttributesFromFile();
-			listSpecialAttributesFromFile();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		attributes = new HashMap<>();
+		log.info("Parsing normal attributes file...");
+		parseFilesAndMap(true);
+		log.info("Parsing special attributes file...");
+		parseFilesAndMap(false);
 	}
 
 	@Override
 	public List<AttributeI> executeGetAllAttributes() {
-		return new ArrayList<>(mapAttributes.values());	
+		return new ArrayList<>(attributes.values());
+	}
+
+	@Override
+	public Collection<AttributeI> getAll() {
+		return new ArrayList<>(attributes.values());
 	}
 
 	@Override
 	public List<AttributeI> executeGetNormalAttributes() {
-			return mapAttributes.values().stream().filter(a -> a.getType().toString().equals("NORMAL")).collect(Collectors.toList());		 
+		return attributes.values().stream().filter(a -> a.getRarity().equals("NORMAL"))
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<AttributeI> executeGetSpecialAttributes() {
-		return mapAttributes.values().stream().filter(a -> a.getType().toString().equals("SPECIAL")).collect(Collectors.toList());
+		return attributes.values().stream().filter(a -> a.getRarity().equals("SPECIAL"))
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public AttributeI executeGetAttributeByName(String name) {
-		return mapAttributes.get(name);
+		return attributes.get(name);
 	}
-	
+
+	@Override
+	public Optional<AttributeI> getBy(Object criteria) {
+		AttributeI temp;
+		if (criteria instanceof AttributeI) {
+			temp = (AttributeI) criteria;
+			temp = attributes.get(temp.getName());
+			return (temp != null) ? Optional.of(temp) : Optional.ofNullable(temp);
+		} else if ((temp = attributes.get(criteria)) != null) {
+			return Optional.of(temp);
+		} else {
+			return Optional.ofNullable(temp);
+		}
+	}
+
+	@Override
+	public void add(AttributeI entity) {
+		if (!AttributeDAOInterface.isValidToAdd(entity)) {
+			return;
+		}
+		if (attributes.containsKey(entity.getName())) {
+			log.info("Cannot add Attribute due to duplicate...");
+			return;
+		}
+		attributes.put(entity.getName(), entity);
+	}
+
+	@Override
+	public void remove(AttributeI entity) {
+		if (!AttributeDAOInterface.isValidToRemove(entity)) {
+			return;
+		}
+		if (!attributes.containsValue(entity)) {
+			log.info("Cannot find Attribute to remove...");
+			return;
+		}
+		attributes.remove(entity.getName(), entity);
+	}
+
 	@Override
 	public AttributeI executeCreateAttribute(AttributeI attribute) {
-		mapAttributes.put(attribute.getName(), attribute);
-		return mapAttributes.get(attribute.getName());
+		attributes.put(attribute.getName(), attribute);
+		return attributes.get(attribute.getName());
 	}
 
 	@Override
 	public List<AttributeI> executeRemoveAttribute(List<AttributeI> attribute) {
-		for(AttributeI a : attribute) {
-			mapAttributes.remove(a.getName(), a);			
+		for (AttributeI a : attribute) {
+			attributes.remove(a.getName(), a);
 		}
 		return attribute;
 	}
@@ -95,57 +137,36 @@ public class AttributeDAO implements AttributeDAO_I{
 	@Override
 	public List<AttributeI> executeUpdateAttributes(List<AttributeI> old, List<AttributeI> attribute) {
 		int i = 0;
-		for(AttributeI o : old) {
+		for (AttributeI o : old) {
 			executeUpdateAttribute(o, attribute.get(i));
 			i++;
 			old.removeIf(d -> d.getName().equals(o.getName()));
-			System.out.println(o.toString());
 		}
-		return (old.size() == attribute.size()) ? attribute : old ;
-	}
-	
-	private boolean executeUpdateAttribute(AttributeI old, AttributeI attribute) {
-		mapAttributes.replace(old.getName(), attribute);
-		return mapAttributes.containsKey(attribute.getName());
+		return (old.size() == attribute.size()) ? attribute : old;
 	}
 
-	private void listNormalAttributesFromFile() throws FileNotFoundException {
-		File file = new File((URL+NORMAL));
-		if(!file.exists()) {
-			throw new FileNotFoundException("Cannot Locate File!");
-		}
-		AttributeI temp;
-		String line;
-		String[] lineArr = null;
-		try (Scanner z  = new Scanner(new FileReader(file.getAbsolutePath()))) {
-			while (z.hasNextLine()) {
-				line = z.nextLine();
-				lineArr = line.split(",");
-				temp = new Normal(lineArr[0].trim(), lineArr[1].trim());
-				mapAttributes.put(temp.getName(), temp);
-			}
-			
-		}catch(Exception e) {
-			e.getMessage();
-		}
+	private boolean executeUpdateAttribute(AttributeI old, AttributeI attribute) {
+		attributes.replace(old.getName(), attribute);
+		return attributes.containsKey(attribute.getName());
 	}
-	
-	private void listSpecialAttributesFromFile() throws FileNotFoundException {
-		File file = new File((URL+SPECIAL));
-		if(!file.exists()) {
-			throw new FileNotFoundException("Cannot Locate File!");
-		}
+
+	private void parseFilesAndMap(boolean isNormal) {
 		AttributeI temp;
+		File file = new File(
+				(isNormal) ? PATH.NORMAL_ATTRIBUTE_PATH.getStringUrl() : PATH.SPECIAL_ATTRIBUTE_PATH.getStringUrl());
 		String line;
 		String[] lineArr = null;
-		try (Scanner z  = new Scanner(new FileReader(file.getAbsolutePath()))){
+		try (Scanner z = new Scanner(new FileReader(file.getAbsolutePath()))) {
 			while (z.hasNextLine()) {
 				line = z.nextLine();
 				lineArr = line.split(",");
-				temp = new Special(lineArr[0].trim(), lineArr[1].trim());
-				mapAttributes.put(temp.getName(), temp);
+				temp = (isNormal) ? new Normal(lineArr[0].trim(), lineArr[1].trim())
+						: new Special(lineArr[0].trim(), lineArr[1].trim());
+				attributes.put(temp.getName(), temp);
 			}
-		}catch(Exception e) {
+
+		} catch (FileNotFoundException e) {
+			log.debug(String.format("File Exception... Cannot Locate File: %s...", e.getMessage()));
 			e.getMessage();
 		}
 	}
