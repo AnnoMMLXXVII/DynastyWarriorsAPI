@@ -56,7 +56,7 @@ Fiery Ko, 52, Heaven, 5, Short Pike
 Soulcleave, 51, Heaven, 5, Great Axe
 Matoi, 54, Man, 5, Great Axe
 Smoldering Cleaver, 56, Man, 5, Great Axe
-World Smasher 47, Heaven, 5, Mace
+World Smasher, 47, Heaven, 5, Mace
 Emergency Ladder, 49, Heaven, 5, Mace
 Wave Breaker, 52, Heave, 5, Mace
 Talon Wall, 52, Heaven, 5, Spiked Shield
@@ -64,7 +64,7 @@ Notebook, 55, Man, 5, Spiked Shield
 Crystal Scales, 57, Earth, 5, Spiked Shield
 Tiger's Edge, 55, Heaven, 5, Arm Blade
 Snowboard, 58, Man, 5, Arm Blade
-Tortoise Edge, 61, Man, Arm Blade
+Tortoise Edge, 61, Man, 5, Arm Blade
 Golbin Chakram, 51, Heaven, 5, Circle Blade
 Hazard Triangle, 54, Heaven, 5, Circle Blade
 Dragon Slicer, 56, Earth, 5, Circle Blade
@@ -88,17 +88,3 @@ Telescope, 42, Earth, 5, Revolving Crossbow
 Heavely Tempest, 44, Man, 5, Revolving Crossbow
 Hedes Judgement, 47, Heaven, 5, War Trident
 Basilisk's Bane, 47, Heaven, 5, Stele
-
-
-
-
-
-
-
-
-
-
-
-
-
-

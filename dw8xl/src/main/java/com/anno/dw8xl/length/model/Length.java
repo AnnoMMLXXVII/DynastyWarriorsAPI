@@ -6,24 +6,38 @@ package com.anno.dw8xl.length.model;
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
 @Component
-
+@JsonDeserialize(as = Length.class)
 public class Length implements LengthI {
 	
-	@JsonView(CharacterView.Weapon.class)
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "length";
+	
+	@JsonView(CharacterView.Weapon.Length.class)
 	private String size;
 	
 	public Length() {
-		super();
+		/*
+		 * 
+		 */
 	}
 
 	public Length(String size) {
+		this.size = size;
+	}
+	
+	@Override
+	public void setSize(String size) {
 		this.size = size;
 	}
 
@@ -56,5 +70,12 @@ public class Length implements LengthI {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return size;
+	}
+	
+	
 
 }

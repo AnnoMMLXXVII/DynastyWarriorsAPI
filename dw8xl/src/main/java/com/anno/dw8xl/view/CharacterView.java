@@ -19,13 +19,15 @@ public class CharacterView {
 	public static interface Type extends Officer {
 		public static interface Category extends Type {}
 	}
+	
 	public static interface Weapon extends Officer {
 		public static interface Affinity extends Weapon {
 			public static interface Rarity extends Weapon {}
 		}
-		public static interface Type extends Officer {
+		public static interface Type extends Weapon {
 			public static interface Category extends Type {}
 		}
+		public static interface Length extends Weapon {};
 		
 		public static interface Category extends Weapon {}
 		public static interface Rarity extends Weapon {}
@@ -39,8 +41,6 @@ public class CharacterView {
 	public static interface Attribute {
 		public static interface Level {}		
 	}
-	
-	public static interface Length extends Weapon {}
 	
 	
 	public static interface SubOfficer {

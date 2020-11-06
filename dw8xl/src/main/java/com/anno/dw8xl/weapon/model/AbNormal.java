@@ -3,21 +3,39 @@
  */
 package com.anno.dw8xl.weapon.model;
 
+import org.springframework.stereotype.Component;
+
 import com.anno.dw8xl.affinity.model.AffinityI;
+import com.anno.dw8xl.length.model.Length;
+import com.anno.dw8xl.length.model.LengthI;
 import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.type.model.TypeI;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
+@Component
+@JsonTypeName("AbNormal")
+@JsonDeserialize(as = AbNormal.class)
 public class AbNormal extends Weapon {
 
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "abnormal";
+	
 	private AffinityI affinity;
 	private RarityI rarity;
+	private LengthI length;
 
 	public AbNormal() {
-		super();
+		/*
+		 * 
+		 */
 	}
 
 	/**
@@ -30,9 +48,9 @@ public class AbNormal extends Weapon {
 		super(name, baseAttack, star, type);
 		this.affinity = affinity;
 		this.rarity = rarity;
+		length = new Length("---");
 	}
 
-	@Override
 	public AffinityI getAffinity() {
 		return affinity;
 	}
@@ -42,9 +60,26 @@ public class AbNormal extends Weapon {
 		return rarity;
 	}
 	
-	@Override
-	public String getLength() {
-		return "";
+	public LengthI getLength() {
+		return length;
+	}
+	
+	public void setLength(LengthI length) {
+		this.length = length;
+	}
+
+	/**
+	 * @param affinity the affinity to set
+	 */
+	public void setAffinity(AffinityI affinity) {
+		this.affinity = affinity;
+	}
+
+	/**
+	 * @param rarity the rarity to set
+	 */
+	public void setRarity(RarityI rarity) {
+		this.rarity = rarity;
 	}
 
 	@Override
@@ -76,6 +111,11 @@ public class AbNormal extends Weapon {
 		} else if (!rarity.equals(other.rarity))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s, %5s, %8s, %s",super.toString(), affinity.toString(), length.toString(), getRarity().toString());
 	}
 
 }

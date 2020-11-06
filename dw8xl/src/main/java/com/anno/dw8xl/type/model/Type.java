@@ -8,19 +8,35 @@ import org.springframework.stereotype.Component;
 import com.anno.dw8xl.category.model.CategoryI;
 import com.anno.dw8xl.category.model.NullCategory;
 import com.anno.dw8xl.view.CharacterView;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
 @Component
-@JsonView({CharacterView.Type.class})
+@JsonView({ CharacterView.Type.class })
+@JsonDeserialize(as = Type.class)
+
 public class Type implements TypeI {
-	@JsonView({CharacterView.Weapon.Type.class})
+	
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "type";
+
+	@JsonView({ CharacterView.Weapon.Type.class })
 	private String name;
+	
 	private CategoryI category;
+
+	public Type() {
+		/*
+		 * 
+		 */
+	}
 
 	/**
 	 * @param name
@@ -40,6 +56,13 @@ public class Type implements TypeI {
 		this.category = category;
 	}
 
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public void setCategory(CategoryI category) {
 		this.category = category;
@@ -51,9 +74,8 @@ public class Type implements TypeI {
 	}
 
 	@Override
-	@JsonProperty("category")
-	public String getCategory() {
-		return category.getName();
+	public CategoryI getCategory() {
+		return category;
 	}
 
 	@Override
@@ -89,7 +111,7 @@ public class Type implements TypeI {
 
 	@Override
 	public String toString() {
-		return name + ", " + category.toString();
+		return String.format("%16s, %10s", name ,category.toString());
 	}
 
 }

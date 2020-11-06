@@ -3,12 +3,20 @@ package com.anno.dw8xl.affinity.model;
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @Component
 @JsonView(CharacterView.Affinity.class)
+@JsonDeserialize(as = Affinity.class)
 public class Affinity implements AffinityI {
-
+	
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "affinity";
+	
 	@JsonView({CharacterView.Weapon.Affinity.class})
 	private String name;
 

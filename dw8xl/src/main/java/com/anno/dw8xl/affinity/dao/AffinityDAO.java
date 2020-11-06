@@ -4,7 +4,9 @@
 package com.anno.dw8xl.affinity.dao;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import com.anno.dw8xl.affinity.model.Affinity;
 import com.anno.dw8xl.affinity.model.AffinityI;
@@ -34,6 +36,27 @@ public class AffinityDAO implements AffinityDAOInterface{
 		initializeAffinities();
 	}
 	
+	@Override
+	public Collection<AffinityI> getAll() {
+		return affinities;
+	}
+
+	@Override
+	public Optional<AffinityI> getBy(Object criteria) {
+		return affinities.stream().filter(e -> e.getName().equalsIgnoreCase((String)criteria)).findFirst();
+	}
+
+	@Override
+	public void add(AffinityI entity) {
+		
+	}
+
+	@Override
+	public void remove(AffinityI entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
 	public List<AffinityI> getAllAffinities() {
 		return affinities;

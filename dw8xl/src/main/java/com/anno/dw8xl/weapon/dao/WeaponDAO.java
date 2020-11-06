@@ -7,18 +7,22 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.anno.dw8xl.affinity.dao.AffinityDAO;
 import com.anno.dw8xl.affinity.model.Affinity;
+import com.anno.dw8xl.affinity.model.AffinityI;
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.category.model.CategoryI;
 import com.anno.dw8xl.character.dao.CharacterDAOInterface;
@@ -26,12 +30,15 @@ import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.dao.KingdomDAO;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.length.model.Length;
+import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.type.model.Type;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.weapon.model.AbNormal;
 import com.anno.dw8xl.weapon.model.Normal;
 import com.anno.dw8xl.weapon.model.WeaponI;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author venividivicihofneondeion010101
@@ -43,8 +50,9 @@ public class WeaponDAO implements WeaponDAOInterface {
 	private static final Logger log = LoggerFactory.getLogger(WeaponDAO.class);
 	private static WeaponDAOInterface instance;
 	private Map<String, WeaponI> weapons;
+	private Map<String, WeaponI> postman;
 	private Map<TypeI, List<WeaponI>> typeWeapons;
-	
+
 	public static WeaponDAOInterface getInstance() {
 		log.info("CharacterDAO Singleton instantiation...");
 		if (instance == null) {
@@ -56,106 +64,247 @@ public class WeaponDAO implements WeaponDAOInterface {
 		}
 		return instance;
 	}
-	
+
 	private WeaponDAO() {
 		weapons = new HashMap<>();
+		postman = new HashMap<>();
 		typeWeapons = new HashMap<>();
 		initialize();
 	}
 
 	@Override
 	public Collection<WeaponI> getAll() {
-		System.out.println(weapons.size());
 		return new ArrayList<>(weapons.values());
 	}
 
 	@Override
 	public Optional<WeaponI> getBy(Object criteria) {
-		return null;
+		if (weapons.containsKey(criteria)) {
+			return Optional.of(weapons.get(criteria));
+		}
+		return Optional.ofNullable(weapons.get(criteria));
 	}
 
 	@Override
 	public void add(WeaponI entity) {
-		
+
+		if (!WeaponDAOInterface.isValidToAdd(entity)) {
+			return;
+		}
+		WeaponKey key = new WeaponKey(entity.getName(), entity.getType());
+		if (weapons.containsKey(key.toString())) {
+			log.info("Cannot add Weapon due to duplicate...");
+			return;
+		}
+		weapons.put(key.toString(), entity);
 	}
 
 	@Override
 	public void remove(WeaponI entity) {
-		
-	}
-	
-	private void initialize() {
-		log.info("Calling method that will parse through Weapons Files...");
-		log.info("Parsing through Officer files...");
-		parseThroughMultipleWeaponsTextFiles(true);
-		log.info("Parsing through Sub-Officer files...");
-		parseThroughMultipleWeaponsTextFiles(false);
+		if (!WeaponDAOInterface.isValidToRemove(entity)) {
+			return;
+		}
+		WeaponKey key = new WeaponKey(entity.getName(), entity.getType());
+		if (!weapons.containsKey(key.toString())) {
+			log.info("Cannot find Weapon to remove...");
+			return;
+		}
+		weapons.remove(key.toString(), entity);
 	}
 
-	private void parseThroughMultipleWeaponsTextFiles(boolean flag) {
+	public Collection<WeaponI> deserializeWeaponsList(String json) {
+		ObjectMapper mapper = new ObjectMapper();
+		WeaponI[] weaponsAsArray = null;
+		try {
+			weaponsAsArray = mapper.readValue(json, WeaponI[].class);
+		} catch (JsonProcessingException e) {
+			log.debug("Could not Parse!");
+		}
+		mapArrayToMap(weaponsAsArray);
+		return Arrays.asList(weaponsAsArray);
+	}
+
+	private void mapArrayToMap(WeaponI[] weapons) {
+		WeaponKey key = null;
+		for (WeaponI w : weapons) {
+			key = new WeaponKey(w.getName(), w.getType());
+			postman.put(key.toString(), w);
+		}
+	}
+
+	public Map<String, WeaponI> getWeapons() {
+		return weapons;
+	}
+
+	public Map<String, WeaponI> getPostman() {
+		return postman;
+	}
+
+	public Map<TypeI, List<WeaponI>> getTypeHash() {
+		return typeWeapons;
+	}
+
+	public WeaponI deserializeWeapon(String json) {
+		ObjectMapper mapper = new ObjectMapper();
+		WeaponI weapon = null;
+		try {
+			weapon = mapper.readValue(json, WeaponI.class);
+		} catch (JsonProcessingException e) {
+			log.debug(String.format("%s", e.getMessage()));
+		}
+		return weapon;
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsByCategory(String category) {
+		return weapons.values().stream().filter(e -> e.getType().getCategory().getName().equalsIgnoreCase(category))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsByStar(Integer star) {
+		return weapons.values().stream().filter(e -> e.getStar().equals(star)).collect(Collectors.toList());
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsByAffinity(String affinity) {
+		Optional<AffinityI> affinities = AffinityDAO.getInstance().getBy(affinity);
+		if (!affinities.isPresent()) {
+			log.debug(String.format("Error: Cannot filter by %s. Does not Exist!", affinity));
+			return new ArrayList<>();
+		}
+		return weapons.values().stream()
+				.filter(e -> e.getAffinity().getName().equalsIgnoreCase(affinities.get().getName()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsByType(String type) {
+		return weapons.values().stream().filter(e -> e.getType().getName().equalsIgnoreCase(type))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsByState(String state) {
+		if (state.equalsIgnoreCase("normal")) {
+			return weapons.values().stream().filter(e -> e instanceof Normal).collect(Collectors.toList());
+		} else {
+			return weapons.values().stream().filter(e -> e instanceof AbNormal).collect(Collectors.toList());
+		}
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsWithBaseAttack(Integer baseAttack) {
+		return weapons.values().stream().filter(e -> e.getBaseAttack().equals(baseAttack)).collect(Collectors.toList());
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsWithBaseAttackGreaterThan(Integer baseAttack, boolean inclusive) {
+		return (inclusive)
+				? weapons.values().stream().filter(e -> e.getBaseAttack() >= baseAttack).collect(Collectors.toList())
+				: weapons.values().stream().filter(e -> e.getBaseAttack() > baseAttack).collect(Collectors.toList());
+	}
+
+	@Override
+	public Collection<WeaponI> getWeaponsWithBaseAttackLessThan(Integer baseAttack, boolean inclusive) {
+		return (inclusive)
+				? weapons.values().stream().filter(e -> e.getBaseAttack() <= baseAttack).collect(Collectors.toList())
+				: weapons.values().stream().filter(e -> e.getBaseAttack() < baseAttack).collect(Collectors.toList());
+	}
+
+	private void initialize() {
+		log.info("Calling method that will parse through Weapons Files...");
+		parseThroughMultipleWeaponsTextFiles();
+
+	}
+
+	private void parseThroughMultipleWeaponsTextFiles() {
 		log.info("Getting all kingdoms...");
 		List<KingdomI> kingdoms = (List<KingdomI>) KingdomDAO.getInstance().getAll();
 		if (kingdoms.isEmpty()) {
 			log.debug("KingdomI List size is empty");
 		}
 		log.info("Assigning the characterPaths based on flag...");
-		PATH[][] categoriesPaths = {
-				PATH.getDasherWeaponsPaths(),
-//				PATH.getWhirlwindWeaponsPaths(),
+		PATH[][] categoriesPaths = { PATH.getDasherWeaponsPaths(), PATH.getWhirlwindWeaponsPaths(),
 //				PATH.getDiverWeaponsPaths(),
 //				PATH.getShadowWeaponsPaths(),
 		};
-		CategoryI[] categories = {new Category("Dasher"), new Category("Whirlwind")};
+		CategoryI[] categories = { new Category("Dasher"), new Category("Whirlwind") };
+		RarityI[] rarities = { new Rarity("Rare"), new Rarity("Unique"), new Rarity("Xtreme") };
 		log.info("Parsing throgh character files (Officer or SubOfficer)...");
-		int i = 0, j = 0;
-//		for (int i = 0; i < categoriesPaths.length; i++) {
-//			for (int j = 0; j < categoriesPaths[i].length-3; j++) {
+		boolean isNormal = true;
+		int k = 0;
+		for (int i = 0; i < categoriesPaths.length; i++) {
+			for (int j = 0; j < categoriesPaths[i].length; j++) {
 				try {
-					parseThroughWeaponTextFile(categoriesPaths[i][j].getStringUrl(), weapons, typeWeapons, categories[i]);
+					if (j > 0) {
+						isNormal = false;
+						k = j - 1;
+					}
+					parseThroughWeaponTextFile(categoriesPaths[i][j].getStringUrl(), weapons, typeWeapons,
+							categories[i], rarities[k], isNormal);
 				} catch (Exception e) {
-					log.info(String.format("Error: %s...", e.getMessage()));
+					log.debug(String.format("%s :: Error: %s...%n", categoriesPaths[i][j].getStringUrl(),
+							e.getMessage()));
 				}
-//			}
-//		}
+			}
+		}
 	}
 
-	private void parseThroughWeaponTextFile(String path, Map<String, WeaponI> weapons, Map<TypeI, List<WeaponI>> typeWeapons, CategoryI category ) {
+	private void parseThroughWeaponTextFile(String path, Map<String, WeaponI> weapons,
+			Map<TypeI, List<WeaponI>> typeWeapons, CategoryI category, RarityI rarity, boolean isNormal) {
 		WeaponI weapon = null;
+		WeaponKey key = null;
 		File file = new File(path);
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String[] weaponLine = null;
-			List<WeaponI> temp;
+			log.debug(String.format("%s...", file.getPath()));
 			while (z.hasNextLine()) {
-				temp = new ArrayList<>();
-				String line = z.nextLine();
+				String line = z.nextLine().trim();
 				weaponLine = line.split(",");
-				weapon = setNormal(weaponLine,category);
-				weapons.put(weapon.getName(), weapon);
-				typeWeapons.put(weapon.getType(), temp);
+				weapon = (isNormal) ? setNormal(weaponLine, category) : setAbNormal(weaponLine, rarity, category);
+				key = new WeaponKey(weapon.getName(), weapon.getType());
+				weapons.put(key.toString(), weapon);
+			}
+			for (WeaponI w : weapons.values()) {
+				addToTypeHash(w, typeWeapons);
 			}
 		} catch (FileNotFoundException e) {
-			log.info(String.format("Error: %s...", e.getMessage()));
+			log.info(String.format("FNFE Error: %s...", e.getMessage()));
 		}
 	}
-	
-	private WeaponI setNormal(String[] weaponLine, CategoryI category) {
-		return new Normal(
-				weaponLine[0].trim(), 						// Name
-				new Integer(weaponLine[1].trim()), 			// BaseAttack
-				new Length(weaponLine[2].trim()), 			// Length
-				new Integer(weaponLine[3].trim()), 							// Star
-				new Type(weaponLine[4].trim(), category));	// Type
+
+	private void addToTypeHash(WeaponI w, Map<TypeI, List<WeaponI>> typeWeapons) {
+		List<WeaponI> temp;
+		boolean contains = typeWeapons.containsKey(w.getType());
+		System.out.printf("type contains %s : %s\n",w.getType(), contains);
+		if (contains) {
+			temp = typeWeapons.get(w.getType());
+			temp.add(w);
+			System.out.println(temp.toString());
+//			typeWeapons.put(w.getType(), temp);
+		} else {
+			typeWeapons.computeIfAbsent(w.getType(), k -> new ArrayList<>()).add(w);
+			System.out.println("Creating new Array");
+		}
 	}
-	
+
+	private WeaponI setNormal(String[] weaponLine, CategoryI category) {
+		return new Normal(weaponLine[0].trim(), // Name
+				new Integer(weaponLine[1].trim()), // BaseAttack
+				new Length(weaponLine[2].trim()), // Length
+				new Integer(weaponLine[3].trim()), // Star
+				new Type(weaponLine[4].trim(), category)); // Type -- Category
+	}
+
 	private WeaponI setAbNormal(String[] weaponLine, RarityI rarity, CategoryI category) {
-		return new AbNormal (
-				weaponLine[0].trim(), 					// Name
-				new Integer(weaponLine[1].trim()), 		// BaseAttack
-				new Affinity(weaponLine[2].trim()), 	// Affinity
-				new Integer(weaponLine[3].trim()), 		// Star
-				new Type(weaponLine[4].trim(), category),			// Type
-				rarity
-				);		
+		return new AbNormal(weaponLine[0].trim(), // Name
+				new Integer(weaponLine[1].trim()), // BaseAttack
+				new Affinity(weaponLine[2].trim()), // Affinity
+				new Integer(weaponLine[3].trim()), // Star
+				new Type(weaponLine[4].trim(), category), // Type -- Category
+				rarity // Rarity
+		);
 	}
 
 }

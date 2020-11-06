@@ -1,16 +1,19 @@
 package com.anno.dw8xl.category.model;
 
+import com.anno.dw8xl.shared.CategoryDeserializer;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NONE, include = As.PROPERTY)
-@JsonSubTypes({ @Type(value = Category.class, name = "Category"), @Type(value = NullCategory.class, name = "Null"), })
+@JsonDeserialize(using = CategoryDeserializer.class)
+@JsonSubTypes({ 
+	@Type(value = Category.class, name = "Category"), 
+	@Type(value = NullCategory.class, name = "null"), 
+})
 public interface CategoryI {
 	public String getName();
 

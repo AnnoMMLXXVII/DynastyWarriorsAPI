@@ -1,0 +1,33 @@
+
+Normal (single length)
+([A-z])*\w, ([0-9])*, ([0-9])*'([0-9])*", ([1-4]), ([A-z])*\w
+
+Normal (dash lenth)
+([A-z])*\w, ([0-9])*, (([0-9])'([0-9])*") - (([0-9])'([0-9])*"), ([1-4]), ([A-z])*\w
+
+Normal (dash only)
+([A-z])*\w, ([0-9])*, (-), ([1-4]), ([A-z])*\w
+
+Rare
+([A-z])*, ([0-9])*, ([A-z])*\w, ([1-3]), ([A-z])\w*
+
+Unique
+([A-z])*, ([0-9])*, ([A-z])*\w, ([5]), ([A-z])\w*
+
+XTreme Regex
+([A-z]* [A-z]*)*, ([0-9]*), (Heaven), ([6]), ([A-z]*)
+
+INFO: src/main/resources/Text-Files/weapons/dasher/XLWeapons-6-Stars.txt
+	--> God's Decree Scroll, 44, Heaven, 5, Art of War Scroll @ 113...
+INFO: src/main/resources/Text-Files/weapons/whirlwind/NormalWeapons.txt
+	--> God's Decree Scroll, 44, Heaven, 5, Art of War Scroll @ 113...
+INFO: src/main/resources/Text-Files/weapons/whirlwind/XLWeapons-6-Stars.txt
+	--> Basilisk's Bane, 47, Heaven, 5, Stele @  90...
+
+
+INFO: src/main/resources/Text-Files/weapons/dasher/XLWeapons-6-Stars.txt
+	--> God's Decree Scroll, 44, Heaven, 5, Art of War Scroll @ 113...
+INFO: src/main/resources/Text-Files/weapons/whirlwind/NormalWeapons.txt
+	--> God's Decree Scroll, 44, Heaven, 5, Art of War Scroll @ 113...
+INFO: src/main/resources/Text-Files/weapons/whirlwind/XLWeapons-6-Stars.txt
+	--> Basilisk's Bane, 47, Heaven, 5, Stele @  90...

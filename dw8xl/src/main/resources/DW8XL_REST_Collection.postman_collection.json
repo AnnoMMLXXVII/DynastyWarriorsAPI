@@ -1,0 +1,1664 @@
+{
+	"info": {
+		"_postman_id": "885cd8c4-9f35-4ca2-b087-734fb0c5eedb",
+		"name": "DW8XL_REST_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Attribute",
+			"item": [
+				{
+					"name": "Ping",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes/ping",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All - GET Attribute",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/attributes?",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 17:19:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 32,\n        \"name\": \"Whirlwind\",\n        \"description\": \"Raises damage caused by knock back attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 32,\n        \"name\": \"Whirlwind\",\n        \"description\": \"Raises damage caused by knock back attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 32,\n        \"name\": \"Whirlwind\",\n        \"description\": \"Raises damage caused by knock back attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 38,\n        \"name\": \"Awareness\",\n        \"description\": \"Can block attacks from the rear\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 49,\n        \"name\": \"Rakshasa\",\n        \"description\": \"Lowers health\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 48,\n        \"name\": \"War Shoes\",\n        \"description\": \"Doubles movement speed momentarily upon defeating 50 enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 31,\n        \"name\": \"Triumph\",\n        \"description\": \"Restores a small portion of the Awakening gauge by defeating enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 45,\n        \"name\": \"Rigidity\",\n        \"description\": \"The user's guard cannot be broke by any attack\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 17,\n        \"name\": \"Recovery\",\n        \"description\": \"Heals the user with each attack\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 23,\n        \"name\": \"Jolt\",\n        \"description\": \"Raises lightning bolts when attacked\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 39,\n        \"name\": \"Desperation\",\n        \"description\": \"Doubles attack power when in critical condition\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 20,\n        \"name\": \"Explosive\",\n        \"description\": \"Generates small explosinos while attacking\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 7,\n        \"name\": \"Flurry\",\n        \"description\": \"Raises damange as combos go up\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 42,\n        \"name\": \"Agility\",\n        \"description\": \"Releases a damaging war cry when recovering from an attack in mid-air\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 13,\n        \"name\": \"Slash\",\n        \"description\": \"May instantly defeat any enemies while also greatly damage enemy officers out of chance\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 16,\n        \"name\": \"Spurt\",\n        \"description\": \"Raises the chances of enemies dropping the winged boots power-up\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 25,\n        \"name\": \"Protection\",\n        \"description\": \"Raises defense power when equipping two weapons with the same affinity\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 21,\n        \"name\": \"Induction\",\n        \"description\": \"Generates lightning bolts while attacking\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 24,\n        \"name\": \"Harmony\",\n        \"description\": \"Raises attack power when equipping two weapons with the same affinity\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 28,\n        \"name\": \"Morass\",\n        \"description\": \"Attacks may inflict slow status on enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 10,\n        \"name\": \"Frost\",\n        \"description\": \"Freezes enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 2,\n        \"name\": \"Survival\",\n        \"description\": \"Raises attack power while lowering overall health\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 18,\n        \"name\": \"Uplift\",\n        \"description\": \"Attacks help fill up the Musou gauge\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 4,\n        \"name\": \"Barricade\",\n        \"description\": \"Raises defense power while lowering overall defense\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 34,\n        \"name\": \"Comet\",\n        \"description\": \"Raises the distance enemies are flung by certain attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 1,\n        \"name\": \"Thorns\",\n        \"description\": \"Inflicts a portion of damage received against the enemy\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 22,\n        \"name\": \"Vigor\",\n        \"description\": \"Releases a protective shockwave when attacked\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 35,\n        \"name\": \"Thunderclap\",\n        \"description\": \"The user will not flinch from attacks while running\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 8,\n        \"name\": \"Chain\",\n        \"description\": \"Increases time period for maintaing combo count\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 43,\n        \"name\": \"Greed\",\n        \"description\": \"Produces money by attack blocking enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 9,\n        \"name\": \"Inferno\",\n        \"description\": \"Burns enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 36,\n        \"name\": \"Efflorescence\",\n        \"description\": \"Raises duration of strength boost provided by switch counter\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 27,\n        \"name\": \"Awe\",\n        \"description\": \"Attacks may cause enemies to faint momentarily\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 37,\n        \"name\": \"Conflagration\",\n        \"description\": \"Causes eneimes sent flying to explode when colliding with others\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 50,\n        \"name\": \"Shining Warrior\",\n        \"description\": \"Raises attack power the more allies are nearby\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 33,\n        \"name\": \"Gale\",\n        \"description\": \"Raises attack power based on the number of enemies defeasted by the user\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 44,\n        \"name\": \"Fury\",\n        \"description\": \"Enables the use of True Mosou regardless of health\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 15,\n        \"name\": \"Flash\",\n        \"description\": \"Causes affected foes to explode\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 47,\n        \"name\": \"Armor Sleeve\",\n        \"description\": \"Doubles defense power momentarily upon defeating 50 enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 11,\n        \"name\": \"Thunder\",\n        \"description\": \"Electrocutes enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 5,\n        \"name\": \"Aggression\",\n        \"description\": \"Raises damage done by Musou attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 12,\n        \"name\": \"Cyclone\",\n        \"description\": \"Inflicts chip damage against blocking enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 41,\n        \"name\": \"Switftness\",\n        \"description\": \"Doubles movement speed when in critical condition\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 30,\n        \"name\": \"Roar\",\n        \"description\": \"Restores a small portion of Musou by defeating enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 46,\n        \"name\": \"Battleaxe\",\n        \"description\": \"Doubles attack power momentarily upon defeating 50 enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 6,\n        \"name\": \"Velocity\",\n        \"description\": \"Raises overall attack speed\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 40,\n        \"name\": \"Resolve\",\n        \"description\": \"Doubles defense power when in critical condition\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 26,\n        \"name\": \"Fear\",\n        \"description\": \"Attacks may cause enemies to flee in terror\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 14,\n        \"name\": \"Venom\",\n        \"description\": \"Poisons Enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 3,\n        \"name\": \"Frenzy\",\n        \"description\": \"Raises attack power while lowering overall defense\",\n        \"type\": \"NORMAL\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Normals",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?type=normal",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "normal"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Normals - GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/attributes?type=normal",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "normal"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 17:20:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 32,\n        \"name\": \"Whirlwind\",\n        \"description\": \"Raises damage caused by knock back attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 32,\n        \"name\": \"Whirlwind\",\n        \"description\": \"Raises damage caused by knock back attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 32,\n        \"name\": \"Whirlwind\",\n        \"description\": \"Raises damage caused by knock back attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 31,\n        \"name\": \"Triumph\",\n        \"description\": \"Restores a small portion of the Awakening gauge by defeating enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 17,\n        \"name\": \"Recovery\",\n        \"description\": \"Heals the user with each attack\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 23,\n        \"name\": \"Jolt\",\n        \"description\": \"Raises lightning bolts when attacked\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 20,\n        \"name\": \"Explosive\",\n        \"description\": \"Generates small explosinos while attacking\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 7,\n        \"name\": \"Flurry\",\n        \"description\": \"Raises damange as combos go up\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 13,\n        \"name\": \"Slash\",\n        \"description\": \"May instantly defeat any enemies while also greatly damage enemy officers out of chance\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 16,\n        \"name\": \"Spurt\",\n        \"description\": \"Raises the chances of enemies dropping the winged boots power-up\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 25,\n        \"name\": \"Protection\",\n        \"description\": \"Raises defense power when equipping two weapons with the same affinity\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 21,\n        \"name\": \"Induction\",\n        \"description\": \"Generates lightning bolts while attacking\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 24,\n        \"name\": \"Harmony\",\n        \"description\": \"Raises attack power when equipping two weapons with the same affinity\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 28,\n        \"name\": \"Morass\",\n        \"description\": \"Attacks may inflict slow status on enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 10,\n        \"name\": \"Frost\",\n        \"description\": \"Freezes enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 2,\n        \"name\": \"Survival\",\n        \"description\": \"Raises attack power while lowering overall health\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 18,\n        \"name\": \"Uplift\",\n        \"description\": \"Attacks help fill up the Musou gauge\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 4,\n        \"name\": \"Barricade\",\n        \"description\": \"Raises defense power while lowering overall defense\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 34,\n        \"name\": \"Comet\",\n        \"description\": \"Raises the distance enemies are flung by certain attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 1,\n        \"name\": \"Thorns\",\n        \"description\": \"Inflicts a portion of damage received against the enemy\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 22,\n        \"name\": \"Vigor\",\n        \"description\": \"Releases a protective shockwave when attacked\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 35,\n        \"name\": \"Thunderclap\",\n        \"description\": \"The user will not flinch from attacks while running\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 8,\n        \"name\": \"Chain\",\n        \"description\": \"Increases time period for maintaing combo count\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 9,\n        \"name\": \"Inferno\",\n        \"description\": \"Burns enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 36,\n        \"name\": \"Efflorescence\",\n        \"description\": \"Raises duration of strength boost provided by switch counter\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 27,\n        \"name\": \"Awe\",\n        \"description\": \"Attacks may cause enemies to faint momentarily\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 37,\n        \"name\": \"Conflagration\",\n        \"description\": \"Causes eneimes sent flying to explode when colliding with others\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 33,\n        \"name\": \"Gale\",\n        \"description\": \"Raises attack power based on the number of enemies defeasted by the user\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 15,\n        \"name\": \"Flash\",\n        \"description\": \"Causes affected foes to explode\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 11,\n        \"name\": \"Thunder\",\n        \"description\": \"Electrocutes enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 5,\n        \"name\": \"Aggression\",\n        \"description\": \"Raises damage done by Musou attacks\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 12,\n        \"name\": \"Cyclone\",\n        \"description\": \"Inflicts chip damage against blocking enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 30,\n        \"name\": \"Roar\",\n        \"description\": \"Restores a small portion of Musou by defeating enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 6,\n        \"name\": \"Velocity\",\n        \"description\": \"Raises overall attack speed\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 26,\n        \"name\": \"Fear\",\n        \"description\": \"Attacks may cause enemies to flee in terror\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 14,\n        \"name\": \"Venom\",\n        \"description\": \"Poisons Enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 3,\n        \"name\": \"Frenzy\",\n        \"description\": \"Raises attack power while lowering overall defense\",\n        \"type\": \"NORMAL\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Specials",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?type=special",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "special"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Specials - GET ",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/attributes?type=special",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "special"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 17:21:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 38,\n        \"name\": \"Awareness\",\n        \"description\": \"Can block attacks from the rear\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 49,\n        \"name\": \"Rakshasa\",\n        \"description\": \"Lowers health\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 48,\n        \"name\": \"War Shoes\",\n        \"description\": \"Doubles movement speed momentarily upon defeating 50 enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 45,\n        \"name\": \"Rigidity\",\n        \"description\": \"The user's guard cannot be broke by any attack\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 39,\n        \"name\": \"Desperation\",\n        \"description\": \"Doubles attack power when in critical condition\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 42,\n        \"name\": \"Agility\",\n        \"description\": \"Releases a damaging war cry when recovering from an attack in mid-air\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 43,\n        \"name\": \"Greed\",\n        \"description\": \"Produces money by attack blocking enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 50,\n        \"name\": \"Shining Warrior\",\n        \"description\": \"Raises attack power the more allies are nearby\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 44,\n        \"name\": \"Fury\",\n        \"description\": \"Enables the use of True Mosou regardless of health\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 47,\n        \"name\": \"Armor Sleeve\",\n        \"description\": \"Doubles defense power momentarily upon defeating 50 enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 41,\n        \"name\": \"Switftness\",\n        \"description\": \"Doubles movement speed when in critical condition\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 46,\n        \"name\": \"Battleaxe\",\n        \"description\": \"Doubles attack power momentarily upon defeating 50 enemies\",\n        \"type\": \"SPECIAL\"\n    },\n    {\n        \"ID-Type\": \"S\",\n        \"id\": 40,\n        \"name\": \"Resolve\",\n        \"description\": \"Doubles defense power when in critical condition\",\n        \"type\": \"SPECIAL\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Single - Normal - DeVoid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID-Type\" : \"N\",\n    \"name\": \"DeVoid\",\n    \"description\": \"Nullifies all enemy officer's musou defense by 50%\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/attributes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"attributes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single - Awareness POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/attributes/awareness",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"attributes",
+										"awareness"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 17:22:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ID-Type\": \"S\",\n    \"id\": 38,\n    \"name\": \"Awareness\",\n    \"description\": \"Can block attacks from the rear\",\n    \"type\": \"SPECIAL\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Single - Special - Void",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID-Type\" : \"S\",\n    \"name\": \"Void\",\n    \"description\": \"Nullifies all enemy officer's musou attack by 50%\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/attributes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"attributes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single - Awareness POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/attributes/awareness",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"attributes",
+										"awareness"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 17:22:32 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ID-Type\": \"S\",\n    \"id\": 38,\n    \"name\": \"Awareness\",\n    \"description\": \"Can block attacks from the rear\",\n    \"type\": \"SPECIAL\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Error - Empty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ID-Type\": \"S\",\n    \"name\": \"\",\n    \"description\": \"Can block attacks from the rear\",\n    \"type\": \"SPECIAL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error - POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/attributes/v",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"attributes",
+										"v"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 17:23:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "Cannot find attribute by name : v"
+						},
+						{
+							"name": "Error - POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"ID-Type\": \"S\",\n        \"id\": 38,\n        \"name\": \"\",\n        \"description\": \"Can block attacks from the rear\",\n        \"type\": \"SPECIAL\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/attributes",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"attributes"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Oct 2020 01:08:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "Cannot create new Attribute"
+						}
+					]
+				},
+				{
+					"name": "Normals - DeVoid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[    \n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 50%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/attributes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specials - Void",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[    \n   {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 50%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/attributes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mutliple - Mixed",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[    \n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 50%\"\n    },\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 50%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/attributes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Muliple - Normal - DeVoid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=devoid",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "devoid"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Muliple - Normal - PUT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 29,\n        \"name\": \"Jubilation\",\n        \"description\": \"Restores a small portion of health by defeating enemies\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 19,\n        \"name\": \"Enlightenment\",\n        \"description\": \"Attacks helpl fil up with Awakening gauge\",\n        \"type\": \"NORMAL\"\n    },\n    {\n        \"ID-Type\": \"N\",\n        \"id\": 32,\n        \"name\": \"Whirlwind\",\n        \"description\": \"Raises damage caused by knock back attacks\",\n        \"type\": \"NORMAL\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/attributes?name=jubilation,enlightenment,whirlwind",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"attributes"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "jubilation,enlightenment,whirlwind"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 20 Oct 2020 17:23:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Multiple - Normal - Error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=devoid",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "devoid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple - Special - Void",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=void",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "void"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple - Special - Error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/attributes?name=void",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "void"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple - Mixed",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    },\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=void,devoid",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "void,devoid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple - Mixed - Error",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    },\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=void,devoid",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "void,devoid"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Kingdom",
+			"item": [
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms/ping",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All - GET",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/kingdoms/",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"kingdoms",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Oct 2020 08:03:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"Kingdom-Type\": \"Kingdom\",\n        \"kingdom\": \"Shu\"\n    },\n    {\n        \"Kingdom-Type\": \"Kingdom\",\n        \"kingdom\": \"Wei\"\n    },\n    {\n        \"Kingdom-Type\": \"Kingdom\",\n        \"kingdom\": \"Jin\"\n    },\n    {\n        \"Kingdom-Type\": \"Kingdom\",\n        \"kingdom\": \"Wu\"\n    },\n    {\n        \"Kingdom-Type\": \"Kingdom\",\n        \"kingdom\": \"Other\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "By - Name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=Shu",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Shu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By - Name - ERROR",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=void",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "void"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By - Object",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"Shu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=shu",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "shu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By - Object - ERROR",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"VOID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kingdom",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"Shu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Kingdom - ERROR",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"VOID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create - Kingdom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"VOID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"kingdoms",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories/ping",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By - Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories?name=",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By - Name - ERROR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories?name=void",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "void"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Object",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Object - ERROR",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOIDS\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By No Param || Body",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By No Param || Body Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOID\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "Officer",
+					"item": [
+						{
+							"name": "Officers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers/",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "SubOfficer",
+					"item": [
+						{
+							"name": "SubOfficers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/sub-officers/",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"sub-officers",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/characters/ping",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"characters",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All - Characters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/characters/",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"characters",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Weapon",
+			"item": [
+				{
+					"name": "All - Weapons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/weapons",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"weapons"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -28,21 +28,3 @@ Suzaku's Claws, 60, Heaven, 6, Rake
 Violet Storm, 68, Heaven, 6, Dual-Headed Mace
 Heaven Conqueror, 56, Heaven, 6, War Trident
 Brimstone Wrath, 56, Heaven, 6, Stele
-
-
-
-
-
-
-
-
-
-
-
-
-Dark Dragon Spear, 62, Heaven, 6, Dragon Spear
-Mercurial Rain, 42, Heaven, 6, Throwing Knives
-Dazzler, 48, Heaven, 6, Curved Sword
-Strike Sealing Sword, 49, Heaven, 6, Striking Sword
-Shadow Slayers, 56, Heaven, 6, Twin Axes
-Soaring Wings, 56, Heaven, 6, Crossed Pike

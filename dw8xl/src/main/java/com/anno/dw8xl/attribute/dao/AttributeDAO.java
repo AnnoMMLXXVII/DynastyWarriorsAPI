@@ -113,7 +113,7 @@ public class AttributeDAO implements AttributeDAOInterface {
 		if (!AttributeDAOInterface.isValidToRemove(entity)) {
 			return;
 		}
-		if (!attributes.containsValue(entity)) {
+		if (!attributes.containsKey(entity.getName())) {
 			log.info("Cannot find Attribute to remove...");
 			return;
 		}
