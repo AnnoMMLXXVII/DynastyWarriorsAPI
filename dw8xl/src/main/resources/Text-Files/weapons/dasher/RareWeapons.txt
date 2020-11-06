@@ -1,8 +1,7 @@
-Emperor's Blade, 30, Heaven, 1, Sword
 Windflower, 25, Heaven, 2, Sword
 Flamebringer, 28, Earth, 3, Sword
 Thunderstorm, 14, Heaven, 1, Rapier
-Dreamsetter, 20, Earth, 2 Rapier
+Dreamsetter, 20, Earth, 2, Rapier
 Motionpeak, 14, Heaven, 1, War Fan
 Summitchaser, 24, Man, 3, War Fan
 Fellowship of Duty, 16, Earth, 2, Twin Swords

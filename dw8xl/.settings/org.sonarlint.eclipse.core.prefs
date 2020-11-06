@@ -2,5 +2,5 @@ autoEnabled=true
 eclipse.preferences.version=1
 idePrefixKey=
 projectKey=com.anno.dw8xl
-serverId=DW8XL_DB CONN
+serverId=dw8xl_api
 sqPrefixKey=

@@ -130,7 +130,7 @@ public enum PATH {
 	
 	public static PATH[] getDasherWeaponsPaths() {
 		return new PATH[] {
-				DASHER_NORMAL_PATH, DASHER_RARE_PATH, DASHER_UNIQUE_PATH,DASHER_XTREME_PATH
+				DASHER_NORMAL_PATH, DASHER_RARE_PATH, DASHER_UNIQUE_PATH, DASHER_XTREME_PATH
 		};
 	}
 	
@@ -149,6 +149,30 @@ public enum PATH {
 	public static PATH[] getWhirlwindWeaponsPaths() {
 		return new PATH[] {
 				WHIRLWIND_NORMAL_PATH, WHIRLWIND_RARE_PATH, WHIRLWIND_UNIQUE_PATH, WHIRLWIND_XTREME_PATH
+		};
+	}
+	
+	public static PATH[] getNormalRarityWeaponsPaths() {
+		return new PATH[] {
+				DASHER_NORMAL_PATH, DIVER_NORMAL_PATH, SHADOW_NORMAL_PATH, WHIRLWIND_NORMAL_PATH,
+		};
+	}
+	
+	public static PATH[] getRareRarityWeaponsPaths() {
+		return new PATH[] {
+				DASHER_RARE_PATH, DIVER_RARE_PATH, SHADOW_RARE_PATH, WHIRLWIND_RARE_PATH,
+		};
+	}
+	
+	public static PATH[] getUniqueRarityWeaponsPaths() {
+		return new PATH[] {
+				DASHER_UNIQUE_PATH, DIVER_UNIQUE_PATH, SHADOW_UNIQUE_PATH, WHIRLWIND_UNIQUE_PATH,
+		};
+	}
+	
+	public static PATH[] getXtremeRarityWeaponsPaths() {
+		return new PATH[] {
+				DASHER_XTREME_PATH, DIVER_XTREME_PATH, SHADOW_XTREME_PATH, WHIRLWIND_XTREME_PATH,
 		};
 	}
 

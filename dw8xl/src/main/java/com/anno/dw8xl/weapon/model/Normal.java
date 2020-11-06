@@ -12,21 +12,32 @@ import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.view.CharacterView;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
 @Component
+@JsonTypeName("Normal")
+@JsonDeserialize(as = Normal.class)
 public class Normal extends Weapon {
 
-	@JsonView(CharacterView.Length.class)
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "normal";
+	
+	@JsonView(CharacterView.Weapon.class)
 	private LengthI length;
+	@JsonView(CharacterView.Weapon.class)
+	private AffinityI affinity;
 
-	protected Normal() {
-		/**
+	public Normal() {
+		/*
 		 * 
 		 */
 	}
@@ -41,6 +52,7 @@ public class Normal extends Weapon {
 	public Normal(String name, Integer baseAttack, LengthI length, Integer star, TypeI type) {
 		super(name, baseAttack, star, type);
 		this.length = length;
+		affinity = new Affinity("?");
 	}
 
 	@Override
@@ -51,13 +63,24 @@ public class Normal extends Weapon {
 	/**
 	 * @return the length
 	 */
-	public String getLength() {
-		return length.getSize();
+	public LengthI getLength() {
+		return length;
 	}
-
+	
+	public void setAffinity(AffinityI affinity) {
+		this.affinity = affinity;
+	}
+	
 	@Override
 	public AffinityI getAffinity() {
-		return new Affinity("?");
+		return affinity;
+	}
+
+	/**
+	 * @param length the length to set
+	 */
+	public void setLength(LengthI length) {
+		this.length = length;
 	}
 
 	@Override
@@ -88,7 +111,7 @@ public class Normal extends Weapon {
 	
 	@Override
 	public String toString() {
-		return String.format("%s, %s", super.toString(), length.getSize());
+		return String.format("%s, %5s, %8s, %s",super.toString(), affinity.toString(), length.toString(), getRarity().toString());
 	}
 
 }

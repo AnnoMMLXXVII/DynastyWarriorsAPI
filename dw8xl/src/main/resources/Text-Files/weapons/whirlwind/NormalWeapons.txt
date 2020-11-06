@@ -8,7 +8,7 @@ Rainmaker, 30, 9'8", 3, Pike
 Golden Glory, 38, 9'10", 4, Pike
 Curved Voulge, 18, 9'10", 1, Double Voulge
 Master Voulge, 24, 9'10", 2, Double Voulge
-Sky Voulge 33, 9'10", 3, Double Voulge
+Sky Voulge, 33, 9'10", 3, Double Voulge
 Wicked Voulge, 41, 9'10", 4, Double Voulge
 Horse Cleaver, 18, 8'4", 1, Great Sword
 Stallion Cleaver, 25, 8'6", 2, Great Sword
@@ -71,7 +71,7 @@ Battle Ko, 25, 6'9", 2, Short Pike
 Spring Striker, 34, 6'9", 3, Short Pike
 Roaring Pike, 40, 6'9", 4, Short Pike
 Mighty Axe, 18, 8'2", 1, Great Axe
-Destructive Axe, 25, 8'4, 2, Great Axe
+Destructive Axe, 25, 8'4", 2, Great Axe
 Fangcrusher, 33, 8'4", 3, Great Axe
 White Fang, 41, 8'4", 4, Great Axe
 Iron Mace, 18, 9'6", 1, Mace
@@ -88,12 +88,12 @@ Darkness Edge, 36, 5'9", 3, Arm Blade
 Azure Edge, 45, 6'3", 4, Arm Blade
 Iron Chakram, 18, 5'7", 1, Circle Blade
 Steel Chakram, 27, 5'7", 2, Circle Blade
-Shredding Charkram, 36, 5'7", Circle Blade
-Demon Chakram, 43, 5'11", Circle Blade
-Destructive Spear, 18, 9'2", Siege Spear
-Stonecrushing Spear, 27, 9'2", Siege Spear
-Ironshredder, 36, 9'2", Siege Spear
-Sky Piercer, 45, 9'2", Siege Spear
+Shredding Charkram, 36, 5'7", 3, Circle Blade
+Demon Chakram, 43, 5'11", 4, Circle Blade
+Destructive Spear, 18, 9'2", 1, Siege Spear
+Stonecrushing Spear, 27, 9'2", 2, Siege Spear
+Ironshredder, 36, 9'2", 3, Siege Spear
+Sky Piercer, 45, 9'2", 4, Siege Spear
 Iron Bow, 14, 5'3" - 5'7", 1, Bow & Rod
 Steel Bow, 20, 5'3" - 5'7", 2, Bow & Rod
 Spiked Bow, 28, 5'3" - 5'7", 3, Bow & Rod
@@ -122,21 +122,3 @@ Stone Pillar, 18, 12'2", 1, Stele
 Giant Toadstool, 27, 13'3", 2, Stele
 Viper's Venom, 33, 13'3", 3, Stele
 Pillar of Pain, 39, 15'11", 4, Stele
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -40,7 +40,7 @@ Immortal Blade, 57, Man, 5, Flying Swords
 Void, 40, Heaven, 5, Curved Sword
 Sword Cane, 42, Heaven, 5, Curved Sword
 Faerie, 44, Man, 5, Curved Sword
-Elegant Claws, 31, 5, Heaven, Claws
+Elegant Claws, 31, Heaven, 5, Claws
 Digger, 33, Heaven, 5, Claws
 Jade Claws, 34, Man, 5, Claws
 Princess Wheels, 41, Heaven, 5, Wheels
@@ -55,10 +55,10 @@ Aqua Slash, 46, Heaven, 5, Spinner
 Pearl Flute, 37, Heaven, 5, Flute
 Harmonica, 39, Earth, 5, Flute
 Crimson Lotus, 41, Earth, 5, Flute
-Heavenly Harp, 33, Heavenly, 5, Harp
+Heavenly Harp, 33, Heaven, 5, Harp
 Accordion, 35, Earth, 5, Harp
-Crystal Harp, 36, Earth 5, Harp
-Heavenly Phoenix, 35, Heavenly, 5, Orb & Scepter
+Crystal Harp, 36, Earth, 5, Harp
+Heavenly Phoenix, 35, Heaven, 5, Orb & Scepter
 Hustler's Cue, 37, Earth, 5, Orb & Scepter
 Faerie Moon, 39, Earth, 5, Orb & Scepter
 Azure Tip, 35, Heaven, 5, Trishula
@@ -80,13 +80,13 @@ Tiger Swallow Blades, 41, Man, 5, Swallow Swords
 Medical Swords, 39, Man, 5, Swallow Swords
 Crimson Swallow, 37, Heaven, 5, Swallow Swords
 Violent Storm, 43, Man, 5, Three Sectional Staff
-Pain Train 41, Heaven, 5, Three Sectional Staff
+Pain Train, 41, Heaven, 5, Three Sectional Staff
 Raging Winds, 39, Heaven, 5, Three Sectional Staff
 Leader's Fan, 37, Heaven, 5, Shadow Fan
 Intravenous Drip, 39, Heaven, 5, Shadow Fan
 Night Moth Fan, 41, Heaven, 5, Shadow Fan
 Heaven's Reach, 36, Heaven, 5, Extension Blade
-Full Bloom 38, Earth, 5, Extension Blade
+Full Bloom, 38, Earth, 5, Extension Blade
 Storm Thrust, 40, Earth, 5, Extension Blade
 Talons of Conquest, 49, Heaven, 5, Dual Hookblades
 Wrench, 51, Heaven, 5, Dual Hookblades

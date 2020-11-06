@@ -45,7 +45,7 @@ public interface AttributeDAOInterface extends DataAccessObjectInterface<Attribu
 			throw new NullPointerException("Attribute cannot be removed due to Null!");
 		}
 		if (entity instanceof NullAttribute || entity.getName().equals("")) {
-			log.info("Cannot add Attribute due to Null Or Empty Rarity...");
+			log.info("Cannot remove Attribute due to Null Attribute Object Or Empty request [name]...");
 			return false;
 		}
 		return true;

@@ -178,19 +178,3 @@ Infernal Column, Explosive: 7, Awareness, Uplift: 8
 Winds of Turmoil, Cyclone: 7, Spurt: 7, Whirlwind: 7
 Basilisk's Bane, Cyclone: 10, Fury, Fear: 9, Flurry: 9
 Brimstone Wrath, Inferno: 10, Vigor: 9, Frenzy: 9, Resolve, Roar: 8
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

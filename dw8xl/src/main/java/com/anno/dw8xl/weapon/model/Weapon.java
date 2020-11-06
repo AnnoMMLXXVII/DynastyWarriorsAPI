@@ -3,35 +3,31 @@ package com.anno.dw8xl.weapon.model;
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.type.model.TypeI;
-import com.anno.dw8xl.view.CharacterView;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NONE, include = As.PROPERTY)
-@JsonSubTypes({ 
-	@Type(value = Normal.class, name = "Normal"),
-	@Type(value = AbNormal.class, name = "AbNormal")
-
-})
-@JsonView({ CharacterView.Officer.class, CharacterView.Weapon.class })
 @Component
+@JsonDeserialize(as = WeaponI.class)
+
 public abstract class Weapon implements WeaponI {
 
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state;
+	
 	private String name;
 	private Integer baseAttack;
 	private TypeI type;
 	private Integer star;
 
-	protected Weapon() {
+	public Weapon() {
 		/*
-		 * Empty Contrucutor Security Reasons Sonar Resolve Compilation
+		 * 
 		 */
 	}
 
@@ -67,6 +63,34 @@ public abstract class Weapon implements WeaponI {
 	@Override
 	public Integer getStar() {
 		return star;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @param baseAttack the baseAttack to set
+	 */
+	public void setBaseAttack(Integer baseAttack) {
+		this.baseAttack = baseAttack;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(TypeI type) {
+		this.type = type;
+	}
+
+	/**
+	 * @param star the star to set
+	 */
+	public void setStar(Integer star) {
+		this.star = star;
 	}
 
 	@Override
@@ -111,10 +135,10 @@ public abstract class Weapon implements WeaponI {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return String.format("%24s, %2d, %d, %s", name, baseAttack, star, type.getName());
+		return String.format("%24s, %2d, %d, %s", name, baseAttack, star, type.toString());
 	}
 
 }
