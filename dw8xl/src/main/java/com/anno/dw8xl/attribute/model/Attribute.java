@@ -1,14 +1,23 @@
 package com.anno.dw8xl.attribute.model;
 
+import org.springframework.stereotype.Component;
+
 import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author Haku Wei
  *
  */
+@Component
+@JsonDeserialize(as = AttributeI.class)
 public abstract class Attribute implements AttributeI {
 	
+	@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "state")
+	private String state;
 	@JsonView({CharacterView.Attribute.class, CharacterView.Weapon.Attribute.class})
 	private String name;
 	@JsonView({CharacterView.Attribute.class})

@@ -79,13 +79,9 @@ class WeaponDAOTest {
 	}
 	
 	@DisplayName("Get Type Hash...")
-	@Test
+//	@Test
 	void testGetTypeHashWeapons() {
 		Map<TypeI, List<WeaponI>> hash = dao.getTypeHash();
-//		TypeI expected = new Type("Flaming Bow", new Category("Dasher"));
-//		for (List<WeaponI> t : hash.values()) {
-//			System.out.printf("[%s]  \n", t.toString());
-//	    }
 		assertEquals(67, hash.size());
 	}
 
@@ -135,70 +131,70 @@ class WeaponDAOTest {
 	}
 	
 	@DisplayName("Test weapons filter for category - Dasher")
-//	@Test
+	@Test
 	void testWeaponFilterByCategory_Dasher() {
 		Collection<WeaponI> dashers = dao.getWeaponsByCategory("Dasher");
 		assertTrue(!dashers.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter for Type - Sword")
-//	@Test
+	@Test
 	void testWeaponFilterByType_Sword() {
 		Collection<WeaponI> swords = dao.getWeaponsByType("Sword");
 		assertTrue(!swords.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter for State - Normal")
-//	@Test
+	@Test
 	void testWeaponFilterByState_Normal() {
 		Collection<WeaponI> states = dao.getWeaponsByState("Normal");
 		assertTrue(!states.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter for Star - 5")
-//	@Test
+	@Test
 	void testWeaponFilterByStar_5() {
 		Collection<WeaponI> weapons = dao.getWeaponsByStar(5);
 		assertTrue(!weapons.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter for State - Normal")
-//	@Test
+	@Test
 	void testWeaponFilterByAffinity_Man() {
 		Collection<WeaponI> weapons = dao.getWeaponsByAffinity("man");
 		assertTrue(!weapons.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter with Base Attack Equal to - 30")
-//	@Test
+	@Test
 	void testWeaponFilterByBaseAttackEqualTo_Thirty() {
 		Collection<WeaponI> weapons = dao.getWeaponsWithBaseAttack(30);
 		assertTrue(!weapons.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter with Base Attack Greater than - 30")
-//	@Test
+	@Test
 	void testWeaponFilterByBaseAttackGreaterThan_Thirty() {
 		Collection<WeaponI> weapons = dao.getWeaponsWithBaseAttackGreaterThan(30, false);
 		assertTrue(!weapons.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter with Base Attack Greater than (inclusive) - 30")
-//	@Test
+	@Test
 	void testWeaponFilterByBaseAttackGreaterThanInclusive_Thirty() {
 		Collection<WeaponI> weapons = dao.getWeaponsWithBaseAttackGreaterThan(30, true);
 		assertTrue(!weapons.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter with Base Attack Less than - 30")
-//	@Test
+	@Test
 	void testWeaponFilterByBaseAttackLessThan_Thirty() {
 		Collection<WeaponI> weapons = dao.getWeaponsWithBaseAttackLessThan(30, false);
 		assertTrue(!weapons.isEmpty());
 	}
 	
 	@DisplayName("Test weapons filter with Base Attack Less than (inclusive) - 30")
-//	@Test
+	@Test
 	void testWeaponFilterByBaseAttackLessThanInclusive_Thirty() {
 		Collection<WeaponI> weapons = dao.getWeaponsWithBaseAttackLessThan(30, true);
 		assertTrue(!weapons.isEmpty());
@@ -206,7 +202,7 @@ class WeaponDAOTest {
 	
 
 	@DisplayName("Test adding new Weapon [Void]...")
-//	@Test
+	@Test
 	void testAddNewWeapon() {
 		Collection<WeaponI> weapons = dao.getAll();
 		WeaponI expected = new Normal("VOID", -1, new Length("-1"), 0, new Type("", new Category("")));
@@ -217,7 +213,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon [Void] -> Affinity == Expected")
-//	@Test
+	@Test
 	void testAddNewWeapon_AffinityEqualsExpected() {
 		WeaponI expected = new Normal("VOID", 70, new Length("10\""), 0, new Type("Void", new Category("Void")));
 		dao.add(expected);
@@ -225,7 +221,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon [Null] -> NULL POINTER EXCEPTION")
-//	@Test
+	@Test
 	void testAddNewWeapon_ThrowsNPE() {
 		WeaponI expected = null;
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -235,7 +231,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon [Void] -> Null Type")
-//	@Test
+	@Test
 	void testAddNewWeapon_ThrowsNPE_Type() {
 		WeaponI expected = new Normal("VOID", -1, new Length("-1"), 0, null);
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -245,7 +241,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon [Void] -> Null Value for Type ")
-//	@Test
+	@Test
 	void testAddNewWeapon_ThrowsNPE_Type_value() {
 		WeaponI expected = new Normal("VOID", -1, new Length("-1"), 0, new Type(null));
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -255,7 +251,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon [Void] -> Null Type Object")
-//	@Test
+	@Test
 	void testAddNewWeapon_ThrowsNPE_NullType() {
 		WeaponI expected = new Normal("VOID", -1, new Length("-1"), 0, new NullType());
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -265,7 +261,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon [Void] -> Null Category")
-//	@Test
+	@Test
 	void testAddNewWeapon_ThrowsNPE_Cateogry_NULL() {
 		WeaponI expected = new Normal("VOID", -1, new Length("-1"), 0, new Type("", null));
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -275,7 +271,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon [Void] -> Null Value for Category")
-//	@Test
+	@Test
 	void testAddNewWeapon_ThrowsNPE_Cateogry_NULL_value() {
 		WeaponI expected = new Normal("VOID", -1, new Length("-1"), 0, new Type("", new Category(null)));
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -336,7 +332,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test Weapon remove --> Null Value")
-//	@Test
+	@Test
 	void testRemoveWeapon_NullValue() {
 		WeaponI expected = null;
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -346,7 +342,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test Weapon remove --> Does not Exist")
-//	@Test
+	@Test
 	void testRemoveWeapon_NonExistent() {
 		Collection<WeaponI> weapons = dao.getAll();
 		int size = weapons.size();

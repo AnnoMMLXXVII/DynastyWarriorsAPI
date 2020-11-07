@@ -20,6 +20,8 @@ import com.anno.dw8xl.attribute.model.AttributeI;
 import com.anno.dw8xl.attribute.model.Normal;
 import com.anno.dw8xl.attribute.model.Special;
 import com.anno.dw8xl.dao.PATH;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author Haku Wei
@@ -73,8 +75,7 @@ public class AttributeDAO implements AttributeDAOInterface {
 
 	@Override
 	public List<AttributeI> executeGetSpecialAttributes() {
-		return attributes.values().stream().filter(a -> a.getRarity().equals("SPECIAL"))
-				.collect(Collectors.toList());
+		return attributes.values().stream().filter(a -> a.getRarity().equals("SPECIAL")).collect(Collectors.toList());
 	}
 
 	@Override
@@ -121,9 +122,15 @@ public class AttributeDAO implements AttributeDAOInterface {
 	}
 
 	@Override
-	public AttributeI executeCreateAttribute(AttributeI attribute) {
-		attributes.put(attribute.getName(), attribute);
-		return attributes.get(attribute.getName());
+	public AttributeI executeCreateAttribute(String json) {
+		ObjectMapper mapper = new ObjectMapper();
+		AttributeI attribute = null;
+		try {
+			attribute = mapper.readValue(json, AttributeI.class);
+		} catch (JsonProcessingException e) {
+			log.debug(String.format("%s", e.getMessage()));
+		}
+		return attribute;
 	}
 
 	@Override

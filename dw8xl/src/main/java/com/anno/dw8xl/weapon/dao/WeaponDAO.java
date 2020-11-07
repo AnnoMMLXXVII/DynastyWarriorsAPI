@@ -188,8 +188,12 @@ public class WeaponDAO implements WeaponDAOInterface {
 	public Collection<WeaponI> getWeaponsByState(String state) {
 		if (state.equalsIgnoreCase("normal")) {
 			return weapons.values().stream().filter(e -> e instanceof Normal).collect(Collectors.toList());
-		} else {
+		} 
+		else if (state.equalsIgnoreCase("abnormal")) {
 			return weapons.values().stream().filter(e -> e instanceof AbNormal).collect(Collectors.toList());
+		}
+		else {
+			return new ArrayList<>();
 		}
 	}
 
@@ -266,26 +270,9 @@ public class WeaponDAO implements WeaponDAOInterface {
 				key = new WeaponKey(weapon.getName(), weapon.getType());
 				weapons.put(key.toString(), weapon);
 			}
-			for (WeaponI w : weapons.values()) {
-				addToTypeHash(w, typeWeapons);
-			}
+			
 		} catch (FileNotFoundException e) {
 			log.info(String.format("FNFE Error: %s...", e.getMessage()));
-		}
-	}
-
-	private void addToTypeHash(WeaponI w, Map<TypeI, List<WeaponI>> typeWeapons) {
-		List<WeaponI> temp;
-		boolean contains = typeWeapons.containsKey(w.getType());
-		System.out.printf("type contains %s : %s\n",w.getType(), contains);
-		if (contains) {
-			temp = typeWeapons.get(w.getType());
-			temp.add(w);
-			System.out.println(temp.toString());
-//			typeWeapons.put(w.getType(), temp);
-		} else {
-			typeWeapons.computeIfAbsent(w.getType(), k -> new ArrayList<>()).add(w);
-			System.out.println("Creating new Array");
 		}
 	}
 

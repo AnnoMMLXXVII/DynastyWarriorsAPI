@@ -4,7 +4,10 @@
 package com.anno.dw8xl.attribute.model;
 
 import com.anno.dw8xl.rarity.model.NullRarity;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 /**
  * @author venividivicihofneondeion010101
@@ -13,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeName("Null")
 public class NullAttribute implements AttributeI {
 
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "null";
 	
 	public NullAttribute() {
 		/*
@@ -35,6 +40,31 @@ public class NullAttribute implements AttributeI {
 	@Override
 	public String getDescription() {
 		return "";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NullAttribute other = (NullAttribute) obj;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
+		return true;
 	}
 
 }

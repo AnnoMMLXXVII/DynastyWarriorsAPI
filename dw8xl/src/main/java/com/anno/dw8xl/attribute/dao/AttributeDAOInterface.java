@@ -19,7 +19,7 @@ public interface AttributeDAOInterface extends DataAccessObjectInterface<Attribu
 
 	public AttributeI executeGetAttributeByName(String name);
 
-	public AttributeI executeCreateAttribute(AttributeI attribute);
+	public AttributeI executeCreateAttribute(String json);
 
 	public List<AttributeI> executeRemoveAttribute(List<AttributeI> attribute);
 

@@ -45,10 +45,10 @@ public class AttributeController {
 	@GetMapping(produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<Collection<AttributeI>> getAttributes(
 			@RequestParam(value = "type", required = false, defaultValue = "") String type) {
-		if(type.equals("normal")) {
+		if(type.equalsIgnoreCase("normal")) {
 			return new ResponseEntity<>(facade.getNormalAttributes(), HttpStatus.OK);
 		}
-		else if (type.equals("special")) {
+		else if (type.equalsIgnoreCase("special")) {
 			return new ResponseEntity<>(facade.getSpecialAttributes(), HttpStatus.OK);
 		}
 		else {

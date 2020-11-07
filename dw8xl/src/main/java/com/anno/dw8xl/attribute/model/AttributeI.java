@@ -1,13 +1,17 @@
 package com.anno.dw8xl.attribute.model;
 
+import com.anno.dw8xl.shared.AttributeDeserializer;
+import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NONE, include = As.PROPERTY)
-@JsonSubTypes({ @Type(value = Normal.class, name = "Normal"), @Type(value = Special.class, name = "Special"),
+@JsonView({ CharacterView.Attribute.class, CharacterView.Weapon.Attribute.class })
+@JsonDeserialize(using = AttributeDeserializer.class)
+@JsonSubTypes({ @Type(value = Normal.class, name = "Normal"), 
+		@Type(value = Special.class, name = "Special"),
 		@Type(value = NullAttribute.class, name = "Null"), })
 public interface AttributeI {
 	public String getName();

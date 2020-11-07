@@ -11,9 +11,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,26 +32,30 @@ public class WeaponController {
 
 	@Autowired
 	private WeaponFacadeInterface facade;
-	
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+
+	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<WeaponI>> getAllWeapons() {
 		return new ResponseEntity<>(facade.getAllWeapons(), HttpStatus.OK);
 	}
-	
-	@PostMapping(value = "/test/single", produces = MediaType.APPLICATION_JSON_VALUE)
+
+	@PostMapping(value = "/single", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<WeaponI> singlePost(
-			@RequestBody(required = true) String weapon) {
+	public ResponseEntity<WeaponI> singlePost(@RequestBody(required = true) String weapon) {
 		return new ResponseEntity<>(facade.parseWeaponObject(weapon), HttpStatus.OK);
 	}
-	
-	@PostMapping(value = "/test/multi", produces = MediaType.APPLICATION_JSON_VALUE)
+
+	@PostMapping(value = "/multi", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<Collection<WeaponI>> multiPost(
-			@RequestBody(required = true) List<WeaponI> weapons) {
+	public ResponseEntity<Collection<WeaponI>> multiPost(@RequestBody(required = true) List<WeaponI> weapons) {
 		return new ResponseEntity<>(facade.parseWeaponsList(weapons), HttpStatus.OK);
 	}
-	
-	
+
+	@GetMapping(value = "/{filter}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<Collection<WeaponI>> getFilteredWeapons(@PathVariable(value = "filter", required = true) String filter,
+			@RequestParam(required = true) String value,
+			@RequestParam(value = "inclusive", required = false) String...options) {
+		return new ResponseEntity<>(facade.getFilteredWeapons(filter, value, options), HttpStatus.OK);
+	}
 
 }

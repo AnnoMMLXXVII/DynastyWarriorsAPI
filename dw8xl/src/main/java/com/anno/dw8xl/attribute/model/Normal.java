@@ -3,18 +3,29 @@
  */
 package com.anno.dw8xl.attribute.model;
 
+import org.springframework.stereotype.Component;
+
 import com.anno.dw8xl.level.model.LevelI;
 import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author Haku Wei
  *
  */
+@Component
 @JsonTypeName("Normal")
+@JsonDeserialize(as = Normal.class)
 public class Normal extends Attribute {
+	
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "normal";
 	
 	@JsonView({CharacterView.Weapon.Attribute.class})
 	private LevelI level;
@@ -50,6 +61,7 @@ public class Normal extends Attribute {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((level == null) ? 0 : level.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		return result;
 	}
 
@@ -67,10 +79,12 @@ public class Normal extends Attribute {
 				return false;
 		} else if (!level.equals(other.level))
 			return false;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
 		return true;
 	}
-	
-	
-	
 
 }

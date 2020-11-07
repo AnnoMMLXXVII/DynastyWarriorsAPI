@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import com.anno.dw8xl.attribute.dao.AttributeDAOInterface;
 import com.anno.dw8xl.attribute.model.AttributeI;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author venividivicihofneondeion010101
@@ -48,13 +50,17 @@ public class AttributeFacade implements AttributeFacadeInterface {
 	
 	@Override
 	public AttributeI createAttribute(AttributeI attribute) {
-		isValidAttribute(attribute);
-		if(getAttributeByName(attribute.getName()) != null) {
-			log.debug("Cannot create new Attribute due to already-existing Attribute");
-			return null;
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = mapper.writeValueAsString(attribute);
+			System.out.println(json);
+		}catch(JsonProcessingException e) {
+			log.debug(String.format("%s", e.getMessage()));
 		}
-		return dao.executeCreateAttribute(attribute);
+		return dao.executeCreateAttribute(json);
 	}
+	
 	@Override
 	public List<AttributeI> removeAttribute(List<AttributeI> attribute) {
 		if(attribute.isEmpty()) {
@@ -74,6 +80,18 @@ public class AttributeFacade implements AttributeFacadeInterface {
 		}
 		return dao.executeUpdateAttributes(old, attribute);
 	}
+	
+	private AttributeI deserializeAttribute(AttributeI attribute) {
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = mapper.writeValueAsString(attribute);
+		}catch(JsonProcessingException e) {
+			log.debug(String.format("%s", e.getMessage()));
+		}
+		return dao.executeCreateAttribute(json);
+	}
+	
 	private boolean isValidAttribute(AttributeI attribute) {
 		if(attribute == null) {
 			log.debug("Attribute instance: Null");
