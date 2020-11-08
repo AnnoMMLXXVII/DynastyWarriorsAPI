@@ -58,23 +58,27 @@ class CategoryDAOTest {
 	@DisplayName("Category equals Expected [Dasher]")
 	@Test
 	void testGetCategoryByNumberEqualsExpected() {
-		Optional<CategoryI> actual = dao.getBy(3);
+		Optional<CategoryI> actual = dao.getBy("Dasher");
+		
 		assertEquals(expected, actual.get());
 	}
 	
 	@DisplayName("Category equals Expected [NullCategory]")
 	@Test
 	void testGetCategoryByNameEqualsNullCategory() {
-		// Due to Map Key. Cannot search by String. Only Integer;
-		Optional<CategoryI> actual = dao.getBy("Dasher");
-		assertEquals(new NullCategory().getName(), actual.get().getName());
+		Optional<CategoryI> actual = dao.getBy("Void");
+		if(actual.isPresent()) {
+			assertEquals(new NullCategory().getName(), actual.get().getName());
+		}
 	}
 	
 	@DisplayName("Category !equals Expected [Void]")
 	@Test
 	void testGetCategoryByNameDoesNotEqualExpected() {
-		CategoryI actual = dao.getBy(new Category("Void")).get();
-		assertNotEquals(expected, actual);
+		Optional<CategoryI> actual = dao.getBy(new Category("Void"));
+		if (actual.isPresent()) {
+			assertNotEquals(expected, actual);
+		}
 	}
 	
 	@DisplayName("Category add Expected [VOID]")
