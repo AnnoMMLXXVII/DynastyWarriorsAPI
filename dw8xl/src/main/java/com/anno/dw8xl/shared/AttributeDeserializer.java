@@ -28,8 +28,8 @@ public class AttributeDeserializer extends JsonDeserializer<AttributeI> {
 		ObjectNode root = (ObjectNode) mapper.readTree(p);
 		Class<? extends Attribute> instanceClass = null;
 		String res = root.get(id).toString();
-//		System.out.printf("AttriDez --> %s\n", root.toPrettyString());
-		if (res.trim().equals("Normal")) {
+//		System.out.printf("AttriDez --> %s\n TYPE --> %s\n", root.toPrettyString(), res.toString());
+		if (res.equals("\"normal\"".toLowerCase().trim())) {
 			instanceClass = Normal.class;
 		} else {
 			instanceClass = Special.class;

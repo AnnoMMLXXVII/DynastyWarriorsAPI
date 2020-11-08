@@ -20,7 +20,7 @@ public class LengthDeserializer extends JsonDeserializer<LengthI> {
 	public LengthI deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
 		ObjectMapper mapper = (ObjectMapper) p.getCodec();
 		ObjectNode root = (ObjectNode) mapper.readTree(p);
-		Class<? extends LengthI> instanceClass = null;
+		Class<? extends Length> instanceClass = null;
 //		System.out.printf("LDez --> %s\n", root.toPrettyString());
 		if (root.get(id) != null) {
 			instanceClass = Length.class;

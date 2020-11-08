@@ -5,10 +5,9 @@ package com.anno.dw8xl.shared;
 
 import java.io.IOException;
 
-import com.anno.dw8xl.weapon.model.AbNormal;
-import com.anno.dw8xl.weapon.model.Normal;
-import com.anno.dw8xl.weapon.model.Weapon;
-import com.anno.dw8xl.weapon.model.WeaponI;
+import com.anno.dw8xl.level.model.Level;
+import com.anno.dw8xl.level.model.LevelI;
+import com.anno.dw8xl.level.model.NullLevel;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -16,24 +15,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
- * @author venividivicihofneondeion010101
+ * @author Haku Wei
  *
  */
-public class WeaponDeserializer extends JsonDeserializer<WeaponI> {
+public class LevelDeserializer extends JsonDeserializer<LevelI> {
 	private static String id = "state";
 
 	@Override
-	public WeaponI deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
+	public LevelI deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
 		ObjectMapper mapper = (ObjectMapper) p.getCodec();
 		ObjectNode root = (ObjectNode) mapper.readTree(p);
-		Class<? extends Weapon> instanceClass = null;
+		Class<? extends LevelI> instanceClass = null;
 		String res = root.get(id).toString();
-//		System.out.printf("WDez --> %s\n%s\n", root.toPrettyString(),res);
-		if (res.equals("\"normal\"".toLowerCase().trim())) {
-			instanceClass = Normal.class;
+//		System.out.printf("LvlDez --> %s\n%s\n", root.toPrettyString(),res);
+		if (res.equals("level".toLowerCase().trim())) {
+			instanceClass = Level.class;
 		} else {
-			instanceClass = AbNormal.class;
+			instanceClass = NullLevel.class;
 		}
 		return mapper.treeToValue(root, instanceClass);
 	}
+
+	
 }
