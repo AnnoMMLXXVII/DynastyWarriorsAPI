@@ -5,6 +5,7 @@ package com.anno.dw8xl.kingdom.dao;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,7 +20,8 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import com.anno.dw8xl.kingdom.model.Kingdom;
 import com.anno.dw8xl.kingdom.model.KingdomI;
-import com.anno.dw8xl.kingdom.model.NullKingdom;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author venividivicihofneondeion010101
@@ -55,20 +57,14 @@ class KingdomDAOTest {
 		assertTrue(kingdoms.contains(expected));
 	}
 
-	@DisplayName("Get By Object")
-	@Test
-	void testGetBy_Object() {
-		kingdoms = dao.getAll();
-		Optional<KingdomI> temp = dao.getBy(expected);
-		assertEquals(temp.get(), expected);
-	}
-
 	@DisplayName("Get By String")
 	@Test
 	void testGetBy_String() {
 		kingdoms = dao.getAll();
 		Optional<KingdomI> temp = dao.getBy("Shu");
-		assertEquals(temp.get(), expected);
+		if (temp.isPresent()) {
+			assertEquals(temp.get().getName(), expected.getName());
+		}
 	}
 
 	@DisplayName("Kingdoms - Get By String - FALSE")
@@ -76,7 +72,9 @@ class KingdomDAOTest {
 	void testCompareErroredKingdomWithListUsingContains_FALSE() {
 		kingdoms = dao.getAll();
 		Optional<KingdomI> temp = dao.getBy("Shus");
-		assertFalse(kingdoms.contains(temp.get()));
+		if(temp.isPresent()) {
+			assertFalse(kingdoms.contains(temp.get()));			
+		}
 	}
 
 	@DisplayName("Kingdoms - Get By String - TRUE")
@@ -84,22 +82,6 @@ class KingdomDAOTest {
 	void testCompareErroredKingdomWithListUsingContains_TRUE() {
 		kingdoms = dao.getAll();
 		Optional<KingdomI> temp = dao.getBy("Shu");
-		assertTrue(kingdoms.contains(temp.get()));
-	}
-
-	@DisplayName("Kingdoms - Get By Non-Existent Object- Equals True")
-	@Test
-	void testCompareObjectErroredKingdomWithListUsingEquals_True() {
-		kingdoms = dao.getAll();
-		Optional<KingdomI> temp = dao.getBy(new Kingdom("VOID"));
-		assertEquals(new NullKingdom().getName(), temp.get().getName());
-	}
-
-	@DisplayName("Kingdoms - Get By Object - TRUE")
-	@Test
-	void testCompareObjectErroredKingdomWithListUsingContains_TRUE() {
-		kingdoms = dao.getAll();
-		Optional<KingdomI> temp = dao.getBy(expected);
 		assertTrue(kingdoms.contains(temp.get()));
 	}
 	
@@ -134,6 +116,23 @@ class KingdomDAOTest {
 		kingdoms = dao.getAll();
 		assertEquals(size, kingdoms.size());
 		assertEquals("Kngdom cannot be added due to Null!", e.getMessage());
+	}
+	
+	@DisplayName("Remove List of Kingdoms _ Happy Path") 
+	@Test
+	void testRemoveKingdoms() throws JsonProcessingException {
+		KingdomI[] arr = {
+			expected
+		};
+		kingdoms = dao.getAll();
+		int size = kingdoms.size();
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		json = mapper.writeValueAsString(arr);
+		System.out.println(json);
+		dao.executeRemoveKingdom(json);
+		kingdoms = dao.getAll();
+		assertNotEquals(size, kingdoms.size());
 	}
 
 }
