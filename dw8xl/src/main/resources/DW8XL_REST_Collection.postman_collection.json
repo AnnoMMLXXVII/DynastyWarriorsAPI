@@ -1024,7 +1024,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=Shu",
+							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=Shu,Wei,Shu",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -1035,7 +1035,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "Shu"
+									"value": "Shu,Wei,Shu"
 								}
 							]
 						}
@@ -1055,7 +1055,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=void",
+							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=void, Shu",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -1066,79 +1066,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "void"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "By - Object",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"Shu\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=shu",
-							"host": [
-								"{{DW8XL_HOST}}"
-							],
-							"path": [
-								"api",
-								"kingdoms"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "shu"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "By - Object - ERROR",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"VOID\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=",
-							"host": [
-								"{{DW8XL_HOST}}"
-							],
-							"path": [
-								"api",
-								"kingdoms"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": ""
+									"value": "void, Shu"
 								}
 							]
 						}
@@ -1152,7 +1080,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"Shu\"\n}",
+							"raw": "[\n    {\n        \"state\": \"kingdom\",\n        \"name\": \"Void\"\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1160,14 +1088,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"raw": "{{DW8XL_HOST}}/api/kingdoms",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
-								"kingdoms",
-								""
+								"kingdoms"
 							]
 						}
 					},
@@ -1180,7 +1107,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"VOID\"\n}",
+							"raw": "[\n    {\n        \"state\": \"kingdom\",\n        \"name\": \"Void\"\n    },\n    {\n        \"state\": \"kingdom\",\n        \"name\": \"DeVoid\"\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1188,14 +1115,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"raw": "{{DW8XL_HOST}}/api/kingdoms",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
-								"kingdoms",
-								""
+								"kingdoms"
 							]
 						}
 					},
@@ -1208,7 +1134,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Kingdom-Type\": \"Kingdom\",\n    \"kingdom\": \"VOID\"\n}",
+							"raw": "{\n        \"state\": \"kingdom\",\n        \"name\": \"Void\"\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1216,14 +1142,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"raw": "{{DW8XL_HOST}}/api/kingdoms",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
-								"kingdoms",
-								""
+								"kingdoms"
 							]
 						}
 					},
