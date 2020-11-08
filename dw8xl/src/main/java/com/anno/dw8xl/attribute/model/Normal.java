@@ -6,7 +6,9 @@ package com.anno.dw8xl.attribute.model;
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.level.model.LevelI;
+import com.anno.dw8xl.level.model.NullLevel;
 import com.anno.dw8xl.rarity.model.Rarity;
+import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
@@ -29,12 +31,30 @@ public class Normal extends Attribute {
 	
 	@JsonView({CharacterView.Weapon.Attribute.class})
 	private LevelI level;
+	
+	public Normal() {
+		/*
+		 * 
+		 */
+	}
+	
 	/**
 	 * @param name
 	 * @param description
 	 */
 	public Normal(String name, String description) {
 		super(name, description);
+		level = new NullLevel();
+	}
+	
+	/**
+	 * @param name
+	 * @param description
+	 * @param level
+	 */
+	public Normal(String name, String description, LevelI level) {
+		super(name, description);
+		this.level = level;
 	}
 	
 	/**
@@ -52,8 +72,8 @@ public class Normal extends Attribute {
 	}
 	
 	@Override
-	public String getRarity() {
-		return new Rarity("NORMAL").getType();
+	public RarityI getRarity() {
+		return new Rarity("normal");
 	}
 
 	@Override
@@ -85,6 +105,11 @@ public class Normal extends Attribute {
 		} else if (!state.equals(other.state))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s, %s", super.toString(), getLevel().toString());
 	}
 
 }

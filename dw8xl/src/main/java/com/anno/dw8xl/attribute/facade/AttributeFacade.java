@@ -4,6 +4,7 @@
 package com.anno.dw8xl.attribute.facade;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.anno.dw8xl.attribute.dao.AttributeDAOInterface;
 import com.anno.dw8xl.attribute.model.AttributeI;
+import com.anno.dw8xl.attribute.model.NullAttribute;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -25,17 +27,18 @@ public class AttributeFacade implements AttributeFacadeInterface {
 	private static final Logger log = LoggerFactory.getLogger(AttributeFacade.class);
 	@Autowired
 	private AttributeDAOInterface dao;
+	private Collection<AttributeI> inValid;
 	
 	@Override
-	public List<AttributeI> getAllAttributes() {
-		return dao.executeGetAllAttributes();
+	public Collection<AttributeI> getAllAttributes() {
+		return dao.getAll();
 	}
 	@Override
-	public List<AttributeI> getNormalAttributes() {
+	public Collection<AttributeI> getNormalAttributes() {
 		return dao.executeGetNormalAttributes();
 	}
 	@Override
-	public List<AttributeI> getSpecialAttributes() {
+	public Collection<AttributeI> getSpecialAttributes() {
 		return dao.executeGetSpecialAttributes();
 	}
 	@Override
@@ -44,17 +47,20 @@ public class AttributeFacade implements AttributeFacadeInterface {
 			log.debug("Attribute name is Empty!");
 			return null;
 		}
-		String temp = (name.substring(0, 1).toUpperCase() + name.substring(1)).trim();
+		String temp = formatParam(name);
 		return dao.executeGetAttributeByName(temp);
 	}
 	
 	@Override
 	public AttributeI createAttribute(AttributeI attribute) {
-		ObjectMapper mapper = new ObjectMapper();
+		if(attribute.getName().equals("")) {
+			log.debug("Error : Attribute name is empty...");
+			return new NullAttribute();
+		}
 		String json = "";
 		try {
+			ObjectMapper mapper = new ObjectMapper();
 			json = mapper.writeValueAsString(attribute);
-			System.out.println(json);
 		}catch(JsonProcessingException e) {
 			log.debug(String.format("%s", e.getMessage()));
 		}
@@ -62,46 +68,75 @@ public class AttributeFacade implements AttributeFacadeInterface {
 	}
 	
 	@Override
-	public List<AttributeI> removeAttribute(List<AttributeI> attribute) {
+	public Collection<AttributeI> removeAttribute(List<AttributeI> attribute) {
 		if(attribute.isEmpty()) {
 			return new ArrayList<>();						
 		}
-		return dao.executeRemoveAttribute(attribute); 
-	}
-	@Override
-	public List<AttributeI> updateAttributes(List<AttributeI> attribute, String...name) {
-		List<AttributeI> old = new ArrayList<>();
-		AttributeI temp = null;
-		for(String s : name) {
-			temp = dao.executeGetAttributeByName(s);
-			if(temp != null) {
-				old.add(temp);
-			}
+		ObjectMapper mapper = new ObjectMapper();
+		String json  = "";
+		try {
+			json = mapper.writeValueAsString(attribute);
+		} catch (JsonProcessingException e) {
+			logException(e);
 		}
-		return dao.executeUpdateAttributes(old, attribute);
+		return dao.executeRemoveAttribute(json); 
 	}
 	
-	private AttributeI deserializeAttribute(AttributeI attribute) {
+	@Override
+	public Collection<AttributeI> updateAttributes(List<AttributeI> attributes, String...names) {
+		if(attributes.isEmpty() || attributes.size() != names.length) {
+			return new ArrayList<>();
+		}
+		attributes = isValidUpdate(attributes);
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "";
 		try {
-			json = mapper.writeValueAsString(attribute);
-		}catch(JsonProcessingException e) {
-			log.debug(String.format("%s", e.getMessage()));
+			json = mapper.writeValueAsString(attributes);
+		} catch (JsonProcessingException e) {
+			logException(e);
 		}
-		return dao.executeCreateAttribute(json);
+		return dao.executeUpdateAttributes(json, names);
 	}
 	
-	private boolean isValidAttribute(AttributeI attribute) {
-		if(attribute == null) {
-			log.debug("Attribute instance: Null");
-			throw new NullPointerException("Attribute is Null!");
-		}
-		else if(attribute.getName().equals("") || attribute.getDescription().equals("")) {
-			log.debug("Attribute Name or Description error: Empty");
-			throw new IllegalArgumentException("Attribute Name or Description is Empty");
-		} 
-		return false;
+	private String formatParam(String param) {
+		return (param.substring(0, 1).toUpperCase() + param.substring(1)).trim();
 	}
+	
+	private void logException(Exception e) {
+		log.debug(String.format("%s", e.getMessage()));
+	}
+	
+	private List<AttributeI> isValidUpdate(List<AttributeI> attributes) {
+		List<AttributeI> valid = new ArrayList<>();
+		List<AttributeI> database = (List<AttributeI>) dao.getAll();
+		inValid = new ArrayList<>();
+		for(AttributeI a : attributes) {
+			if((a.getName().equalsIgnoreCase("") || a.getDescription().equalsIgnoreCase(""))){
+				inValid.add(a);
+				log.debug("Missing Attribute Name and/or Description...");
+			}
+			else {
+				valid.add(a);
+				log.debug("Valid Attribute...");
+			}
+		}
+		for(AttributeI a: attributes) {
+			if(!database.contains(a)) {
+				inValid.add(a);
+			}
+		}
+		setInValid(inValid);
+		return valid;
+	}
+	
+	private void setInValid(Collection<AttributeI> inValid) {
+		this.inValid = inValid;
+	}
+	
+	public Collection<AttributeI> getInValid() {
+		return inValid;
+	}
+	
+	
 
 }

@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
@@ -31,11 +30,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class AttributeDAO implements AttributeDAOInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(AttributeDAO.class);
-	private Map<String, AttributeI> attributes;
+	private Map<String, AttributeI> attributes, temp;
 	private static AttributeDAOInterface instance = null;
 
 	/*
-	 * Singleton to get AttrbuteDAO_I Instance
+	 * Singleton to get AttrbuteDAOInterface Instance
 	 */
 	public static AttributeDAOInterface getInstance() {
 		if (instance == null) {
@@ -58,24 +57,18 @@ public class AttributeDAO implements AttributeDAOInterface {
 	}
 
 	@Override
-	public List<AttributeI> executeGetAllAttributes() {
-		return new ArrayList<>(attributes.values());
-	}
-
-	@Override
 	public Collection<AttributeI> getAll() {
 		return new ArrayList<>(attributes.values());
 	}
 
 	@Override
-	public List<AttributeI> executeGetNormalAttributes() {
-		return attributes.values().stream().filter(a -> a.getRarity().equals("NORMAL"))
-				.collect(Collectors.toList());
+	public Collection<AttributeI> executeGetNormalAttributes() {
+		return attributes.values().stream().filter(a -> a instanceof Normal).collect(Collectors.toList());
 	}
 
 	@Override
-	public List<AttributeI> executeGetSpecialAttributes() {
-		return attributes.values().stream().filter(a -> a.getRarity().equals("SPECIAL")).collect(Collectors.toList());
+	public Collection<AttributeI> executeGetSpecialAttributes() {
+		return attributes.values().stream().filter(a -> a instanceof Special).collect(Collectors.toList());
 	}
 
 	@Override
@@ -85,15 +78,15 @@ public class AttributeDAO implements AttributeDAOInterface {
 
 	@Override
 	public Optional<AttributeI> getBy(Object criteria) {
-		AttributeI temp;
+		AttributeI resultTemp;
 		if (criteria instanceof AttributeI) {
-			temp = (AttributeI) criteria;
-			temp = attributes.get(temp.getName());
-			return (temp != null) ? Optional.of(temp) : Optional.ofNullable(temp);
-		} else if ((temp = attributes.get(criteria)) != null) {
-			return Optional.of(temp);
+			resultTemp = (AttributeI) criteria;
+			resultTemp = attributes.get(resultTemp.getName());
+			return (resultTemp != null) ? Optional.of(resultTemp) : Optional.ofNullable(resultTemp);
+		} else if ((resultTemp = attributes.get(criteria)) != null) {
+			return Optional.of(resultTemp);
 		} else {
-			return Optional.ofNullable(temp);
+			return Optional.ofNullable(resultTemp);
 		}
 	}
 
@@ -118,7 +111,9 @@ public class AttributeDAO implements AttributeDAOInterface {
 			log.info("Cannot find Attribute to remove...");
 			return;
 		}
-		attributes.remove(entity.getName(), entity);
+		if (attributes.remove(entity.getName(), entity)) {
+			log.debug(String.format("Removed : %s", entity.getName()));
+		}
 	}
 
 	@Override
@@ -130,30 +125,53 @@ public class AttributeDAO implements AttributeDAOInterface {
 		} catch (JsonProcessingException e) {
 			log.debug(String.format("%s", e.getMessage()));
 		}
-		return attribute;
-	}
-
-	@Override
-	public List<AttributeI> executeRemoveAttribute(List<AttributeI> attribute) {
-		for (AttributeI a : attribute) {
-			attributes.remove(a.getName(), a);
+		if (attribute != null) {
+			add(attribute);
 		}
 		return attribute;
 	}
 
 	@Override
-	public List<AttributeI> executeUpdateAttributes(List<AttributeI> old, List<AttributeI> attribute) {
+	public Collection<AttributeI> executeRemoveAttribute(String json) {
+		AttributeI[] result = deserializeList(json);
+		return mapArrayToRemove(result);
+	}
+
+	@Override
+	public Collection<AttributeI> executeUpdateAttributes(String json, String... param) {
+		AttributeI[] paramAttributes = deserializeList(json);
 		int i = 0;
-		for (AttributeI o : old) {
-			executeUpdateAttribute(o, attribute.get(i));
+		for (AttributeI a : paramAttributes) {
+			updateAttribute(attributes.get(param[i]), a);
 			i++;
-			old.removeIf(d -> d.getName().equals(o.getName()));
 		}
-		return (old.size() == attribute.size()) ? attribute : old;
+		if (temp.isEmpty()) {
+			return new ArrayList<>();
+		}
+		return new ArrayList<>(temp.values());
 	}
 
-	private boolean executeUpdateAttribute(AttributeI old, AttributeI attribute) {
-		attributes.replace(old.getName(), attribute);
+	private AttributeI[] deserializeList(String json) {
+		ObjectMapper mapper = new ObjectMapper();
+		AttributeI[] attributeAsArray = null;
+		try {
+			attributeAsArray = mapper.readValue(json, AttributeI[].class);
+		} catch (JsonProcessingException e) {
+			log.debug("Could not Parse!");
+		}
+		return attributeAsArray;
+	}
+
+	private Collection<AttributeI> mapArrayToRemove(AttributeI[] attributeArr) {
+		for (AttributeI a : attributeArr) {
+			remove(a);
+		}
+		return new ArrayList<>(attributes.values());
+	}
+
+	private boolean updateAttribute(AttributeI old, AttributeI attribute) {
+		temp = attributes;
+		temp.replace(old.getName(), attribute);
 		return attributes.containsKey(attribute.getName());
 	}
 

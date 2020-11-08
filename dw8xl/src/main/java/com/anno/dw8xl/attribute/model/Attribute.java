@@ -2,6 +2,8 @@ package com.anno.dw8xl.attribute.model;
 
 import org.springframework.stereotype.Component;
 
+import com.anno.dw8xl.level.model.LevelI;
+import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
@@ -22,6 +24,11 @@ public abstract class Attribute implements AttributeI {
 	private String name;
 	@JsonView({CharacterView.Attribute.class})
 	private String description;
+	@JsonView({CharacterView.Attribute.class})
+	private RarityI rarity;
+	@JsonView({CharacterView.Attribute.class})
+	private LevelI level;
+	
 	
 	protected Attribute() {
 		/*
@@ -104,7 +111,7 @@ public abstract class Attribute implements AttributeI {
 
 	@Override
 	public String toString() {
-		return name + ", " + description + ", "+ getRarity();
+		return name + ", " + description + ", "+ getRarity().toString();
 	}
 
 }

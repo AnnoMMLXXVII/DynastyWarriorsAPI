@@ -3,6 +3,7 @@ package com.anno.dw8xl.attribute.dao;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,6 +23,8 @@ import com.anno.dw8xl.attribute.model.AttributeI;
 import com.anno.dw8xl.attribute.model.Normal;
 import com.anno.dw8xl.attribute.model.NullAttribute;
 import com.anno.dw8xl.attribute.model.Special;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class AttributeDAOTest {
@@ -92,7 +95,7 @@ class AttributeDAOTest {
 	void testNormalAttributeTypeIsNormal() {
 		attributes = dao.getAll();
 		AttributeI actual = attributes.stream().filter(e -> e.getName().equals("Inferno")).findAny().get();
-		assertEquals("NORMAL", actual.getRarity().toString());
+		assertEquals("normal", actual.getRarity().toString());
 	}
 
 	@DisplayName("Specials value [Fury] is SPECIAL Type")
@@ -100,7 +103,7 @@ class AttributeDAOTest {
 	void testSpecialAttributeTypeIsSpecial() {
 		attributes = dao.getAll();
 		AttributeI actual = attributes.stream().filter(e -> e.getName().equals("Fury")).findAny().get();
-		assertEquals("SPECIAL", actual.getRarity().toString());
+		assertEquals("special", actual.getRarity().toString());
 	}
 
 	@DisplayName("Normal Velocity equals Expected")
@@ -119,32 +122,39 @@ class AttributeDAOTest {
 
 	@DisplayName("Normals remove Velocity")
 	@Test
-	void testRemoveNormalAttribute() {
+	void testRemoveNormalAttribute() throws JsonProcessingException {
 		attributes = dao.executeGetNormalAttributes();
+		int size = attributes.size();
 		List<AttributeI> expected = new ArrayList<>();
 		expected.add(normal);
-		dao.executeRemoveAttribute(expected);
-		attributes = dao.executeGetNormalAttributes();
-		assertFalse(attributes.contains(normal));
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(expected);
+		dao.executeRemoveAttribute(json);
+		Collection<AttributeI> attributes = dao.executeGetNormalAttributes();
+		assertNotEquals(size, attributes.size());
 	}
 
 	@DisplayName("Specials remove Awareness")
 	@Test
-	void testRemoveSpecialAttribute() {
+	void testRemoveSpecialAttribute() throws JsonProcessingException {
 		attributes = dao.executeGetSpecialAttributes();
 		List<AttributeI> expected = new ArrayList<>();
 		expected.add(special);
-		dao.executeRemoveAttribute(expected);
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(expected);
+		dao.executeRemoveAttribute(json);
 		attributes = dao.executeGetSpecialAttributes();
 		assertFalse(attributes.contains(special));
 	}
 
 	@DisplayName("Specials adds newly Created [Void]")
 	@Test
-	void testCreateSpecialAttribute_Pass() {
+	void testCreateSpecialAttribute_Pass() throws JsonProcessingException {
 		attributes = dao.executeGetSpecialAttributes();
 		AttributeI expected = new Special("Void", "Shall Nullify Enemy Officer's attack by 50%");
-		dao.executeCreateAttribute(expected);
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(expected);
+		dao.executeCreateAttribute(json);
 		attributes = dao.executeGetSpecialAttributes();
 		assertEquals(14, attributes.size());
 		assertTrue(attributes.contains(expected));
@@ -152,10 +162,12 @@ class AttributeDAOTest {
 
 	@DisplayName("Normals adds newly Created [Void]")
 	@Test
-	void testCreateNormalAttribute_Pass() {
+	void testCreateNormalAttribute_Pass() throws JsonProcessingException {
 		attributes = dao.executeGetNormalAttributes();
 		AttributeI expected = new Normal("Void", "Shall Nullify Enemy Officer's attack by 50%");
-		dao.executeCreateAttribute(expected);
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(expected);
+		dao.executeCreateAttribute(json);
 		attributes = dao.executeGetNormalAttributes();
 		assertEquals(38, attributes.size());
 		assertTrue(attributes.contains(expected));

@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anno.dw8xl.attribute.facade.AttributeFacadeInterface;
 import com.anno.dw8xl.attribute.model.AttributeI;
-import com.anno.dw8xl.attribute.model.NullAttribute;
 
 /**
  * @author venividivicihofneondeion010101
@@ -33,64 +32,52 @@ import com.anno.dw8xl.attribute.model.NullAttribute;
 @RestController
 @RequestMapping(value = "/attributes")
 public class AttributeController {
-	
+
 	@Autowired
 	private AttributeFacadeInterface facade;
-	
+
 	@GetMapping(value = "/ping", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<String> ping() {
-		return  new ResponseEntity<>(String.format("%s %s %s %s %s %s","Attributes", "Controller", "Ping", "Works", "As", "Expected"), HttpStatus.OK);
+		return new ResponseEntity<>(
+				String.format("%s %s %s %s %s %s", "Attributes", "Controller", "Ping", "Works", "As", "Expected"),
+				HttpStatus.OK);
 	}
-	
+
 	@GetMapping(produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<Collection<AttributeI>> getAttributes(
-			@RequestParam(value = "type", required = false, defaultValue = "") String type) {
-		if(type.equalsIgnoreCase("normal")) {
+			@RequestParam(value = "state", required = false, defaultValue = "all") String state) {
+		if (state.equalsIgnoreCase("normal")) {
 			return new ResponseEntity<>(facade.getNormalAttributes(), HttpStatus.OK);
-		}
-		else if (type.equalsIgnoreCase("special")) {
+		} else if (state.equalsIgnoreCase("special")) {
 			return new ResponseEntity<>(facade.getSpecialAttributes(), HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<>(facade.getAllAttributes(), HttpStatus.OK);			
+		} else if (state.equalsIgnoreCase("all")) {
+			return new ResponseEntity<>(facade.getAllAttributes(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
 		}
 	}
-	
-	@PostMapping(value = "/", produces = MediaType.APPLICATION_JSON)
+
+	@PostMapping(consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
 	@ResponseBody
-	public ResponseEntity<AttributeI> createAttribute(
-			@RequestBody(required = true) AttributeI attribute) {
-		AttributeI result = facade.createAttribute(attribute);
-		return (result == null) ?
-			new ResponseEntity<>(new NullAttribute(), HttpStatus.BAD_REQUEST)
-		: new ResponseEntity<>(result, HttpStatus.OK);
+	public ResponseEntity<AttributeI> createAttribute(@RequestBody(required = true) AttributeI attribute) {
+		return new ResponseEntity<>(facade.createAttribute(attribute), HttpStatus.OK);
 	}
-	
-	
+
 	@PutMapping(produces = MediaType.APPLICATION_JSON)
 	@ResponseBody
 	public ResponseEntity<Collection<AttributeI>> updateAttribute(
 			@RequestBody(required = true) List<AttributeI> attribute,
-			@RequestParam(value = "name", required = true) String...name) {
+			@RequestParam(value = "name", required = true) String... name) {
 		Collection<AttributeI> result = facade.updateAttributes(attribute, name);
-		
-		return (result.isEmpty()) ?
-			new ResponseEntity<>(new ArrayList<>() , HttpStatus.BAD_REQUEST)
-			: new ResponseEntity<>(result, HttpStatus.OK);
+		Collection<AttributeI> inValid = facade.getInValid();
+		return (!inValid.isEmpty()) ? new ResponseEntity<>(inValid, HttpStatus.BAD_REQUEST)
+				: new ResponseEntity<>(result, HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping(produces = MediaType.APPLICATION_JSON)
-	public ResponseEntity<String> deleteAttribute(
+	public ResponseEntity<Collection<AttributeI>> deleteAttribute(
 			@RequestBody(required = true) List<AttributeI> attribute) {
-		List<AttributeI> before = facade.getAllAttributes();
-		int size = before.size();
-		int result = (size - attribute.size());
-		facade.removeAttribute(attribute);
-		List<AttributeI> after = facade.getAllAttributes();
-		int postSize = after.size();
-		return (postSize != result) ? new ResponseEntity<>("Could not Delete One or More!", HttpStatus.BAD_REQUEST)
-		: new ResponseEntity<>(after.toString(), HttpStatus.OK);
+		return new ResponseEntity<>(facade.removeAttribute(attribute), HttpStatus.OK);
 	}
-	
-	
+
 }

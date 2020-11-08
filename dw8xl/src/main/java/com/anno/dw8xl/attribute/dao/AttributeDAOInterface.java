@@ -1,6 +1,6 @@
 package com.anno.dw8xl.attribute.dao;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,19 +11,17 @@ import com.anno.dw8xl.dao.DataAccessObjectInterface;
 
 public interface AttributeDAOInterface extends DataAccessObjectInterface<AttributeI, Object> {
 
-	public List<AttributeI> executeGetAllAttributes();
+	public Collection<AttributeI> executeGetNormalAttributes();
 
-	public List<AttributeI> executeGetNormalAttributes();
-
-	public List<AttributeI> executeGetSpecialAttributes();
+	public Collection<AttributeI> executeGetSpecialAttributes();
 
 	public AttributeI executeGetAttributeByName(String name);
 
 	public AttributeI executeCreateAttribute(String json);
 
-	public List<AttributeI> executeRemoveAttribute(List<AttributeI> attribute);
+	public Collection<AttributeI> executeRemoveAttribute(String json);
 
-	public List<AttributeI> executeUpdateAttributes(List<AttributeI> old, List<AttributeI> attribute);
+	public Collection<AttributeI> executeUpdateAttributes(String json, String...param);
 
 	public static final Logger log = LoggerFactory.getLogger(AttributeDAO.class);
 

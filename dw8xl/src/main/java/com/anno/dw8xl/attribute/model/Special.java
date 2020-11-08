@@ -5,7 +5,10 @@ package com.anno.dw8xl.attribute.model;
 
 import org.springframework.stereotype.Component;
 
+import com.anno.dw8xl.level.model.LevelI;
+import com.anno.dw8xl.level.model.NullLevel;
 import com.anno.dw8xl.rarity.model.Rarity;
+import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
@@ -28,6 +31,12 @@ public class Special extends Attribute {
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "special";
 	
+	public Special() {
+		/*
+		 * 
+		 */
+	}
+	
 	/**
 	 * @param name
 	 * @param description
@@ -37,8 +46,13 @@ public class Special extends Attribute {
 	}
 
 	@Override
-	public String getRarity() {
-		return new Rarity("SPECIAL").getType();
+	public RarityI getRarity() {
+		return new Rarity("special");
+	}
+	
+	@Override
+	public LevelI getLevel() {
+		return new NullLevel();
 	}
 
 	@Override

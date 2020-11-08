@@ -14,12 +14,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  */
 @Component
 @JsonDeserialize(as = WeaponI.class)
-
 public abstract class Weapon implements WeaponI {
 
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state;
-	
+
 	private String name;
 	private Integer baseAttack;
 	private TypeI type;

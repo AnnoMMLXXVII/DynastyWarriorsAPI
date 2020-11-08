@@ -1,8 +1,9 @@
 package com.anno.dw8xl.attribute.model;
 
+import com.anno.dw8xl.level.model.LevelI;
+import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.shared.AttributeDeserializer;
 import com.anno.dw8xl.view.CharacterView;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -14,16 +15,17 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 		@Type(value = Special.class, name = "Special"),
 		@Type(value = NullAttribute.class, name = "Null"), })
 public interface AttributeI {
+	
 	public String getName();
 
 	public String getDescription();
-
+	
 	@Override
 	public int hashCode();
 
 	@Override
 	public boolean equals(Object obj);
 
-	@JsonProperty("rarity")
-	public abstract String getRarity();
+	public abstract RarityI getRarity();
+	public abstract LevelI getLevel();
 }

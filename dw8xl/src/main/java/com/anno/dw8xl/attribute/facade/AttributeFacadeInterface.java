@@ -3,6 +3,7 @@
  */
 package com.anno.dw8xl.attribute.facade;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.anno.dw8xl.attribute.model.AttributeI;
@@ -13,18 +14,20 @@ import com.anno.dw8xl.attribute.model.AttributeI;
  */
 public interface AttributeFacadeInterface {
 
-	public List<AttributeI> getAllAttributes();
+	public Collection<AttributeI> getAllAttributes();
 
-	public List<AttributeI> getNormalAttributes();
+	public Collection<AttributeI> getNormalAttributes();
 
-	public List<AttributeI> getSpecialAttributes();
+	public Collection<AttributeI> getSpecialAttributes();
 
 	public AttributeI getAttributeByName(String name);
 
 	public AttributeI createAttribute(AttributeI attribute);
 
-	public List<AttributeI> removeAttribute(List<AttributeI> attribute);
+	public Collection<AttributeI> removeAttribute(List<AttributeI> attribute);
+	
+	public Collection<AttributeI> getInValid();
 
-	public List<AttributeI> updateAttributes(List<AttributeI> attribute, String... name);
+	public Collection<AttributeI> updateAttributes(List<AttributeI> attribute, String... name);
 
 }

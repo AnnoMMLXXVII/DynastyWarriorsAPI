@@ -6,10 +6,12 @@ import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @Component
+@JsonTypeName("Rarity")
 @JsonView(CharacterView.Rarity.class)
 @JsonDeserialize(as = Rarity.class)
 public class Rarity implements RarityI {

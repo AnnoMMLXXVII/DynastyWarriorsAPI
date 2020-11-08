@@ -137,7 +137,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?type=normal",
+							"raw": "{{DW8XL_HOST}}/api/attributes?state=normal",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -147,7 +147,7 @@
 							],
 							"query": [
 								{
-									"key": "type",
+									"key": "state",
 									"value": "normal"
 								}
 							]
@@ -223,7 +223,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?type=special",
+							"raw": "{{DW8XL_HOST}}/api/attributes?state=special",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -233,7 +233,7 @@
 							],
 							"query": [
 								{
-									"key": "type",
+									"key": "state",
 									"value": "special"
 								}
 							]
@@ -298,7 +298,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"ID-Type\" : \"N\",\n    \"name\": \"DeVoid\",\n    \"description\": \"Nullifies all enemy officer's musou defense by 50%\"\n}",
+							"raw": "{\n  \"state\" : \"normal\",\n  \"name\" : \"DeVoid\",\n  \"description\" : \"Nullifies all enemy officer's musou defense by 50%\",\n  \"rarity\" : {\n    \"state\" : \"rarity\",\n    \"type\" : \"normal\"\n  },\n  \"level\" : {\n    \"state\" : \"level\",\n    \"power\" : 6\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -306,12 +306,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/attributes",
-							"protocol": "http",
+							"raw": "{{DW8XL_HOST}}/api/attributes",
 							"host": [
-								"localhost"
+								"{{DW8XL_HOST}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"attributes"
@@ -383,7 +381,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"ID-Type\" : \"S\",\n    \"name\": \"Void\",\n    \"description\": \"Nullifies all enemy officer's musou attack by 50%\"\n}",
+							"raw": "{\n    \"state\": \"special\",\n    \"name\": \"Void\",\n    \"description\": \"Nullifies all enemy officer's musou Offense by 50%\",\n    \"rarity\": {\n        \"state\": \"rarity\",\n        \"type\": \"special\"\n    },\n    \"level\": {\n        \"state\": \"null\",\n        \"power\": \"---\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -391,12 +389,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/attributes",
-							"protocol": "http",
+							"raw": "{{DW8XL_HOST}}/api/attributes",
 							"host": [
-								"localhost"
+								"{{DW8XL_HOST}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"attributes"
@@ -468,7 +464,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"ID-Type\": \"S\",\n    \"name\": \"\",\n    \"description\": \"Can block attacks from the rear\",\n    \"type\": \"SPECIAL\"\n}",
+							"raw": "{\n  \"state\" : \"normal\",\n  \"name\" : \"\",\n  \"description\" : \"Nullifies all enemy officer's musou defense by 50%\",\n  \"rarity\" : {\n    \"state\" : \"rarity\",\n    \"type\" : \"normal\"\n  },\n  \"level\" : {\n    \"state\" : \"level\",\n    \"power\" : 6\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -593,7 +589,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[    \n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 50%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"normal\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 50%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"normal\"\n        },\n        \"level\": {\n            \"state\": \"level\",\n            \"power\": 6\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -601,12 +597,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/attributes",
-							"protocol": "http",
+							"raw": "{{DW8XL_HOST}}/api/attributes",
 							"host": [
-								"localhost"
+								"{{DW8XL_HOST}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"attributes"
@@ -622,7 +616,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[    \n   {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 50%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"special\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou Offense by 50%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"special\"\n        },\n        \"level\": {\n            \"state\": \"null\",\n            \"power\": \"---\"\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -630,12 +624,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/attributes",
-							"protocol": "http",
+							"raw": "{{DW8XL_HOST}}/api/attributes",
 							"host": [
-								"localhost"
+								"{{DW8XL_HOST}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"attributes"
@@ -651,7 +643,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[    \n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 50%\"\n    },\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 50%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"normal\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 50%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"normal\"\n        },\n        \"level\": {\n            \"state\": \"level\",\n            \"power\": 6\n        }\n    },\n    {\n        \"state\": \"special\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou Offense by 50%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"special\"\n        },\n        \"level\": {\n            \"state\": \"null\",\n            \"power\": \"---\"\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -659,12 +651,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/attributes",
-							"protocol": "http",
+							"raw": "{{DW8XL_HOST}}/api/attributes",
 							"host": [
-								"localhost"
+								"{{DW8XL_HOST}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"attributes"
@@ -680,7 +670,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"normal\",\n        \"name\": \"DeVoiding\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"normal\"\n        },\n        \"level\": {\n            \"state\": \"level\",\n            \"power\": 6\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -688,7 +678,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=devoid",
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=DeVoid",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -699,7 +689,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "devoid"
+									"value": "DeVoid"
 								}
 							]
 						}
@@ -772,7 +762,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"normal\",\n        \"name\": \"\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"normal\"\n        },\n        \"level\": {\n            \"state\": \"level\",\n            \"power\": 6\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -780,7 +770,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=devoid",
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=DeVoid",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -791,7 +781,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "devoid"
+									"value": "DeVoid"
 								}
 							]
 						}
@@ -805,7 +795,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"special\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou Offense by 50%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"special\"\n        },\n        \"level\": {\n            \"state\": \"null\",\n            \"power\": \"---\"\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -813,7 +803,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=void",
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=Void",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -824,7 +814,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "void"
+									"value": "Void"
 								}
 							]
 						}
@@ -838,7 +828,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"raw": "[\n   {\n    \"state\": \"special\",\n    \"name\": \"Void\",\n    \"description\": \"\",\n    \"rarity\": {\n        \"state\": \"rarity\",\n        \"type\": \"special\"\n    },\n    \"level\": {\n        \"state\": \"null\",\n        \"power\": \"---\"\n    }\n}\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -846,7 +836,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/attributes?name=void",
+							"raw": "http://localhost:8080/api/attributes?name=Void",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -859,7 +849,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "void"
+									"value": "Void"
 								}
 							]
 						}
@@ -873,7 +863,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"DeVoid\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    },\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"Void\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"normal\",\n        \"name\": \"DeVoiding\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"normal\"\n        },\n        \"level\": {\n            \"state\": \"level\",\n            \"power\": 6\n        }\n    },\n    {\n        \"state\": \"special\",\n        \"name\": \"Voiding\",\n        \"description\": \"Nullifies all enemy officer's musou Offense by 25%\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"special\"\n        },\n        \"level\": {\n            \"state\": \"null\",\n            \"power\": \"---\"\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -881,7 +871,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=void,devoid",
+							"raw": "{{DW8XL_HOST}}/api/attributes?name=DeVoid,Void",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -892,7 +882,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "void,devoid"
+									"value": "DeVoid,Void"
 								}
 							]
 						}
@@ -906,7 +896,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"ID-Type\" : \"N\",\n        \"name\": \"\",\n        \"description\": \"Nullifies all enemy officer's musou defense by 25%\"\n    },\n    {\n        \"ID-Type\" : \"S\",\n        \"name\": \"\",\n        \"description\": \"Nullifies all enemy officer's musou attack by 25%\"\n    }\n]",
+							"raw": "[\n    {\n        \"state\": \"normal\",\n        \"name\": \"\",\n        \"description\": \"\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"normal\"\n        },\n        \"level\": {\n            \"state\": \"level\",\n            \"power\": 6\n        }\n    },\n    {\n        \"state\": \"special\",\n        \"name\": \"\",\n        \"description\": \"\",\n        \"rarity\": {\n            \"state\": \"rarity\",\n            \"type\": \"special\"\n        },\n        \"level\": {\n            \"state\": \"null\",\n            \"power\": \"---\"\n        }\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1636,7 +1626,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/star?value=6",
+							"raw": "{{DW8XL_HOST}}/api/weapons/star?value=5",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -1648,7 +1638,7 @@
 							"query": [
 								{
 									"key": "value",
-									"value": "6"
+									"value": "5"
 								}
 							]
 						}
@@ -1699,31 +1689,6 @@
 								{
 									"key": "value",
 									"value": "flying%20swords"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Filterd - Type -- !Whitespace",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/type?value=sword",
-							"host": [
-								"{{DW8XL_HOST}}"
-							],
-							"path": [
-								"api",
-								"weapons",
-								"type"
-							],
-							"query": [
-								{
-									"key": "value",
-									"value": "sword"
 								}
 							]
 						}
