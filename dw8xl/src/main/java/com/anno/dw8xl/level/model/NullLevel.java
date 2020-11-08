@@ -5,57 +5,44 @@ package com.anno.dw8xl.level.model;
 
 import org.springframework.stereotype.Component;
 
-import com.anno.dw8xl.rarity.model.Rarity;
-import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
- * @author venividivicihofneondeion010101
+ * @author Haku Wei
  *
  */
 @Component
-@JsonTypeName("Level")
-@JsonView(CharacterView.Attribute.class)
-@JsonDeserialize(as = Rarity.class)
-public class Level implements LevelI {
-	
+@JsonTypeName("null")
+@JsonDeserialize(as = NullLevel.class)
+public class NullLevel implements LevelI {
+
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
-	private String state = "level";
+	private String state = "null";
 	
-	@JsonView({CharacterView.Weapon.Attribute.class})
+	@JsonIgnore
 	private int power;
 	
-	public Level() {
+	public NullLevel() {
 		/*
 		 * 
 		 */
 	}
 
-	/**
-	 * @param power
-	 */
-	public Level(int power) {
-		super();
-		this.power = power;
-	}
-
-	/**
-	 * @return the power
-	 */
+	@Override
 	public String getPower() {
-		return this.toString();
+		return "---";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + power;
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		return result;
 	}
 
@@ -67,15 +54,19 @@ public class Level implements LevelI {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Level other = (Level) obj;
-		if (power != other.power)
+		NullLevel other = (NullLevel) obj;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
 			return false;
 		return true;
 	}
 	
-	@Override
+	@Override 
 	public String toString() {
-		return String.format("%d", power);
+		return String.format("%s", getPower());
 	}
+	
 
 }
