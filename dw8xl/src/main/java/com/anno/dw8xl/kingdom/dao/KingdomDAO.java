@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.model.Kingdom;
 import com.anno.dw8xl.kingdom.model.KingdomI;
-import com.anno.dw8xl.kingdom.model.NullKingdom;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
