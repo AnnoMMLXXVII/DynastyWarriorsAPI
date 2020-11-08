@@ -39,7 +39,7 @@ public class KingdomFacade implements KingdomFacadeInterface {
 	}
 
 	@Override
-	public Collection<KingdomI> getKingdomsBy(String... params) {
+	public Collection<KingdomI> getKingdomsBy(String...params) {
 		List<String> names = removeDuplicates(params);
 		Collection<KingdomI> kingdoms = new ArrayList<>(params.length);
 		for (String s : names) {
@@ -64,7 +64,6 @@ public class KingdomFacade implements KingdomFacadeInterface {
 	@Override
 	public Collection<KingdomI> removeKingdom(KingdomI... kingdoms) {
 		inValid = isValid(kingdoms);
-		System.out.println(!inValid.isEmpty());
 		if (!inValid.isEmpty()) {
 			return inValid;
 		}

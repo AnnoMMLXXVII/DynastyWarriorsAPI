@@ -1,8 +1,11 @@
 package com.anno.dw8xl.dao;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author venividivicihofneondeion010101
@@ -30,6 +33,9 @@ public interface DataAccessObjectInterface <E, V> {
 		return name.substring(0, 1).toUpperCase() + name.substring(1);
 	}
 	
+	static List<Object> removeDuplicates(Object...obj) {
+		return Arrays.asList(obj).stream().distinct().collect(Collectors.toList());
+	}
 	
 
 }
