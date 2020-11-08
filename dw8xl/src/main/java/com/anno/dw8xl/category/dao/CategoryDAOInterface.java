@@ -3,6 +3,8 @@
  */
 package com.anno.dw8xl.category.dao;
 
+import java.util.Collection;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +19,10 @@ import com.anno.dw8xl.dao.DataAccessObjectInterface;
 public interface CategoryDAOInterface extends DataAccessObjectInterface<CategoryI, Object> {
 
 	static final Logger log = LoggerFactory.getLogger(CategoryDAO.class);
+	
+	public CategoryI executeCreateCategory(String json);
+	
+	public Collection<CategoryI> executeRemoveCategory(String json);
 
 	static boolean isValidToAdd(CategoryI entity) {
 		if (entity == null) {

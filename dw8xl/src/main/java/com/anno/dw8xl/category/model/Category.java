@@ -4,11 +4,10 @@
 package com.anno.dw8xl.category.model;
 
 import com.anno.dw8xl.view.CharacterView;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
@@ -17,13 +16,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  */
 @JsonView({CharacterView.Category.class})
 @JsonDeserialize(as = Category.class)
-
 public class Category implements CategoryI {
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "category";
 	
 	@JsonView({CharacterView.Type.class, CharacterView.Weapon.class})
-	@JsonProperty("category")
 	private String name;
 
 	public Category() {

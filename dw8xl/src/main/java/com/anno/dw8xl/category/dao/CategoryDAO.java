@@ -22,6 +22,8 @@ import com.anno.dw8xl.category.model.CategoryI;
 import com.anno.dw8xl.category.model.NullCategory;
 import com.anno.dw8xl.dao.DataAccessObjectInterface;
 import com.anno.dw8xl.dao.PATH;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author Haku Wei
@@ -30,7 +32,7 @@ import com.anno.dw8xl.dao.PATH;
 @Service("categoryDAO")
 public class CategoryDAO implements CategoryDAOInterface{
 	
-	private Map<Integer, CategoryI> categories;
+	private Map<String, CategoryI> categories;
 	private static CategoryDAOInterface instance = null;
 	private static final Logger log = LoggerFactory.getLogger(CategoryDAO.class);
 	
@@ -59,17 +61,29 @@ public class CategoryDAO implements CategoryDAOInterface{
 
 	@Override
 	public Optional<CategoryI> getBy(Object criteria) {
-		CategoryI temp;
-		if (criteria instanceof CategoryI) {
-			temp = (CategoryI) criteria;
-			temp = categories.get(DataAccessObjectInterface.getKey(categories, temp));
-			return (temp != null) ? Optional.of(temp) : Optional.of(new NullCategory());
+		CategoryI temp = categories.get(criteria);
+		if(temp == null) {
+			log.info("Returning empty value for category...");
+			return Optional.empty();
 		}
-		else if ((temp = categories.get(criteria)) != null) {
-			return Optional.of(temp);
+		log.info("Returning nullable value for category...");
+		return Optional.ofNullable(temp);
+	}
+	
+	@Override
+	public CategoryI executeCreateCategory(String json) {
+		ObjectMapper mapper = new ObjectMapper();
+		CategoryI category = null;
+		try {
+			category = mapper.readValue(json, CategoryI.class);
+		} catch (JsonProcessingException e) {
+			log.debug(String.format("%s", e.getMessage()));
 		}
-		return  Optional.of(new NullCategory());
-		
+		if(category != null) {
+			add(category);
+			return category;
+		}
+		return new NullCategory();
 	}
 
 	@Override
@@ -82,7 +96,13 @@ public class CategoryDAO implements CategoryDAOInterface{
 			return;
 		}
 		log.info("Adding Category...");
-		categories.put(categories.size()+1, entity);
+		categories.put(entity.getName(), entity);
+	}
+	
+	@Override
+	public Collection<CategoryI> executeRemoveCategory(String json) {
+		CategoryI[] result = deserializeList(json);
+		return mapArrayToRemove(result);
 	}
 
 	@Override
@@ -95,7 +115,25 @@ public class CategoryDAO implements CategoryDAOInterface{
 			return;
 		}
 		log.info("Removing Category...");
-		categories.remove(DataAccessObjectInterface.getKey(categories, entity), entity);
+		categories.remove(entity.getName(), entity);
+	}
+	
+	private CategoryI[] deserializeList(String json) {
+		ObjectMapper mapper = new ObjectMapper();
+		CategoryI[] categoriesArray = null;
+		try {
+			categoriesArray = mapper.readValue(json, CategoryI[].class);
+		} catch (JsonProcessingException e) {
+			log.debug("Could not Parse!");
+		}
+		return categoriesArray;
+	}
+
+	private Collection<CategoryI> mapArrayToRemove(CategoryI[] categoryArr) {
+		for (CategoryI a : categoryArr) {
+			remove(a);
+		}
+		return new ArrayList<>(categories.values());
 	}
 
 	private void initializeValues() {
@@ -103,12 +141,11 @@ public class CategoryDAO implements CategoryDAOInterface{
 		File file = new File(PATH.CATEGORY_PATH.getStringUrl());
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String[] categoryLine = null;
-			int i = 1; 
 			while (z.hasNextLine()) {
 				String line = z.nextLine();
 				categoryLine = line.split(",");
 				category = new Category(categoryLine[0].trim());  
-				categories.put(i++, category);
+				categories.put(category.getName(), category);
 			}
 		}
 		catch(FileNotFoundException e) {

@@ -5,6 +5,7 @@ package com.anno.dw8xl.category.model;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
@@ -18,7 +19,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonDeserialize(as = NullCategory.class)
 public class NullCategory implements CategoryI {
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
-	private String state;
+	private String state = "Null";
+	@JsonIgnore
+	private String name;
 	public NullCategory() {
 		/*
 		 * Empty Contructor

@@ -8,9 +8,10 @@ public interface CategoryFacadeInterface {
 
 	public Collection<CategoryI> getAllCategories();
 
-	public <E> CategoryI getCategoryBy(E name);
+	public Collection<CategoryI> getCategoryBy(String...name);
 
-	public void addCategory(CategoryI category);
+	public CategoryI addCategory(CategoryI category);
 
-	public void removeCategory(CategoryI category);
+	public Collection<CategoryI> removeCategory(CategoryI...category);
+	
 }
