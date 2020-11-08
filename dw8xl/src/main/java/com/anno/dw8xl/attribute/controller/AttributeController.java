@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.ws.rs.core.MediaType;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,14 +35,14 @@ public class AttributeController {
 	@Autowired
 	private AttributeFacadeInterface facade;
 
-	@GetMapping(value = "/ping", produces = MediaType.APPLICATION_JSON)
+	@GetMapping(value = "/ping", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> ping() {
 		return new ResponseEntity<>(
 				String.format("%s %s %s %s %s %s", "Attributes", "Controller", "Ping", "Works", "As", "Expected"),
 				HttpStatus.OK);
 	}
 
-	@GetMapping(produces = MediaType.APPLICATION_JSON)
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<AttributeI>> getAttributes(
 			@RequestParam(value = "state", required = false, defaultValue = "all") String state) {
 		if (state.equalsIgnoreCase("normal")) {
@@ -57,13 +56,13 @@ public class AttributeController {
 		}
 	}
 
-	@PostMapping(consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<AttributeI> createAttribute(@RequestBody(required = true) AttributeI attribute) {
 		return new ResponseEntity<>(facade.createAttribute(attribute), HttpStatus.OK);
 	}
 
-	@PutMapping(produces = MediaType.APPLICATION_JSON)
+	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<Collection<AttributeI>> updateAttribute(
 			@RequestBody(required = true) List<AttributeI> attribute,
@@ -74,7 +73,7 @@ public class AttributeController {
 				: new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
-	@DeleteMapping(produces = MediaType.APPLICATION_JSON)
+	@DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Collection<AttributeI>> deleteAttribute(
 			@RequestBody(required = true) List<AttributeI> attribute) {
 		return new ResponseEntity<>(facade.removeAttribute(attribute), HttpStatus.OK);

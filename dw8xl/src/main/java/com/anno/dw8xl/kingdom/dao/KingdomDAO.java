@@ -17,11 +17,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.anno.dw8xl.dao.DataAccessObjectInterface;
 import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.model.Kingdom;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.kingdom.model.NullKingdom;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author Haku Wei
@@ -59,20 +60,13 @@ public class KingdomDAO implements KingdomDAOInterface {
 
 	@Override
 	public Optional<KingdomI> getBy(Object criteria) {
-		KingdomI temp;
-		log.info("Checking criteria type...");
-		if (criteria instanceof KingdomI) {
-			log.info("Criteria checking by KingdomI...");
-			temp = (KingdomI) criteria;
-			temp = kingdoms.get(DataAccessObjectInterface.formatName(temp.getName()));
-			return (temp != null) ? Optional.of(temp) : Optional.of(new NullKingdom());
-		} else if ((temp = kingdoms.get(criteria)) != null) {
-			log.info("Returning Optional instance of Kingdom...");
-			return Optional.of(temp);
-		} else {
-			log.info("Returning Optional instance of NullKingdom...");
-			return Optional.of(new NullKingdom());
+		KingdomI kingdom = kingdoms.get(criteria);
+		if(kingdom == null) {
+			log.info("Returning empty value for kingdom...");
+			return Optional.empty();
 		}
+		log.info("Returning nullable value for kingdom...");
+		return Optional.ofNullable(kingdom);
 	}
 
 	@Override
@@ -89,16 +83,40 @@ public class KingdomDAO implements KingdomDAOInterface {
 	}
 
 	@Override
+	public Collection<KingdomI> executeRemoveKingdom(String json) {
+		KingdomI[] result = deserializeList(json);
+		return mapArrayToRemove(result);
+	}
+
+	@Override
 	public void remove(KingdomI entity) {
 		if (!KingdomDAOInterface.isValidToRemove(entity)) {
 			return;
 		}
-		if (kingdoms.containsKey(entity.getName())) {
+		if (!kingdoms.containsKey(entity.getName())) {
 			log.debug("Could not find Kingdom to remove...");
 			return;
 		}
 		log.info("Removing Kingdom...");
-		kingdoms.remove(DataAccessObjectInterface.getKey(kingdoms, entity), entity);
+		kingdoms.remove(entity.getName(), entity);
+	}
+
+	private KingdomI[] deserializeList(String json) {
+		ObjectMapper mapper = new ObjectMapper();
+		KingdomI[] kingdomsArray = null;
+		try {
+			kingdomsArray = mapper.readValue(json, KingdomI[].class);
+		} catch (JsonProcessingException e) {
+			log.debug("Could not Parse!");
+		}
+		return kingdomsArray;
+	}
+
+	private Collection<KingdomI> mapArrayToRemove(KingdomI[] kingdomArr) {
+		for (KingdomI a : kingdomArr) {
+			remove(a);
+		}
+		return new ArrayList<>(kingdoms.values());
 	}
 
 	private void initializeKingdoms() {

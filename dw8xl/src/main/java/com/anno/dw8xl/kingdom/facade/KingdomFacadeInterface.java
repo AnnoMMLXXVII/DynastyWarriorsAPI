@@ -8,10 +8,10 @@ public interface KingdomFacadeInterface {
 
 	public Collection<KingdomI> getAllKingdoms();
 
-	public <E> KingdomI getKingdomsBy(E criteria);
+	public Collection<KingdomI> getKingdomsBy(String...names);
 
 	public void addKingdom(KingdomI kingdom);
 
-	public void removeKingdom(KingdomI kingdom);
+	public Collection<KingdomI> removeKingdom(KingdomI...kingdom);
 
 }
