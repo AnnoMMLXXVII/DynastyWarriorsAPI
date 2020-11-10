@@ -111,7 +111,7 @@ public class AttributeFacade implements AttributeFacadeInterface {
 		List<AttributeI> database = (List<AttributeI>) dao.getAll();
 		inValid = new ArrayList<>();
 		for(AttributeI a : attributes) {
-			if((a.getName().equalsIgnoreCase("") || a.getDescription().equalsIgnoreCase(""))){
+			if((a.getName().equalsIgnoreCase("") || a.getDescription().equalsIgnoreCase("")) ||  !database.contains(a)){
 				inValid.add(a);
 				log.debug("Missing Attribute Name and/or Description...");
 			}
@@ -120,11 +120,11 @@ public class AttributeFacade implements AttributeFacadeInterface {
 				log.debug("Valid Attribute...");
 			}
 		}
-		for(AttributeI a: attributes) {
-			if(!database.contains(a)) {
-				inValid.add(a);
-			}
-		}
+//		for(AttributeI a: attributes) {
+//			if(!database.contains(a)) {
+//				inValid.add(a);
+//			}
+//		}
 		setInValid(inValid);
 		return valid;
 	}
