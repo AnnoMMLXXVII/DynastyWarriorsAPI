@@ -5,6 +5,7 @@ package com.anno.dw8xl.category.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,6 +70,18 @@ public class CategoryController {
 		Collection<CategoryI> inValid = facade.removeCategory(category);
 		return (inValid.isEmpty()) ? new ResponseEntity<>(facade.getAllCategories(), HttpStatus.OK)
 				: new ResponseEntity<>(inValid, HttpStatus.BAD_REQUEST);
+	}
+
+	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<Collection<CategoryI>> updateCategory(
+			@RequestBody(required = true) List<CategoryI> categories,
+			@RequestParam(value = "name", required = true) String... params) {
+		Collection<CategoryI> result = facade.updateCategories(categories, params);
+		Collection<CategoryI> inValid = facade.getInValid();
+		return (!inValid.isEmpty()) ? 
+				new ResponseEntity<>(inValid, HttpStatus.BAD_REQUEST)
+				: new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 }

@@ -32,7 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Service("categoryDAO")
 public class CategoryDAO implements CategoryDAOInterface{
 	
-	private Map<String, CategoryI> categories;
+	private Map<String, CategoryI> categories, temp;
 	private static CategoryDAOInterface instance = null;
 	private static final Logger log = LoggerFactory.getLogger(CategoryDAO.class);
 	
@@ -118,10 +118,30 @@ public class CategoryDAO implements CategoryDAOInterface{
 		categories.remove(entity.getName(), entity);
 	}
 	
+	@Override
+	public Collection<CategoryI> executeUpdateCategories(String json, String...params) {
+		CategoryI[] paramCategories = deserializeList(json);
+		int i = 0;
+		for(CategoryI c : paramCategories) {
+			updateCategory(categories.get(params[i]), c);
+		}
+		if(temp.isEmpty()) {
+			return new ArrayList<>();
+		}
+		return new ArrayList<>(temp.values());
+	}
+	
+	private boolean updateCategory(CategoryI old, CategoryI category) {
+		temp = categories;
+		temp.replace(old.getName(), category);
+		return temp.containsKey(category.getName());
+	}
+
 	private CategoryI[] deserializeList(String json) {
 		ObjectMapper mapper = new ObjectMapper();
 		CategoryI[] categoriesArray = null;
 		try {
+			log.debug("Deserializing json...");
 			categoriesArray = mapper.readValue(json, CategoryI[].class);
 		} catch (JsonProcessingException e) {
 			log.debug("Could not Parse!");

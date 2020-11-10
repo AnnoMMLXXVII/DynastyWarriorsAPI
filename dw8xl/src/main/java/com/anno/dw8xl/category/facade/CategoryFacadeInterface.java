@@ -1,6 +1,7 @@
 package com.anno.dw8xl.category.facade;
 
 import java.util.Collection;
+import java.util.List;
 
 import com.anno.dw8xl.category.model.CategoryI;
 
@@ -14,4 +15,7 @@ public interface CategoryFacadeInterface {
 
 	public Collection<CategoryI> removeCategory(CategoryI...category);
 	
+	public Collection<CategoryI> updateCategories(List<CategoryI> categories, String...params);
+	
+	public Collection<CategoryI> getInValid();
 }

@@ -23,6 +23,8 @@ public interface CategoryDAOInterface extends DataAccessObjectInterface<Category
 	public CategoryI executeCreateCategory(String json);
 	
 	public Collection<CategoryI> executeRemoveCategory(String json);
+	
+	public Collection<CategoryI> executeUpdateCategories(String json, String...params);
 
 	static boolean isValidToAdd(CategoryI entity) {
 		if (entity == null) {

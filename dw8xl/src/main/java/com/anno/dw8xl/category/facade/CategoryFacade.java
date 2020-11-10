@@ -31,6 +31,7 @@ public class CategoryFacade implements CategoryFacadeInterface {
 	@Autowired
 	private CategoryDAOInterface dao;
 	private static final Logger log = LoggerFactory.getLogger(CategoryFacade.class);
+	private Collection<CategoryI> inValid;
 
 	@Override
 	public Collection<CategoryI> getAllCategories() {
@@ -71,10 +72,10 @@ public class CategoryFacade implements CategoryFacadeInterface {
 
 	@Override
 	public Collection<CategoryI> removeCategory(CategoryI... categories) {
-		Collection<CategoryI> inValid = isValid(categories);
+		Collection<CategoryI> isNotRemovable = isValidToRemove(categories);
 		List<CategoryI> temp = removeDuplicates(categories);
-		if (!inValid.isEmpty()) {
-			return inValid;
+		if (!isNotRemovable.isEmpty()) {
+			return isNotRemovable;
 		}
 		String json = "";
 		try {
@@ -86,15 +87,68 @@ public class CategoryFacade implements CategoryFacadeInterface {
 		return dao.executeRemoveCategory(json);
 	}
 
-	private Collection<CategoryI> isValid(CategoryI... categories) {
-		Collection<CategoryI> inValid = new ArrayList<>();
+	@Override
+	public Collection<CategoryI> updateCategories(List<CategoryI> categories, String... params) {
+		if ((categories.isEmpty() || categories.size() != params.length) || params.length == 0) {
+			log.debug("Request Body List is Empty...");
+			return new ArrayList<>();
+		}
+		categories = isValidToUpdate(categories);
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		try {
+			json = mapper.writeValueAsString(categories);
+		} catch (JsonProcessingException e) {
+			logException(e);
+		}
+		return dao.executeUpdateCategories(json, params);
+	}
+
+	/*
+	 * Check to see if RequestBody exists in the database
+	 */
+	private Collection<CategoryI> isValidToRemove(CategoryI... categories) {
+		Collection<CategoryI> inValidToRemove = new ArrayList<>();
 		for (CategoryI c : categories) {
 			Optional<CategoryI> temp = dao.getBy(c.getName());
 			if (!temp.isPresent()) {
 				inValid.add(c);
 			}
 		}
+		return inValidToRemove;
+	}
+
+	/*
+	 * Validating the list of categories' names are not empty
+	 */
+	private List<CategoryI> isValidToUpdate(List<CategoryI> categories) {
+		List<CategoryI> valid = new ArrayList<>();
+		inValid = new ArrayList<>();
+		for (CategoryI c : categories) {
+			if (c.getName().equalsIgnoreCase("")) {
+				inValid.add(c);
+				log.debug("Missing Category Name...");
+			} else {
+				valid.add(c);
+				log.debug("Valid Category...");
+			}
+		}
+		setInValid(inValid);
+		return valid;
+	}
+
+	/**
+	 * @return the inValid
+	 */
+	public Collection<CategoryI> getInValid() {
 		return inValid;
+	}
+
+	/**
+	 * @param inValid the inValid to set
+	 */
+	private void setInValid(Collection<CategoryI> inValid) {
+		this.inValid = inValid;
 	}
 
 	private List<String> removeDuplicates(String... names) {
