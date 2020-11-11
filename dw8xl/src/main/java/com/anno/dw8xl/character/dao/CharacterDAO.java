@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.anno.dw8xl.character.model.CharacterI;
+import com.anno.dw8xl.character.model.NullCharacter;
 import com.anno.dw8xl.character.model.Officer;
 import com.anno.dw8xl.character.model.SubOfficer;
 import com.anno.dw8xl.dao.PATH;
@@ -73,7 +74,7 @@ public class CharacterDAO implements CharacterDAOInterface {
 		if (characters.containsValue(criteria)) {
 			return Optional.of(characters.get(criteria));
 		}
-		return Optional.ofNullable(characters.get(criteria));
+		return Optional.empty();
 	}
 
 	@Override
@@ -93,70 +94,61 @@ public class CharacterDAO implements CharacterDAOInterface {
 	}
 
 	@Override
-	public Collection<CharacterI> getAllShuOfficers() {
-		log.info("Filtering and Returning new List of All Shu Officers...");
+	public Collection<CharacterI> getOfficersByKingdom(String name) {
+		log.info(String.format("Filtering and Returning list of Officers by Kingdom : %s...", name));
 		return characters.values().stream().filter(o -> o instanceof Officer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("shu")).collect(Collectors.toList());
+				.filter(e -> e.getKingdom().getName().equalsIgnoreCase(name)).collect(Collectors.toList());
 	}
 
 	@Override
-	public Collection<CharacterI> getAllWuOfficers() {
-		return characters.values().stream().filter(o -> o instanceof Officer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("wu")).collect(Collectors.toList());
+	public CharacterI getOfficerByName(String name) {
+		log.info(String.format("Filtering and Returning new Officer : %s...", name));
+		List<CharacterI> temp = (List<CharacterI>) getAllOfficers();
+		Optional<CharacterI> res = temp.stream().filter(e -> e.getName().equalsIgnoreCase(name)).findFirst();
+		return (res.isPresent()) ? res.get() : new NullCharacter();
 	}
 
 	@Override
-	public Collection<CharacterI> getAllWeiOfficers() {
-		return characters.values().stream().filter(o -> o instanceof Officer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("wei")).collect(Collectors.toList());
+	public CharacterI getOfficerByType(String type) {
+		log.info(String.format("Filtering and Returning Officer by Type : %s...", type));
+		Optional<CharacterI> res = getAllOfficers().stream().filter(e -> e.getType().getName().equalsIgnoreCase(type))
+				.findFirst();
+		return (res.isPresent()) ? res.get() : new NullCharacter();
 	}
 
 	@Override
-	public Collection<CharacterI> getAllJinOfficers() {
-		return characters.values().stream().filter(o -> o instanceof Officer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("jin")).collect(Collectors.toList());
+	public Collection<CharacterI> getOfficersByCategory(String category) {
+		log.info(String.format("Filtering and Returning List of Officers by Category : %s...", category));
+		return getAllOfficers().stream().filter(e -> e.getType().getCategory().getName().equalsIgnoreCase(category))
+				.collect(Collectors.toList());
 	}
 
 	@Override
-	public Collection<CharacterI> getAllOtherOfficers() {
-		return characters.values().stream().filter(o -> o instanceof Officer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("other")).collect(Collectors.toList());
+	public CharacterI getOfficerByWeaponNames(String weaponName) {
+		log.info(String.format("Filtering and Returning Officer by Weapon name : %s...", weaponName));
+		Optional<CharacterI> res = getAllOfficers().stream()
+				.filter(e -> e.getWeapon().getName().equalsIgnoreCase(weaponName)).findFirst();
+		return res.isPresent() ? res.get() : new NullCharacter();
 	}
 
 	@Override
 	public Collection<CharacterI> getAllSubOfficers() {
-		log.info("Filtering and Returning new List of All Officers...");
+		log.info("Filtering and Returning new List of All SubOfficers...");
 		return characters.values().stream().filter(o -> o instanceof SubOfficer).collect(Collectors.toList());
 	}
 
 	@Override
-	public Collection<CharacterI> getAllShuSubOfficers() {
+	public Collection<CharacterI> getSubOfficersByKingdom(String name) {
+		log.info(String.format("Filtering and Returning new List of SubOfficers by kingdom : %s...", name));
 		return characters.values().stream().filter(o -> o instanceof SubOfficer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("shu")).collect(Collectors.toList());
+				.filter(e -> e.getKingdom().getName().equalsIgnoreCase(name)).collect(Collectors.toList());
 	}
 
 	@Override
-	public Collection<CharacterI> getAllWuSubOfficers() {
-		return characters.values().stream().filter(o -> o instanceof SubOfficer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("wu")).collect(Collectors.toList());
-	}
-
-	@Override
-	public Collection<CharacterI> getAllWeiSubOfficers() {
-		return characters.values().stream().filter(o -> o instanceof SubOfficer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("wei")).collect(Collectors.toList());
-	}
-
-	@Override
-	public Collection<CharacterI> getAllJinSubOfficers() {
-		return characters.values().stream().filter(o -> o instanceof SubOfficer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("jin")).collect(Collectors.toList());
-	}
-
-	@Override
-	public Collection<CharacterI> getAllOtherSubOfficers() {
-		return characters.values().stream().filter(o -> o instanceof SubOfficer)
-				.filter(e -> e.getKingdom().equalsIgnoreCase("other")).collect(Collectors.toList());
+	public Collection<CharacterI> getSubOfficersByName(String name) {
+		log.info(String.format("Filtering and Returning new List of SubOfficers by name: %s...", name));
+		return getAllSubOfficers().stream().filter(e -> e.getName().equalsIgnoreCase(name))
+				.collect(Collectors.toList());
 	}
 
 	private void initialize() {

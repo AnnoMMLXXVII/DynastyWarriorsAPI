@@ -6,16 +6,14 @@ package com.anno.dw8xl.character.model;
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.kingdom.model.KingdomI;
+import com.anno.dw8xl.kingdom.model.NullKingdom;
 import com.anno.dw8xl.type.model.NullType;
 import com.anno.dw8xl.type.model.TypeI;
-import com.anno.dw8xl.view.CharacterView;
 import com.anno.dw8xl.weapon.model.NullWeapon;
 import com.anno.dw8xl.weapon.model.WeaponI;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
@@ -23,40 +21,28 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  *
  */
 @Component
-@JsonView(CharacterView.SubOfficer.class)
-@JsonDeserialize(as = SubOfficer.class)
-public class SubOfficer extends Character {
-	
+@JsonDeserialize(as = NullCharacter.class)
+public class NullCharacter extends Character {
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
-	private String state = "subOfficer";
-	
-	@JsonIgnore
-	private TypeI type;
-	@JsonIgnore
-	private WeaponI weapon;
-	
-	public SubOfficer() {
+	private String state = "null";
+
+	/**
+	 * 
+	 */
+	public NullCharacter() {
 		/*
-		 * Empty On purpose
-		 * Must Be empty
-		 * Commenting to resolve sonar
-		 * For Jackson Purposes
+		 * 
 		 */
 	}
 
-	/**
-	 * @param name
-	 * @param kingdom
-	 */
-	public SubOfficer(String name, KingdomI kingdom) {
-		super(name, kingdom);
+	@Override
+	public String getName() {
+		return "";
 	}
-	
-	
 
 	@Override
-	public TypeI getType() {
-		return new NullType();
+	public KingdomI getKingdom() {
+		return new NullKingdom();
 	}
 
 	@Override
@@ -64,9 +50,16 @@ public class SubOfficer extends Character {
 		return new NullWeapon();
 	}
 
+	public TypeI getType() {
+		return new NullType();
+	}
+
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		return result;
 	}
 
 	@Override
@@ -77,10 +70,12 @@ public class SubOfficer extends Character {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		NullCharacter other = (NullCharacter) obj;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
 		return true;
 	}
-	
-	
-	
-
 }

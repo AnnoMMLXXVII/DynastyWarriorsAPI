@@ -5,18 +5,21 @@ import org.springframework.stereotype.Component;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author Haku Wei
  *
  */
 @Component
+@JsonDeserialize(as = CharacterI.class)
+@JsonView({CharacterView.Officer.class, CharacterView.SubOfficer.class})
 public abstract class Character implements CharacterI {
-	private String name;
 	
+	private String name;
 	private KingdomI kingdom;
-
-	protected Character() {
+	
+	public Character() {
 		/*
 		 * Empty On purpose Must Be empty Commenting to resolve sonar
 		 */
@@ -36,6 +39,7 @@ public abstract class Character implements CharacterI {
 	 * @return the name
 	 */
 	@Override
+	@JsonView({ CharacterView.Officer.class, CharacterView.SubOfficer.class })
 	public String getName() {
 		return name;
 	}
@@ -44,9 +48,14 @@ public abstract class Character implements CharacterI {
 	 * @return the kingdom
 	 */
 	@Override
-	@JsonView({CharacterView.Officer.class, CharacterView.SubOfficer.class})
-	public String getKingdom() {
-		return kingdom.getName();
+	@JsonView({ CharacterView.Officer.class, CharacterView.SubOfficer.class })
+	public KingdomI getKingdom() {
+		return kingdom;
+	}
+
+	@Override
+	public String toString() {
+		return name + ", " + kingdom.toString();
 	}
 
 	@Override
@@ -78,11 +87,6 @@ public abstract class Character implements CharacterI {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return name + ", " + kingdom;
 	}
 
 }

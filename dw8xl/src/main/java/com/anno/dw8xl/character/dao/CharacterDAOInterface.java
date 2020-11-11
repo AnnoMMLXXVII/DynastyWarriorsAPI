@@ -19,27 +19,21 @@ public interface CharacterDAOInterface extends DataAccessObjectInterface<Charact
 
 	public Collection<CharacterI> getAllOfficers();
 
-	public Collection<CharacterI> getAllShuOfficers();
+	public Collection<CharacterI> getOfficersByKingdom(String kingdom);
 
-	public Collection<CharacterI> getAllWuOfficers();
+	public CharacterI getOfficerByType(String type);
 
-	public Collection<CharacterI> getAllWeiOfficers();
+	public Collection<CharacterI> getOfficersByCategory(String kingdom);
 
-	public Collection<CharacterI> getAllJinOfficers();
+	public CharacterI getOfficerByWeaponNames(String weaponName);
 
-	public Collection<CharacterI> getAllOtherOfficers();
+	public CharacterI getOfficerByName(String name);
 
 	public Collection<CharacterI> getAllSubOfficers();
 
-	public Collection<CharacterI> getAllShuSubOfficers();
+	public Collection<CharacterI> getSubOfficersByKingdom(String kingdom);
 
-	public Collection<CharacterI> getAllWuSubOfficers();
-
-	public Collection<CharacterI> getAllWeiSubOfficers();
-
-	public Collection<CharacterI> getAllJinSubOfficers();
-
-	public Collection<CharacterI> getAllOtherSubOfficers();
+	public Collection<CharacterI> getSubOfficersByName(String name);
 
 	static final Logger log = LoggerFactory.getLogger(CharacterDAO.class);
 

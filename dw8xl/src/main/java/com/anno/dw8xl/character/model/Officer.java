@@ -9,7 +9,11 @@ import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.view.CharacterView;
 import com.anno.dw8xl.weapon.model.WeaponI;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * @author Haku Wei
@@ -17,19 +21,23 @@ import com.fasterxml.jackson.annotation.JsonView;
  */
 @Component
 @JsonView(CharacterView.Officer.class)
+@JsonDeserialize(as = Officer.class)
 public class Officer extends Character {
-	
+
+	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
+	private String state = "officer";
+
+	@JsonView(CharacterView.Officer.class)
 	private TypeI type;
+	@JsonView(CharacterView.Officer.class)
 	private WeaponI weapon;
-	
+
 	public Officer() {
 		/*
-		 * Empty On purpose
-		 * Must Be empty
-		 * Commenting to resolve sonar
+		 * Empty On purpose Must Be empty Commenting to resolve sonar
 		 */
 	}
-	
+
 	/**
 	 * @param name
 	 * @param kingdom
@@ -43,12 +51,14 @@ public class Officer extends Character {
 	public TypeI getType() {
 		return type;
 	}
-	
+
+	public void setWeapon(WeaponI weapon) {
+		this.weapon = weapon;
+	}
+
 	public WeaponI getWeapon() {
 		return weapon;
 	}
-	
-	
 
 	@Override
 	public int hashCode() {
@@ -85,6 +95,5 @@ public class Officer extends Character {
 	public String toString() {
 		return super.toString() + ", " + type.toString();
 	}
-	
-	
+
 }

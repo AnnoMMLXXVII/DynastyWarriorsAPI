@@ -10,84 +10,93 @@ import org.springframework.stereotype.Service;
 
 import com.anno.dw8xl.character.dao.CharacterDAOInterface;
 import com.anno.dw8xl.character.model.CharacterI;
-import com.anno.dw8xl.view.CharacterView;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.MapperFeature;
+import com.anno.dw8xl.character.model.NullCharacter;
+import com.anno.dw8xl.dao.DataAccessObjectInterface;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service("characterFacade")
+@SuppressWarnings("unchecked")
 public class CharacterFacade implements CharacterFacadeInterface {
 
 	@Autowired
 	private CharacterDAOInterface dao;
-	private ObjectMapper mapper = new ObjectMapper();
+	private ObjectMapper mapper;
 	private static Logger log = LoggerFactory.getLogger(CharacterFacade.class);
+
 	@Override
 	public Collection<CharacterI> getAllCharacters() {
 		return dao.getAll();
 	}
 
 	@Override
-	public String getAllOfficers() {
-		String json = "";
-		try {
-			mapper.disable(MapperFeature.DEFAULT_VIEW_INCLUSION);
-			json = mapper
-			.writerWithDefaultPrettyPrinter()
-			.withView(CharacterView.Officer.class)
-			.writeValueAsString(dao.getAllOfficers());
-		} catch (JsonProcessingException e) {
-			log.debug(String.format("Error Mapping to String : %s", e.getMessage()));
-		} 
-		return json;
+	public Collection<CharacterI> getAllOfficers() {
+		return dao.getAllOfficers();
 	}
 
 	@Override
-	public String getAllSubOfficers() {
-		String json = "";
-		try {
-			mapper.disable(MapperFeature.DEFAULT_VIEW_INCLUSION);
-			json = mapper
-			.writerWithDefaultPrettyPrinter()
-			.withView(CharacterView.SubOfficer.class)
-			.writeValueAsString(dao.getAllSubOfficers());
-		} catch (JsonProcessingException e) {
-			log.debug(String.format("Error Mapping to String : %s", e.getMessage()));
-		} 
-		return json;
+	public Collection<CharacterI> getAllSubOfficers() {
+		return dao.getAllSubOfficers();
+	}
+
+	@Override
+	public CharacterI getOfficerByName(String name) {
+		String format = format(name);
+		if (format.isEmpty()) {
+			return new NullCharacter();
+		}
+		return dao.getOfficerByName(format);
 	}
 
 	@Override
 	public Collection<CharacterI> getOfficerByKingdom(String kingdom) {
-		if (kingdom.equalsIgnoreCase("Shu")) {
-			return dao.getAllShuOfficers();
-		} else if (kingdom.equalsIgnoreCase("Wu")) {
-			return dao.getAllWuOfficers();
-		} else if (kingdom.equalsIgnoreCase("Wei")) {
-			return dao.getAllWeiOfficers();
-		} else if (kingdom.equalsIgnoreCase("Jin")) {
-			return dao.getAllJinOfficers();
-		} else if (kingdom.equalsIgnoreCase("Other")) {
-			return dao.getAllOtherOfficers();
+		String format = format(kingdom);
+		if (!format.isEmpty()) {
+			return dao.getOfficersByKingdom(format);
+		} else {
+			return new ArrayList<>();
 		}
-		return new ArrayList<>();
+	}
+
+	@Override
+	public Collection<CharacterI> getOfficerByWeaponType(String type) {
+		String format = format(type);
+		return (!format.isEmpty()) ?
+				
+	}
+
+	@Override
+	public Collection<CharacterI> getOfficerByWeaponCategory(String category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<CharacterI> getOfficerByWeaponName(String weaponName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public Collection<CharacterI> getSubOfficerByKingdom(String kingdom) {
-		if (kingdom.equalsIgnoreCase("Shu")) {
-			return dao.getAllShuSubOfficers();
-		} else if (kingdom.equalsIgnoreCase("Wu")) {
-			return dao.getAllWuSubOfficers();
-		} else if (kingdom.equalsIgnoreCase("Wei")) {
-			return dao.getAllWeiSubOfficers();
-		} else if (kingdom.equalsIgnoreCase("Jin")) {
-			return dao.getAllJinSubOfficers();
-		} else if (kingdom.equalsIgnoreCase("Other")) {
-			return dao.getAllOtherSubOfficers();
+		String formated = DataAccessObjectInterface.formatName(kingdom);
+		if (!kingdom.equalsIgnoreCase("")) {
+			return dao.getSubOfficersByKingdom(formated);
 		} else {
 			return new ArrayList<>();
 		}
+	}
+
+	@Override
+	public Collection<CharacterI> getSubOfficerByName(String name) {
+		String format = format(name);
+		if (format.isEmpty()) {
+			return new ArrayList<>();
+		}
+		return dao.getSubOfficersByName(format);
+	}
+
+	private String format(String string) {
+		return DataAccessObjectInterface.formatName(string);
 	}
 
 }
