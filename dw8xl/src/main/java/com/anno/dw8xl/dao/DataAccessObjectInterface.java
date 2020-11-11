@@ -30,7 +30,8 @@ public interface DataAccessObjectInterface <E, V> {
 	}
 
 	static String formatName(String name) {
-		return name.substring(0, 1).toUpperCase() + name.substring(1);
+		String temp = name.substring(0, 1).toUpperCase() + name.substring(1); 
+		return temp.trim();
 	}
 	
 	static List<Object> removeDuplicates(Object...obj) {
