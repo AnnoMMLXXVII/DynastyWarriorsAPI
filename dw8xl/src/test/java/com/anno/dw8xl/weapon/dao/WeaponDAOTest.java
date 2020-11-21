@@ -72,34 +72,34 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Get all Weapons...")
-//	@Test
+	@Test
 	void testGetAllWeapons() {
 		Collection<WeaponI> weapons = dao.getAll();
 		assertEquals(690, weapons.size());
 	}
 	
 	@DisplayName("Get Type Hash...")
-//	@Test
+	@Test
 	void testGetTypeHashWeapons() {
 		Map<TypeI, List<WeaponI>> hash = dao.getTypeHash();
 		assertEquals(67, hash.size());
 	}
 
 	@DisplayName("Test Parsed JSON exists [Normal]...")
-//	@Test
+	@Test
 	void testGetParsedJSONExists_Normal() {
 		WeaponI actual = dao.deserializeWeapon(expectedNormalJSON);
 		assertEquals("Razor Dance", actual.getName());
 	}
 
 	@DisplayName("Test Parsed JSON exists [AbNormal]...")
-//	@Test
+	@Test
 	void testGetParsedJSONExists_AbNormal() {
 		WeaponI actual = dao.deserializeWeapon(expectedAbNormalJSON);
 		assertEquals("Crystal Fan", actual.getName());
 	}
 
-//	@Test
+	@Test
 	void givenJsonArray_whenDeserializingAsArray_thenCorrect()
 			throws JsonParseException, JsonMappingException, IOException {
 		Collection<WeaponI> weapons = dao.getAll();
@@ -109,7 +109,7 @@ class WeaponDAOTest {
 		assertTrue(asArray[0] instanceof WeaponI);
 	}
 
-//	@Test
+	@Test
 	void testComparePostmanAndFileReader() throws JsonMappingException, JsonProcessingException {
 		dao.getAll();
 		dao.deserializeWeaponsList(Postman.getPostmanList());
@@ -281,7 +281,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon Abnormal [Void] -> Null Affinity")
-//	@Test
+	@Test
 	void testAddNewWeapon_Abnormal_null_affinity() {
 		WeaponI expected = new AbNormal("VOID", -1, null, 0, new Type("", new Category("")), new Rarity("VOID"));
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -291,7 +291,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon Abnormal [Void] -> Null value for Affinity")
-//	@Test
+	@Test
 	void testAddNewWeapon_Abnormal_null_affinity_value() {
 		WeaponI expected = new AbNormal("VOID", -1, new Affinity(null), 0, new Type("", new Category("")),
 				new Rarity("VOID"));
@@ -302,7 +302,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon Abnormal [Void] -> Null Rarity")
-//	@Test
+	@Test
 	void testAddNewWeapon_AbnormalNullRarity() {
 		WeaponI expected = new AbNormal("VOID", -1, new Affinity(""), 0, new Type("", new Category("")), null);
 		Exception e = assertThrows(NullPointerException.class, () -> {
@@ -312,7 +312,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test adding new Weapon Abnormal [Void] -> Null value for Rarity")
-//	@Test
+	@Test
 	void testAddNewWeapon_AbnormalNullValueRarity() {
 		WeaponI expected = new AbNormal("VOID", -1, new Affinity(""), 0, new Type("", new Category("")),
 				new Rarity(null));
@@ -323,7 +323,7 @@ class WeaponDAOTest {
 	}
 
 	@DisplayName("Test Weapon remove --> Null ")
-//	@Test
+	@Test
 	void testRemoveWeapon_Null() {
 		Exception e = assertThrows(NullPointerException.class, () -> {
 			dao.remove(null);
@@ -348,7 +348,6 @@ class WeaponDAOTest {
 		int size = weapons.size();
 		WeaponI expected = new AbNormal("VOID", -1, new Affinity("VOID"), 0, new Type("", new Category("")),
 				new Rarity("VOID"));
-		;
 		dao.remove(expected);
 		weapons = dao.getAll();
 		assertEquals(size, weapons.size());
