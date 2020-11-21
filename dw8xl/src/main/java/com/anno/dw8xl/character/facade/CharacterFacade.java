@@ -60,7 +60,7 @@ public class CharacterFacade implements CharacterFacadeInterface {
 	@Override
 	public Collection<CharacterI> getOfficerByWeaponType(String type) {
 		String format = format(type);
-		return (!format.isEmpty()) ?
+		return (!format.isEmpty()) ? new ArrayList<>() : new ArrayList<>();
 				
 	}
 
