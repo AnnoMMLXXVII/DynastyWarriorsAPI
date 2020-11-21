@@ -51,6 +51,7 @@ public class WeaponFacade implements WeaponFacadeInterface {
 	public Collection<WeaponI> getFilteredWeapons(String filter, String value, String... option) {
 		String formatedFilter = filter.trim().toLowerCase();
 		if (formatedFilter.equals("")) {
+			log.debug("Errror : Cannot filter weapons due to empty Filter...");
 			return new ArrayList<>();
 		}
 		return getWeaponBy(formatedFilter, value);

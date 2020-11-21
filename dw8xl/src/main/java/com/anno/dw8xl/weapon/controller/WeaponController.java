@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,11 +49,12 @@ public class WeaponController {
 		return new ResponseEntity<>(facade.parseWeaponsList(weapons), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/{filter}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/filter", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<Collection<WeaponI>> getFilteredWeapons(@PathVariable(value = "filter", required = true) String filter,
-			@RequestParam(required = true) String value,
-			@RequestParam(value = "inclusive", required = false) String...options) {
+	public ResponseEntity<Collection<WeaponI>> getFilteredWeapons(
+			@RequestParam(value = "f", required = true) String filter,
+			@RequestParam(value = "v", required = true) String value,
+			@RequestParam(value = "inclusive", required = false) String... options) {
 		return new ResponseEntity<>(facade.getFilteredWeapons(filter, value, options), HttpStatus.OK);
 	}
 

@@ -68,7 +68,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 	private WeaponDAO() {
 		weapons = new HashMap<>();
 		postman = new HashMap<>();
-		typeWeapons = new HashMap<>();
+//		typeWeapons = new HashMap<>();
 		initialize();
 	}
 
