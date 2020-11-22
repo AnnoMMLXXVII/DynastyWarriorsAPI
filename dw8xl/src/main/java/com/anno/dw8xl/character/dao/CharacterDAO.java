@@ -24,11 +24,16 @@ import com.anno.dw8xl.character.model.CharacterI;
 import com.anno.dw8xl.character.model.NullCharacter;
 import com.anno.dw8xl.character.model.Officer;
 import com.anno.dw8xl.character.model.SubOfficer;
+import com.anno.dw8xl.character.model.Weapons;
 import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.dao.KingdomDAO;
 import com.anno.dw8xl.kingdom.model.Kingdom;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.type.model.Type;
+import com.anno.dw8xl.type.model.TypeI;
+import com.anno.dw8xl.weapon.dao.WeaponDAO;
+import com.anno.dw8xl.weapon.dao.WeaponDAOInterface;
+import com.anno.dw8xl.weapon.model.WeaponI;
 
 /**
  * @author Haku Wei
@@ -79,77 +84,138 @@ public class CharacterDAO implements CharacterDAOInterface {
 
 	@Override
 	public void add(CharacterI entity) {
-
+		if(!CharacterDAOInterface.isValidToAdd(entity)) {
+			return;
+		}
+		id = counter.incrementAndGet();
+		log.info(String.format("Adding new Character : %s...", entity.getName()));
+		characters.put(id, entity);
 	}
 
 	@Override
 	public void remove(CharacterI entity) {
-
+		if(!CharacterDAOInterface.isValidToRemove(entity)) {
+			return;
+		}
+		log.info(String.format("Adding new Character : %s...", entity.getName()));
+		characters.put(id, entity);
+	}
+	
+	@Override
+	public CharacterI executeCreateOfficer(CharacterI officer) {
+		if(officer.getName().isEmpty() || officer.getName() == null) {
+			return new NullCharacter();
+		}
+		List<CharacterI> temp = (List<CharacterI>) getAll();
+		if(characters.containsValue(officer)) {
+			
+		}
+		add(officer);
+		return officer;
 	}
 
 	@Override
-	public Collection<CharacterI> getAllOfficers() {
+	public Collection<CharacterI> executeGetAllOfficers() {
 		log.info("Filtering and Returning new List of All Officers...");
 		return characters.values().stream().filter(o -> o instanceof Officer).collect(Collectors.toList());
 	}
 
 	@Override
-	public Collection<CharacterI> getOfficersByKingdom(String name) {
+	public Collection<CharacterI> executeGetOfficersByKingdom(String name) {
 		log.info(String.format("Filtering and Returning list of Officers by Kingdom : %s...", name));
 		return characters.values().stream().filter(o -> o instanceof Officer)
 				.filter(e -> e.getKingdom().getName().equalsIgnoreCase(name)).collect(Collectors.toList());
 	}
 
 	@Override
-	public CharacterI getOfficerByName(String name) {
+	public CharacterI executeGetOfficerByName(String name) {
 		log.info(String.format("Filtering and Returning new Officer : %s...", name));
-		List<CharacterI> temp = (List<CharacterI>) getAllOfficers();
+		List<CharacterI> temp = (List<CharacterI>) executeGetAllOfficers();
 		Optional<CharacterI> res = temp.stream().filter(e -> e.getName().equalsIgnoreCase(name)).findFirst();
 		return (res.isPresent()) ? res.get() : new NullCharacter();
 	}
 
 	@Override
-	public CharacterI getOfficerByType(String type) {
+	public CharacterI executeGetOfficerByType(String type) {
 		log.info(String.format("Filtering and Returning Officer by Type : %s...", type));
-		Optional<CharacterI> res = getAllOfficers().stream().filter(e -> e.getType().getName().equalsIgnoreCase(type))
+		Optional<CharacterI> res = executeGetAllOfficers().stream().filter(e -> e.getType().getName().equalsIgnoreCase(type))
 				.findFirst();
 		return (res.isPresent()) ? res.get() : new NullCharacter();
 	}
 
 	@Override
-	public Collection<CharacterI> getOfficersByCategory(String category) {
+	public Collection<CharacterI> executeGetOfficersByCategory(String category) {
 		log.info(String.format("Filtering and Returning List of Officers by Category : %s...", category));
-		return getAllOfficers().stream().filter(e -> e.getType().getCategory().getName().equalsIgnoreCase(category))
+		return executeGetAllOfficers().stream().filter(e -> e.getType().getCategory().getName().equalsIgnoreCase(category))
 				.collect(Collectors.toList());
 	}
 
 	@Override
-	public CharacterI getOfficerByWeaponNames(String weaponName) {
+	public Collection<CharacterI> executeGetOfficersByWeaponNames(String weaponName) {
 		log.info(String.format("Filtering and Returning Officer by Weapon name : %s...", weaponName));
-		Optional<CharacterI> res = getAllOfficers().stream()
-				.filter(e -> e.getWeapon().getName().equalsIgnoreCase(weaponName)).findFirst();
-		return res.isPresent() ? res.get() : new NullCharacter();
+		return new ArrayList<>();
 	}
 
 	@Override
-	public Collection<CharacterI> getAllSubOfficers() {
+	public Collection<CharacterI> executeGetAllSubOfficers() {
 		log.info("Filtering and Returning new List of All SubOfficers...");
 		return characters.values().stream().filter(o -> o instanceof SubOfficer).collect(Collectors.toList());
 	}
 
 	@Override
-	public Collection<CharacterI> getSubOfficersByKingdom(String name) {
+	public Collection<CharacterI> executeGetSubOfficersByKingdom(String name) {
 		log.info(String.format("Filtering and Returning new List of SubOfficers by kingdom : %s...", name));
 		return characters.values().stream().filter(o -> o instanceof SubOfficer)
 				.filter(e -> e.getKingdom().getName().equalsIgnoreCase(name)).collect(Collectors.toList());
 	}
 
 	@Override
-	public Collection<CharacterI> getSubOfficersByName(String name) {
+	public Collection<CharacterI> executeGetSubOfficersByName(String name) {
 		log.info(String.format("Filtering and Returning new List of SubOfficers by name: %s...", name));
-		return getAllSubOfficers().stream().filter(e -> e.getName().equalsIgnoreCase(name))
+		return executeGetAllSubOfficers().stream().filter(e -> e.getName().equalsIgnoreCase(name))
 				.collect(Collectors.toList());
 	}
+	
+	public Map<String, Integer> getDuplicates() {
+		Map<String, Integer> dupTracker = new HashMap<>();
+		Map<String, List<CharacterI>> listTracker = new HashMap<>();
+		Collection<CharacterI> database = characters.values();
+		
+		String key = "";
+		for(CharacterI c : database) {
+			key = c.getName();
+			if(listTracker.containsKey(key)) {
+//				System.out.println(c.getName());
+				List<CharacterI> dupList = listTracker.get(key);
+				dupList.add(c);
+				listTracker.put(key, dupList);
+			}
+			else {
+				List<CharacterI> newList = new ArrayList<>();
+				newList.add(c);
+				listTracker.put(key, newList);
+			}
+		}
+//		listTracker.forEach((c, v) -> {
+//			if(v.size() > 1) {
+//				System.out.printf("%s -> [", c);
+//				v.forEach(e -> {
+//					System.out.printf("%s (%s), ", e.getKingdom(), e.getClass().getSimpleName());
+//				});	
+//				System.out.print("]\n");
+//			}
+//		}); 
+
+//		linkCharAndWeapon();
+		return dupTracker;
+	}
+	
+//	private void linkCharAndWeapon() {
+//		Collection<CharacterI> database = executeGetAllOfficers();
+//		WeaponDAOInterface weaponDAO = WeaponDAO.getInstance();
+////		Map<TypeI, List<WeaponI>> weapons = weaponDAO.getTypeHash();
+////		System.out.println(database.toString());
+//	}
 
 	private void initialize() {
 		log.info("Calling method that will parse through Characters...");
@@ -191,8 +257,12 @@ public class CharacterDAO implements CharacterDAOInterface {
 								new Type(officerLine[2].trim()))
 						: new SubOfficer(officerLine[0], kingdom);
 				characters.put(id, character);
+				if(isOfficer) {
+					Officer temp = (Officer) characters.get(id);
+					temp.setWeapon(new Weapons(new ArrayList<>()));
+					characters.put(id, temp);
+				}
 				id = counter.incrementAndGet();
-
 			}
 		} catch (FileNotFoundException e) {
 			log.info(String.format("Error: %s...", e.getMessage()));

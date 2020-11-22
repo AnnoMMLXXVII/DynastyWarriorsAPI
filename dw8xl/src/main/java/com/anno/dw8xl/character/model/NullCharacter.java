@@ -3,13 +3,15 @@
  */
 package com.anno.dw8xl.character.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.kingdom.model.NullKingdom;
 import com.anno.dw8xl.type.model.NullType;
 import com.anno.dw8xl.type.model.TypeI;
-import com.anno.dw8xl.weapon.model.NullWeapon;
 import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
@@ -46,8 +48,8 @@ public class NullCharacter extends Character {
 	}
 
 	@Override
-	public WeaponI getWeapon() {
-		return new NullWeapon();
+	public List<WeaponI> getWeapons() {
+		return new ArrayList<>();
 	}
 
 	public TypeI getType() {

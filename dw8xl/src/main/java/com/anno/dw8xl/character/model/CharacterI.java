@@ -1,5 +1,7 @@
 package com.anno.dw8xl.character.model;
 
+import java.util.List;
+
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.shared.CharacterIDeserializer;
 import com.anno.dw8xl.type.model.TypeI;
@@ -24,7 +26,7 @@ public interface CharacterI {
 
 	public TypeI getType();
 
-	public WeaponI getWeapon();
+	public List<WeaponI> getWeapons();
 
 	public int hashCode();
 

@@ -20,12 +20,19 @@ public interface CharacterFacadeInterface {
 	public Collection<CharacterI> getAllSubOfficers();
 
 	public Collection<CharacterI> getOfficerByKingdom(String kingdom);
+
 	public CharacterI getOfficerByName(String name);
-	public Collection<CharacterI> getOfficerByWeaponType(String type);
+
+	public CharacterI getOfficerByWeaponType(String type);
+	
+	public CharacterI addOfficer(String officer);
+
 	public Collection<CharacterI> getOfficerByWeaponCategory(String category);
+
 	public Collection<CharacterI> getOfficerByWeaponName(String weaponName);
 
 	public Collection<CharacterI> getSubOfficerByKingdom(String kingdom);
+
 	public Collection<CharacterI> getSubOfficerByName(String name);
 
 }
