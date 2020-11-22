@@ -29,7 +29,7 @@ public class CharacterIDeserializer extends JsonDeserializer<CharacterI> {
 		ObjectNode root = (ObjectNode) mapper.readTree(p);
 		Class<? extends Character> instanceClass = null;
 		String res = root.get(id).toString();
-//		System.out.printf("CharDez --> %s\n TYPE --> %s\n", root.toPrettyString(), res.toString());
+		System.out.printf("CharDez --> %s\n State --> %s\n", root.toPrettyString(), res.toString());
 		if (res.equals("\"officer\"".toLowerCase().trim())) {
 			instanceClass = Officer.class;
 		} else {
@@ -37,5 +37,4 @@ public class CharacterIDeserializer extends JsonDeserializer<CharacterI> {
 		}
 		return mapper.treeToValue(root, instanceClass);
 	}
-
 }
