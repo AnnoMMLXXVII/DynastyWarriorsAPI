@@ -25,7 +25,7 @@ import com.anno.dw8xl.affinity.model.Affinity;
 import com.anno.dw8xl.affinity.model.AffinityI;
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.category.model.CategoryI;
-import com.anno.dw8xl.character.dao.CharacterDAOInterface;
+import com.anno.dw8xl.character.model.Weapons;
 import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.dao.KingdomDAO;
 import com.anno.dw8xl.kingdom.model.KingdomI;
@@ -54,9 +54,9 @@ public class WeaponDAO implements WeaponDAOInterface {
 	private Map<TypeI, List<WeaponI>> typeWeapons;
 
 	public static WeaponDAOInterface getInstance() {
-		log.info("CharacterDAO Singleton instantiation...");
+		log.info("WeaponDAO Singleton instantiation...");
 		if (instance == null) {
-			synchronized (CharacterDAOInterface.class) {
+			synchronized (WeaponDAOInterface.class) {
 				if (instance == null) {
 					return new WeaponDAO();
 				}
@@ -140,8 +140,32 @@ public class WeaponDAO implements WeaponDAOInterface {
 		return postman;
 	}
 
-	public Map<TypeI, List<WeaponI>> getTypeHash() {
-		return typeWeapons;
+	public Map<String, Weapons> getTypeHash() {
+		Map<String, Weapons> temp = new HashMap<>();
+		Collection<WeaponI> database = this.getAll();
+		String key = "";
+		for(WeaponI w : database) {
+			key = w.getType().getName();
+			Weapons list;
+			if(temp.containsKey(key)) {
+				list = temp.get(key);
+				list.getWeapons().add(w);
+				temp.put(key, list);
+			}
+			else {
+				list = new Weapons(new ArrayList<>());
+				list.getWeapons().add(w);
+				temp.put(key, list);
+			}
+		}
+//		temp.forEach((k,v) -> {
+//			System.out.printf("%s [\n\t\t", k);
+//			v.getWeapons().stream().forEach(e -> {
+//				System.out.printf("%s, ", e.getName());
+//			});
+//			System.out.printf("]\n");
+//		});
+		return temp;
 	}
 
 	public WeaponI deserializeWeapon(String json) {
@@ -215,6 +239,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 				? weapons.values().stream().filter(e -> e.getBaseAttack() <= baseAttack).collect(Collectors.toList())
 				: weapons.values().stream().filter(e -> e.getBaseAttack() < baseAttack).collect(Collectors.toList());
 	}
+	
 
 	private void initialize() {
 		log.info("Calling method that will parse through Weapons Files...");
