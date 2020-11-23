@@ -1,11 +1,8 @@
 package com.anno.dw8xl.character.model;
 
-import java.util.List;
-
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.shared.CharacterIDeserializer;
 import com.anno.dw8xl.type.model.TypeI;
-import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -26,7 +23,9 @@ public interface CharacterI {
 
 	public TypeI getType();
 
-	public List<WeaponI> getWeapons();
+	public abstract void setWeapons(Weapons weapons);
+	
+	public abstract Weapons getWeapons();
 
 	public int hashCode();
 

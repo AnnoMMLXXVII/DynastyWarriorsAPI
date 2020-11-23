@@ -3,14 +3,11 @@
  */
 package com.anno.dw8xl.character.model;
 
-import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.view.CharacterView;
-import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
@@ -54,12 +51,14 @@ public class Officer extends Character {
 		return type;
 	}
 
-	public void setWeapon(Weapons weapons) {
+	@Override 
+	public void setWeapons(Weapons weapons) {
 		this.weapons = weapons;
 	}
 
-	public List<WeaponI> getWeapons() {
-		return weapons.getWeapons();
+	@Override
+	public Weapons getWeapons() {
+		return weapons;
 	}
 
 	@Override

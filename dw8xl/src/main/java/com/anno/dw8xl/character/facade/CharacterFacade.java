@@ -61,23 +61,32 @@ public class CharacterFacade implements CharacterFacadeInterface {
 
 	@Override
 	public CharacterI getOfficerByWeaponType(String type) {
-		if(type.isEmpty()) {
+		if (type.isEmpty()) {
 			log.debug("Returning Empty Character due to empty type...");
 			return new NullCharacter();
 		}
 		log.debug("Returning Officer by Type...");
 		return dao.executeGetOfficerByType(type);
-				
 	}
 
 	@Override
 	public Collection<CharacterI> getOfficerByWeaponCategory(String category) {
-		if(category.isEmpty()) {
+		if (category.isEmpty()) {
 			log.debug("Returning Empty Collection of Officers due to empty Category...");
-			return new ArrayList<>(); 
+			return new ArrayList<>();
 		}
 		log.debug("Returning collection of Officers by Category...");
 		return dao.executeGetOfficersByCategory(category);
+	}
+
+	@Override
+	public Collection<CharacterI> getOfficerByWeaponStar(String star) {
+		if(star.isEmpty() || Integer.parseInt(star) < 0) {
+			log.debug("Returning Empty Collection of Officers: Empty or Star value below ZERO...");
+			return new ArrayList<>();
+		}
+		log.debug("Returning collection of Officers by Star value...");
+		return dao.executeGetOfficersByStar(Integer.parseInt(star));
 	}
 
 	@Override
@@ -101,7 +110,7 @@ public class CharacterFacade implements CharacterFacadeInterface {
 			log.debug("Could not parse incoming weapon list...");
 		}
 //		System.out.println(temp.toString()); 
-		return dao.executeCreateOfficer(temp); 
+		return dao.executeCreateOfficer(temp);
 	}
 
 	@Override

@@ -4,7 +4,6 @@
 package com.anno.dw8xl.character.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -61,9 +60,16 @@ public class SubOfficer extends Character {
 		return new NullType();
 	}
 
+	@Override 
+	public void setWeapons(Weapons weapons) {
+		/*
+		 * 
+		 */
+	}
+
 	@Override
-	public List<WeaponI> getWeapons() {
-		return new ArrayList<>();
+	public Weapons getWeapons() {
+		return new Weapons(new ArrayList<>());
 	}
 
 	@Override

@@ -26,10 +26,12 @@ public interface CharacterDAOInterface extends DataAccessObjectInterface<Charact
 
 	public Collection<CharacterI> executeGetOfficersByCategory(String category);
 
+	public Collection<CharacterI> executeGetOfficersByStar(Integer star);
+
 	public Collection<CharacterI> executeGetOfficersByWeaponNames(String weaponName);
 
 	public CharacterI executeGetOfficerByName(String name);
-	
+
 	public CharacterI executeCreateOfficer(CharacterI officer);
 
 	public Collection<CharacterI> executeGetAllSubOfficers();
@@ -37,7 +39,7 @@ public interface CharacterDAOInterface extends DataAccessObjectInterface<Charact
 	public Collection<CharacterI> executeGetSubOfficersByKingdom(String kingdom);
 
 	public Collection<CharacterI> executeGetSubOfficersByName(String name);
-	
+
 	public Map<String, Integer> getDuplicates();
 
 	static final Logger log = LoggerFactory.getLogger(CharacterDAO.class);

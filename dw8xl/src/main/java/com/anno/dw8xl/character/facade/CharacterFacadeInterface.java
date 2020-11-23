@@ -24,10 +24,12 @@ public interface CharacterFacadeInterface {
 	public CharacterI getOfficerByName(String name);
 
 	public CharacterI getOfficerByWeaponType(String type);
-	
+
 	public CharacterI addOfficer(String officer);
 
 	public Collection<CharacterI> getOfficerByWeaponCategory(String category);
+
+	public Collection<CharacterI> getOfficerByWeaponStar(String star);
 
 	public Collection<CharacterI> getOfficerByWeaponName(String weaponName);
 
