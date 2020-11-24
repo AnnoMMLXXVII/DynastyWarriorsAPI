@@ -1,15 +1,14 @@
 package com.anno.dw8xl.weapon.dao;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.anno.dw8xl.character.model.Weapons;
 import com.anno.dw8xl.dao.DataAccessObjectInterface;
 import com.anno.dw8xl.type.model.NullType;
-import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.weapon.model.AbNormal;
 import com.anno.dw8xl.weapon.model.WeaponI;
 
@@ -26,7 +25,7 @@ public interface WeaponDAOInterface extends DataAccessObjectInterface<WeaponI, O
 	public Collection<WeaponI> deserializeWeaponsList(String weapons);
 
 	public Map<String, WeaponI> getWeapons();
-	public Map<TypeI, List<WeaponI>> getTypeHash();
+	public Map<String, Weapons> getTypeHash();
 	public Map<String, WeaponI> getPostman();
 	
 	public Collection<WeaponI> getWeaponsByCategory(String category);

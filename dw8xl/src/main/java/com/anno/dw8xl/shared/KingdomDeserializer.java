@@ -29,7 +29,7 @@ public class KingdomDeserializer extends JsonDeserializer<KingdomI> {
 		ObjectNode root = (ObjectNode) mapper.readTree(p);
 		Class<? extends KingdomI> instance = null;
 		String res = root.get(id).toString();
-		System.out.printf("KDez --> %s\n%s\n", root.toPrettyString(), res.equalsIgnoreCase("\"kingdom\""));
+//		System.out.printf("KDez --> %s\n%s\n", root.toPrettyString(), res.equalsIgnoreCase("\"kingdom\""));
 		if(res.equals("\"kingdom\"")) {
 			instance = Kingdom.class;
 		}

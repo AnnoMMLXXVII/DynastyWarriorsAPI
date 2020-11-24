@@ -4,6 +4,7 @@
 package com.anno.dw8xl.character.dao;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,23 +18,29 @@ import com.anno.dw8xl.dao.DataAccessObjectInterface;
  */
 public interface CharacterDAOInterface extends DataAccessObjectInterface<CharacterI, Object> {
 
-	public Collection<CharacterI> getAllOfficers();
+	public Collection<CharacterI> executeGetAllOfficers();
 
-	public Collection<CharacterI> getOfficersByKingdom(String kingdom);
+	public Collection<CharacterI> executeGetOfficersByKingdom(String kingdom);
 
-	public CharacterI getOfficerByType(String type);
+	public CharacterI executeGetOfficerByType(String type);
 
-	public Collection<CharacterI> getOfficersByCategory(String kingdom);
+	public Collection<CharacterI> executeGetOfficersByCategory(String category);
 
-	public CharacterI getOfficerByWeaponNames(String weaponName);
+	public Collection<CharacterI> executeGetOfficersByStar(Integer star);
 
-	public CharacterI getOfficerByName(String name);
+	public Collection<CharacterI> executeGetOfficersByWeaponNames(String weaponName);
 
-	public Collection<CharacterI> getAllSubOfficers();
+	public CharacterI executeGetOfficerByName(String name);
 
-	public Collection<CharacterI> getSubOfficersByKingdom(String kingdom);
+	public CharacterI executeCreateOfficer(CharacterI officer);
 
-	public Collection<CharacterI> getSubOfficersByName(String name);
+	public Collection<CharacterI> executeGetAllSubOfficers();
+
+	public Collection<CharacterI> executeGetSubOfficersByKingdom(String kingdom);
+
+	public Collection<CharacterI> executeGetSubOfficersByName(String name);
+
+	public Map<String, Integer> getDuplicates();
 
 	static final Logger log = LoggerFactory.getLogger(CharacterDAO.class);
 
@@ -43,19 +50,19 @@ public interface CharacterDAOInterface extends DataAccessObjectInterface<Charact
 			throw new NullPointerException("Character cannot be added due to Null!");
 		}
 		if (entity.getName().equals("")) {
-			log.info("Cannot add Character due to Empty Kingdom...");
+			log.info("Cannot add Character due to Empty Character Name...");
 			return false;
 		}
 		return true;
 	}
 
-	static boolean isValidToRemov(CharacterI entity) {
+	static boolean isValidToRemove(CharacterI entity) {
 		if (entity == null) {
 			log.info("Cannot remove Character due to Null Exception...");
 			throw new NullPointerException("Character cannot be removed due to Null!");
 		}
 		if (entity.getName().equals("")) {
-			log.info("Cannot remove Character due to Empty Kingdom...");
+			log.info("Cannot remove Character due to Empty Character Name...");
 			return false;
 		}
 		return true;

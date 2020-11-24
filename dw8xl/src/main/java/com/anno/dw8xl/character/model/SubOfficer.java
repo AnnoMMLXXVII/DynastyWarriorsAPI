@@ -3,13 +3,14 @@
  */
 package com.anno.dw8xl.character.model;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.type.model.NullType;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.view.CharacterView;
-import com.anno.dw8xl.weapon.model.NullWeapon;
 import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -59,9 +60,16 @@ public class SubOfficer extends Character {
 		return new NullType();
 	}
 
+	@Override 
+	public void setWeapons(Weapons weapons) {
+		/*
+		 * 
+		 */
+	}
+
 	@Override
-	public WeaponI getWeapon() {
-		return new NullWeapon();
+	public Weapons getWeapons() {
+		return new Weapons(new ArrayList<>());
 	}
 
 	@Override

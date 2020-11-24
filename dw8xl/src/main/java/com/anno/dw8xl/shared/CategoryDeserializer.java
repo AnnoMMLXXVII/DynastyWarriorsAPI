@@ -25,8 +25,9 @@ public class CategoryDeserializer extends JsonDeserializer<CategoryI> {
 		ObjectMapper mapper = (ObjectMapper) p.getCodec();
 		ObjectNode root = (ObjectNode) mapper.readTree(p);
 		Class<? extends CategoryI> instanceClass = null;
+		String res = root.get(id).toString();
 //		System.out.printf("CDez --> %s\n", root.toPrettyString());
-		if (root.get(id) != null) {
+		if (res.equalsIgnoreCase("\"category\"".trim())) {
 			instanceClass = Category.class;
 		} else {
 			instanceClass = NullCategory.class;

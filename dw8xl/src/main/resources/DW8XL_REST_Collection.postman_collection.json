@@ -921,6 +921,39 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Multiple - Mixed - No Params",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/attributes?name",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -1024,7 +1057,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=Shu,Wei,Shu",
+							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu,Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -1035,7 +1068,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "Shu,Wei,Shu"
+									"value": "Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu,Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu"
 								}
 							]
 						}
@@ -1205,7 +1238,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOID\"\n}",
+							"raw": "{\n    \"state\": \"category\",\n    \"name\": \"Void\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1232,7 +1265,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories?name=",
+							"raw": "{{DW8XL_HOST}}/api/categories?name=Dasher,Void,DeVoid,Dasher,Shadow Sprinter",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -1243,7 +1276,7 @@
 							"query": [
 								{
 									"key": "name",
-									"value": ""
+									"value": "Dasher,Void,DeVoid,Dasher,Shadow Sprinter"
 								}
 							]
 						}
@@ -1256,7 +1289,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories?name=void",
+							"raw": "{{DW8XL_HOST}}/api/categories?name=DeVoid",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
@@ -1267,128 +1300,8 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "void"
+									"value": "DeVoid"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "By Object",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOID\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories",
-							"host": [
-								"{{DW8XL_HOST}}"
-							],
-							"path": [
-								"api",
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "By Object - ERROR",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOIDS\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories",
-							"host": [
-								"{{DW8XL_HOST}}"
-							],
-							"path": [
-								"api",
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "By No Param || Body",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories",
-							"host": [
-								"{{DW8XL_HOST}}"
-							],
-							"path": [
-								"api",
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "By No Param || Body Copy",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories",
-							"host": [
-								"{{DW8XL_HOST}}"
-							],
-							"path": [
-								"api",
-								"categories"
 							]
 						}
 					},
@@ -1401,7 +1314,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"CategoryI-Type\": \"Category\",\n    \"name\": \"VOID\"\n}",
+							"raw": "[\n    {\n        \"state\": \"category\",\n        \"name\": \"Void\"\n    },\n    {\n        \"state\": \"category\",\n        \"name\": \"Void\"\n    },\n    {\n        \"state\": \"category\",\n        \"name\": \"Dasher\"\n    },\n    {\n        \"state\": \"category\",\n        \"name\": \"Diver\"\n    },\n    {\n        \"state\": \"category\",\n        \"name\": \"Whirlwind Master\"\n    },\n    {\n        \"state\": \"category\",\n        \"name\": \"Shadow Sprinter\"\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1417,6 +1330,72 @@
 								"api",
 								"categories",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n     {\r\n        \"state\": \"category\",\r\n        \"name\": \"Dasher\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories?name=Dasher",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dasher"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multi",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n     {\r\n        \"state\": \"category\",\r\n        \"name\": \"Dasher\"\r\n    },\r\n    {\r\n        \"state\": \"category\",\r\n        \"name\": \"Shadow Sprinter\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DW8XL_HOST}}/api/categories?name=Dasher,Shadow Sprinter",
+							"host": [
+								"{{DW8XL_HOST}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dasher,Shadow Sprinter"
+								}
 							]
 						}
 					},
@@ -1450,6 +1429,200 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Officers - Kingdom",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers/kingdom?v=shu",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers",
+										"kingdom"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "shu"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Officers - Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers?v=Zhao Yun",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "Zhao Yun"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Officers - Weapon Type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers/weapon/type?v=Dragon Spear",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers",
+										"weapon",
+										"type"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "Dragon Spear"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Officers - Weapon Category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers/weapon/category?v=dasher",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers",
+										"weapon",
+										"category"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "dasher"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Officers - Weapon Star",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers/weapon/category?v=dasher",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers",
+										"weapon",
+										"category"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "dasher"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Officers",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Haku Wei\",\r\n    \"kingdom\": {\r\n        \"state\": \"kingdom\",\r\n        \"name\": \"Shu\"\r\n    },\r\n    \"state\": \"officer\",\r\n    \"type\": {\r\n        \"state\": \"type\",\r\n        \"name\": \"Dragon Void\",\r\n        \"category\": {\r\n            \"state\": \"category\",\r\n            \"name\" : \"Diver\"\r\n        }\r\n    },\r\n    \"weapons\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Officers Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Haku Weu\",\r\n    \"kingdom\": {\r\n        \"state\": \"kingdom\",\r\n        \"name\": \"Shu\"\r\n    },\r\n    \"state\": \"officer\",\r\n    \"type\": {\r\n        \"state\": \"type\",\r\n        \"name\": \"Dragon Void\",\r\n        \"category\": {\r\n            \"state\": \"category\",\r\n            \"name\" : \"Diver\"\r\n        }\r\n    },\r\n    \"weapons\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/officers?v=haku wei",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"officers"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "haku wei"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -1473,6 +1646,57 @@
 										"characters",
 										"sub-officers",
 										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SubOfficers - Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/sub-officers?v=Bao Su",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"sub-officers"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "Bao Su"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SubOfficers - Kingdom",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DW8XL_HOST}}/api/characters/sub-officers/kingdom?v=shu",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"api",
+										"characters",
+										"sub-officers",
+										"kingdom"
+									],
+									"query": [
+										{
+											"key": "v",
+											"value": "shu"
+										}
 									]
 								}
 							},

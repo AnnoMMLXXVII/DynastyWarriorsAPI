@@ -6,6 +6,7 @@ package com.anno.dw8xl.character.dao;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -45,71 +46,77 @@ class CharacterDAOTest {
 		subOfficer = new SubOfficer("Bao Su", expectedKingdom);
 	}
 
-	@DisplayName("Test Get All Characters")
+	@DisplayName("Test executeGet All Characters")
 	@Test
-	void testGetAllCharacters() {
+	void testexecuteGetAllCharacters() {
 		characters = dao.getAll();
 		assertEquals(852,characters.size());
 	}
 	
-	@DisplayName("Test Get All Shu Officers")
+	@DisplayName("Test executeGet All Shu Officers")
 	@Test
-	void testGetAllShuOfficers() {
-		characters = dao.getAllShuOfficers();
+	void testexecuteGetAllShuOfficers() {
+		characters = dao.executeGetOfficersByKingdom("Shu");
 		assertEquals(22, characters.size());
 	}
 	
 	
-	@DisplayName("Test Get All Shu SubOfficers")
+	@DisplayName("Test executeGet All Shu SubOfficers")
 	@Test
-	void testGetAllShuSubOfficers() {
-		characters = dao.getAllShuSubOfficers();
+	void testexecuteGetAllShuSubOfficers() {
+		characters = dao.executeGetSubOfficersByKingdom("Shu");
 		assertEquals(112, characters.size());
 	}
 	
-	@DisplayName("Test Get All Wei Officers")
+	@DisplayName("Test executeGet All Wei Officers")
 	@Test
-	void testGetAllWeiOfficers() {
-		characters = dao.getAllWeiOfficers();
+	void testexecuteGetAllWeiOfficers() {
+		characters = dao.executeGetOfficersByKingdom("Wei");
 		assertEquals(16, characters.size());
 	}
 	
 	
-	@DisplayName("Test Get All Wei SubOfficers")
+	@DisplayName("Test executeGet All Wei SubOfficers")
 	@Test
-	void testGetAllWeiSubOfficers() {
-		characters = dao.getAllWeiSubOfficers();
+	void testexecuteGetAllWeiSubOfficers() {
+		characters = dao.executeGetSubOfficersByKingdom("Wei");
 		assertEquals(79, characters.size());
 	}
 	
-	@DisplayName("Test Get All Jin Officers")
+	@DisplayName("Test executeGet All Jin Officers")
 	@Test
-	void testGetAllJinOfficers() {
-		characters = dao.getAllJinOfficers();
+	void testexecuteGetAllJinOfficers() {
+		characters = dao.executeGetOfficersByKingdom("Jin");
 		assertEquals(12, characters.size());
 	}
 	
 	
-	@DisplayName("Test Get All Jin SubOfficers")
+	@DisplayName("Test executeGet All Jin SubOfficers")
 	@Test
-	void testGetAllJinSubOfficers() {
-		characters = dao.getAllJinSubOfficers();
+	void testexecuteGetAllJinSubOfficers() {
+		characters = dao.executeGetSubOfficersByKingdom("Jin");
 		assertEquals(208, characters.size());
 	}
 	
-	@DisplayName("Test Get All Other Officers")
+	@DisplayName("Test executeGet All Other Officers")
 	@Test
-	void testGetAllOtherOfficers() {
-		characters = dao.getAllWuOfficers();
-		assertEquals(18, characters.size());
+	void testexecuteGetAllOtherOfficers() {
+		characters = dao.executeGetOfficersByKingdom("Other");
+		assertEquals(10, characters.size());
 	}
 	
 	
-	@DisplayName("Test Get All Other SubOfficers")
+	@DisplayName("Test executeGet All Other SubOfficers")
 	@Test
-	void testGetAllOtherSubOfficers() {
-		characters = dao.getAllOtherSubOfficers();
+	void testexecuteGetAllOtherSubOfficers() {
+		characters = dao.executeGetSubOfficersByKingdom("Other");
 		assertEquals(296, characters.size());
+	}
+	
+	@DisplayName("Test If Duplicates exist")
+	@Test
+	void testIfDuplicatesExist() {
+		Map<String, Integer> duplicates = dao.getDuplicates();
 	}
 
 }

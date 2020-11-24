@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.view.CharacterView;
-import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
@@ -30,7 +29,7 @@ public class Officer extends Character {
 	@JsonView(CharacterView.Officer.class)
 	private TypeI type;
 	@JsonView(CharacterView.Officer.class)
-	private WeaponI weapon;
+	private Weapons weapons;
 
 	public Officer() {
 		/*
@@ -52,20 +51,23 @@ public class Officer extends Character {
 		return type;
 	}
 
-	public void setWeapon(WeaponI weapon) {
-		this.weapon = weapon;
+	@Override 
+	public void setWeapons(Weapons weapons) {
+		this.weapons = weapons;
 	}
 
-	public WeaponI getWeapon() {
-		return weapon;
+	@Override
+	public Weapons getWeapons() {
+		return weapons;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		result = prime * result + ((weapon == null) ? 0 : weapon.hashCode());
+		result = prime * result + ((weapons == null) ? 0 : weapons.hashCode());
 		return result;
 	}
 
@@ -78,15 +80,20 @@ public class Officer extends Character {
 		if (getClass() != obj.getClass())
 			return false;
 		Officer other = (Officer) obj;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
 		if (type == null) {
 			if (other.type != null)
 				return false;
 		} else if (!type.equals(other.type))
 			return false;
-		if (weapon == null) {
-			if (other.weapon != null)
+		if (weapons == null) {
+			if (other.weapons != null)
 				return false;
-		} else if (!weapon.equals(other.weapon))
+		} else if (!weapons.equals(other.weapons))
 			return false;
 		return true;
 	}

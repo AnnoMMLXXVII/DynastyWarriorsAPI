@@ -21,12 +21,12 @@ import org.junit.jupiter.api.Test;
 
 import com.anno.dw8xl.affinity.model.Affinity;
 import com.anno.dw8xl.category.model.Category;
+import com.anno.dw8xl.character.model.Weapons;
 import com.anno.dw8xl.length.model.Length;
 import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.shared.Postman;
 import com.anno.dw8xl.type.model.NullType;
 import com.anno.dw8xl.type.model.Type;
-import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.weapon.model.AbNormal;
 import com.anno.dw8xl.weapon.model.Normal;
 import com.anno.dw8xl.weapon.model.WeaponI;
@@ -81,8 +81,8 @@ class WeaponDAOTest {
 	@DisplayName("Get Type Hash...")
 	@Test
 	void testGetTypeHashWeapons() {
-		Map<TypeI, List<WeaponI>> hash = dao.getTypeHash();
-		assertEquals(67, hash.size());
+		Map<String, Weapons> hash = dao.getTypeHash();
+		assertEquals(74, hash.size());
 	}
 
 	@DisplayName("Test Parsed JSON exists [Normal]...")
@@ -352,5 +352,7 @@ class WeaponDAOTest {
 		weapons = dao.getAll();
 		assertEquals(size, weapons.size());
 	}
+	
+	
 
 }
