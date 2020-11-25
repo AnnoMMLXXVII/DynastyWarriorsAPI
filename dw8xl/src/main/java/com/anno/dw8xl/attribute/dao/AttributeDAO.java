@@ -30,7 +30,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class AttributeDAO implements AttributeDAOInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(AttributeDAO.class);
-	private Map<String, AttributeI> attributes, temp;
+	private Map<String, AttributeI> attributes; 
+	private Map<String, AttributeI> temp;
 	private static AttributeDAOInterface instance = null;
 
 	/*
@@ -176,7 +177,7 @@ public class AttributeDAO implements AttributeDAOInterface {
 	}
 
 	private void parseFilesAndMap(boolean isNormal) {
-		AttributeI temp;
+		AttributeI localTemp;
 		File file = new File(
 				(isNormal) ? PATH.NORMAL_ATTRIBUTE_PATH.getStringUrl() : PATH.SPECIAL_ATTRIBUTE_PATH.getStringUrl());
 		String line;
@@ -185,9 +186,9 @@ public class AttributeDAO implements AttributeDAOInterface {
 			while (z.hasNextLine()) {
 				line = z.nextLine();
 				lineArr = line.split(",");
-				temp = (isNormal) ? new Normal(lineArr[0].trim(), lineArr[1].trim())
+				localTemp = (isNormal) ? new Normal(lineArr[0].trim(), lineArr[1].trim())
 						: new Special(lineArr[0].trim(), lineArr[1].trim());
-				attributes.put(temp.getName(), temp);
+				attributes.put(localTemp.getName(), localTemp);
 			}
 
 		} catch (FileNotFoundException e) {

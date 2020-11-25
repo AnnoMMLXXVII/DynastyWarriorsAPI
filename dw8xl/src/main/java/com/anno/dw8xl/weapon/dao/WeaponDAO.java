@@ -144,27 +144,19 @@ public class WeaponDAO implements WeaponDAOInterface {
 		Map<String, Weapons> temp = new HashMap<>();
 		Collection<WeaponI> database = this.getAll();
 		String key = "";
-		for(WeaponI w : database) {
+		for (WeaponI w : database) {
 			key = w.getType().getName();
 			Weapons list;
-			if(temp.containsKey(key)) {
+			if (temp.containsKey(key)) {
 				list = temp.get(key);
 				list.getWeapons().add(w);
 				temp.put(key, list);
-			}
-			else {
+			} else {
 				list = new Weapons(new ArrayList<>());
 				list.getWeapons().add(w);
 				temp.put(key, list);
 			}
 		}
-//		temp.forEach((k,v) -> {
-//			System.out.printf("%s [\n\t\t", k);
-//			v.getWeapons().stream().forEach(e -> {
-//				System.out.printf("%s, ", e.getName());
-//			});
-//			System.out.printf("]\n");
-//		});
 		return temp;
 	}
 
@@ -212,11 +204,9 @@ public class WeaponDAO implements WeaponDAOInterface {
 	public Collection<WeaponI> getWeaponsByState(String state) {
 		if (state.equalsIgnoreCase("normal")) {
 			return weapons.values().stream().filter(e -> e instanceof Normal).collect(Collectors.toList());
-		} 
-		else if (state.equalsIgnoreCase("abnormal")) {
+		} else if (state.equalsIgnoreCase("abnormal")) {
 			return weapons.values().stream().filter(e -> e instanceof AbNormal).collect(Collectors.toList());
-		}
-		else {
+		} else {
 			return new ArrayList<>();
 		}
 	}
@@ -239,7 +229,6 @@ public class WeaponDAO implements WeaponDAOInterface {
 				? weapons.values().stream().filter(e -> e.getBaseAttack() <= baseAttack).collect(Collectors.toList())
 				: weapons.values().stream().filter(e -> e.getBaseAttack() < baseAttack).collect(Collectors.toList());
 	}
-	
 
 	private void initialize() {
 		log.info("Calling method that will parse through Weapons Files...");
@@ -255,10 +244,8 @@ public class WeaponDAO implements WeaponDAOInterface {
 		}
 		log.info("Assigning the characterPaths based on flag...");
 		PATH[][] categoriesPaths = { PATH.getDasherWeaponsPaths(), PATH.getWhirlwindWeaponsPaths(),
-//				PATH.getDiverWeaponsPaths(),
-//				PATH.getShadowWeaponsPaths(),
-		};
-		CategoryI[] categories = { new Category("Dasher"), new Category("Whirlwind") };
+				PATH.getDiverWeaponsPaths(), PATH.getShadowWeaponsPaths()};
+		CategoryI[] categories = { new Category("Dasher"), new Category("Whirlwind Master"), new Category("Diver"), new Category("Shadow Sprinter") };
 		RarityI[] rarities = { new Rarity("Rare"), new Rarity("Unique"), new Rarity("Xtreme") };
 		log.info("Parsing throgh character files (Officer or SubOfficer)...");
 		boolean isNormal = true;
@@ -270,8 +257,8 @@ public class WeaponDAO implements WeaponDAOInterface {
 						isNormal = false;
 						k = j - 1;
 					}
-					parseThroughWeaponTextFile(categoriesPaths[i][j].getStringUrl(), weapons, typeWeapons,
-							categories[i], rarities[k], isNormal);
+					parseThroughWeaponTextFile(categoriesPaths[i][j].getStringUrl(), weapons, categories[i],
+							rarities[k], isNormal);
 				} catch (Exception e) {
 					log.debug(String.format("%s :: Error: %s...%n", categoriesPaths[i][j].getStringUrl(),
 							e.getMessage()));
@@ -280,8 +267,8 @@ public class WeaponDAO implements WeaponDAOInterface {
 		}
 	}
 
-	private void parseThroughWeaponTextFile(String path, Map<String, WeaponI> weapons,
-			Map<TypeI, List<WeaponI>> typeWeapons, CategoryI category, RarityI rarity, boolean isNormal) {
+	private void parseThroughWeaponTextFile(String path, Map<String, WeaponI> weapons, CategoryI category,
+			RarityI rarity, boolean isNormal) {
 		WeaponI weapon = null;
 		WeaponKey key = null;
 		File file = new File(path);
@@ -295,7 +282,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 				key = new WeaponKey(weapon.getName(), weapon.getType());
 				weapons.put(key.toString(), weapon);
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			log.info(String.format("FNFE Error: %s...", e.getMessage()));
 		}

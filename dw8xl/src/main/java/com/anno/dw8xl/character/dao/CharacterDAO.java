@@ -31,6 +31,7 @@ import com.anno.dw8xl.kingdom.model.Kingdom;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.type.model.Type;
 import com.anno.dw8xl.weapon.dao.WeaponDAO;
+import com.anno.dw8xl.weapon.model.NullWeapon;
 import com.anno.dw8xl.weapon.model.WeaponI;
 
 /**
@@ -150,12 +151,18 @@ public class CharacterDAO implements CharacterDAOInterface {
 	}
 
 	@Override
-	public Collection<CharacterI> executeGetOfficersByStar(Integer star) {
+	public Collection<CharacterI> executeGetOfficersByWeaponStar(Integer star) {
 		log.info(String.format("Filtering and returning List of Officers by Star value : %d", star));
-		Collection<WeaponI> stars = WeaponDAO.getInstance().getWeaponsByStar(star);
-		Collection<CharacterI> officersByStar = executeGetAllOfficers();
-		return executeGetAllOfficers().stream().filter(e -> e.getWeapons().getWeapons().stream()
-				.filter(s -> s.getStar().equals(star).collect(Collectors.toList()).collect(Collectors.toList())));
+		List<WeaponI> officersByStar = new ArrayList<>();
+		Collection<CharacterI> officers = executeGetAllOfficers();
+		officers.stream().forEach(System.out::println);
+		WeaponI error = new NullWeapon();
+		for (CharacterI c : officers) {
+			officersByStar = c.getWeapons().getWeapons().stream().filter(e -> e.getStar().equals(star))
+					.collect(Collectors.toList());
+			c.setWeapons(new Weapons(officersByStar));
+		}
+		return officers;
 	}
 
 	@Override
@@ -193,7 +200,6 @@ public class CharacterDAO implements CharacterDAOInterface {
 		for (CharacterI c : database) {
 			key = c.getName();
 			if (listTracker.containsKey(key)) {
-//				System.out.println(c.getName());
 				List<CharacterI> dupList = listTracker.get(key);
 				dupList.add(c);
 				listTracker.put(key, dupList);
@@ -203,26 +209,15 @@ public class CharacterDAO implements CharacterDAOInterface {
 				listTracker.put(key, newList);
 			}
 		}
-//		listTracker.forEach((c, v) -> {
-//			if(v.size() > 1) {
-//				System.out.printf("%s -> [", c);
-//				v.forEach(e -> {
-//					System.out.printf("%s (%s), ", e.getKingdom(), e.getClass().getSimpleName());
-//				});	
-//				System.out.print("]\n");
-//			}
-//		}); 
-
-//		linkCharAndWeapon();
 		return dupTracker;
 	}
 
 	private void updateOfficerWeapons() {
 		Map<String, Weapons> temp = WeaponDAO.getInstance().getTypeHash();
 		Collection<CharacterI> officers = executeGetAllOfficers();
-		for (CharacterI c : officers) {
-			c.setWeapons(temp.get(c.getType().getName()));
-		}
+		officers.stream().forEach(e -> {
+			e.setWeapons(temp.get(e.getType().getName()));
+		});
 	}
 
 	private void initialize() {

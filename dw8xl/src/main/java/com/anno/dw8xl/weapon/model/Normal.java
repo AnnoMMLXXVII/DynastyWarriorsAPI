@@ -12,6 +12,7 @@ import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.view.CharacterView;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
@@ -35,6 +36,8 @@ public class Normal extends Weapon {
 	private LengthI length;
 	@JsonView(CharacterView.Weapon.class)
 	private AffinityI affinity;
+	@JsonIgnore
+	private RarityI rarity;
 
 	public Normal() {
 		/*

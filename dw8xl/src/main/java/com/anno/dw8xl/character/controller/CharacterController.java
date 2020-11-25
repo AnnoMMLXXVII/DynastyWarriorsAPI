@@ -85,7 +85,7 @@ public class CharacterController {
 	@ResponseBody
 	public ResponseEntity<Collection<CharacterI>> getOfficersByWeaponStar(
 			@RequestParam(value = "v") String star) {
-		return new ResponseEntity<>(facade.getOfficerByWeaponCategory(star.trim()), HttpStatus.OK);
+		return new ResponseEntity<>(facade.getOfficerByWeaponStar(star.trim()), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/officers", consumes = MediaType.APPLICATION_JSON_VALUE)

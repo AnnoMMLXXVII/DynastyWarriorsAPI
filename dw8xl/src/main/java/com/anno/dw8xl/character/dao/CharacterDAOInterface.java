@@ -26,7 +26,7 @@ public interface CharacterDAOInterface extends DataAccessObjectInterface<Charact
 
 	public Collection<CharacterI> executeGetOfficersByCategory(String category);
 
-	public Collection<CharacterI> executeGetOfficersByStar(Integer star);
+	public Collection<CharacterI> executeGetOfficersByWeaponStar(Integer star);
 
 	public Collection<CharacterI> executeGetOfficersByWeaponNames(String weaponName);
 

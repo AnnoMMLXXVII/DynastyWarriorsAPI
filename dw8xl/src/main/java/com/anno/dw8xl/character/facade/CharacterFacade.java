@@ -86,7 +86,7 @@ public class CharacterFacade implements CharacterFacadeInterface {
 			return new ArrayList<>();
 		}
 		log.debug("Returning collection of Officers by Star value...");
-		return dao.executeGetOfficersByStar(Integer.parseInt(star));
+		return dao.executeGetOfficersByWeaponStar(Integer.parseInt(star));
 	}
 
 	@Override
