@@ -6,7 +6,7 @@
 ("Guan Yinping", "Shu", "Dual-Headed Mace"),
 ("Guan Yu", "Shu", "Crescent Blade"),
 ("Huang Zhong", "Shu", "Bow"),
-("Jiang Wei", "Shu", "Double-Edge Trident"),
+("Jiang Wei", "Shu", "Double Edge Trident"),
 ("Liu Bei", "Shu", "Twin Swords"),
 ("Liu Shan", "Shu", "Rapier"),
 ("Ma Chao", "Shu", "Spear"),
