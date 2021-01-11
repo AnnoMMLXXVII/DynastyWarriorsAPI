@@ -88,17 +88,3 @@ Telescope, 42, Earth, 5, Revolving Crossbow
 Heavely Tempest, 44, Man, 5, Revolving Crossbow
 Hedes Judgement, 47, Heaven, 5, War Trident
 Basilisk's Bane, 47, Heaven, 5, Stele
-
-
-
-
-
-
-
-
-
-
-
-
-
-
