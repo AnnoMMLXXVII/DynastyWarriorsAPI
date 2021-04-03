@@ -5,11 +5,11 @@ Emperor's Might, Sword, Flash : 10, Velocity: 9, Vigor: 9, Protection: 8
 Winner's Trophy, Sword, Thunder: 10, Explosive: 10, Harmony: 10, Awareness, Jubilation: 10
 Turquoise Blade, Sword, Slash: 10, Enlightenment: 10, Desperation, Chain: 10, Fury
 Blazing Wolf, Sword, Inferno: 10, Jubilation: 9, Flurry: 9, Rigidity, Awe: 8
+Thunderstorm, Rapier, Inferno: 8, Agility, Jubilation: 7
+Dreamsetter, Rapier, Survival: 8, Triumph: 8, Awe: 7
 Verdant Thrust, Rapier, Inferno: 10, Awe: 9, Rigidity, Uplift: 8
 Skewered Fish, Rapier, Frost: 10, Awareness, Rigidity, Survival: 10, Fury
 Lightning Rapier, Rapier, Thunder: 10, Rigidity, Flurry: 10, Enlightenment: 10, Chain: 10
-Thunderstorm,  Rapier, Inferno: 8, Agility, Jubilation: 7
-Dreamsetter,  Rapier, Survival: 8, Triumph: 8, Awe: 7
 Destiny Ender, Rapier, Venom: 10, Explosive: 9, Greed, Morass: 8, Awareness
 Motionpeak, War Fan, Survival: 8, Chain: 9, Inferno: 7
 Summitchaser, War Fan, Morass: 8, Recovery: 9, Barricade: 9
@@ -29,7 +29,7 @@ Rain Blades, Throwing Knives, Inferno: 10, Protection: 9, Harmony: 9, Jubilation
 Bromide, Throwing Knives, Cyclone: 10, Aggression: 10,  Explosive: 10, Thorns: 10, Barricade: 10
 Violet Shower, Throwing Knives, Venom: 10, Velocity: 10, Rigidity, Morass: 10, Awe: 10
 Mercurial Rain, Throwing Knives, Thunder: 10, Recovery: 9, Chain: 9, Fear: 8, Swiftness
-Aqua Cutter, Chain & Sickle, Frost: 10, Whirlwind: 9, Velocity: 9, Enlightenment: 8, Jolt: 8
+Aqua Cutter, Frost: 10, Whirlwind: 9, Velocity: 9, Enlightenment: 8, Jolt: 8
 Gloom Sickle, Chain & Sickle, Venom: 10, Swiftness, Awe: 10, Desperation, Morass: 10
 Gas Pump, Chain & Sickle, Thunder: 10, Enlightenment: 10, Jubilation: 10, Harmony: 10, Chain: 10
 Heavenly Sickle, Chain & Sickle, Flash: 10, Spurt: 9, Chain: 9, Fury
@@ -73,19 +73,19 @@ Fish Dinner, Sword & Shield, Slash: 10, Swiftness, Thorns: 10, Velocity: 10, Flu
 Heavenly Set, Sword & Shield, Cyclone: 10, Jolt: 9, Explosive: 9, Resolve
 Endless Sky, Sword & Shield, Spurt: 9, Fury, Resolve
 Silent Moon, Sword & Shield, Spurt: 7, Roar: 7, Resolve
-Heavenly Ambition, Flying Swords, Agility, Explosive: 8, Survival: 8
-Surging Conquest, Flying Swords, Desperation, Barricade: 7, Thorns: 8
-Aerial Blade, Flying Swords, Cyclone: 10, Fury, Triumph: 9, Flurry: 8
-Satellite, Flying Swords, Frost: 10, Agility, Aggression: 10, Rigidity, Fury
-Immortal Blade, Flying Swords, Slash: 10, Induction: 10, Awe: 10, Spurt: 10, Survival: 10
-Flying Light Swords, Flying Swords, Inferno: 10, Morass: 9, Thorns: 9, Uplift: 8, Jubilation: 8
+Heavenly Ambition, Flying Sword, Agility, Explosive: 8, Survival: 8
+Surging Conquest, Flying Sword, Desperation, Barricade: 7, Thorns: 8
+Aerial Blade, Flying Sword, Cyclone: 10, Fury, Triumph: 9, Flurry: 8
+Satellite, Flying Sword, Frost: 10, Agility, Aggression: 10, Rigidity, Fury
+Immortal Blade, Flying Sword, Slash: 10, Induction: 10, Awe: 10, Spurt: 10, Survival: 10
+Flying Light Swords, Flying Sword, Inferno: 10, Morass: 9, Thorns: 9, Uplift: 8, Jubilation: 8
 Dazzler, Curved Sword, Cyclone: 10, Chain: 9, Barricade: 9, Spurt: 8, Agility
 Faerie, Curved Sword, Venom: 10, Uplift: 10, Flurry: 10, Frenzy: 10, Protection: 10
 Sword Cane, Curved Sword, Slash: 10, Jolt: 10, Rigidity, Frenzy: 10, Explosive: 10
 Void, Curved Sword, Thunder: 10, Explosive: 9, Jubilation: 9, Aggression: 8
 Shadow, Curved Sword, Cyclone: 8, Induction: 8, Enlightenment: 8
 Darkness, Curved Sword, Frenzy: 8, Desperation, Flurry: 9
-Flowery Rage, Claws, Triumph: 7, Roar: 7, Induction: 7
+Flower Rage, Claws, Triumph: 7, Roar: 7, Induction: 7
 Reckless Light, Claws, Inferno: 9, Morass: 9, Vigor: 7
 Elegant Claws, Claws, Frost: 10, Spurt: 9, Awareness, Uplift: 8
 Digger, Claws, Frost: 10, Thorns: 10, Greed, Triumph: 10, Survival: 10
@@ -98,7 +98,7 @@ Princess Wheels, Wheels, Inferno: 10, Thorns: 9, Awe: 9, Enlightenment: 8
 Afterglow, Wheels, Awe: 7, Inferno: 8, Agility
 Snowblind, Wheels, Flurry: 7, Induction: 9, Harmony: 9
 Boltbringer, Chain Whip, Explosive: 9, Greed, Cyclone: 7
-EarthShaker,  Chain Whip, Swiftness, Velocity: 9, Protection: 8
+EarthShaker, Chain Whip, Swiftness, Velocity: 9, Protection: 8
 Phoenix Spine, Chain Whip, Frost: 10, Survival: 9, Enlightenment: 9, Jolt: 8
 Toy Serpents, Chain Whip, Frost: 10, Flurry: 10, Fear: 10, Awe: 10, Survival: 10
 Alluring Thorns, Chain Whip, Slash: 10, Flurry: 10, Uplift: 10, Spurt: 10, Chain: 10
@@ -108,7 +108,7 @@ Aqua Slash, Spinner, Frost: 10, Fear: 10 Resolve, Roar: 10, Harmony: 10
 Hamburger Flail, Spinner, Frost: 10, Morass: 10, Triumph: 10, Spurt: 10 Enlightenment: 10
 Deadly Gale, Spinner, Thunder: 10, Roar: 10, Frenzy: 9, Agility
 Sprirt Whirl, Spinner, Velocity: 7, Induction, 8, Fear: 9
-Morning Stroll, Flute, Frenzy: 7, Vigor: 9, Recovery: 8
+Morning Stroll, Spinner, Frenzy: 7, Vigor: 9, Recovery: 8
 Ice Petals, Flute, Uplift: 8, Resolve, Slash: 9
 Firefly, Flute, Slash: 7, Awareness, Awe: 7
 Pearl Flute, Flute, Frost: 10, Chain: 9, Protection: 9, Swiftness
@@ -151,18 +151,18 @@ Travel Bag, Boomerang, Thunder: 10, Desperation, Explosive: 10, Jolt: 10, Barric
 Heaven's Return, Boomerang, Flash: 10, Explosive: 9, Chain: 9, Flurry: 8
 Eeagle Bommerang, Boomerang, Thorns: 8, Recovery, Swiftness
 Hawk Bommerang, Boomerang, Harmony: 7, Jubilation: 8, Uplift: 7
-Flashing Arrow Sword, Sword & Hook, Slash: 10, Recovery: 9, Prot: 9, Enlightenment: 8, Explosive: 8
+Flashing Arrow Sword, Boomerang, Sword & Hook, Slash: 10, Recovery: 9, Prot: 9, Enlightenment: 8, Explosive: 8
 Etch Blade, Sword & Hook, Flash: 10, Roar: 10, Uplift: 10, Spurt: 10, Agility
 Whip Crop, Sword & Hook, Cyclone: 10, Enlightenment: 10, Chain: 10, Awe: 10, Swiftness
 Dispersion Blade, Sword & Hook, Cyclone: 10, Rigidity, Barricade: 9, Frenzy: 8
 Dragonfly Blade, Sword & Hook, Uplift: 9, Agility, Greed
 Windtail, Sword & Hook, Barricade: 9, Awe: 9, Whirlwind: 7
-Glass Dart, Swallow Swords, Flash: 10, Frenzy: 9, Vigor: 9, Morass: 8, Greed
-Tiger Swallow Blades, Swallow Swords, Slash: 10, Aggression: 10, Thorns: 10, Rigidity, Awe: 10
-Medical Swords, Swallow Swords, Slash: 10, Jolt: 10, Aggression: 10, Thorns: 10, Flurry: 10
-Crimson Swallow, Cyclone: 10, Survival: 9, Jolt: 9, Uplift: 8
-Raging Storm, Swallow Swords, Explosive: 7, Flurry: 9, Rigidity
-Scorched Earth, Swallow Swords, Jolt: 9, Recovery: 9, Jubilation: 9
+Glass Dart, Swallow Sword, Flash: 10, Frenzy: 9, Vigor: 9, Morass: 8, Greed
+Tiger Swalllow Blades, Swallow Sword, Slash: 10, Aggression: 10, Thorns: 10, Rigidity, Awe: 10
+Medical Swords, Swallow Sword, Slash: 10, Jolt: 10, Aggression: 10, Thorns: 10, Flurry: 10
+Crimson Swalllow, Swallow Sword, Cyclone: 10, Survival: 9, Jolt: 9, Uplift: 8
+Raging Storm, Swallow Sword, Explosive: 7, Flurry: 9, Rigidity
+Scorched Earth, Swallow Sword, Jolt: 9, Recovery: 9, Jubilation: 9
 Steel Tempest, Three Sectional Staff, Slash: 10, Survival: 9, Greed, Protection: 8, Velocity: 8
 Violent Storm, Three Sectional Staff, Cyclone: 10, Spurt: 10, Jolt: 10, Thorns: 10, Agility
 Pain Train, Three Sectional Staff, Flash: 10, Rigidity, Induction: 10, Fury, Swiftness
@@ -186,7 +186,7 @@ Celestial Talon, Dual Hookblades, Flash: 10, Protection: 10, Explosive: 10, Desp
 Wrench, Dual Hookblades, Slash: 10, Triumph: 10, Roar: 10, Jolt: 10, Flurry: 10
 Talons Of Conquest, Dual Hookblades, Inferno: 10, Harmony: 9, Agility, Fear: 8
 Windgale, Dual Hookblades, Velocity: 9, Flurry: 9, Greed
-Binding Talon, Dual Hookblades, Chain: 9, Greed, Uplift: 8
+Binding Talon, Wingblades, Chain: 9, Greed, Uplift: 8
 Imprisoned Dragonwings, Wingblades, Venom: 10, Spurt: 9, Jubilation: 9, Enlightenment: 8, Morass: 8
 Storm Phoenix, Wingblades, Cyclone: 10, Desperation, Harmony: 10, Thorns: 10, Rigidity
 Jumbo Wing, Wingblades, Inferno: 10, Barricade: 10, Survival: 10, Jubilation: 10, Morass: 10

@@ -3,12 +3,14 @@ Spring's Light, Spear, Awareness, Flash: 7, Resolve
 Emerald Spear, Spear, Frost: 10, Jolt: 9, Spurt: 9, Fury
 Beam Longspear, Spear, Inferno: 10, Desperation, Fear: 10, Jubilation: 10, Frenzy: 10
 Thunder Piercer, Spear, Thunder: 10, Spurt: 10, Barricade: 10, Roar: 10, Awe: 10
+Treasure Spear, Spear, Armor Sleeve
 Radiant Flash Spear, Spear, Flash: 10, Explosive: 9, Whirlwind: 9, Resolve, Thorns: 8
 Spraycutter, Pike, Thunder: 8, Fury, Vigor: 7
 Shadowless, Pike, Spurt: 7, Whirlwind: 9, Survival: 7
 Cimson Fury, Pike, Cyclone: 10, Jubilation: 9, Survival: 9, Triumph: 8
 Excavator Shovel, Pike, Flash: 10, Protection: 10, Swiftness, Frenzy: 10
 Divine Phoenix, Pike, Inferno: 10, Enlightenment: 10, Jubilation: 10, Frenzy: 10
+Treasure Pike, Pike, Battleaxe
 Dragon's Jaw, Pike, Slash: 10, Awe: 9, Roar: 9, Harmony: 8, Protection: 8
 Netherworld's Fury, Double Voulge, Harmony: 7, Vigor: 9, Fear: 7
 Stinging Barb, Double Voulge, Explosive: 9, Agility, Aggression: 8
@@ -20,18 +22,19 @@ Sky Splitter, Great Sword, Roar: 7, Rigidity, Inferno: 9
 Sea Splitter, Great Sword, Resolve, Recovery: 8, Venom: 7
 Soring Dragon, Great Sword, Venom: 10, Recovery: 9, Enlightenment: 9, Protection: 8
 Suitcase, Great Sword, Frost: 10, Fear: 10, Recovery: 10, Resolve, Harmony: 10
-Thunder Slicer, Great Sword, Thunder: 10, Induction: 10, Triumph: 10, Agility, Rigidity
-Wing of Mortality, Club, Great Sword, Slash: 10, Aggression: 9, Vigor: 9, Flurry: 8, Fear: 8
+Thunder SLiver, Great Sword, Thunder: 10, Induction: 10, Triumph: 10, Agility, Rigidity
+Treasure Sword, Great Sword, , Shinning Warrior
+Wing of Mortality, Great Sword, Slash: 10, Aggression: 9, Vigor: 9, Flurry: 8, Fear: 8
 Boulderstrike, Club, Uplift: 8, Fear: 9, Chain: 7
 Heavenly Summit, Club, Frost: 8, Rigidity, Awareness
 Bull Club, Club, Flash: 10, Explosive: 9, Barricade: 9, Fury
 Roast Chicken, Club, Inferno: 10, Thorns: 10, Agility, Greed, Spurt: 10
 Demonic Club, Club, Cyclone: 10, Fury, Vigor: 10, Harmony: 10, Awe: 10
-Crystal Cleaver, Gloves, Club, Frost: 10, Recovery: 9, Jolt: 10, Awareness, Flurry: 8
+Crystal Cleaver, Club, Frost: 10, Recovery: 9, Jolt: 10, Awareness, Flurry: 8
 Sublimity, Gloves, Greed, Inferno: 7, Awareness
 Jawbreaker, Gloves, Fear: 9, Chain: 8, Resolve
 Shaman's Gloves, Gloves, Venom: 10, Awe: 9, Jolt: 9, Exposive: 8
-Alient Gauntlets, Gloves, Venom: 10, Induction: 10, Jubilation: 10, Fear: 10, Flury: 10
+Alient Gauntlets Gloves, Venom: 10, Induction: 10, Jubilation: 10, Fear: 10, Flury: 10
 Chieftan Gauntlets, Gloves, Cyclone: 10, Morass: 10, Explosive: 10, Frenzy: 10, Recovery: 10
 Manic Thunder Gloves, Gloves, Thunder: 10, Roar: 9, Resolve, Spurt: 8, Harmony: 8
 Towerstopper, Halberd, Harmony: 7, Protection: 7, Slash: 7
@@ -64,6 +67,7 @@ Helmsplitter, Axe, Chain: 7, Velocity: 7, Barricade: 7
 Roaring Axe, Axe, Slash: 10, Harmony: 9, Agility, Aggression: 8
 Battle God's Axe, Axe, Slash: 10, Agility, Harmony: 10, Recovery: 10, Rigidity
 Verdant Axe, Axe, Flash: 10, Awareness, Recovery: 10, Survival: 10, Aggression: 10
+Treasure Axe, Axe, Rakshasa
 Thunder Axe, Axe, Thunder: 10, Explosive: 9, Flurry: 9, Thorns: 8, Whirlwind: 8
 Thunderclap, Tonfa, Resolve, Induction: 7, Frost: 9
 Hellfire, Tonfa, Recovery: 9, Protection: 8, Survival: 7
@@ -117,8 +121,6 @@ World Smasher, Mace, Frost: 10, Resolve, Velocity: 9, Flurry: 8
 Emergency Ladder, Mace, Cyclone: 10, Desperation, Jolt: 10, Awareness, Protection: 10
 Wave Breaker, Mace, Cyclone: 10, Harmony: 10, Awe: 10, Recovery: 10, Chain: 10
 Dream Wrecker, Mace, Venom: 10, Explosive: 9, Induction: 9, Awareness Roar: 8
-Resonant Ambition, Mace, Harmony: 7, Awareness, Uplift: 8
-Crystal Crusher, Mace, Explosive: 7, Fear: 7, Vigor: 7
 Victory Wall, Spiked Shield, Throns: 9, Cyclone: 9, Velocity: 7
 Brightflash, Spiked Shield, Triumph: 9, Enlightenment: 9, Fear: 9
 Talon Wall, Spiked Shield, Venom: 10, Frenzy: 9, Greed, Jubilation: 8
@@ -136,7 +138,7 @@ Gleaming Dawn, Circle Blade, Recovery: 7, Survival: 8, Awe: 8
 Goblin Chakram, Circle Blade, Venom: 10, Velocity: 9, Protection: 9, Induction: 8
 Hazard Triangle, Circle Blade, Thunder: 10, Induction: 10, Triumph: 10, Roar: 10, Spurt: 10
 Dragon Slicer, Circle Blade, Slash: 10, Induction: 10, Rigidity, Frenzy: 10, Fury
-Flashing Wind Gold, Siege Spear, Circle Blade, Cyclone: 10, Enlightenment: 9, Explosive: 9, Survival: 8, Resolve
+Flashing Wind Gold, Circle Blade, Cyclone: 10, Enlightenment: 9, Explosive: 9, Survival: 8, Resolve
 Kingdom Crasher, Siege Spear, Induction: 8, Frenzy: 8, Cyclone: 9
 Army Slayer, Siege Spear, Greed, Thorns: 7, Barricade: 7
 Spear of Conquest, Siege Spear, Thunder: 10, Flurry: 9, Triumph: 8, Awareness
