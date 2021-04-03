@@ -5,16 +5,12 @@ package com.anno.dw8xl.attribute.model;
 
 import org.springframework.stereotype.Component;
 
-import com.anno.dw8xl.level.model.LevelI;
-import com.anno.dw8xl.level.model.NullLevel;
+import com.anno.dw8xl.level.model.Level;
 import com.anno.dw8xl.rarity.model.Rarity;
-import com.anno.dw8xl.rarity.model.RarityI;
-import com.anno.dw8xl.view.CharacterView;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
@@ -25,55 +21,55 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonTypeName("Normal")
 @JsonDeserialize(as = Normal.class)
 public class Normal extends Attribute {
-	
+
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "normal";
-	
-	@JsonView({CharacterView.Weapon.Attribute.class})
-	private LevelI level;
-	
+
+//	@JsonView({ CharacterView.Weapon.Attribute.class })
+	private String level;
+
 	public Normal() {
 		/*
 		 * 
 		 */
 	}
-	
+
 	/**
 	 * @param name
 	 * @param description
 	 */
 	public Normal(String name, String description) {
 		super(name, description);
-		level = new NullLevel();
+		level = "0";
 	}
-	
+
 	/**
 	 * @param name
 	 * @param description
 	 * @param level
 	 */
-	public Normal(String name, String description, LevelI level) {
+	public Normal(String name, String description, String level) {
 		super(name, description);
 		this.level = level;
 	}
-	
+
 	/**
 	 * @param level
 	 */
-	public void setLevel(LevelI level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
-	
+
 	/**
 	 * @return
 	 */
-	public LevelI getLevel() {
-		return level;
+	public int getLevel() {
+		return new Level(Integer.parseInt(level)).getPower();
 	}
-	
+
 	@Override
-	public RarityI getRarity() {
-		return new Rarity("normal");
+	public String getRarity() {
+		return new Rarity("normal").getType();
 	}
 
 	@Override
@@ -106,10 +102,10 @@ public class Normal extends Attribute {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return String.format("%s, %s", super.toString(), getLevel().toString());
+		return String.format("%s, %d", super.toString(), getLevel());
 	}
 
 }

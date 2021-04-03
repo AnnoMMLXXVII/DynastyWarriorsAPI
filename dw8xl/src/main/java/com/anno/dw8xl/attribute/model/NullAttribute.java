@@ -3,10 +3,6 @@
  */
 package com.anno.dw8xl.attribute.model;
 
-import com.anno.dw8xl.level.model.LevelI;
-import com.anno.dw8xl.level.model.NullLevel;
-import com.anno.dw8xl.rarity.model.NullRarity;
-import com.anno.dw8xl.rarity.model.RarityI;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
@@ -21,18 +17,16 @@ public class NullAttribute implements AttributeI {
 
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "null";
-	
+
 	public NullAttribute() {
 		/*
-		 * Empty On purpose
-		 * Must Be empty
-		 * Commenting to resolve sonar
+		 * Empty On purpose Must Be empty Commenting to resolve sonar
 		 */
 	}
 
 	@Override
-	public RarityI getRarity() {
-		return new NullRarity();
+	public String getRarity() {
+		return "";
 	}
 
 	@Override
@@ -44,10 +38,10 @@ public class NullAttribute implements AttributeI {
 	public String getDescription() {
 		return "";
 	}
-	
+
 	@Override
-	public LevelI getLevel() {
-		return new NullLevel();
+	public int getLevel() {
+		return -1;
 	}
 
 	@Override
