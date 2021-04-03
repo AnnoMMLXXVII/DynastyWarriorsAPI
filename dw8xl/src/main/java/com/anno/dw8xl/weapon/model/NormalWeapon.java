@@ -24,9 +24,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  *
  */
 @Component
-@JsonTypeName("Normal")
-@JsonDeserialize(as = Normal.class)
-public class Normal extends Weapon {
+@JsonTypeName("NormalWeapon")
+@JsonDeserialize(as = NormalWeapon.class)
+public class NormalWeapon extends Weapon {
 
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "normal";
@@ -36,7 +36,7 @@ public class Normal extends Weapon {
 	@JsonView(CharacterView.Weapon.class)
 	private AffinityI affinity;
 
-	public Normal() {
+	public NormalWeapon() {
 		/*
 		 * 
 		 */
@@ -49,7 +49,7 @@ public class Normal extends Weapon {
 	 * @param type
 	 * @param star
 	 */
-	public Normal(String name, Integer baseAttack, LengthI length, Integer star, TypeI type) {
+	public NormalWeapon(String name, Integer baseAttack, LengthI length, Integer star, TypeI type) {
 		super(name, baseAttack, star, type);
 		this.length = length;
 		affinity = new Affinity("?");
@@ -99,7 +99,7 @@ public class Normal extends Weapon {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Normal other = (Normal) obj;
+		NormalWeapon other = (NormalWeapon) obj;
 		if (length == null) {
 			if (other.length != null)
 				return false;
