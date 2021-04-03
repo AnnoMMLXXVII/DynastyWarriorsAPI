@@ -17,9 +17,9 @@ Crystal Blade, 45, Heaven, 5, Striking Sword
 Heavenly Deck, 50, Heaven, 5, Talisman Cards
 Business Card, 53, Heaven, 5, Talisman Cards
 Toxic Shroud, 55, Man, 5, Talisman Cards
-Dragonspeak, 37, Heaven, 5, Flail Blade
-Chameleon Tongue, 39, Earth, 5, Flail Blade
-Purgatory Flailblade, 41, Heaven, 5, Flail Blade
+Dragonspeak, 37, Heaven, 5, Flail Sword
+Chameleon Tongue, 39, Earth, 5, Flail Sword
+Purgatory Flailblade, 41, Heaven, 5, Flail Sword
 Phoenix Wing, 45, Earth, 5, Bladebow
 Corkscrew Crossbow, 48, Earth, 5, Bladebow
 Demon Nightwing, 51, Man, 5, Bladebow

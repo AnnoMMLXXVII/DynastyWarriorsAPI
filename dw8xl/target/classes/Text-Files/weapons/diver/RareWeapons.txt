@@ -10,8 +10,8 @@ Grating Slasher, 22, Man, 2, Striking Sword
 Flash Strike, 28, Earth, 3, Striking Sword
 Yin & Yang, 18, Man, 1, Talisman Cards
 Demon Sealer, 28, Earth, 2, Talisman Cards
-Snowblast, 2, Heaven, 2, Flail Blade
-Endless Vicissitude, 3, Man, Flail Blade
+Snowblast, 22, Heaven, 2, Flail Sword
+Endless Vicissitude, 23, Man, 3, Flail Sword
 Fluttering Rush, 28, Heaven, 2, Bladebow
 Narukami Boon, 24, Man, 3, Bladebow
 Trickters in the Fog, 12, Heaven, 1, Woven Cloth

@@ -31,14 +31,14 @@ Bronze Javelin, 29, 7'11", 2, Javelin
 Smashing Javelin, 34, 7'11", 3, Javelin
 Heavenly Javelin, 45, 7'11", 4, Javelin
 Fire Blade, 13, -, 1, Flaming Sword
-Searing Fire Blade, 19, -, Flaming Sword
-Wolf Fire Blade, 26, -, Flaming Sword
-Imperial Fire Blade, 34, -, Flaming Sword
-Iron Pike, 16, -, Crossed Pike
-Swift Pike, 22, -, Crossed Pike
-Spinning Pike, 30, -, Crossed Pike
-Soaring Pike, 38, -, Crossed Pike
-Deer Horn Blades, 13, -, Mandarin Duck Hooks
-Steel Antlers, 17, -, Mandarin Duck Hooks
-Royal Antlers, 25, -, Mandarin Duck Hooks
-Mystical Blades, 32, -, Mandarin Duck Hooks
+Searing Fire Blade, 19, -, 2, Flaming Sword
+Wolf Fire Blade, 26, -, 3, Flaming Sword
+Imperial Fire Blade, 34, -, 4, Flaming Sword
+Iron Pike, 16, -, 1,  Crossed Pike
+Swift Pike, 22, -, 2, Crossed Pike
+Spinning Pike, 30, -, 3, Crossed Pike
+Soaring Pike, 38, -, 4, Crossed Pike
+Deer Horn Blades, 13, -, 1, Mandarin Duck Hooks
+Steel Antlers, 17, -, 2, Mandarin Duck Hooks
+Royal Antlers, 25, -, 3, Mandarin Duck Hooks
+Mystical Blades, 32, -, 4, Mandarin Duck Hooks

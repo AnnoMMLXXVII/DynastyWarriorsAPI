@@ -7,7 +7,7 @@ Dark Dragon Spear, Dragon Spear, Venom: 10, Swiftness, Chain, Awe: 8, Protection
 Ascending Dragon, Crescent Blade, Enlightenment: 8, Aggression: 7, Flash: 9
 Moonarc, Crescent Blade, Flurry: 7, Uplift: 9, Fury
 Godly Dragon, Crescent Blade, Cyclone: 10, Morass: 9, Enlightenment: 9, Uplift: 8
-Beam Slicer, Crescent Blade, Cyclone: 10, Fury, Morass: 10 Aggression: 10, Barricade: 10
+Beam Slicer, Crescent Blade, Cyclone: 10, Fury, Morass: 10, Aggression: 10, Barricade: 10
 Twilight Dragon, Crescent Blade, Venom: 10, Morass: 10, Triumph: 10, Harmony: 10, Jolt: 10
 Heavenly Dragon, Crescent Blade, Flash: 10, Flurry: 9, Resolve, Awe: 8, Fear: 8
 Frozen Tundra, Dual Blade, Survival: 8, Triumph: 7, Thorns: 9

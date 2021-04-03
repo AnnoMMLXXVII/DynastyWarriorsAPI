@@ -26,7 +26,7 @@ Storm Sword, General's Sword, Cyclone: 10, Harmony: 9, Fear: 9, Chain: 8, Spurt:
 Earthshatter, Nine Rings Blade, Protection: 9, Resolve, Fury
 Infinite Void, Nine Rings Blade, Rigidity, Swiftness, Induction: 7
 Imperial Tiger, Nine Rings Blade, Inferno: 10, Harmony: 9, Thorns: 9, Resolve
-Saw, Nine Rings Blade, Slash: 10, Triumph: 10, Explosive: Roar: 10, Rigidity
+Saw, Nine Rings Blade, Slash: 10, Triumph: 10, Explosive: 10, Roar: 10, Rigidity
 Radiant Tiger Blade, Nine Rings Blade, Flash: 10, Morass: 10, Awe: 10, Harmony: 10, Recovery: 10
 Falcon Flash, Nine Rings Blade, Thunder: 10, Protection: 9, Rigidity, Roar: 8, Uplift: 8
 Whirlwind Edge, Double Edge Trident, Triumph: 7, Survival: 8, Swiftness
@@ -42,7 +42,7 @@ Pointer, Short Rod, Venom: 10, Barricade: 10, Swiftness, Spurt: 10, Morass: 10
 Firestrike, Short Rod, Inferno: 10, Desperation, Harmony: 10, Aggression: 10, Flurry: 10
 Piercing Beams, Short Rod, Flash: 10, Frenzy: 9, Vigor: 9, Jolt: 8, Spurt: 8
 Light Beam, Javelin, Jubilation: 8, Whirlwind: 8, Aggression: 8
-Sudden Flash, Javelin, Fear: 8, Recovery: Venom: 7
+Sudden Flash, Javelin, Fear: 8, Recovery: 9, Venom: 7
 Skycrusher, Javelin, Thunder: 10, Jubilation: 9, Uplift: 9, Desperation
 Harpoon, Javelin, Thunder: 10, Awe: 10, Resolve, Roar: 10, Velocity: 10
 Eclipse Spear, Javelin, Inferno: 10, Thorns: 10, Spurt: 10, Fury, Recovery: 10

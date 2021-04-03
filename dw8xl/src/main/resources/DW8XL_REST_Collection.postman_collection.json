@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "18293a16-9cfc-440c-974b-2e56a7b0e459",
+		"_postman_id": "c44231fa-9a40-455d-929c-0c50d7297d10",
 		"name": "DW8XL_REST_Collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -26,12 +26,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes/ping",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes/ping",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes",
 								"ping"
 							]
@@ -57,12 +58,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							]
 						}
@@ -137,12 +139,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?state=normal",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?state=normal",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -223,12 +226,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?state=special",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?state=special",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -306,12 +310,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							]
 						}
@@ -389,12 +394,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							]
 						}
@@ -472,17 +478,66 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							]
 						}
 					},
 					"response": [
+						{
+							"name": "Error - POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"ID-Type\": \"S\",\n        \"id\": 38,\n        \"name\": \"\",\n        \"description\": \"Can block attacks from the rear\",\n        \"type\": \"SPECIAL\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DW8XL_HOST}}/attributes",
+									"host": [
+										"{{DW8XL_HOST}}"
+									],
+									"path": [
+										"attributes"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Oct 2020 01:08:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "Cannot create new Attribute"
+						},
 						{
 							"name": "Error - POST",
 							"originalRequest": {
@@ -531,54 +586,6 @@
 							],
 							"cookie": [],
 							"body": "Cannot find attribute by name : v"
-						},
-						{
-							"name": "Error - POST",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n        \"ID-Type\": \"S\",\n        \"id\": 38,\n        \"name\": \"\",\n        \"description\": \"Can block attacks from the rear\",\n        \"type\": \"SPECIAL\"\n    }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{DW8XL_HOST}}/attributes",
-									"host": [
-										"{{DW8XL_HOST}}"
-									],
-									"path": [
-										"attributes"
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Content-Length",
-									"value": "27"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 22 Oct 2020 01:08:42 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								}
-							],
-							"cookie": [],
-							"body": "Cannot create new Attribute"
 						}
 					]
 				},
@@ -597,12 +604,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							]
 						}
@@ -624,12 +632,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							]
 						}
@@ -651,12 +660,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							]
 						}
@@ -678,12 +688,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=DeVoid",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?name=DeVoid",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -770,12 +781,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=DeVoid",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?name=DeVoid",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -803,12 +815,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=Void",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?name=Void",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -836,14 +849,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/attributes?name=Void",
-							"protocol": "http",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?name=Void",
 							"host": [
-								"localhost"
+								"{{DW8XL_HOST}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -871,12 +883,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=DeVoid,Void",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?name=DeVoid,Void",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -904,12 +917,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name=void,devoid",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?name=void,devoid",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -937,12 +951,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/attributes?name",
+							"raw": "{{DW8XL_HOST}}/api/v1/attributes?name",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"attributes"
 							],
 							"query": [
@@ -967,12 +982,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms/ping",
+							"raw": "{{DW8XL_HOST}}/api/v1/kingdoms/ping",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"kingdoms",
 								"ping"
 							]
@@ -986,12 +1002,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms/",
+							"raw": "{{DW8XL_HOST}}/api/v1/kingdoms/",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"kingdoms",
 								""
 							]
@@ -1057,18 +1074,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu,Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu",
+							"raw": "{{DW8XL_HOST}}/api/v1/kingdoms?name=Shu,Wei,Shu,Jin,Wei,Shu,Void,Other",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"kingdoms"
 							],
 							"query": [
 								{
 									"key": "name",
-									"value": "Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu,Shu,Wei,Shu,Jin,Wei,Shu,Void,Other,Wu"
+									"value": "Shu,Wei,Shu,Jin,Wei,Shu,Void,Other"
 								}
 							]
 						}
@@ -1088,12 +1106,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms?name=void, Shu",
+							"raw": "{{DW8XL_HOST}}/api/v1/kingdoms?name=void, Shu",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"kingdoms"
 							],
 							"query": [
@@ -1121,12 +1140,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms",
+							"raw": "{{DW8XL_HOST}}/api/v1/kingdoms",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"kingdoms"
 							]
 						}
@@ -1148,12 +1168,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms",
+							"raw": "{{DW8XL_HOST}}/api/v1/kingdoms",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"kingdoms"
 							]
 						}
@@ -1175,12 +1196,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/kingdoms",
+							"raw": "{{DW8XL_HOST}}/api/v1/kingdoms",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"kingdoms"
 							]
 						}
@@ -1199,12 +1221,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories/ping",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories/ping",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories",
 								"ping"
 							]
@@ -1218,12 +1241,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories/",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories/",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories",
 								""
 							]
@@ -1246,12 +1270,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories/",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories/",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories",
 								""
 							]
@@ -1265,12 +1290,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories?name=Dasher,Void,DeVoid,Dasher,Shadow Sprinter",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories?name=Dasher,Void,DeVoid,Dasher,Shadow Sprinter",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories"
 							],
 							"query": [
@@ -1289,12 +1315,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories?name=DeVoid",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories?name=DeVoid",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories"
 							],
 							"query": [
@@ -1322,12 +1349,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories/",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories/",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories",
 								""
 							]
@@ -1350,12 +1378,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories?name=Dasher",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories?name=Dasher",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories"
 							],
 							"query": [
@@ -1383,12 +1412,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/categories?name=Dasher,Shadow Sprinter",
+							"raw": "{{DW8XL_HOST}}/api/v1/categories?name=Dasher,Shadow Sprinter",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"categories"
 							],
 							"query": [
@@ -1416,12 +1446,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers/",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers/",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers",
 										""
@@ -1436,12 +1467,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers/kingdom?v=shu",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers/kingdom?v=shu",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers",
 										"kingdom"
@@ -1462,19 +1494,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers?v=Zhao Yun",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers?v=Jiang Wei",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers"
 									],
 									"query": [
 										{
 											"key": "v",
-											"value": "Zhao Yun"
+											"value": "Jiang Wei"
 										}
 									]
 								}
@@ -1487,12 +1520,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers/weapon/type?v=Dragon Spear",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers/weapon/type?v=double edge trident",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers",
 										"weapon",
@@ -1501,7 +1535,7 @@
 									"query": [
 										{
 											"key": "v",
-											"value": "Dragon Spear"
+											"value": "double edge trident"
 										}
 									]
 								}
@@ -1514,12 +1548,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers/weapon/category?v=dasher",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers/weapon/category?v=dasher",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers",
 										"weapon",
@@ -1541,21 +1576,22 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers/weapon/category?v=dasher",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers/weapon/star?v=2",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers",
 										"weapon",
-										"category"
+										"star"
 									],
 									"query": [
 										{
 											"key": "v",
-											"value": "dasher"
+											"value": "2"
 										}
 									]
 								}
@@ -1577,12 +1613,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers"
 									]
@@ -1605,12 +1642,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/officers?v=haku wei",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/officers?v=haku wei",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"officers"
 									],
@@ -1637,12 +1675,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/sub-officers/",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/sub-officers/",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"sub-officers",
 										""
@@ -1657,12 +1696,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/sub-officers?v=Bao Su",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/sub-officers?v=Bao Su",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"sub-officers"
 									],
@@ -1682,12 +1722,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{DW8XL_HOST}}/api/characters/sub-officers/kingdom?v=shu",
+									"raw": "{{DW8XL_HOST}}/api/v1/characters/sub-officers/kingdom?v=shu",
 									"host": [
 										"{{DW8XL_HOST}}"
 									],
 									"path": [
 										"api",
+										"v1",
 										"characters",
 										"sub-officers",
 										"kingdom"
@@ -1712,12 +1753,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/characters/ping",
+							"raw": "{{DW8XL_HOST}}/api/v1/characters/ping",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"characters",
 								"ping"
 							]
@@ -1731,12 +1773,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/characters/",
+							"raw": "{{DW8XL_HOST}}/api/v1/characters/",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"characters",
 								""
 							]
@@ -1756,12 +1799,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								""
 							]
@@ -1775,12 +1819,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/star?value=5",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/star?value=5",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"star"
 							],
@@ -1800,19 +1845,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/state?value=nothing",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/state?va=abnormal",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"state"
 							],
 							"query": [
 								{
-									"key": "value",
-									"value": "nothing"
+									"key": "va",
+									"value": "abnormal"
 								}
 							]
 						}
@@ -1825,19 +1871,24 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/type?value=flying%20swords",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/filter?f=type&v=double edge trident",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
-								"type"
+								"filter"
 							],
 							"query": [
 								{
-									"key": "value",
-									"value": "flying%20swords"
+									"key": "f",
+									"value": "type"
+								},
+								{
+									"key": "v",
+									"value": "double edge trident"
 								}
 							]
 						}
@@ -1850,12 +1901,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/baseAttack?value=10",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/baseAttack?value=10",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"baseAttack"
 							],
@@ -1875,12 +1927,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/affinity?value=earth",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/affinity?value=earth",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"affinity"
 							],
@@ -1900,12 +1953,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/category?value=whirlwind",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/category?value=whirlwind",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"category"
 							],
@@ -1934,12 +1988,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/single",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/single",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"single"
 							]
@@ -1962,12 +2017,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/single",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/single",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"single"
 							]
@@ -1990,12 +2046,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{DW8XL_HOST}}/api/weapons/multi",
+							"raw": "{{DW8XL_HOST}}/api/v1/weapons/multi",
 							"host": [
 								"{{DW8XL_HOST}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"weapons",
 								"multi"
 							]

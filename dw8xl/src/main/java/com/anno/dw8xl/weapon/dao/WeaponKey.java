@@ -3,12 +3,15 @@
  */
 package com.anno.dw8xl.weapon.dao;
 
+import org.springframework.stereotype.Component;
+
 import com.anno.dw8xl.type.model.TypeI;
 
 /**
  * @author venividivicihofneondeion010101
  *
  */
+@Component
 public class WeaponKey {
 	private String weaponName;
 	private TypeI weaponType;

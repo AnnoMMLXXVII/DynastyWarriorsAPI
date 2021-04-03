@@ -23,6 +23,8 @@ import org.springframework.stereotype.Service;
 import com.anno.dw8xl.affinity.dao.AffinityDAO;
 import com.anno.dw8xl.affinity.model.Affinity;
 import com.anno.dw8xl.affinity.model.AffinityI;
+import com.anno.dw8xl.attribute.model.AttributeI;
+import com.anno.dw8xl.attribute.model.Special;
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.category.model.CategoryI;
 import com.anno.dw8xl.character.model.Weapons;
@@ -30,10 +32,10 @@ import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.dao.KingdomDAO;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.length.model.Length;
+import com.anno.dw8xl.level.model.Level;
 import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.type.model.Type;
-import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.weapon.model.AbNormal;
 import com.anno.dw8xl.weapon.model.Normal;
 import com.anno.dw8xl.weapon.model.WeaponI;
@@ -51,7 +53,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 	private static WeaponDAOInterface instance;
 	private Map<String, WeaponI> weapons;
 	private Map<String, WeaponI> postman;
-	private Map<TypeI, List<WeaponI>> typeWeapons;
+	private Map<WeaponKey, Attributes> weaponAttributes;
 
 	public static WeaponDAOInterface getInstance() {
 		log.info("WeaponDAO Singleton instantiation...");
@@ -68,7 +70,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 	private WeaponDAO() {
 		weapons = new HashMap<>();
 		postman = new HashMap<>();
-//		typeWeapons = new HashMap<>();
+		weaponAttributes = new HashMap<>();
 		initialize();
 	}
 
@@ -87,7 +89,6 @@ public class WeaponDAO implements WeaponDAOInterface {
 
 	@Override
 	public void add(WeaponI entity) {
-
 		if (!WeaponDAOInterface.isValidToAdd(entity)) {
 			return;
 		}
@@ -112,6 +113,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 		weapons.remove(key.toString(), entity);
 	}
 
+	@Override
 	public Collection<WeaponI> deserializeWeaponsList(String json) {
 		ObjectMapper mapper = new ObjectMapper();
 		WeaponI[] weaponsAsArray = null;
@@ -124,22 +126,17 @@ public class WeaponDAO implements WeaponDAOInterface {
 		return Arrays.asList(weaponsAsArray);
 	}
 
-	private void mapArrayToMap(WeaponI[] weapons) {
-		WeaponKey key = null;
-		for (WeaponI w : weapons) {
-			key = new WeaponKey(w.getName(), w.getType());
-			postman.put(key.toString(), w);
-		}
-	}
-
+	@Override
 	public Map<String, WeaponI> getWeapons() {
 		return weapons;
 	}
 
+	@Override
 	public Map<String, WeaponI> getPostman() {
 		return postman;
 	}
 
+	@Override
 	public Map<String, Weapons> getTypeHash() {
 		Map<String, Weapons> temp = new HashMap<>();
 		Collection<WeaponI> database = this.getAll();
@@ -160,6 +157,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 		return temp;
 	}
 
+	@Override
 	public WeaponI deserializeWeapon(String json) {
 		ObjectMapper mapper = new ObjectMapper();
 		WeaponI weapon = null;
@@ -230,10 +228,53 @@ public class WeaponDAO implements WeaponDAOInterface {
 				: weapons.values().stream().filter(e -> e.getBaseAttack() < baseAttack).collect(Collectors.toList());
 	}
 
+	@Override
+	public Collection<WeaponI> getMappedWeaponsToAttributes() {
+		Collection<WeaponI> abnormals = getWeaponsByState("abnormal");
+		mapWeaponsToAttributes(abnormals);
+		return abnormals;
+	}
+
+	@Override
+	public Map<WeaponKey, Attributes> getWeaponAttributesMap() {
+		return weaponAttributes;
+	}
+
 	private void initialize() {
 		log.info("Calling method that will parse through Weapons Files...");
 		parseThroughMultipleWeaponsTextFiles();
+		parseThroughWeaponAttributesTextFiles();
+		mapWeaponsToAttributes(getAll());
+		System.out.printf("346->W-A is Empty : %s-->%s%n", getWeaponAttributesMap().isEmpty());
+		System.out.println(getAll().isEmpty());
 
+	}
+
+	private void mapWeaponsToAttributes(Collection<WeaponI> weapons) {
+		WeaponKey dummyKey = null;
+		Map<WeaponKey, Attributes> dummyWeaponAttributes = getWeaponAttributesMap();
+		if (dummyWeaponAttributes.isEmpty()) {
+			parseThroughWeaponAttributesTextFiles();
+			dummyWeaponAttributes = getWeaponAttributesMap();
+		}
+		for (WeaponI w : weapons) {
+			if (w instanceof AbNormal) {
+				dummyKey = new WeaponKey(w.getName(), w.getType());
+				w.setAttributes(dummyWeaponAttributes.get(dummyKey));
+			}
+		}
+	}
+
+	private void setWeaponAttributes(Map<WeaponKey, Attributes> weaponAttributes) {
+		this.weaponAttributes = weaponAttributes;
+	}
+
+	private void mapArrayToMap(WeaponI[] weapons) {
+		WeaponKey key = null;
+		for (WeaponI w : weapons) {
+			key = new WeaponKey(w.getName(), w.getType());
+			postman.put(key.toString(), w);
+		}
 	}
 
 	private void parseThroughMultipleWeaponsTextFiles() {
@@ -244,8 +285,9 @@ public class WeaponDAO implements WeaponDAOInterface {
 		}
 		log.info("Assigning the characterPaths based on flag...");
 		PATH[][] categoriesPaths = { PATH.getDasherWeaponsPaths(), PATH.getWhirlwindWeaponsPaths(),
-				PATH.getDiverWeaponsPaths(), PATH.getShadowWeaponsPaths()};
-		CategoryI[] categories = { new Category("Dasher"), new Category("Whirlwind Master"), new Category("Diver"), new Category("Shadow Sprinter") };
+				PATH.getDiverWeaponsPaths(), PATH.getShadowWeaponsPaths() };
+		CategoryI[] categories = { new Category("Dasher"), new Category("Whirlwind Master"), new Category("Diver"),
+				new Category("Shadow Sprinter") };
 		RarityI[] rarities = { new Rarity("Rare"), new Rarity("Unique"), new Rarity("Xtreme") };
 		log.info("Parsing throgh character files (Officer or SubOfficer)...");
 		boolean isNormal = true;
@@ -257,7 +299,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 						isNormal = false;
 						k = j - 1;
 					}
-					parseThroughWeaponTextFile(categoriesPaths[i][j].getStringUrl(), weapons, categories[i],
+					parseThrougSinglehWeaponTextFile(categoriesPaths[i][j].getStringUrl(), weapons, categories[i],
 							rarities[k], isNormal);
 				} catch (Exception e) {
 					log.debug(String.format("%s :: Error: %s...%n", categoriesPaths[i][j].getStringUrl(),
@@ -267,16 +309,17 @@ public class WeaponDAO implements WeaponDAOInterface {
 		}
 	}
 
-	private void parseThroughWeaponTextFile(String path, Map<String, WeaponI> weapons, CategoryI category,
+	private void parseThrougSinglehWeaponTextFile(String path, Map<String, WeaponI> weapons, CategoryI category,
 			RarityI rarity, boolean isNormal) {
 		WeaponI weapon = null;
 		WeaponKey key = null;
+		String line = null;
 		File file = new File(path);
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String[] weaponLine = null;
 			log.debug(String.format("%s...", file.getPath()));
 			while (z.hasNextLine()) {
-				String line = z.nextLine().trim();
+				line = z.nextLine().trim();
 				weaponLine = line.split(",");
 				weapon = (isNormal) ? setNormal(weaponLine, category) : setAbNormal(weaponLine, rarity, category);
 				key = new WeaponKey(weapon.getName(), weapon.getType());
@@ -284,8 +327,103 @@ public class WeaponDAO implements WeaponDAOInterface {
 			}
 
 		} catch (FileNotFoundException e) {
+			log.debug(String.format("FNFE Error: %s...", e.getMessage()));
+		} catch (IllegalArgumentException iae) {
+			log.debug(String.format("Argument Error: %s...", line));
+		}
+	}
+
+	private void parseThroughWeaponAttributesTextFiles() {
+		PATH[] weaponAttributesFiles = PATH.getWeaponsAttributesLevelsPaths();
+		try {
+			for (int i = 0; i < weaponAttributesFiles.length; i++) {
+				parseThroughSingleWeaponAttributesTextFile(weaponAttributesFiles[i].getStringUrl());
+			}
+		} catch (NullPointerException e) {
+			log.debug(String.format("NPE EXCEPTION Error: %s --> %s", e.getMessage(),
+					weaponAttributes.get(new WeaponKey("Dark Dragon Spear", new Type("Dragon Spear")))));
+		}
+		setWeaponAttributes(weaponAttributes);
+		System.out.printf("347->W-A is Empty : %s%n", getWeaponAttributesMap().isEmpty());
+		System.out.printf("348->Coll : %s%n", getWeaponAttributesMap()
+				.get(new WeaponKey("Dark Dragon Spear", new Type("Dragon Spear"))).toString());
+	}
+
+	private void parseThroughSingleWeaponAttributesTextFile(String path) {
+		WeaponKey key = null;
+		List<AttributeI> attributeList = null;
+		final String delimiter = ",";
+		File file = new File(path);
+		try (Scanner z = new Scanner(new FileReader(file))) {
+			String[] weaponAttributeLine = null;
+			log.debug(String.format("%s...", file.getPath()));
+			int j = 0;
+			while (z.hasNextLine()) {
+				attributeList = new ArrayList<>(6);
+				String line = z.nextLine().trim();
+				weaponAttributeLine = line.split(delimiter);
+				key = new WeaponKey(weaponAttributeLine[0].trim(), new Type(weaponAttributeLine[1].trim()));
+				AttributeI tempAttr = null;
+				for (int i = 2; i < weaponAttributeLine.length; i++) {
+					tempAttr = parseThroughSingleAttribute(j, weaponAttributeLine[i].trim());
+					attributeList.add(tempAttr);
+				}
+//				System.out.printf("[%24s,%24s] : Size --> %d\n", key.getWeaponName(), key.getWeaponType().getName(),
+//						(weaponAttributeLine.length - 2));
+				j++;
+				executePutToWeaponAttributesMap(key, new Attributes(attributeList));
+			}
+		} catch (FileNotFoundException e) {
 			log.info(String.format("FNFE Error: %s...", e.getMessage()));
 		}
+//		return weaponAttributes;
+	}
+
+	private AttributeI parseThroughSingleAttribute(int lineNum, String weaponAttributeStr) {
+		AttributeI temp = null;
+		final String delimiter = ":";
+		try {
+			if (weaponAttributeStr.contains(delimiter)) {
+				String[] attributeLine = weaponAttributeStr.split(delimiter);
+//				System.out.printf(String.format("[%d] - [%24s, %24s]\tAssigning Normal Attribute \t[%s : %s]%n", lineNum,
+//						key.getWeaponName(), key.getWeaponType().getName(), attributeLine[0], attributeLine[1]));
+				temp = setNormalAttribute(attributeLine[0].trim(), Integer.parseInt(attributeLine[1].trim()));
+			} else {
+//				System.out.printf(String.format("[%d] - [%24s, %24s]\tAssigning Special Attribute \t[%s]%n", lineNum,
+//						key.getWeaponName(), key.getWeaponType().getName(), weaponAttributeStr));
+				temp = setSpecialAttribute(weaponAttributeStr.trim());
+			}
+			System.out.printf("391->W-A is Empty : %s-->%s%n", weaponAttributes.isEmpty(), weaponAttributeStr);
+		} catch (IllegalArgumentException e) {
+			log.debug(String.format("ERROR: Formatting issue [%s]...", weaponAttributeStr));
+		}
+		return temp;
+	}
+
+	private void executePutToWeaponAttributesMap(WeaponKey key, Attributes attributes) {
+//		long start = System.nanoTime();
+
+		try {
+			weaponAttributes.put(key, attributes);
+			System.out.println(key.toString());
+			System.out.printf("405->W-A is Empty : %s-->%s%n", weaponAttributes.isEmpty(), weaponAttributes.get(key));
+//			System.out.printf("[%24s,%24s] : [%d] -> [%5d] ==> %s%n", key.getWeaponName(),
+//					key.getWeaponType().getName(), attributes.getAttribute().size(), (System.nanoTime() - start),
+//					weaponAttributes.get(key));
+		} catch (NullPointerException e) {
+			log.debug(String.format("Error Putting to Map: NPE", e.getMessage()));
+		}
+//		System.out.print(weaponAttributes.get(key));
+	}
+
+	private com.anno.dw8xl.attribute.model.Normal setNormalAttribute(String str, Integer num) {
+//		System.out.printf("Normal Instantiated : %s\n", temp.getName());
+		return new com.anno.dw8xl.attribute.model.Normal(str, new Level(num));
+	}
+
+	private Special setSpecialAttribute(String str) {
+//		System.out.printf("Special Instantiated : %s\n", str);
+		return new Special(str);
 	}
 
 	private WeaponI setNormal(String[] weaponLine, CategoryI category) {

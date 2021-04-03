@@ -3,13 +3,17 @@
  */
 package com.anno.dw8xl.weapon.model;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.affinity.model.Affinity;
 import com.anno.dw8xl.affinity.model.AffinityI;
+import com.anno.dw8xl.attribute.model.AttributeI;
 import com.anno.dw8xl.length.model.LengthI;
 import com.anno.dw8xl.rarity.model.NullRarity;
 import com.anno.dw8xl.rarity.model.RarityI;
+import com.anno.dw8xl.weapon.dao.Attributes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
@@ -56,6 +60,18 @@ public class NullWeapon extends Weapon {
 	@Override
 	public AffinityI getAffinity() {
 		return new Affinity("-");
+	}
+	
+	@Override
+	public Attributes getAttributes() {
+		return new Attributes(new ArrayList<>());
+	}
+
+	@Override
+	public void setAttributes(Attributes attributes) {
+		/*
+		 * 
+		 */
 	}
 
 	@Override

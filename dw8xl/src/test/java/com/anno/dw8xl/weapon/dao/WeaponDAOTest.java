@@ -4,34 +4,35 @@
 package com.anno.dw8xl.weapon.dao;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import com.anno.dw8xl.affinity.model.Affinity;
+import com.anno.dw8xl.attribute.model.AttributeI;
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.character.model.Weapons;
 import com.anno.dw8xl.length.model.Length;
+import com.anno.dw8xl.level.model.Level;
 import com.anno.dw8xl.rarity.model.Rarity;
-import com.anno.dw8xl.shared.Postman;
 import com.anno.dw8xl.type.model.NullType;
 import com.anno.dw8xl.type.model.Type;
 import com.anno.dw8xl.weapon.model.AbNormal;
 import com.anno.dw8xl.weapon.model.Normal;
 import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -39,16 +40,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author venividivicihofneondeion010101
  *
  */
+@TestInstance(Lifecycle.PER_CLASS)
 class WeaponDAOTest {
 
 	private WeaponDAOInterface dao;
 	private String expectedNormalJSON;
 	private String expectedAbNormalJSON;
+	private WeaponI dragonSpear;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@BeforeEach
+	@BeforeAll
 	void setUp() throws Exception {
 		dao = WeaponDAO.getInstance();
 		expectedNormalJSON = new String("{\n" + "        \"state\": \"normal\",\n"
@@ -77,14 +80,14 @@ class WeaponDAOTest {
 	@Test
 	void testGetAllWeapons() {
 		Collection<WeaponI> weapons = dao.getAll();
-		assertEquals(869, weapons.size());
+		assertEquals(893, weapons.size());
 	}
 
 	@DisplayName("Get Type Hash...")
 	@Test
 	void testGetTypeHashWeapons() {
 		Map<String, Weapons> hash = dao.getTypeHash();
-		assertEquals(97, hash.size());
+		assertEquals(98, hash.size());
 	}
 
 	@DisplayName("Test Parsed JSON exists [Normal]...")
@@ -109,6 +112,19 @@ class WeaponDAOTest {
 		String jsonArray = mapper.writeValueAsString(weapons);
 		WeaponI[] asArray = mapper.readValue(jsonArray, WeaponI[].class);
 		assertTrue(asArray[0] instanceof WeaponI);
+	}
+
+	@Test
+	void testGetWeaponsByState_AbNormal() {
+		Collection<WeaponI> weapons = dao.getWeaponsByState("abNormal");
+		assertEquals(737, weapons.size());
+	}
+
+	@Test
+	void testGetWeaponsByState_Normal() {
+		Collection<WeaponI> weapons = dao.getWeaponsByState("Normal");
+		weapons.forEach(e -> System.out.println(e.getName()));
+		assertEquals(158, weapons.size());
 	}
 
 //	@Test
@@ -210,7 +226,7 @@ class WeaponDAOTest {
 		dao.add(expected);
 		weapons = dao.getAll();
 		int size = weapons.size();
-		assertEquals(870, size);
+		assertEquals(894, size);
 	}
 
 	@DisplayName("Test adding new Weapon [Void] -> Affinity == Expected")
@@ -352,6 +368,48 @@ class WeaponDAOTest {
 		dao.remove(expected);
 		weapons = dao.getAll();
 		assertEquals(size, weapons.size());
+	}
+
+	@DisplayName("Test Mapping between Attributes and AbNormal Weapons")
+	@Test
+	void testMappedAttributesAndAbNormalWeapons() {
+		WeaponKey key = null;
+		dragonSpear = getExpectedDragonSpear();
+		Map<WeaponKey, Attributes> actual = null;
+		Collection<WeaponI> weapAtt = dao.getMappedWeaponsToAttributes();
+		WeaponI temp = null;
+		try {
+//			key = new WeaponKey(dragonSpear.getName(), dragonSpear.getType());
+			for (WeaponI w : weapAtt) {
+				if(w.getName().equalsIgnoreCase(dragonSpear.getName())) {
+					temp = w;
+				}
+//				System.out.printf("%s%s", w.toString());
+			}
+			assertEquals(dragonSpear.getAttributes(), temp.getAttributes());
+//			System.out.println(dragonSpear.getAttributes().toString());
+		}
+		catch(NullPointerException e) {
+			e.printStackTrace();
+		}
+//		assertNotNull(key);
+
+	}
+
+	private WeaponI getExpectedDragonSpear() {
+		// Dark Dragon Spear, 62, Heaven, 6, Dragon Spear, Venom: 10, Swiftness, Chain,
+		// Awe: 8, Protection: 8
+		AbNormal expected = new AbNormal("Dark Dragon Spear", 62, new Affinity("Heaven"), 6, new Type("Dragon Spear"),
+				new Rarity("Xtreme"));
+		List<AttributeI> attributes = new ArrayList<>();
+		attributes.add(new com.anno.dw8xl.attribute.model.Normal("Venom", new Level(10)));
+		attributes.add(new com.anno.dw8xl.attribute.model.Special("Swiftness"));
+		attributes.add(new com.anno.dw8xl.attribute.model.Special("Chain"));
+		attributes.add(new com.anno.dw8xl.attribute.model.Normal("Awe", new Level(8)));
+		attributes.add(new com.anno.dw8xl.attribute.model.Normal("Protection", new Level(8)));
+		expected.setAttributes(new Attributes(attributes));
+		return expected;
+
 	}
 
 }

@@ -23,9 +23,9 @@ Cursed Deck, 27, 1'4", 2, Talisman Cards
 Spirit Deck, 34, 1'4", 3, Talisman Cards
 Mystic Desk, 41, 1'4", 4, Talisman Cards
 Iron Flailblade, 12, 3'7", 1, Flail Sword
-Elite Edge, 18, 3'7", 2, Flail Blade
-Gravity Blade, 23, 3'7", 3, Flail Blade
-Crushing Blade, 31, 3'7", 4, Flail Blade
+Elite Edge, 18, 3'7", 2, Flail Sword
+Gravity Blade, 23, 3'7", 3, Flail Sword
+Crushing Blade, 31, 3'7", 4, Flail Sword
 Steel Crossbow, 15, -, 1, Bladebow
 Steel Flash Crossbow, 20, -, 2, Bladebow
 Emerald Crossbow, 28, -, 3, Bladebow

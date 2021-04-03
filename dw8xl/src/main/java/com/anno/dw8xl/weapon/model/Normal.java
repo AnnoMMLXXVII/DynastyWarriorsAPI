@@ -3,6 +3,8 @@
  */
 package com.anno.dw8xl.weapon.model;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
 import com.anno.dw8xl.affinity.model.Affinity;
@@ -12,6 +14,7 @@ import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.type.model.TypeI;
 import com.anno.dw8xl.view.CharacterView;
+import com.anno.dw8xl.weapon.dao.Attributes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
@@ -62,6 +65,18 @@ public class Normal extends Weapon {
 	public RarityI getRarity() {
 		return new Rarity("Normal");
 	}
+	
+	@Override
+	public Attributes getAttributes() {
+		return new Attributes(new ArrayList<>());
+	}
+
+	@Override
+	public void setAttributes(Attributes attributes) {
+		/*
+		 * 
+		 */
+	}
 
 	/**
 	 * @return the length
@@ -85,6 +100,8 @@ public class Normal extends Weapon {
 	public void setLength(LengthI length) {
 		this.length = length;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {

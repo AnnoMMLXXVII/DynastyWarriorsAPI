@@ -27,6 +27,7 @@ public interface WeaponDAOInterface extends DataAccessObjectInterface<WeaponI, O
 	public Map<String, WeaponI> getWeapons();
 	public Map<String, Weapons> getTypeHash();
 	public Map<String, WeaponI> getPostman();
+	public Map<WeaponKey, Attributes> getWeaponAttributesMap();
 	
 	public Collection<WeaponI> getWeaponsByCategory(String category);
 	public Collection<WeaponI> getWeaponsByStar(Integer star);
@@ -77,4 +78,6 @@ public interface WeaponDAOInterface extends DataAccessObjectInterface<WeaponI, O
 		}
 		return true;
 	}
+
+	public Collection<WeaponI> getMappedWeaponsToAttributes();
 }
