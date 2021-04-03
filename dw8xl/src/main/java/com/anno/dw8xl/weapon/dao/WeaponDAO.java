@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.anno.dw8xl.affinity.dao.AffinityDAO;
 import com.anno.dw8xl.affinity.model.Affinity;
@@ -44,7 +44,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author venividivicihofneondeion010101
  *
  */
-@Service("weaponDAO")
+@Repository
 public class WeaponDAO implements WeaponDAOInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(WeaponDAO.class);

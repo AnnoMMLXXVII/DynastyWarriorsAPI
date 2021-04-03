@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.kingdom.model.Kingdom;
@@ -27,7 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Haku Wei
  *
  */
-@Service("kingdomDAO")
+@Repository
 public class KingdomDAO implements KingdomDAOInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(KingdomDAO.class);

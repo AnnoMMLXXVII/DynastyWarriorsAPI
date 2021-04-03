@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.anno.dw8xl.character.model.CharacterI;
 import com.anno.dw8xl.character.model.NullCharacter;
@@ -37,7 +37,7 @@ import com.anno.dw8xl.weapon.model.WeaponI;
  * @author Haku Wei
  *
  */
-@Service("characterDAO")
+@Repository
 public class CharacterDAO implements CharacterDAOInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(CharacterDAO.class);

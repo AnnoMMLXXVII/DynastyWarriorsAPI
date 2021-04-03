@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import com.anno.dw8xl.dao.PATH;
 import com.anno.dw8xl.rarity.model.NullRarity;
@@ -22,6 +23,7 @@ import com.anno.dw8xl.rarity.model.RarityI;
  * @author venividivicihofneondeion010101
  *
  */
+@Repository
 public class RarityDAO implements RarityDAOInterface {
 
 	private static RarityDAOInterface instance = null;
