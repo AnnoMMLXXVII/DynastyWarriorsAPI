@@ -4,7 +4,7 @@
 package com.dw8xl.restdw8xl.model.character;
 
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
-import com.dw8xl.restdw8xl.model.weapon.WeaponI;
+import com.dw8xl.restdw8xl.model.weapon.type.TypeI;
 
 /**
  * @author Haku Wei
@@ -18,6 +18,6 @@ public interface CharacterI {
 	public void setDynasty(KingdomI dynasty);
 	public KingdomI getDynasty();
 	
-	public abstract WeaponI getWeapon();
+	public abstract TypeI getType();
 
 }

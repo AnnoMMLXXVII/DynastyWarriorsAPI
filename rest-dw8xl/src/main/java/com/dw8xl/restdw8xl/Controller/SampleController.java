@@ -17,6 +17,7 @@ import com.dw8xl.restdw8xl.model.weapon.attribute.Attribute;
 import com.dw8xl.restdw8xl.model.weapon.attribute.AttributeI;
 import com.dw8xl.restdw8xl.model.weapon.attribute.level.Level;
 import com.dw8xl.restdw8xl.model.weapon.category.Category;
+import com.dw8xl.restdw8xl.model.weapon.category.CategoryDNE;
 import com.dw8xl.restdw8xl.model.weapon.classifications.Legend;
 import com.dw8xl.restdw8xl.model.weapon.type.Type;
 
@@ -44,7 +45,7 @@ public class SampleController {
 		kingdom = new Kingdom("Shu");
 		type = new Type("Dragon Spear", new Category("Diver"));
 		weapon = new Legend("Dark Dragon Spear", 52, affinity, 6, type, attribute);
-		officer = new Officer("Zhao Yun", kingdom, weapon);
+		officer = new Officer("Zhao Yun", kingdom, new Type("Dragon Spear", new CategoryDNE()));
 	}
 	
 	private void initializeAttributes() {

@@ -1,0 +1,55 @@
+Officer 	-> Type
+	: One - One
+	: 1 --> 1
+Type 		-> Officer
+	: One - One
+	: 1 --> 1
+
+-------------------------------
+
+Type 		-> Category
+	: Many - One
+	: n --> 1
+Category 	-> Type
+	: One - Many
+	: 1 --> n
+
+-------------------------------
+
+Officer 	-> Kingdom
+	: Many - One
+	: n --> 1
+Kingdom 	-> Officer
+	: One - Many
+	: 1 --> n
+
+-------------------------------
+
+SubOfficer 	-> Kingdom
+	: Many - One
+	: n --> 1
+Kingdom 	-> SubOfficer
+	: One - Many
+	: 1 --> n
+
+-------------------------------
+
+Weapon 		-> Type
+	: Many - One
+	: n --> 1
+Type 		-> Weapon
+	: One - Many
+	: 1 --> n
+
+-------------------------------
+
+Weapon 		-> Affinity
+	: Many - Many
+	: n --> n
+Affinity 	-> Weapon
+	: Many - Many
+	: n --> n
+
+-------------------------------
+
+	

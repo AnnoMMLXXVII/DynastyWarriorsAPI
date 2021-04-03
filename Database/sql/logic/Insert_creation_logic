@@ -1,0 +1,28 @@
+Contstaints When Inserting...
+	Kingdom:
+		--> No Constraints
+	Affinity
+		--> No Constraints
+	Category
+		--> No Constraints
+	Normal_Attr
+		--> No Contraints
+	Special_Attr
+		--> No Contraints
+-------------------------------------------------------------
+	Officer
+		--> Kingdom Must Exist
+		--> Type Must Exist 
+	SubOfficer
+		--> Kingdom Must Exist
+	Type
+		--> Category must Exist
+	Weapon
+		--> Type Must Exist
+		--> Affinity Must Exist	
+-------------------------------------------------------------
+Insertion Order
+	--> Create Tables that do no have constraints first
+	--> W/ Constraints
+		: Type Before Officer and Weapon
+		: Affinity Before Weapon

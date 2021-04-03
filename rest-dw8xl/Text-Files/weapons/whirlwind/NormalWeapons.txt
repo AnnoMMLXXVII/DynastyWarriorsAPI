@@ -122,21 +122,3 @@ Stone Pillar, 18, 12'2", 1, Stele
 Giant Toadstool, 27, 13'3", 2, Stele
 Viper's Venom, 33, 13'3", 3, Stele
 Pillar of Pain, 39, 15'11", 4, Stele
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

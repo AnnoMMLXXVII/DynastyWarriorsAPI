@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
 	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="2"/>
+=======
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="0"/>
+>>>>>>> c4e7535990a0e359f7a4d2b5584829013e608fdd
 	<item key="GitSelectRepositoryPage.lastRepository" value="/Users/venividivicihofneondeion010101/Documents/GitHub/DynastyWarriors8XL/.git"/>
 	<section name="GitImportWizard">
 	</section>

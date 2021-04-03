@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import com.dw8xl.restdw8xl.model.character.CharacterI;
+import com.dw8xl.restdw8xl.model.character.Officer;
 import com.dw8xl.restdw8xl.model.character.SubOfficer;
 import com.dw8xl.restdw8xl.model.kingdom.Kingdom;
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
@@ -26,6 +27,7 @@ import com.dw8xl.restdw8xl.model.weapon.attribute.Special;
 import com.dw8xl.restdw8xl.model.weapon.attribute.level.Level;
 import com.dw8xl.restdw8xl.model.weapon.attribute.level.LevelI;
 import com.dw8xl.restdw8xl.model.weapon.category.Category;
+import com.dw8xl.restdw8xl.model.weapon.category.CategoryDNE;
 import com.dw8xl.restdw8xl.model.weapon.category.CategoryI;
 import com.dw8xl.restdw8xl.model.weapon.classifications.Legend;
 import com.dw8xl.restdw8xl.model.weapon.classifications.Rare;
@@ -45,7 +47,7 @@ public class SampleListController {
 
 	private List<CharacterI> officers;
 	private List<CharacterI> subOfficers;
-	private CharacterI subOfficerTemp;
+	private CharacterI subOfficerTemp, officerTemp;
 	private List<Type> types;
 	private List<Affinity> affinities;
 	private List<KingdomI> kingdoms;
@@ -55,6 +57,25 @@ public class SampleListController {
 	public SampleListController() {
 		subOfficers = new ArrayList<>();
 		kingdoms = new ArrayList<>();
+	}
+	
+	public List<CharacterI> parseThroughOfficerTextFileByKingdom(Kingdom kingdom) {
+		List<CharacterI> officers = new ArrayList<>();
+		File file = new File(getPath(kingdom));
+		try {
+			Scanner z = new Scanner(new FileReader(file));
+			String[] officerLine = null;
+			while (z.hasNextLine()) {
+				String line = z.nextLine();
+				officerLine = line.split(",");
+				officerTemp = new Officer(officerLine[0], new Kingdom(officerLine[1]), new Type(officerLine[2], new CategoryDNE()));
+				officers.add(officerTemp);
+			}
+		}
+		catch(Exception e) {
+			e.getMessage();
+		}
+		return officers;
 	}
 	
 	public List<CharacterI> parseThroughSubOfficerTextFileByKingdom(Kingdom kingdom) {
@@ -97,6 +118,18 @@ public class SampleListController {
 		}
 		
 		return weapons;
+	}
+	
+	
+	
+	private String[] getAllOfficerPaths() {
+		return new String[] {
+				"Text-Files\\characters\\officer\\Officer-List-Jin.txt",
+				"Text-Files\\characters\\officer\\Officer-List-Other.txt",
+				"Text-Files\\characters\\officer\\Officer-List-Shu.txt",
+				"Text-Files\\characters\\officer\\Officer-List-Wei.txt",
+				"Text-Files\\characters\\officer\\Officer-List-Wu.txt"
+			};
 	}
 	
 	public List<CharacterI> parseThroughMultipleSubOfficersTextFiles() {

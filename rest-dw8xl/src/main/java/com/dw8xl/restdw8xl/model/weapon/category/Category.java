@@ -56,13 +56,7 @@ public class Category implements CategoryI {
 
 	@Override
 	public String toString() {
-		return "Category [category=" + category + "]";
+		return "[category=" + category + "]";
 	}
-	
-	
-
-	
-	
-	
 	
 }

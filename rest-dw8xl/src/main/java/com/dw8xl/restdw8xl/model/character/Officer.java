@@ -4,37 +4,41 @@
 package com.dw8xl.restdw8xl.model.character;
 
 import com.dw8xl.restdw8xl.model.kingdom.KingdomI;
-import com.dw8xl.restdw8xl.model.weapon.Weapon;
-import com.dw8xl.restdw8xl.model.weapon.WeaponI;
+import com.dw8xl.restdw8xl.model.weapon.type.Type;
+import com.dw8xl.restdw8xl.model.weapon.type.TypeI;
 
 /**
  * @author Haku Wei
  *
  */
-public class Officer extends Character{
+/**
+ * @author Haku Wei
+ *
+ */
+public class Officer extends Character {
 
-	private WeaponI weapon;
+	private TypeI type;
 
 	/**
 	 * @param name
 	 * @param dynasty
 	 * @param weapon
 	 */
-	public Officer(String name, KingdomI dynasty, WeaponI weapon) {
+	public Officer(String name, KingdomI dynasty, Type type) {
 		super(name, dynasty);
-		this.weapon = weapon;
+		this.type = type;
 	}
 
 	@Override
-	public WeaponI getWeapon() {
-		return weapon;
+	public TypeI getType() {
+		return type;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((weapon == null) ? 0 : weapon.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -47,20 +51,20 @@ public class Officer extends Character{
 		if (getClass() != obj.getClass())
 			return false;
 		Officer other = (Officer) obj;
-		if (weapon == null) {
-			if (other.weapon != null)
+		if (type == null) {
+			if (other.type != null)
 				return false;
-		} else if (!weapon.equals(other.weapon))
+		} else if (!type.equals(other.type))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Officer [weapon=" + weapon + "]";
+		return "Officer " +type;
 	}
+	
+	
 
-	
-	
 	
 }

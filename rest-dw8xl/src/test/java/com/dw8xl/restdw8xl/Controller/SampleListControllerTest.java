@@ -43,6 +43,7 @@ class SampleListControllerTest {
 	private List<AttributeI> expectedAttributes;
 	private WeaponI expected, expectedWeapon;
 	private AttributeI expectedAttribute;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -92,6 +93,11 @@ class SampleListControllerTest {
 	 */
 	@AfterEach
 	void tearDown() throws Exception {
+	}
+	
+	@Test
+	void testParseThroughOfficers() {
+		
 	}
 	
 	@Test
@@ -179,11 +185,12 @@ class SampleListControllerTest {
 		 assertTrue(wildCardSubOfficers.size() > 0);
 	}
 	
-//	@Test
+	@Test
 	void testGetAllSubOfficers() {
 		mockSubOfficers = dao.parseThroughMultipleSubOfficersTextFiles();
 		assertTrue(mockSubOfficers.size() > 0);
 		Collections.sort(mockSubOfficers, (s1, s2) -> s1.getName().compareTo(s2.getName()));
+<<<<<<< HEAD
 <<<<<<< HEAD
 		mockSubOfficers.stream().forEach(so -> {
 			String name = so.getName();
@@ -192,6 +199,14 @@ class SampleListControllerTest {
 		});
 =======
 >>>>>>> fb26b208abdcac342fb35ffa201dc52e9be5477b
+=======
+		mockSubOfficers.stream().forEach(s -> {
+			String name = s.getName();
+			String king = s.getDynasty().getName();
+			System.out.printf("(\"%s\", \"%s),\n", name, king);
+
+		});
+>>>>>>> c4e7535990a0e359f7a4d2b5584829013e608fdd
 	}
 	
 

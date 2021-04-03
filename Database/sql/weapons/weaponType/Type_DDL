@@ -1,42 +1,44 @@
 DROP TABLE IF EXISTS Type;
 
 CREATE TABLE IF NOT EXISTS Type ( 
-    type VARCHAR (11) NOT NULL,
-    name VARCHAR (24) NOT NULL PRIMARY KEY
+    name VARCHAR (24) NOT NULL PRIMARY KEY,
+    category VARCHAR (11) NOT NULL,
+    FOREIGN KEY (category) REFERENCES Category (category)
+    
 );
 
-INSERT INTO Type (type, name) VALUES 
-    ("Wind Master", "Spear"),
-    ("Wind Master", "Pike"),
-    ("Wind Master", "Double Voulge"),
-    ("Wind Master", "Great Sword"),
-    ("Wind Master", "Club"),
-    ("Wind Master", "Gloves"),
-    ("Wind Master", "Halberd"),
-    ("Wind Master", "Twin Axes"),
-    ("Wind Master", "Lance"),
-    ("Wind Master", "Twin Rods"),
-    ("Wind Master", "Axe"),
-    ("Wind Master", "Tonfa"),
-    ("Wind Master", "Crossbow"),
-    ("Wind Master", "Arm Cannon"),
-    ("Wind Master", "Brush"),
-    ("Wind Master", "Dagger Axe"),
-    ("Wind Master", "Bomb"),
-    ("Wind Master", "Short Pike"),
-    ("Wind Master", "Great Axes"),
-    ("Wind Master", "Mace"),
-    ("Wind Master", "Spiked Shield"),
-    ("Wind Master", "Arm Blade"),
-    ("Wind Master", "Circle Blade"),
-    ("Wind Master", "Siege Spear"),
-    ("Wind Master", "Bow & Rod"),
-    ("Wind Master", "Wheeled Halberd"),
-    ("Wind Master", "Rake"),
-    ("Wind Master", "Dual-Headed Mace"),
-    ("Wind Master", "Revolving Crossbow"),
-    ("Wind Master", "War Trident"),
-    ("Wind Master", "Sele"),
+INSERT INTO Type (category, name) VALUES 
+    ("Whirlwind Master", "Spear"),
+    ("Whirlwind Master", "Pike"),
+    ("Whirlwind Master", "Double Voulge"),
+    ("Whirlwind Master", "Great Sword"),
+    ("Whirlwind Master", "Club"),
+    ("Whirlwind Master", "Gloves"),
+    ("Whirlwind Master", "Halberd"),
+    ("Whirlwind Master", "Twin Axes"),
+    ("Whirlwind Master", "Lance"),
+    ("Whirlwind Master", "Twin Rods"),
+    ("Whirlwind Master", "Axe"),
+    ("Whirlwind Master", "Tonfa"),
+    ("Whirlwind Master", "Crossbow"),
+    ("Whirlwind Master", "Arm Cannon"),
+    ("Whirlwind Master", "Brush"),
+    ("Whirlwind Master", "Dagger Axe"),
+    ("Whirlwind Master", "Bomb"),
+    ("Whirlwind Master", "Short Pike"),
+    ("Whirlwind Master", "Great Axes"),
+    ("Whirlwind Master", "Mace"),
+    ("Whirlwind Master", "Spiked Shield"),
+    ("Whirlwind Master", "Arm Blade"),
+    ("Whirlwind Master", "Circle Blade"),
+    ("Whirlwind Master", "Siege Spear"),
+    ("Whirlwind Master", "Bow & Rod"),
+    ("Whirlwind Master", "Wheeled Halberd"),
+    ("Whirlwind Master", "Rake"),
+    ("Whirlwind Master", "Dual-Headed Mace"),
+    ("Whirlwind Master", "Revolving Crossbow"),
+    ("Whirlwind Master", "War Trident"),
+    ("Whirlwind Master", "Sele"),
     
     ("Dasher", "Sword"),
     ("Dasher", "Rapier"),
@@ -85,6 +87,7 @@ INSERT INTO Type (type, name) VALUES
     ("Shadow Sprinter", "Short Rod"),
     ("Shadow Sprinter", "Javelin"),
     ("Shadow Sprinter", "Crossed Pike"),
+    
     ("Diver", "Dragon Spear"),
     ("Diver", "Crescent Blade"),
     ("Diver", "Dual Blade"),
@@ -93,10 +96,3 @@ INSERT INTO Type (type, name) VALUES
     ("Diver", "Tailsman Cards"),
     ("Diver", "Flail Sword"),
     ("Diver", "Woven Cloth");
-
-
-
-
-
-
-

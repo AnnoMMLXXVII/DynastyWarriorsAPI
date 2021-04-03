@@ -1,0 +1,296 @@
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+
+WrapperSimpleApp: Encountered an error running main: java.lang.IllegalStateException: SonarQube requires Java 11 to run
+java.lang.IllegalStateException: SonarQube requires Java 11 to run
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:508)
+	at org.sonar.application.App.checkJavaVersion(App.java:94)
+	at org.sonar.application.App.start(App.java:57)
+	at org.sonar.application.App.main(App.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.tanukisoftware.wrapper.WrapperSimpleApp.run(WrapperSimpleApp.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+
+WrapperSimpleApp: Encountered an error running main: java.lang.IllegalStateException: SonarQube requires Java 11 to run
+java.lang.IllegalStateException: SonarQube requires Java 11 to run
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:508)
+	at org.sonar.application.App.checkJavaVersion(App.java:94)
+	at org.sonar.application.App.start(App.java:57)
+	at org.sonar.application.App.main(App.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.tanukisoftware.wrapper.WrapperSimpleApp.run(WrapperSimpleApp.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+
+WrapperSimpleApp: Encountered an error running main: java.lang.IllegalStateException: SonarQube requires Java 11 to run
+java.lang.IllegalStateException: SonarQube requires Java 11 to run
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:508)
+	at org.sonar.application.App.checkJavaVersion(App.java:94)
+	at org.sonar.application.App.start(App.java:57)
+	at org.sonar.application.App.main(App.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.tanukisoftware.wrapper.WrapperSimpleApp.run(WrapperSimpleApp.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.18 22:30:53 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp
+2020.10.18 22:30:54 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.18 22:30:54 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.18 22:30:54 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.18 22:30:54 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.18 22:30:54 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020.10.18 22:31:02 INFO  app[][o.s.a.SchedulerImpl] Process[es] is up
+Wrapper Process has not received any CPU time for 925 seconds.  Extending timeouts.
+2020.10.18 22:31:02 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='web', ipcIndex=2, logFilenamePrefix=web]] from [C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579]: C:\Program Files\Java\jdk-11.0.8\bin\java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/common/*;C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\lib\jdbc\h2\h2-1.4.199.jar org.sonar.server.app.WebServer C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp\sq-process11097969435938153761properties
+2020.10.18 22:31:24 INFO  app[][o.s.a.SchedulerImpl] Process[web] is up
+2020.10.18 22:31:24 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='ce', ipcIndex=3, logFilenamePrefix=ce]] from [C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579]: C:\Program Files\Java\jdk-11.0.8\bin\java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/common/*;C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\lib\jdbc\h2\h2-1.4.199.jar org.sonar.ce.app.CeServer C:\Users\Haku Wei\Downloads\sonarqube-8.5.0.37579\sonarqube-8.5.0.37579\temp\sq-process11387346468666249548properties
+2020.10.18 22:31:28 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up
+2020.10.18 22:31:28 INFO  app[][o.s.a.SchedulerImpl] SonarQube is up
+CTRL-C trapped.  Shutting down.
+CTRL-C trapped.  Forcing immediate shutdown.
+JVM did not exit on request, terminated
+CTRL-C trapped.  Forcing immediate shutdown.
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+
+WrapperSimpleApp: Encountered an error running main: java.lang.IllegalStateException: SonarQube requires Java 11 to run
+java.lang.IllegalStateException: SonarQube requires Java 11 to run
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:508)
+	at org.sonar.application.App.checkJavaVersion(App.java:94)
+	at org.sonar.application.App.start(App.java:57)
+	at org.sonar.application.App.main(App.java:98)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.tanukisoftware.wrapper.WrapperSimpleApp.run(WrapperSimpleApp.java:240)
+	at java.lang.Thread.run(Thread.java:748)
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.18 22:55:28 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp
+2020.10.18 22:55:28 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.18 22:55:28 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.18 22:55:28 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.18 22:55:28 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.18 22:55:28 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020.10.18 22:55:38 INFO  app[][o.s.a.SchedulerImpl] Process[es] is up
+2020.10.18 22:55:38 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='web', ipcIndex=2, logFilenamePrefix=web]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579]: C:\Program Files\Java\jdk-11.0.8\bin\java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/common/*;C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\lib\jdbc\h2\h2-1.4.199.jar org.sonar.server.app.WebServer C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\sq-process15597433016722850501properties
+2020.10.18 22:55:49 INFO  app[][o.s.a.SchedulerImpl] Process[web] is up
+2020.10.18 22:55:49 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='ce', ipcIndex=3, logFilenamePrefix=ce]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579]: C:\Program Files\Java\jdk-11.0.8\bin\java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/common/*;C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\lib\jdbc\h2\h2-1.4.199.jar org.sonar.ce.app.CeServer C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\sq-process14866932894245653836properties
+2020.10.18 22:55:53 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up
+2020.10.18 22:55:53 INFO  app[][o.s.a.SchedulerImpl] SonarQube is up
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.27 14:04:52 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp
+2020.10.27 14:04:52 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.27 14:04:52 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.27 14:04:52 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.27 14:04:52 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.27 14:04:52 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+CTRL-C trapped.  Shutting down.
+2020.10.27 14:08:07 INFO  app[][o.s.a.SchedulerImpl] Stopping SonarQube
+2020.10.27 14:08:07 ERROR app[][o.s.a.p.EsManagedProcess] Failed to check status
+java.lang.IllegalStateException: Future got interrupted
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:60)
+	at org.elasticsearch.action.support.AdapterActionFuture.actionGet(AdapterActionFuture.java:34)
+	at org.sonar.application.es.EsConnectorImpl.getClusterHealthStatus(EsConnectorImpl.java:63)
+	at org.sonar.application.process.EsManagedProcess.checkStatus(EsManagedProcess.java:88)
+	at org.sonar.application.process.EsManagedProcess.checkOperational(EsManagedProcess.java:73)
+	at org.sonar.application.process.EsManagedProcess.isOperational(EsManagedProcess.java:58)
+	at org.sonar.application.process.ManagedProcessHandler.refreshState(ManagedProcessHandler.java:220)
+	at org.sonar.application.process.ManagedProcessHandler$EventWatcher.run(ManagedProcessHandler.java:285)
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1040)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1345)
+	at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.get(BaseFuture.java:251)
+	at org.elasticsearch.common.util.concurrent.BaseFuture.get(BaseFuture.java:94)
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:57)
+	... 7 common frames omitted
+2020.10.27 14:08:07 INFO  app[][o.s.a.SchedulerImpl] Process[es] is stopped
+2020.10.27 14:08:07 INFO  app[][o.s.a.SchedulerImpl] SonarQube is stopped
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.27 14:09:09 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp
+2020.10.27 14:09:09 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.27 14:09:09 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.27 14:09:09 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.27 14:09:09 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.27 14:09:09 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.27 14:17:30 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp
+2020.10.27 14:17:30 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.27 14:17:30 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.27 14:17:30 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.27 14:17:30 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.27 14:17:30 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020.10.27 14:17:32 WARN  app[][o.s.a.p.AbstractManagedProcess] Process exited with exit value [es]: 1
+2020.10.27 14:17:32 INFO  app[][o.s.a.SchedulerImpl] Process[es] is stopped
+2020.10.27 14:17:32 INFO  app[][o.s.a.SchedulerImpl] SonarQube is stopped
+2020.10.27 14:17:32 ERROR app[][o.s.a.p.EsManagedProcess] Failed to check status
+java.lang.IllegalStateException: Future got interrupted
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:60)
+	at org.elasticsearch.action.support.AdapterActionFuture.actionGet(AdapterActionFuture.java:34)
+	at org.sonar.application.es.EsConnectorImpl.getClusterHealthStatus(EsConnectorImpl.java:63)
+	at org.sonar.application.process.EsManagedProcess.checkStatus(EsManagedProcess.java:88)
+	at org.sonar.application.process.EsManagedProcess.checkOperational(EsManagedProcess.java:73)
+	at org.sonar.application.process.EsManagedProcess.isOperational(EsManagedProcess.java:58)
+	at org.sonar.application.process.ManagedProcessHandler.refreshState(ManagedProcessHandler.java:220)
+	at org.sonar.application.process.ManagedProcessHandler$EventWatcher.run(ManagedProcessHandler.java:285)
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1040)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1345)
+	at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.get(BaseFuture.java:251)
+	at org.elasticsearch.common.util.concurrent.BaseFuture.get(BaseFuture.java:94)
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:57)
+	... 7 common frames omitted
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.27 14:19:48 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp
+2020.10.27 14:19:48 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.27 14:19:49 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.27 14:19:49 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.27 14:19:49 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.27 14:19:49 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020.10.27 14:19:50 WARN  app[][o.s.a.p.AbstractManagedProcess] Process exited with exit value [es]: 1
+2020.10.27 14:19:50 INFO  app[][o.s.a.SchedulerImpl] Process[es] is stopped
+2020.10.27 14:19:50 INFO  app[][o.s.a.SchedulerImpl] SonarQube is stopped
+2020.10.27 14:19:50 ERROR app[][o.s.a.p.EsManagedProcess] Failed to check status
+java.lang.IllegalStateException: Future got interrupted
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:60)
+	at org.elasticsearch.action.support.AdapterActionFuture.actionGet(AdapterActionFuture.java:34)
+	at org.sonar.application.es.EsConnectorImpl.getClusterHealthStatus(EsConnectorImpl.java:63)
+	at org.sonar.application.process.EsManagedProcess.checkStatus(EsManagedProcess.java:88)
+	at org.sonar.application.process.EsManagedProcess.checkOperational(EsManagedProcess.java:73)
+	at org.sonar.application.process.EsManagedProcess.isOperational(EsManagedProcess.java:58)
+	at org.sonar.application.process.ManagedProcessHandler.refreshState(ManagedProcessHandler.java:220)
+	at org.sonar.application.process.ManagedProcessHandler$EventWatcher.run(ManagedProcessHandler.java:285)
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1040)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1345)
+	at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.get(BaseFuture.java:251)
+	at org.elasticsearch.common.util.concurrent.BaseFuture.get(BaseFuture.java:94)
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:57)
+	... 7 common frames omitted
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.27 14:21:03 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp
+2020.10.27 14:21:03 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.27 14:21:03 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.27 14:21:03 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.27 14:21:03 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.27 14:21:03 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020.10.27 14:21:05 WARN  app[][o.s.a.p.AbstractManagedProcess] Process exited with exit value [es]: 1
+2020.10.27 14:21:05 INFO  app[][o.s.a.SchedulerImpl] Process[es] is stopped
+2020.10.27 14:21:05 INFO  app[][o.s.a.SchedulerImpl] SonarQube is stopped
+2020.10.27 14:21:05 ERROR app[][o.s.a.p.EsManagedProcess] Failed to check status
+java.lang.IllegalStateException: Future got interrupted
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:60)
+	at org.elasticsearch.action.support.AdapterActionFuture.actionGet(AdapterActionFuture.java:34)
+	at org.sonar.application.es.EsConnectorImpl.getClusterHealthStatus(EsConnectorImpl.java:63)
+	at org.sonar.application.process.EsManagedProcess.checkStatus(EsManagedProcess.java:88)
+	at org.sonar.application.process.EsManagedProcess.checkOperational(EsManagedProcess.java:73)
+	at org.sonar.application.process.EsManagedProcess.isOperational(EsManagedProcess.java:58)
+	at org.sonar.application.process.ManagedProcessHandler.refreshState(ManagedProcessHandler.java:220)
+	at org.sonar.application.process.ManagedProcessHandler$EventWatcher.run(ManagedProcessHandler.java:285)
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1040)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1345)
+	at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.get(BaseFuture.java:251)
+	at org.elasticsearch.common.util.concurrent.BaseFuture.get(BaseFuture.java:94)
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:57)
+	... 7 common frames omitted
+<-- Wrapper Stopped
+--> Wrapper Started as Console
+Launching a JVM...
+Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+  Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+
+2020.10.27 14:39:08 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp
+2020.10.27 14:39:08 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on /127.0.0.1:9001
+2020.10.27 14:39:08 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[[key='es', ipcIndex=1, logFilenamePrefix=es]] from [C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch]: C:\Program Files\Java\jdk-11.0.8\bin\java -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -Des.networkaddress.cache.ttl=60 -Des.networkaddress.cache.negative.ttl=10 -XX:+AlwaysPreTouch -Xss1m -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djna.nosys=true -XX:-OmitStackTraceInFastThrow -Dio.netty.noUnsafe=true -Dio.netty.noKeySetOptimization=true -Dio.netty.recycler.maxCapacityPerThread=0 -Dlog4j.shutdownHookEnabled=false -Dlog4j2.disable.jmx=true -Djava.io.tmpdir=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp -XX:ErrorFile=../logs/es_hs_err_pid%p.log -Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError -Delasticsearch -Des.path.home=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\elasticsearch -Des.path.conf=C:\Users\Haku Wei\Documents\git\DynastyWarriors8XL\sonarqube-8.5.0.37579\temp\conf\es -cp lib/* org.elasticsearch.bootstrap.Elasticsearch
+2020.10.27 14:39:08 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+Java HotSpot(TM) 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2020.10.27 14:39:09 INFO  app[][o.e.p.PluginsService] no modules loaded
+2020.10.27 14:39:09 INFO  app[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2020.10.27 14:39:10 WARN  app[][o.s.a.p.AbstractManagedProcess] Process exited with exit value [es]: 1
+2020.10.27 14:39:10 INFO  app[][o.s.a.SchedulerImpl] Process[es] is stopped
+2020.10.27 14:39:10 INFO  app[][o.s.a.SchedulerImpl] SonarQube is stopped
+2020.10.27 14:39:10 ERROR app[][o.s.a.p.EsManagedProcess] Failed to check status
+java.lang.IllegalStateException: Future got interrupted
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:60)
+	at org.elasticsearch.action.support.AdapterActionFuture.actionGet(AdapterActionFuture.java:34)
+	at org.sonar.application.es.EsConnectorImpl.getClusterHealthStatus(EsConnectorImpl.java:63)
+	at org.sonar.application.process.EsManagedProcess.checkStatus(EsManagedProcess.java:88)
+	at org.sonar.application.process.EsManagedProcess.checkOperational(EsManagedProcess.java:73)
+	at org.sonar.application.process.EsManagedProcess.isOperational(EsManagedProcess.java:58)
+	at org.sonar.application.process.ManagedProcessHandler.refreshState(ManagedProcessHandler.java:220)
+	at org.sonar.application.process.ManagedProcessHandler$EventWatcher.run(ManagedProcessHandler.java:285)
+Caused by: java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1040)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1345)
+	at org.elasticsearch.common.util.concurrent.BaseFuture$Sync.get(BaseFuture.java:251)
+	at org.elasticsearch.common.util.concurrent.BaseFuture.get(BaseFuture.java:94)
+	at org.elasticsearch.common.util.concurrent.FutureUtils.get(FutureUtils.java:57)
+	... 7 common frames omitted
+<-- Wrapper Stopped
