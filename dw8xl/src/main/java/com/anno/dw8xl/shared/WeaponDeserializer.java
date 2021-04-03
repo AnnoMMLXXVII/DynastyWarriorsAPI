@@ -5,8 +5,8 @@ package com.anno.dw8xl.shared;
 
 import java.io.IOException;
 
-import com.anno.dw8xl.weapon.model.AbNormal;
-import com.anno.dw8xl.weapon.model.Normal;
+import com.anno.dw8xl.weapon.model.AbNormalWeapon;
+import com.anno.dw8xl.weapon.model.NormalWeapon;
 import com.anno.dw8xl.weapon.model.Weapon;
 import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.core.JsonParser;
@@ -30,9 +30,9 @@ public class WeaponDeserializer extends JsonDeserializer<WeaponI> {
 		String res = root.get(id).toString();
 //		System.out.printf("WDez --> %s\n%s\n", root.toPrettyString(),res);
 		if (res.equals("\"normal\"".toLowerCase().trim())) {
-			instanceClass = Normal.class;
+			instanceClass = NormalWeapon.class;
 		} else {
-			instanceClass = AbNormal.class;
+			instanceClass = AbNormalWeapon.class;
 		}
 		return mapper.treeToValue(root, instanceClass);
 	}
