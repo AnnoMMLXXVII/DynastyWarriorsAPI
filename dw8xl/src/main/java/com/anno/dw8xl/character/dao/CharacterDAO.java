@@ -31,7 +31,6 @@ import com.anno.dw8xl.kingdom.model.Kingdom;
 import com.anno.dw8xl.kingdom.model.KingdomI;
 import com.anno.dw8xl.type.model.Type;
 import com.anno.dw8xl.weapon.dao.WeaponDAO;
-import com.anno.dw8xl.weapon.model.WeaponI;
 
 /**
  * @author Haku Wei
@@ -59,7 +58,7 @@ public class CharacterDAO implements CharacterDAOInterface {
 		return instance;
 	}
 
-	private CharacterDAO() {
+	protected CharacterDAO() {
 		characters = new HashMap<>();
 		log.info("Initializing all characters...");
 		counter = new AtomicInteger();
@@ -152,10 +151,11 @@ public class CharacterDAO implements CharacterDAOInterface {
 	@Override
 	public Collection<CharacterI> executeGetOfficersByStar(Integer star) {
 		log.info(String.format("Filtering and returning List of Officers by Star value : %d", star));
-		Collection<WeaponI> stars = WeaponDAO.getInstance().getWeaponsByStar(star);
-		Collection<CharacterI> officersByStar = executeGetAllOfficers();
-		return executeGetAllOfficers().stream().filter(e -> e.getWeapons().getWeapons().stream()
-				.filter(s -> s.getStar().equals(star).collect(Collectors.toList()).collect(Collectors.toList())));
+//		Collection<WeaponI> stars = WeaponDAO.getInstance().getWeaponsByStar(star);
+//		Collection<CharacterI> officersByStar = executeGetAllOfficers();
+//		return executeGetAllOfficers().stream().filter(e -> e.getWeapons().getWeapons().stream()
+//				.filter(s -> s.getStar().equals(star).collect(Collectors.toList()).collect(Collectors.toList())));
+		return null;
 	}
 
 	@Override

@@ -48,7 +48,7 @@ public class CategoryDAO implements CategoryDAOInterface{
 		return instance;
 	}
 	
-	private CategoryDAO() {
+	protected CategoryDAO() {
 		categories = new HashMap<>();
 		initializeValues();
 	}

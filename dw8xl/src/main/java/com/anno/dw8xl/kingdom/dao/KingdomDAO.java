@@ -46,7 +46,7 @@ public class KingdomDAO implements KingdomDAOInterface {
 		return instance;
 	}
 
-	private KingdomDAO() {
+	protected KingdomDAO() {
 		log.info("Initializing Kingdom HashMap...");
 		initializeKingdoms();
 	}

@@ -42,7 +42,7 @@ public class RarityDAO implements RarityDAOInterface {
 		return instance;
 	}
 	
-	private RarityDAO() {
+	protected RarityDAO() {
 		rarities = new HashMap<>();
 		log.info("Initializing rarities map...");
 		initialize();

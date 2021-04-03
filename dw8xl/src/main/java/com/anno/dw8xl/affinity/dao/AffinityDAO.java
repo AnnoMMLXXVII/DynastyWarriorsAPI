@@ -34,7 +34,7 @@ public class AffinityDAO implements AffinityDAOInterface{
 		return instance;
 	}
 	
-	private AffinityDAO() {
+	protected AffinityDAO() {
 		affinities = new ArrayList<>();
 		initializeAffinities();
 	}

@@ -48,7 +48,7 @@ public class AttributeDAO implements AttributeDAOInterface {
 		return instance;
 	}
 
-	private AttributeDAO() {
+	protected AttributeDAO() {
 		attributes = new HashMap<>();
 		log.info("Parsing normal attributes file...");
 		parseFilesAndMap(true);
