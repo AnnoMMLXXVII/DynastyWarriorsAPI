@@ -30,12 +30,16 @@ public abstract class Attribute implements AttributeI {
 	private LevelI level;
 	
 	
-	protected Attribute() {
+	public Attribute() {
 		/*
 		 * Empty On purpose
 		 * Must Be empty
 		 * Commenting to resolve sonar
 		 */
+	}
+	
+	public Attribute(String name) {
+		this.name = name;
 	}
 	
 	/**
