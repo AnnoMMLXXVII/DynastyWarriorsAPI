@@ -1,3 +1,27 @@
 Hevenly Dragon, 52, Heaven, 5, Dragon Spear
 Beam Spaer, 55, Earth, 5, Dragon Spear
-Dragon Piercer, 57, 5, Dragon Spear
+Dragon Piercer, 57, Earth, 5, Dragon Spear
+Godly Dragon, 51, Heaven, 5, Crescent Blade
+Beam Slicer, 54, Heaven, 5, Crescent Blade
+Twilight Dragon, 56, Heaven, 5, Crescent Blade
+Azure Storm, 44, Heaven, 5, Dual Blade
+Thunderpeal Blade, 23, Earth, 5, Dual Blade
+Scalpel, 46, Man, 5, Dual Blade
+Dazzling Storm, 48, Heaven, 5, Dual Blade
+Royal Whip, 38, Heaven, 5, Horsehair Whip
+Conjurer's Ribbons, 40, Earth, 5, Horsehair Whip
+Demon Whip, 42, Man, 5, Horsehair Whip
+Sealant Blade, 41, Heaven, 5, Striking Sword
+Checkered Flag, 43, Heaven, 5, Striking Sword
+Crystal Blade, 45, Heaven, 5, Striking Sword
+Heavenly Deck, 50, Heaven, 5, Talisman Cards
+Business Card, 53, Heaven, 5, Talisman Cards
+Toxic Shroud, 55, Man, 5, Talisman Cards
+Dragonspeak, 37, Heaven, 5, Flail Blade
+Chameleon Tongue, 39, Earth, 5, Flail Blade
+Purgatory Flailblade, 41, Heaven, 5, Flail Blade
+Phoenix Wing, 45, Earth, 5, Bladebow
+Corkscrew Crossbow, 48, Earth, 5, Bladebow
+Demon Nightwing, 51, Man, 5, Bladebow
+Apparition Cloth, 37, Heaven, 5, Woven Cloth
+Golden Jade Bench, 43, Heaven, 5, Dragon Column
