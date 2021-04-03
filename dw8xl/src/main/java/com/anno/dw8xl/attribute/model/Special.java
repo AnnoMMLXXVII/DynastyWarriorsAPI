@@ -39,6 +39,13 @@ public class Special extends Attribute {
 	
 	/**
 	 * @param name
+	 */
+	public Special(String name) {
+		super(name);
+	}
+	
+	/**
+	 * @param name
 	 * @param description
 	 */
 	public Special(String name, String description) {
