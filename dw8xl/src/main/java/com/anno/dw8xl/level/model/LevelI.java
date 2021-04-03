@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonDeserialize(using = LevelDeserializer.class)
 @JsonSubTypes({ @Type(value = Level.class, name = "Level"), })
 public interface LevelI {
-	String getPower();
+	int getPower();
 
 	@Override
 	int hashCode();

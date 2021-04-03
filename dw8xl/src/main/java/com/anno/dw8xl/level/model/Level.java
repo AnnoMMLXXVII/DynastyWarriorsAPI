@@ -23,17 +23,15 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonView(CharacterView.Attribute.class)
 @JsonDeserialize(as = Rarity.class)
 public class Level implements LevelI {
-	
+
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "level";
-	
-	@JsonView({CharacterView.Weapon.Attribute.class})
+
+	@JsonView({ CharacterView.Weapon.Attribute.class })
 	private int power;
-	
+
 	public Level() {
-		/*
-		 * 
-		 */
+		power = 0;
 	}
 
 	/**
@@ -47,8 +45,8 @@ public class Level implements LevelI {
 	/**
 	 * @return the power
 	 */
-	public String getPower() {
-		return this.toString();
+	public int getPower() {
+		return power;
 	}
 
 	@Override
@@ -56,6 +54,7 @@ public class Level implements LevelI {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + power;
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		return result;
 	}
 
@@ -70,9 +69,14 @@ public class Level implements LevelI {
 		Level other = (Level) obj;
 		if (power != other.power)
 			return false;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("%d", power);

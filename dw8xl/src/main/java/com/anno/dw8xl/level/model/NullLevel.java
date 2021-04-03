@@ -23,10 +23,10 @@ public class NullLevel implements LevelI {
 
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "null";
-	
+
 	@JsonIgnore
 	private int power;
-	
+
 	public NullLevel() {
 		/*
 		 * 
@@ -34,8 +34,8 @@ public class NullLevel implements LevelI {
 	}
 
 	@Override
-	public String getPower() {
-		return "---";
+	public int getPower() {
+		return -1;
 	}
 
 	@Override
@@ -62,11 +62,10 @@ public class NullLevel implements LevelI {
 			return false;
 		return true;
 	}
-	
-	@Override 
+
+	@Override
 	public String toString() {
-		return String.format("%s", getPower());
+		return String.format("%d", getPower());
 	}
-	
 
 }
