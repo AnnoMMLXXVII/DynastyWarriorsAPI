@@ -25,19 +25,26 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonTypeName("Normal")
 @JsonDeserialize(as = Normal.class)
 public class Normal extends Attribute {
-	
+
 	@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "state")
 	private String state = "normal";
-	
-	@JsonView({CharacterView.Weapon.Attribute.class})
+
+	@JsonView({ CharacterView.Weapon.Attribute.class })
 	private LevelI level;
-	
+
 	public Normal() {
 		/*
 		 * 
 		 */
 	}
-	
+
+	/**
+	 * @param name
+	 */
+	public Normal(String name) {
+		super(name);
+	}
+
 	/**
 	 * @param name
 	 * @param description
@@ -46,7 +53,16 @@ public class Normal extends Attribute {
 		super(name, description);
 		level = new NullLevel();
 	}
-	
+
+	/**
+	 * @param name
+	 * @param level
+	 */
+	public Normal(String name, LevelI level) {
+		super(name, "");
+		this.level = level;
+	}
+
 	/**
 	 * @param name
 	 * @param description
@@ -56,21 +72,21 @@ public class Normal extends Attribute {
 		super(name, description);
 		this.level = level;
 	}
-	
+
 	/**
 	 * @param level
 	 */
 	public void setLevel(LevelI level) {
 		this.level = level;
 	}
-	
+
 	/**
 	 * @return
 	 */
 	public LevelI getLevel() {
 		return level;
 	}
-	
+
 	@Override
 	public RarityI getRarity() {
 		return new Rarity("normal");
@@ -106,7 +122,7 @@ public class Normal extends Attribute {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("%s, %s", super.toString(), getLevel().toString());
