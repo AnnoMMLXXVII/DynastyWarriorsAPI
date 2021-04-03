@@ -100,7 +100,7 @@ public enum PATH {
 	SHADOW_XTREME_PATH(URL_ROOT.getStringUrl() + TEXT_FILE_PATH.getStringUrl() + SHADOW_XTREME_END.getStringUrl()),
 	// --> Whirlwind
 	WHIRLWIND_ATTRIBUTE_LEVEL_PATH(
-			URL_ROOT.getStringUrl() + TEXT_FILE_PATH + WHIRLWIND_ATTRIBUTE_LEVEL_END.getStringUrl()),
+			URL_ROOT.getStringUrl() + TEXT_FILE_PATH.getStringUrl() + WHIRLWIND_ATTRIBUTE_LEVEL_END.getStringUrl()),
 	WHIRLWIND_NORMAL_PATH(
 			URL_ROOT.getStringUrl() + TEXT_FILE_PATH.getStringUrl() + WHIRLWIND_NORMAL_END.getStringUrl()),
 	WHIRLWIND_RARE_PATH(URL_ROOT.getStringUrl() + TEXT_FILE_PATH.getStringUrl() + WHIRLWIND_RARE_END.getStringUrl()),
@@ -173,6 +173,12 @@ public enum PATH {
 	public static PATH[] getXtremeRarityWeaponsPaths() {
 		return new PATH[] {
 				DASHER_XTREME_PATH, DIVER_XTREME_PATH, SHADOW_XTREME_PATH, WHIRLWIND_XTREME_PATH,
+		};
+	}
+	
+	public static PATH[] getWeaponsAttributesLevelsPaths() {
+		return new PATH[] {
+				DASHER_ATTRIBUTE_LEVEL_PATH, DIVER_ATTRIBUTE_LEVEL_PATH, SHADOW_ATTRIBUTE_LEVEL_PATH, WHIRLWIND_ATTRIBUTE_LEVEL_PATH
 		};
 	}
 
