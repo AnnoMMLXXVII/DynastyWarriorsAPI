@@ -1,5 +1,6 @@
 Emperor's Blade, 30, Heaven, 1, Sword
-Winner's Trophy, 52, Man, 5, Sword
+Emperor's Might, 52, Heaven, 5, Sword
+Winner's Trophy, 55, Man, 5, Sword
 Turquoise Blade, 57, Heaven, 5, Sword
 Verdant Thrust, 37, Heaven, 5, Rapier
 Skewered Fish, 39, Man, 5, Rapier
