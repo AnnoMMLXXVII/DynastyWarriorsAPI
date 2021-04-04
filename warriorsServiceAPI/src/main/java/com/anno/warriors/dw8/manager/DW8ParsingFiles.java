@@ -22,7 +22,7 @@ public class DW8ParsingFiles implements DynastyWarriors8Object<DW8ParsingFiles> 
 	}
 
 	private DW8ParsingFiles() {
-
+		
 	}
 
 	@Override
