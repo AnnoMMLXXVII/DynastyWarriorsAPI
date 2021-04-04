@@ -4,7 +4,7 @@ import com.anno.warriors.dw8.enums.DW8Enumeration;
 
 public enum Category implements DW8Enumeration<Category> {
 
-	WHIRLD_WIND("Whirl Wind"), DASHER("Dasher"), SHADOW_SPRINTER("Shadow Sprinter"), DIVER("Driver");
+	WHIRLD_WIND("Whirl Wind"), DASHER("Dasher"), SHADOW_SPRINTER("Shadow Sprinter"), DIVER("Diver");
 
 	private String value;
 
