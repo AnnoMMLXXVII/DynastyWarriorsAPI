@@ -36,10 +36,6 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 		return instance;
 	}
 
-	public static void main(String... arg) {
-		DW8ParsingImages.getInstance();
-	}
-
 	private DW8ParsingImages() {
 		readOfficerImageFolder();
 		readWeaponImagesFolder();
@@ -82,7 +78,6 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 	private void readWeaponImagesFolder() {
 		readWeaponsImagesByPath(fiveStarPath);
 		readWeaponsImagesByPath(sixStarPath);
-		System.out.println(officerNameToWeaponName.toString());
 	}
 
 	private void readWeaponsImagesByPath(String[] paths) {
