@@ -1,7 +1,5 @@
 package com.anno.warriors.dw8.manager;
 
-import com.anno.warriors.dw8.DynastyWarriors8Application;
-
 /*
  * Class is responsible to load and read all files
  * Will Most likely use the DW8Structures class to keep track of 
@@ -10,10 +8,11 @@ import com.anno.warriors.dw8.DynastyWarriors8Application;
 public class DW8ParsingFiles implements DynastyWarriors8Object<DW8ParsingFiles> {
 
 	private static DynastyWarriors8Object<DW8ParsingFiles> instance;
+	private static DynastyWarriors8Object<DW8Structures> structure;
 
 	public static DynastyWarriors8Object<DW8ParsingFiles> getInstance() {
 		if (instance == null) {
-			synchronized (DynastyWarriors8Application.class) {
+			synchronized (DW8ParsingFiles.class) {
 				if (instance == null) {
 					return new DW8ParsingFiles();
 				}
@@ -22,10 +21,15 @@ public class DW8ParsingFiles implements DynastyWarriors8Object<DW8ParsingFiles> 
 		return instance;
 	}
 
-	public DW8ParsingFiles() {
-		
+	private DW8ParsingFiles() {
+
+	}
+
+	@Override
+	public DW8ParsingFiles getManagerType() {
+		return this;
 	}
 	
 	
-
+	
 }
