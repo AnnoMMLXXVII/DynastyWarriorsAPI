@@ -29,7 +29,7 @@ public class DW8Manager implements DynastyWarriors8Object<DW8Manager> {
 		DW8ParsingImages.getInstance();
 		DW8ParsingFiles.getInstance();
 	}
-	
+
 	@Override
 	public DW8Manager getManagerType() {
 		return this;
