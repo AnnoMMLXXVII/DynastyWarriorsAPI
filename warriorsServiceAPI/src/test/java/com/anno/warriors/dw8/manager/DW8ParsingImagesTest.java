@@ -58,7 +58,7 @@ class DW8ParsingImagesTest {
 		Map<OfficerKingdomKey, List<String>> actual = DW8Structures.getWeaponImages();
 		assertEquals(actual.size(), expected.size());
 	}
-	
+
 	@Test
 	void testThatOfficerWeaponMapIsNotEmpty() {
 		assertTrue(!DW8ParsingImages.getOfficerWeaponMap().isEmpty());
