@@ -1,7 +1,6 @@
 package com.anno.warriors.dw8.manager;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +8,7 @@ import java.util.Map;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages> {
 
@@ -16,12 +16,6 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 	private static Map<String, List<String>> officerImages = new HashMap<>();
 	private static Map<OfficerKingdomKey, List<String>> weaponImages = new HashMap<>();
 	private static Map<OfficerKingdomKey, Map<String, String>> officerNameToWeaponName = new HashMap<>();
-	private static String[] fiveStarPath = { DW8Constants.WEAPON_IMAGES_JIN_5_STAR_PATH,
-			DW8Constants.WEAPON_IMAGES_SHU_5_STAR_PATH, DW8Constants.WEAPON_IMAGES_WU_5_STAR_PATH,
-			DW8Constants.WEAPON_IMAGES_WEI_5_STAR_PATH, DW8Constants.WEAPON_IMAGES_OTHER_5_STAR_PATH };
-	private static String[] sixStarPath = { DW8Constants.WEAPON_IMAGES_JIN_6_STAR_PATH,
-			DW8Constants.WEAPON_IMAGES_SHU_6_STAR_PATH, DW8Constants.WEAPON_IMAGES_WU_6_STAR_PATH,
-			DW8Constants.WEAPON_IMAGES_WEI_6_STAR_PATH, DW8Constants.WEAPON_IMAGES_OTHER_6_STAR_PATH };
 	private String weaponName;
 	private String key;
 
@@ -62,10 +56,12 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 		File folder = new File(DW8Constants.OFFICER_IMAGES_PATH);
 		File[] file = folder.listFiles();
 		String shortName = "";
+		DW8MappingObjects<String, List<String>, String> mappingObject = new DW8MappingObjects<>(officerImages);
 		for (int i = 0; i < file.length; i++) {
 			shortName = formatOfficerImageFileNameForKey(file[i].getName());
-			mappingKeyAndValue(shortName, file[i].getPath(), officerImages);
+			mappingObject.mapKeyValueWithList(shortName, file[i].getPath());
 		}
+		officerImages = mappingObject.getMapObject();
 	}
 
 	private String formatOfficerImageFileNameForKey(String fileName) {
@@ -76,24 +72,30 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 	}
 
 	private void readWeaponImagesFolder() {
-		readWeaponsImagesByPath(fiveStarPath);
-		readWeaponsImagesByPath(sixStarPath);
+		readWeaponsImagesByPath(DW8StaticObjects.getFiveStarPathWeaponImageList());
+		readWeaponsImagesByPath(DW8StaticObjects.getSixStarPathWeaponImageList());
 	}
 
 	private void readWeaponsImagesByPath(String[] paths) {
 		File folder = null;
 		File[] file = null;
 		Kingdom kingdom;
+		DW8MappingObjects<OfficerKingdomKey, List<String>, String> imageMappingObject = new DW8MappingObjects<>(
+				weaponImages);
+		DW8MappingObjects<OfficerKingdomKey, Map<String, String>, String> officerWeaponNameMappingObject = new DW8MappingObjects<>(
+				officerNameToWeaponName);
 		for (String s : paths) {
 			kingdom = getKingdomFromPath(s);
 			folder = new File(s);
 			file = folder.listFiles();
 			for (int i = 0; i < file.length; i++) {
 				weaponName = formatWeaponImageFileName(file[i].getName());
-				mappingKeyAndValue(new OfficerKingdomKey(key, kingdom), file[i].getPath(), weaponImages);
-				mappingKeyAndValue(new OfficerKingdomKey(key, kingdom), weaponName, file[i].getPath(),
-						officerNameToWeaponName);
+				imageMappingObject.mapKeyValueWithList(new OfficerKingdomKey(key, kingdom), file[i].getPath());
+				officerWeaponNameMappingObject.mapKeyValueWithMap(new OfficerKingdomKey(key, kingdom), weaponName,
+						file[i].getPath());
 			}
+			weaponImages = imageMappingObject.getMapObject();
+			officerNameToWeaponName = officerWeaponNameMappingObject.getMapObject();
 		}
 	}
 
@@ -106,47 +108,6 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 
 	private String formatWeaponNameConditionally(String preFormattedName) {
 		return preFormattedName.contains("_") ? preFormattedName.replace("_", " ") : preFormattedName;
-	}
-
-	private void mappingKeyAndValue(String key, String value, Map<String, List<String>> map) {
-		List<String> tempList;
-		if (map.containsKey(key)) {
-			tempList = map.get(key);
-			tempList.add(value);
-			map.put(key, tempList);
-		} else {
-			tempList = new ArrayList<>();
-			tempList.add(value);
-			map.put(key, tempList);
-		}
-	}
-
-	private void mappingKeyAndValue(OfficerKingdomKey key, String value, Map<OfficerKingdomKey, List<String>> map) {
-		List<String> tempList;
-		if (map.containsKey(key)) {
-			tempList = map.get(key);
-			tempList.add(value);
-			map.put(key, tempList);
-		} else {
-			tempList = new ArrayList<>();
-			tempList.add(value);
-			map.put(key, tempList);
-		}
-	}
-
-	private void mappingKeyAndValue(OfficerKingdomKey key, String value, String value2,
-			Map<OfficerKingdomKey, Map<String, String>> map) {
-		Map<String, String> tempMap;
-		if (map.containsKey(key)) {
-			tempMap = map.get(key);
-			tempMap.put(value, value2);
-			map.put(key, tempMap);
-
-		} else {
-			tempMap = new HashMap<>();
-			tempMap.put(value, value2);
-			map.put(key, tempMap);
-		}
 	}
 
 	private Kingdom getKingdomFromPath(String path) {
