@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.anno.warriors.dw8.manager.images.ParsingImages;
+
 class DW8StructuresTest {
 
 	@Autowired
@@ -64,13 +66,13 @@ class DW8StructuresTest {
 
 	@Test
 	void testThatOfficerImagesPathIsNotEmpty() {
-		DW8ParsingImages.getInstance();
+		ParsingImages.getInstance();
 		assertTrue(!DW8Structures.getOfficerImages().isEmpty());
 	}
 
 	@Test
 	void testThatWeaponImagesPathIsNotEmpty() {
-		DW8ParsingImages.getInstance();
+		ParsingImages.getInstance();
 		assertTrue(!DW8Structures.getWeaponImages().isEmpty());
 	}
 

@@ -12,15 +12,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
+import com.anno.warriors.dw8.manager.images.ParsingImages;
 
 class DW8ParsingImagesTest {
 
 	@Autowired
-	private DynastyWarriors8Object<DW8ParsingImages> instance;
+	private DynastyWarriors8Object<ParsingImages> instance;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		instance = DW8ParsingImages.getInstance();
+		instance = ParsingImages.getInstance();
 	}
 
 	@Test
@@ -30,23 +31,23 @@ class DW8ParsingImagesTest {
 
 	@Test
 	void testThatInstanceTypeIsTrue() {
-		assertTrue(instance.getManagerType() instanceof DW8ParsingImages);
+		assertTrue(instance.getManagerType() instanceof ParsingImages);
 	}
 
 	@Test
 	void testThatOfficerImageIsNotEmpty() {
-		assertTrue(!DW8ParsingImages.getOfficerImages().isEmpty());
+		assertTrue(!ParsingImages.getOfficerImages().isEmpty());
 	}
 
 	@Test
 	void testThatWepaonImageIsNotEmpty() {
-		assertTrue(!DW8ParsingImages.getWeaponImages().isEmpty());
+		assertTrue(!ParsingImages.getWeaponImages().isEmpty());
 	}
 
 	@Test
 	void testThatOfficerImageIsTheSameSizeAsDW8Structures() {
 		DW8Structures.getInstance();
-		Map<String, List<String>> expected = DW8ParsingImages.getOfficerImages();
+		Map<String, List<String>> expected = ParsingImages.getOfficerImages();
 		Map<String, List<String>> actual = DW8Structures.getOfficerImages();
 		assertEquals(actual.size(), expected.size());
 	}
@@ -54,14 +55,14 @@ class DW8ParsingImagesTest {
 	@Test
 	void testThatWeaponImageIsTheSameSizeAsDW8Structures() {
 		DW8Structures.getInstance();
-		Map<OfficerKingdomKey, List<String>> expected = DW8ParsingImages.getWeaponImages();
+		Map<OfficerKingdomKey, List<String>> expected = ParsingImages.getWeaponImages();
 		Map<OfficerKingdomKey, List<String>> actual = DW8Structures.getWeaponImages();
 		assertEquals(actual.size(), expected.size());
 	}
 
 	@Test
 	void testThatOfficerWeaponMapIsNotEmpty() {
-		assertTrue(!DW8ParsingImages.getOfficerWeaponMap().isEmpty());
+		assertTrue(!ParsingImages.getOfficerWeaponMap().isEmpty());
 	}
 
 }
