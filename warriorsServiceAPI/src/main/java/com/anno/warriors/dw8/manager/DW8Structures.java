@@ -8,6 +8,8 @@ import java.util.Map;
 import com.anno.warriors.dw8.characters.CharacterInterface;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
+import com.anno.warriors.dw8.manager.files.ParsingFiles;
+import com.anno.warriors.dw8.manager.images.ParsingImages;
 import com.anno.warriors.dw8.shared.DW8Constants;
 
 /*
@@ -197,27 +199,27 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	}
 
 	private static void mapOfficerImagePath() {
-		officerImages = DW8ParsingImages.getOfficerImages();
+		officerImages = ParsingImages.getOfficerImages();
 	}
 
 	private static void mapWeaponImagePath() {
-		weaponImages = DW8ParsingImages.getWeaponImages();
+		weaponImages = ParsingImages.getWeaponImages();
 	}
 
 	private static void mapParsedCharacters() {
-		characters = DW8ParsingFiles.getAllCharacters();
+		characters = ParsingFiles.getAllCharacters();
 	}
 
 	private static void mapParsedOfficers() {
-		officers = DW8ParsingFiles.getAllOfficers();
+		officers = ParsingFiles.getAllOfficers();
 	}
 
 	private static void mapParsedSubOfficers() {
-		subOfficers = DW8ParsingFiles.getAllOfficers();
+		subOfficers = ParsingFiles.getAllOfficers();
 	}
 
 	private static void mapParsedKingdomCharactersMap() {
-		kingdomCharacterMap = DW8ParsingFiles.getMappedKingdomCharacters();
+		kingdomCharacterMap = ParsingFiles.getMappedKingdomCharacters();
 	}
 
 }

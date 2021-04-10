@@ -1,5 +1,8 @@
 package com.anno.warriors.dw8.manager;
 
+import com.anno.warriors.dw8.manager.files.ParsingFiles;
+import com.anno.warriors.dw8.manager.images.ParsingImages;
+
 /*
  * DW8Manager class is responsible for organizing Start up and Shutdown of the Dw8 App
  * 		--> Manage calls to read all files on load
@@ -26,8 +29,8 @@ public class DW8Manager implements DynastyWarriors8Object<DW8Manager> {
 	}
 
 	private DW8Manager() {
-		DW8ParsingImages.getInstance();
-		DW8ParsingFiles.getInstance();
+		ParsingImages.getInstance();
+		ParsingFiles.getInstance();
 	}
 
 	@Override
