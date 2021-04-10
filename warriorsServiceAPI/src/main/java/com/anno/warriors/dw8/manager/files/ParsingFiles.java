@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.anno.warriors.dw8.characters.CharacterInterface;
+import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 
@@ -53,6 +54,18 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 
 	public static Map<Kingdom, List<DynastyWarriors8Object<CharacterInterface>>> getMappedKingdomCharacters() {
 		return CharacterParseManager.getKingdomCharacterMap();
+	}
+
+	public static List<AttributeInterface> getAllAttributes() {
+		return AttributeParseManager.getAttributes();
+	}
+
+	public static List<AttributeInterface> getNormalAttributes() {
+		return AttributeParseManager.getNormalAttributes();
+	}
+
+	public static List<AttributeInterface> getSpecialAttributes() {
+		return AttributeParseManager.getSpecialAttributes();
 	}
 
 }

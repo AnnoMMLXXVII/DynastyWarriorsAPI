@@ -88,7 +88,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 				file = new File(s);
 				readSubOfficerFile(file, kingdomCharacterMappingObject);
 			}
-			characters.addAll(officers);
+			characters.addAll(subOfficers);
 		}
 	}
 
