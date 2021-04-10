@@ -11,6 +11,16 @@ public enum NormalAttributes implements AttributeInterface {
 	private String name;
 	private String description;
 
+	NormalAttributes() {
+		this.name = "";
+		this.description = "";
+	}
+	
+	NormalAttributes(String name, String description) {
+		this.description = description;
+		this.name = name;
+	}
+	
 	@Override
 	public String getValue() {
 		return String.format("%s, %s", name, description);
@@ -18,7 +28,7 @@ public enum NormalAttributes implements AttributeInterface {
 
 	@Override
 	public String getName() {
-		return name;
+		return name();
 	}
 
 	@Override
@@ -43,7 +53,7 @@ public enum NormalAttributes implements AttributeInterface {
 
 	public static AttributeInterface returnCorrectEnum(String str) {
 		for (NormalAttributes a : values()) {
-			if (a.getName().equalsIgnoreCase(str)) {
+			if (a.name().equalsIgnoreCase(str)) {
 				return a;
 			}
 		}

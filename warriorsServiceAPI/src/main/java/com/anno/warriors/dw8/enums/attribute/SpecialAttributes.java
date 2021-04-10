@@ -24,7 +24,7 @@ public enum SpecialAttributes implements AttributeInterface {
 
 	@Override
 	public String getName() {
-		return name;
+		return name();
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public enum SpecialAttributes implements AttributeInterface {
 
 	public static AttributeInterface returnCorrectEnum(String str) {
 		for (SpecialAttributes a : values()) {
-			if (a.getName().equalsIgnoreCase(str)) {
+			if (a.name().equalsIgnoreCase(str)) {
 				return a;
 			}
 		}
