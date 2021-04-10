@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.anno.dw8xl.category.model.Category;
 import com.anno.dw8xl.category.model.CategoryI;
@@ -29,7 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Haku Wei
  *
  */
-@Service("categoryDAO")
+@Repository
 public class CategoryDAO implements CategoryDAOInterface{
 	
 	private Map<String, CategoryI> categories, temp;
@@ -48,7 +48,7 @@ public class CategoryDAO implements CategoryDAOInterface{
 		return instance;
 	}
 	
-	private CategoryDAO() {
+	protected CategoryDAO() {
 		categories = new HashMap<>();
 		initializeValues();
 	}

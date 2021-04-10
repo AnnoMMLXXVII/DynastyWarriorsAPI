@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.anno.dw8xl.character.model.Weapons;
 import com.anno.dw8xl.dao.DataAccessObjectInterface;
 import com.anno.dw8xl.type.model.NullType;
-import com.anno.dw8xl.weapon.model.AbNormal;
+import com.anno.dw8xl.weapon.model.AbNormalWeapon;
 import com.anno.dw8xl.weapon.model.WeaponI;
 
 /**
@@ -59,7 +59,7 @@ public interface WeaponDAOInterface extends DataAccessObjectInterface<WeaponI, O
 			log.info("Cannot add due to Weapon's Affinity being null...");
 			throw new NullPointerException("Weapon cannot be added due to affinity being null!");
 		}
-		if (entity instanceof AbNormal && (entity.getRarity() == null || entity.getRarity().getType() == null)) {
+		if (entity instanceof AbNormalWeapon && (entity.getRarity() == null || entity.getRarity().getType() == null)) {
 			log.info("Cannot add due to Weapon's Rarity being null...");
 			throw new NullPointerException("Weapon cannot be added due to rarity being null!");
 		}

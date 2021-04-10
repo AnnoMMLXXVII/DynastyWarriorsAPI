@@ -13,8 +13,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonView({ CharacterView.Officer.class, CharacterView.Weapon.class })
 @JsonDeserialize(using = WeaponDeserializer.class)
 @JsonSubTypes({ 
-	@Type(value = Normal.class, name = "Normal"),
-	@Type(value = AbNormal.class, name = "AbNormal")
+	@Type(value = NormalWeapon.class, name = "NormalWeapon"),
+	@Type(value = AbNormalWeapon.class, name = "AbNormalWeapon")
 })
 public interface WeaponI {
 

@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-2020-09-29 00:47:21,605 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
-2020-09-29 00:53:09,984 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
-=======
-2020-10-07 23:46:34,224 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
->>>>>>> c4e7535990a0e359f7a4d2b5584829013e608fdd

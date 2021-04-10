@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import com.anno.dw8xl.affinity.model.Affinity;
 import com.anno.dw8xl.affinity.model.AffinityI;
 
@@ -15,6 +17,7 @@ import com.anno.dw8xl.affinity.model.AffinityI;
  * @author Haku Wei
  *
  */
+@Repository
 public class AffinityDAO implements AffinityDAOInterface{
 
 	private List<AffinityI> affinities;
@@ -31,7 +34,7 @@ public class AffinityDAO implements AffinityDAOInterface{
 		return instance;
 	}
 	
-	private AffinityDAO() {
+	protected AffinityDAO() {
 		affinities = new ArrayList<>();
 		initializeAffinities();
 	}

@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.anno.dw8xl.affinity.dao.AffinityDAO;
 import com.anno.dw8xl.affinity.model.Affinity;
@@ -34,8 +34,8 @@ import com.anno.dw8xl.rarity.model.Rarity;
 import com.anno.dw8xl.rarity.model.RarityI;
 import com.anno.dw8xl.type.model.Type;
 import com.anno.dw8xl.type.model.TypeI;
-import com.anno.dw8xl.weapon.model.AbNormal;
-import com.anno.dw8xl.weapon.model.Normal;
+import com.anno.dw8xl.weapon.model.AbNormalWeapon;
+import com.anno.dw8xl.weapon.model.NormalWeapon;
 import com.anno.dw8xl.weapon.model.WeaponI;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,7 +44,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author venividivicihofneondeion010101
  *
  */
-@Service("weaponDAO")
+@Repository
 public class WeaponDAO implements WeaponDAOInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(WeaponDAO.class);
@@ -65,7 +65,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 		return instance;
 	}
 
-	private WeaponDAO() {
+	protected WeaponDAO() {
 		weapons = new HashMap<>();
 		postman = new HashMap<>();
 		typeWeapons = new HashMap<>();
@@ -211,10 +211,10 @@ public class WeaponDAO implements WeaponDAOInterface {
 	@Override
 	public Collection<WeaponI> getWeaponsByState(String state) {
 		if (state.equalsIgnoreCase("normal")) {
-			return weapons.values().stream().filter(e -> e instanceof Normal).collect(Collectors.toList());
+			return weapons.values().stream().filter(e -> e instanceof NormalWeapon).collect(Collectors.toList());
 		} 
 		else if (state.equalsIgnoreCase("abnormal")) {
-			return weapons.values().stream().filter(e -> e instanceof AbNormal).collect(Collectors.toList());
+			return weapons.values().stream().filter(e -> e instanceof AbNormalWeapon).collect(Collectors.toList());
 		}
 		else {
 			return new ArrayList<>();
@@ -302,7 +302,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 	}
 
 	private WeaponI setNormal(String[] weaponLine, CategoryI category) {
-		return new Normal(weaponLine[0].trim(), // Name
+		return new NormalWeapon(weaponLine[0].trim(), // Name
 				new Integer(weaponLine[1].trim()), // BaseAttack
 				new Length(weaponLine[2].trim()), // Length
 				new Integer(weaponLine[3].trim()), // Star
@@ -310,7 +310,7 @@ public class WeaponDAO implements WeaponDAOInterface {
 	}
 
 	private WeaponI setAbNormal(String[] weaponLine, RarityI rarity, CategoryI category) {
-		return new AbNormal(weaponLine[0].trim(), // Name
+		return new AbNormalWeapon(weaponLine[0].trim(), // Name
 				new Integer(weaponLine[1].trim()), // BaseAttack
 				new Affinity(weaponLine[2].trim()), // Affinity
 				new Integer(weaponLine[3].trim()), // Star

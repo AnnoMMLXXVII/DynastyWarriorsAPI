@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.anno.dw8xl.attribute.model.AttributeI;
 import com.anno.dw8xl.attribute.model.Normal;
@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Haku Wei
  *
  */
-@Service
+@Repository
 public class AttributeDAO implements AttributeDAOInterface {
 
 	private static final Logger log = LoggerFactory.getLogger(AttributeDAO.class);
@@ -48,7 +48,7 @@ public class AttributeDAO implements AttributeDAOInterface {
 		return instance;
 	}
 
-	private AttributeDAO() {
+	protected AttributeDAO() {
 		attributes = new HashMap<>();
 		log.info("Parsing normal attributes file...");
 		parseFilesAndMap(true);

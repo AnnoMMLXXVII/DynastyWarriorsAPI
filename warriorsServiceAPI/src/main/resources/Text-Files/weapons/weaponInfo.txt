@@ -1,0 +1,10 @@
+Normal Weapons
+    [Weapon Name], [Base Attack], 
+    [Length], [Star], [Type]
+Rare Weapons, Unique, Xtreme
+    [Weapon Name], [Base Attack], 
+    [Affinity], [Star], [Type]
+Weapon Attribute
+    [Weapon Name], [
+        [Attribute Name] : 
+        [Attribute Power]] (<= x6)
