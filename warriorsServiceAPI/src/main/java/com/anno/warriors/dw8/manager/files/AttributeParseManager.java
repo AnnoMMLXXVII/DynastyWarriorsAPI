@@ -17,11 +17,11 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 	private static List<AttributeInterface> attributes = new ArrayList<>();
 	private static List<AttributeInterface> normalAttributes = new ArrayList<>();
 	private static List<AttributeInterface> specialAttributes = new ArrayList<>();
-	private static Map<String, List<DynastyWarriors8Object<AttributeInterface>>> mappedListAttributes = new HashMap<>();
+	private static Map<String, List<AttributeInterface>> mappedListAttributes = new HashMap<>();
 
 	public static DynastyWarriors8Object<AttributeParseManager> getInstance() {
 		if (instance == null) {
-			synchronized (ParsingFiles.class) {
+			synchronized (AttributeParseManager.class) {
 				if (instance == null) {
 					return new AttributeParseManager();
 				}
@@ -46,7 +46,7 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 		return specialAttributes;
 	}
 
-	public static Map<String, List<DynastyWarriors8Object<AttributeInterface>>> getMappedListAttributes() {
+	public static Map<String, List<AttributeInterface>> getMappedListAttributes() {
 		return mappedListAttributes;
 	}
 
@@ -56,7 +56,7 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 	}
 
 	private static void initializeListsAndMaps() {
-		MappingObjects<String, List<DynastyWarriors8Object<AttributeInterface>>, AttributeInterface> attributeListMappingObject = new MappingObjects<>(
+		MappingObjects<String, List<AttributeInterface>, AttributeInterface> attributeListMappingObject = new MappingObjects<>(
 				mappedListAttributes);
 		for (NormalAttributes a : NormalAttributes.values()) {
 			normalAttributes.add(a);

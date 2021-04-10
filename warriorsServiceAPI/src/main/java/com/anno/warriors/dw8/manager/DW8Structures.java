@@ -31,10 +31,10 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	private static Map<String, Map<String, String>> allPaths = new HashMap<>();
 	private static Map<String, List<String>> officerImages = new HashMap<>();
 	private static Map<OfficerKingdomKey, List<String>> weaponImages = new HashMap<>();
-	private static List<DynastyWarriors8Object<CharacterInterface>> officers = new ArrayList<>();
-	private static List<DynastyWarriors8Object<CharacterInterface>> subOfficers = new ArrayList<>();
-	private static List<DynastyWarriors8Object<CharacterInterface>> characters = new ArrayList<>();
-	private static Map<Kingdom, List<DynastyWarriors8Object<CharacterInterface>>> kingdomCharacterMap = new HashMap<>();
+	private static List<CharacterInterface> officers = new ArrayList<>();
+	private static List<CharacterInterface> subOfficers = new ArrayList<>();
+	private static List<CharacterInterface> characters = new ArrayList<>();
+	private static Map<Kingdom, List<CharacterInterface>> kingdomCharacterMap = new HashMap<>();
 
 	private static final String NORMAL_STR = "normal";
 	private static final String UNIQUE_STR = "unqiue";
@@ -98,19 +98,19 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		return allPaths;
 	}
 
-	public static List<DynastyWarriors8Object<CharacterInterface>> getOfficers() {
+	public static List<CharacterInterface> getOfficers() {
 		return officers;
 	}
 
-	public static List<DynastyWarriors8Object<CharacterInterface>> getSubOfficers() {
+	public static List<CharacterInterface> getSubOfficers() {
 		return subOfficers;
 	}
 
-	public static List<DynastyWarriors8Object<CharacterInterface>> getCharacters() {
+	public static List<CharacterInterface> getCharacters() {
 		return characters;
 	}
 
-	public static Map<Kingdom, List<DynastyWarriors8Object<CharacterInterface>>> getKingdomCharacterMap() {
+	public static Map<Kingdom, List<CharacterInterface>> getKingdomCharacterMap() {
 		return kingdomCharacterMap;
 	}
 

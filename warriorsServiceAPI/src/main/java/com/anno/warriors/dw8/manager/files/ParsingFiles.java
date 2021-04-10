@@ -40,19 +40,19 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 		return this;
 	}
 
-	public static List<DynastyWarriors8Object<CharacterInterface>> getAllOfficers() {
+	public static List<CharacterInterface> getAllOfficers() {
 		return CharacterParseManager.getOfficers();
 	}
 
-	public static List<DynastyWarriors8Object<CharacterInterface>> getAllSubOfficers() {
+	public static List<CharacterInterface> getAllSubOfficers() {
 		return CharacterParseManager.getSubOfficers();
 	}
 
-	public static List<DynastyWarriors8Object<CharacterInterface>> getAllCharacters() {
+	public static List<CharacterInterface> getAllCharacters() {
 		return CharacterParseManager.getOfficers();
 	}
 
-	public static Map<Kingdom, List<DynastyWarriors8Object<CharacterInterface>>> getMappedKingdomCharacters() {
+	public static Map<Kingdom, List<CharacterInterface>> getMappedKingdomCharacters() {
 		return CharacterParseManager.getKingdomCharacterMap();
 	}
 
@@ -66,6 +66,10 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 
 	public static List<AttributeInterface> getSpecialAttributes() {
 		return AttributeParseManager.getSpecialAttributes();
+	}
+	
+	public static Map<String, List<AttributeInterface>> getMappedAttributes() {
+		return AttributeParseManager.getMappedListAttributes();
 	}
 
 }
