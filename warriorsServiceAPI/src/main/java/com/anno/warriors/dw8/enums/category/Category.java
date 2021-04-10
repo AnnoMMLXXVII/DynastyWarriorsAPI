@@ -17,6 +17,11 @@ public enum Category implements DW8Enumeration<Category> {
 		return value;
 	}
 
+	@Override
+	public DW8Enumeration<Category> getManagerType() {
+		return this;
+	}
+
 	public static Category returnCorrectEnum(String str) {
 		if (str.equals(Category.WHIRLD_WIND.getValue())) {
 			return Category.WHIRLD_WIND;

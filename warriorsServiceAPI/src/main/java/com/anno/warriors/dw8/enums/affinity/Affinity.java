@@ -21,6 +21,11 @@ public enum Affinity implements DW8Enumeration<Affinity> {
 		return value;
 	}
 
+	@Override
+	public DW8Enumeration<Affinity> getManagerType() {
+		return this;
+	}
+
 	public static Affinity returnCorrectEnum(String str) {
 		if (str.equals(Affinity.EARTH.getValue())) {
 			return Affinity.EARTH;

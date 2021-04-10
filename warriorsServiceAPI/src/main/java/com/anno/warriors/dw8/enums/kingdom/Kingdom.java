@@ -16,6 +16,11 @@ public enum Kingdom implements DW8Enumeration<Kingdom> {
 		return value;
 	}
 
+	@Override
+	public DW8Enumeration<Kingdom> getManagerType() {
+		return this;
+	}
+
 	public static Kingdom returnCorrectEnum(String str) {
 		if (str.equals(Kingdom.SHU.getValue())) {
 			return Kingdom.SHU;

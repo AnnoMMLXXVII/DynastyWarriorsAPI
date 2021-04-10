@@ -17,6 +17,11 @@ public enum Rarity implements DW8Enumeration<Rarity> {
 		return value;
 	}
 
+	@Override
+	public DW8Enumeration<Rarity> getManagerType() {
+		return this;
+	}
+
 	public static Rarity returnCorrectEnum(String str) {
 		if (str.equals(Rarity.NORMAL.getValue())) {
 			return Rarity.NORMAL;
