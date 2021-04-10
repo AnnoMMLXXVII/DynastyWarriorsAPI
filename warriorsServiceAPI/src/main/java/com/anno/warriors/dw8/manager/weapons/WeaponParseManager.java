@@ -2,27 +2,27 @@ package com.anno.warriors.dw8.manager.weapons;
 
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 
-public class DW8WeaponParseManager implements DynastyWarriors8Object<DW8WeaponParseManager> {
+public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseManager> {
 
-	private static DynastyWarriors8Object<DW8WeaponParseManager> instance;
+	private static DynastyWarriors8Object<WeaponParseManager> instance;
 
-	public static DynastyWarriors8Object<DW8WeaponParseManager> getInstance() {
+	public static DynastyWarriors8Object<WeaponParseManager> getInstance() {
 		if (instance == null) {
-			synchronized (DW8WeaponParseManager.class) {
+			synchronized (WeaponParseManager.class) {
 				if (instance == null) {
-					return new DW8WeaponParseManager();
+					return new WeaponParseManager();
 				}
 			}
 		}
 		return instance;
 	}
 
-	private DW8WeaponParseManager() {
+	private WeaponParseManager() {
 
 	}
 
 	@Override
-	public DW8WeaponParseManager getManagerType() {
+	public WeaponParseManager getManagerType() {
 		return this;
 	}
 
