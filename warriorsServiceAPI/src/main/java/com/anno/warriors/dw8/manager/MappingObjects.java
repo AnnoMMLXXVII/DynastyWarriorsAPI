@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DW8MappingObjects<K, V, E> {
+public class MappingObjects<K, V, E> {
 
 	private Map<K, V> mapObject;
 
-	public DW8MappingObjects(Map<K, V> mapObject) {
+	public MappingObjects(Map<K, V> mapObject) {
 		this.mapObject = mapObject;
 	}
 
