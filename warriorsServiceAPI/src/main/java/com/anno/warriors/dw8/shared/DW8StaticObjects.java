@@ -23,4 +23,12 @@ public class DW8StaticObjects {
 		return new String[] { DW8Constants.SUBOFFICER_JIN_FILE, DW8Constants.SUBOFFICER_OTHER_FILE,
 				DW8Constants.SUBOFFICER_SHU_FILE, DW8Constants.SUBOFFICER_WEI_FILE, DW8Constants.SUBOFFICER_WU_FILE };
 	}
+
+	public static String getNormalAttributePath() {
+		return DW8Constants.ATTRIBUTES_NORMAL_FILE;
+	}
+
+	public static String getSpecialAttributePath() {
+		return DW8Constants.ATTRIBUTES_SPECIAL_FILE;
+	}
 }
