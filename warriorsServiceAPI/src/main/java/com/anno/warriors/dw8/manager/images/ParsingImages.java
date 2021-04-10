@@ -1,4 +1,4 @@
-package com.anno.warriors.dw8.manager;
+package com.anno.warriors.dw8.manager.images;
 
 import java.io.File;
 import java.util.HashMap;
@@ -7,30 +7,32 @@ import java.util.Map;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
+import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
-public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages> {
+public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 
-	private static DynastyWarriors8Object<DW8ParsingImages> instance;
+	private static DynastyWarriors8Object<ParsingImages> instance;
 	private static Map<String, List<String>> officerImages = new HashMap<>();
 	private static Map<OfficerKingdomKey, List<String>> weaponImages = new HashMap<>();
 	private static Map<OfficerKingdomKey, Map<String, String>> officerNameToWeaponName = new HashMap<>();
 	private String weaponName;
 	private String key;
 
-	public static DynastyWarriors8Object<DW8ParsingImages> getInstance() {
+	public static DynastyWarriors8Object<ParsingImages> getInstance() {
 		if (instance == null) {
-			synchronized (DW8ParsingImages.class) {
+			synchronized (ParsingImages.class) {
 				if (instance == null) {
-					return new DW8ParsingImages();
+					return new ParsingImages();
 				}
 			}
 		}
 		return instance;
 	}
 
-	private DW8ParsingImages() {
+	private ParsingImages() {
 		readOfficerImageFolder();
 		readWeaponImagesFolder();
 	}
@@ -48,7 +50,7 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 	}
 
 	@Override
-	public DW8ParsingImages getManagerType() {
+	public ParsingImages getManagerType() {
 		return this;
 	}
 
@@ -56,7 +58,7 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 		File folder = new File(DW8Constants.OFFICER_IMAGES_PATH);
 		File[] file = folder.listFiles();
 		String shortName = "";
-		DW8MappingObjects<String, List<String>, String> mappingObject = new DW8MappingObjects<>(officerImages);
+		MappingObjects<String, List<String>, String> mappingObject = new MappingObjects<>(officerImages);
 		for (int i = 0; i < file.length; i++) {
 			shortName = formatOfficerImageFileNameForKey(file[i].getName());
 			mappingObject.mapKeyValueWithList(shortName, file[i].getPath());
@@ -80,9 +82,9 @@ public class DW8ParsingImages implements DynastyWarriors8Object<DW8ParsingImages
 		File folder = null;
 		File[] file = null;
 		Kingdom kingdom;
-		DW8MappingObjects<OfficerKingdomKey, List<String>, String> imageMappingObject = new DW8MappingObjects<>(
+		MappingObjects<OfficerKingdomKey, List<String>, String> imageMappingObject = new MappingObjects<>(
 				weaponImages);
-		DW8MappingObjects<OfficerKingdomKey, Map<String, String>, String> officerWeaponNameMappingObject = new DW8MappingObjects<>(
+		MappingObjects<OfficerKingdomKey, Map<String, String>, String> officerWeaponNameMappingObject = new MappingObjects<>(
 				officerNameToWeaponName);
 		for (String s : paths) {
 			kingdom = getKingdomFromPath(s);
