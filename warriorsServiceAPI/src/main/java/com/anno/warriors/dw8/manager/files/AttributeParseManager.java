@@ -1,20 +1,15 @@
 package com.anno.warriors.dw8.manager.files;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
 import com.anno.warriors.dw8.enums.attribute.NormalAttributes;
 import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjects;
-import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 public class AttributeParseManager implements DynastyWarriors8Object<AttributeParseManager> {
 
@@ -36,8 +31,7 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 	}
 
 	private AttributeParseManager() {
-		parseAttribute(DW8StaticObjects.getNormalAttributePath());
-		parseAttribute(DW8StaticObjects.getSpecialAttributePath());
+		initializeListsAndMaps();
 	}
 
 	public static List<AttributeInterface> getAttributes() {
@@ -61,59 +55,21 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 		return this;
 	}
 
-	private static void parseAttribute(String path) {
-		File file = new File(path);
+	private static void initializeListsAndMaps() {
 		MappingObjects<String, List<DynastyWarriors8Object<AttributeInterface>>, AttributeInterface> attributeListMappingObject = new MappingObjects<>(
 				mappedListAttributes);
-		if (isNormalAttribute(file.getName())) {
-			try (Scanner z = new Scanner(new FileReader(file))) {
-				String line = "";
-				String[] arr;
-				while (z.hasNextLine()) {
-					line = z.nextLine();
-					arr = line.split(",");
-					parseNormalAttributes(arr, attributeListMappingObject);
-				}
-				attributes.addAll(normalAttributes);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-		} else {
-			try (Scanner z = new Scanner(new FileReader(file))) {
-				String line = "";
-				String[] arr;
-				while (z.hasNextLine()) {
-					line = z.nextLine();
-					arr = line.split(",");
-					parseSpecialAttributes(arr, attributeListMappingObject);
-				}
-				attributes.addAll(specialAttributes);
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
+		for (NormalAttributes a : NormalAttributes.values()) {
+			normalAttributes.add(a);
+			attributes.add(a);
+			attributeListMappingObject.mapKeyValueWithList(a.getType(), a);
 		}
-	}
 
-	private static void parseNormalAttributes(String[] arr,
-			MappingObjects<String, List<DynastyWarriors8Object<AttributeInterface>>, AttributeInterface> attributeListMappingObject) {
-		AttributeInterface attribute = NormalAttributes.returnCorrectEnum(arr[0].trim()), arr[1].trim();
-//		attribute.setDescription(arr[1].trim());
-		normalAttributes.add(attribute);
-		attributeListMappingObject.mapKeyValueWithList(attribute.getType(), attribute);
-	}
+		for (SpecialAttributes a : SpecialAttributes.values()) {
+			specialAttributes.add(a);
+			attributes.add(a);
+			attributeListMappingObject.mapKeyValueWithList(a.getType(), a);
+		}
 
-	private static void parseSpecialAttributes(String[] arr,
-			MappingObjects<String, List<DynastyWarriors8Object<AttributeInterface>>, AttributeInterface> attributeListMappingObject) {
-		AttributeInterface attribute;
-		attribute = SpecialAttributes.returnCorrectEnum(arr[0].trim());
-		attribute.setDescription(arr[1].trim());
-		specialAttributes.add(attribute);
-		attributeListMappingObject.mapKeyValueWithList(attribute.getType(), attribute);
-	}
-
-	private static boolean isNormalAttribute(String fileName) {
-		String[] splitByPeriod = fileName.split("\\.");
-		return (splitByPeriod[0].equalsIgnoreCase("normal"));
 	}
 
 }
