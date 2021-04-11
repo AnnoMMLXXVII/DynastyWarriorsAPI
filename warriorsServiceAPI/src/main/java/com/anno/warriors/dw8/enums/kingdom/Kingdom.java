@@ -17,7 +17,7 @@ public enum Kingdom implements DW8Enumeration<Kingdom> {
 	}
 
 	@Override
-	public DW8Enumeration<Kingdom> getManagerType() {
+	public DW8Enumeration<Kingdom> getObjectType() {
 		return this;
 	}
 

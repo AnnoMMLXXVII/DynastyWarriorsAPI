@@ -18,7 +18,7 @@ public enum Category implements DW8Enumeration<Category> {
 	}
 
 	@Override
-	public DW8Enumeration<Category> getManagerType() {
+	public DW8Enumeration<Category> getObjectType() {
 		return this;
 	}
 

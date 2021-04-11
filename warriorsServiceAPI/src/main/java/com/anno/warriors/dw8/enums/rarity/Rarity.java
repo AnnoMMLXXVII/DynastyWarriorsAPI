@@ -18,7 +18,7 @@ public enum Rarity implements DW8Enumeration<Rarity> {
 	}
 
 	@Override
-	public DW8Enumeration<Rarity> getManagerType() {
+	public DW8Enumeration<Rarity> getObjectType() {
 		return this;
 	}
 

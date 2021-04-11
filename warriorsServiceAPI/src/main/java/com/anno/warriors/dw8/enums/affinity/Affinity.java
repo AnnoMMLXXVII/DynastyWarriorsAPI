@@ -22,7 +22,7 @@ public enum Affinity implements DW8Enumeration<Affinity> {
 	}
 
 	@Override
-	public DW8Enumeration<Affinity> getManagerType() {
+	public DW8Enumeration<Affinity> getObjectType() {
 		return this;
 	}
 
