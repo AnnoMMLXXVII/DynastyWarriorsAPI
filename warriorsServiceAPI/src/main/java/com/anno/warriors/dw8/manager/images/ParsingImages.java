@@ -50,7 +50,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	}
 
 	@Override
-	public ParsingImages getManagerType() {
+	public ParsingImages getObjectType() {
 		return this;
 	}
 
@@ -82,8 +82,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		File folder = null;
 		File[] file = null;
 		Kingdom kingdom;
-		MappingObjects<OfficerKingdomKey, List<String>, String> imageMappingObject = new MappingObjects<>(
-				weaponImages);
+		MappingObjects<OfficerKingdomKey, List<String>, String> imageMappingObject = new MappingObjects<>(weaponImages);
 		MappingObjects<OfficerKingdomKey, Map<String, String>, String> officerWeaponNameMappingObject = new MappingObjects<>(
 				officerNameToWeaponName);
 		for (String s : paths) {
