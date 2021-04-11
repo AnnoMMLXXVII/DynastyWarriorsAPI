@@ -31,4 +31,8 @@ public class DW8StaticObjects {
 	public static String getSpecialAttributePath() {
 		return DW8Constants.ATTRIBUTES_SPECIAL_FILE;
 	}
+
+	public static String getWeaponTypePath() {
+		return DW8Constants.TYPE_FILE;
+	}
 }
