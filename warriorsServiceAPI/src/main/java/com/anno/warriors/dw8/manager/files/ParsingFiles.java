@@ -3,7 +3,7 @@ package com.anno.warriors.dw8.manager.files;
 import java.util.List;
 import java.util.Map;
 
-import com.anno.warriors.dw8.characters.CharacterInterface;
+import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
@@ -31,9 +31,9 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 	}
 
 	private ParsingFiles() {
+		AttributeParseManager.getInstance();
 		CharacterParseManager.getInstance();
-//		 Parse Attributes File
-//		 Parse Type File
+		TypeParseManager.getInstance();
 
 	}
 

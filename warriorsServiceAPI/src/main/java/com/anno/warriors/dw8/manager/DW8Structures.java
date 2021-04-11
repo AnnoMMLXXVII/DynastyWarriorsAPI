@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.anno.warriors.dw8.characters.CharacterInterface;
+import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.manager.files.ParsingFiles;

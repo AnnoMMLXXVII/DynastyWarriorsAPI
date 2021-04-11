@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import com.anno.warriors.dw8.characters.CharacterInterface;
-import com.anno.warriors.dw8.characters.Officer;
-import com.anno.warriors.dw8.characters.SubOfficer;
+import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.characters.model.Officer;
+import com.anno.warriors.dw8.characters.model.SubOfficer;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.manager.MappingObjects;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
@@ -34,10 +34,6 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 			}
 		}
 		return instance;
-	}
-
-	public static void main(String... args) {
-		new CharacterParseManager();
 	}
 
 	private CharacterParseManager() {

@@ -58,14 +58,10 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 			String[] arr;
 			while (z.hasNextLine()) {
 				line = z.nextLine();
-//				System.out.printf("%s\n", line);
 				arr = line.split(",");
 				category = Category.returnCorrectEnum(arr[0].trim());
-//				System.out.println("Category --> " + arr[0].trim());
 				String temp = formattedTypeEnumName(arr[1].trim());
-//				System.out.printf("Formated Type : %s\n", temp);
 				type = Types.returnCorrectEnum(temp);
-				System.out.printf("Added Type : %s\n", type.toString());
 				types.add(type);
 				typesMappingObject.mapKeyValueWithList(category, type);
 			}
