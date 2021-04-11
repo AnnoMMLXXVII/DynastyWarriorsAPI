@@ -51,7 +51,7 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 	}
 
 	@Override
-	public AttributeParseManager getManagerType() {
+	public AttributeParseManager getObjectType() {
 		return this;
 	}
 

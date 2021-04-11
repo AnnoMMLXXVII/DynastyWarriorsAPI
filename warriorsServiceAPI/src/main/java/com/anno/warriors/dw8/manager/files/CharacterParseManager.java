@@ -53,7 +53,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	}
 
 	@Override
-	public CharacterParseManager getManagerType() {
+	public CharacterParseManager getObjectType() {
 		return this;
 	}
 
