@@ -2,7 +2,7 @@ package com.anno.warriors.dw8.characters;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 
-public class Officer implements CharacterInterface {
+public class Officer implements Comparable<Officer>, CharacterInterface {
 
 	private String name;
 	private Kingdom kingdom;
@@ -20,7 +20,7 @@ public class Officer implements CharacterInterface {
 	}
 
 	@Override
-	public CharacterInterface getManagerType() {
+	public CharacterInterface getObjectType() {
 		return this;
 	}
 
@@ -37,6 +37,11 @@ public class Officer implements CharacterInterface {
 	@Override
 	public String getWeapon() {
 		return weapon;
+	}
+
+	@Override
+	public int compareTo(Officer o) {
+		return this.getName().compareTo(o.getName());
 	}
 
 	@Override
