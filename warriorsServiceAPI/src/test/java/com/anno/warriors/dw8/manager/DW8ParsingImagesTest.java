@@ -31,7 +31,7 @@ class DW8ParsingImagesTest {
 
 	@Test
 	void testThatInstanceTypeIsTrue() {
-		assertTrue(instance.getManagerType() instanceof ParsingImages);
+		assertTrue(instance.getObjectType() instanceof ParsingImages);
 	}
 
 	@Test

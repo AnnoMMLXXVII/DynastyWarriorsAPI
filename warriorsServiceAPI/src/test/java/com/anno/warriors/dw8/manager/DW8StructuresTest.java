@@ -26,7 +26,7 @@ class DW8StructuresTest {
 
 	@Test
 	void testThatInstanceTypeIsEqual() {
-		assertTrue(instance.getManagerType() instanceof DW8Structures);
+		assertTrue(instance.getObjectType() instanceof DW8Structures);
 	}
 
 	@Test

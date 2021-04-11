@@ -33,7 +33,7 @@ class AttributeParseManagerTest {
 
 	@Test
 	void testMetaTypeMatches() {
-		assertTrue(instance.getManagerType() instanceof DynastyWarriors8Object<?>);
+		assertTrue(instance.getObjectType() instanceof DynastyWarriors8Object<?>);
 	}
 
 	@Test
