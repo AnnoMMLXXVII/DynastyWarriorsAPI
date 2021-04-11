@@ -1,4 +1,4 @@
-package com.anno.warriors.dw8.characters;
+package com.anno.warriors.dw8.characters.model;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 
