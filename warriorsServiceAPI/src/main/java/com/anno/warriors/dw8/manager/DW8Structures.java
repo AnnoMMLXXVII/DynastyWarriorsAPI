@@ -115,7 +115,7 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	}
 
 	@Override
-	public DW8Structures getManagerType() {
+	public DW8Structures getObjectType() {
 		return this;
 	}
 

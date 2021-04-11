@@ -34,7 +34,7 @@ public class DW8Manager implements DynastyWarriors8Object<DW8Manager> {
 	}
 
 	@Override
-	public DW8Manager getManagerType() {
+	public DW8Manager getObjectType() {
 		return this;
 	}
 
