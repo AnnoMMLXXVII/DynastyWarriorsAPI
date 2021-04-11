@@ -60,7 +60,7 @@ public enum NormalAttributes implements AttributeInterface {
 	}
 
 	@Override
-	public DW8Enumeration<AttributeInterface> getManagerType() {
+	public DW8Enumeration<AttributeInterface> getObjectType() {
 		return this;
 	}
 
