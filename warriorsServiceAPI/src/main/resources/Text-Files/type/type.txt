@@ -1,88 +1,85 @@
-	Whirlwind Master, Spear
-    Whirlwind Master, Pike
-    Whirlwind Master, Double Voulge
-    Whirlwind Master, Great Sword
-    Whirlwind Master, Club
-    Whirlwind Master, Gloves
-    Whirlwind Master, Halberd
-    Whirlwind Master, Twin Axes
-    Whirlwind Master, Lance
-    Whirlwind Master, Twin Rods
-    Whirlwind Master, Axe
-    Whirlwind Master, Tonfa
-    Whirlwind Master, Crossbow
-    Whirlwind Master, Arm Cannon
-    Whirlwind Master, Brush
-    Whirlwind Master, Dagger Axe
-    Whirlwind Master, Bomb
-    Whirlwind Master, Short Pike
-    Whirlwind Master, Great Axes
-    Whirlwind Master, Mace
-    Whirlwind Master, Spiked Shield
-    Whirlwind Master, Arm Blade
-    Whirlwind Master, Circle Blade
-    Whirlwind Master, Siege Spear
-    Whirlwind Master, Bow & Rod
-    Whirlwind Master, Wheeled Halberd
-    Whirlwind Master, Rake
-    Whirlwind Master, Dual-Headed Mace
-    Whirlwind Master, Revolving Crossbow
-    Whirlwind Master, War Trident
-    Whirlwind Master, Sele
-    
-    Dasher, Sword
-    Dasher, Rapier
-    Dasher, War Fan
-    Dasher, Twin Swords
-    Dasher, Throwing Knives
-    Dasher, Chain & Sickle
-    Dasher, Nunchaku
-    Dasher, Staff
-    Dasher, Bow
-    Dasher, Shaman Rod
-    Dasher, Iron Fan
-    Dasher, Sword & Shield
-    Dasher, Flying Swords
-    Dasher, Curved Sword
-    Dasher, Claws
-    Dasher, Wheels
-    Dasher, Chain Whip
-    Dasher, Spinner
-    Dasher, Flute
-    Dasher, Harp
-    Dasher, Orb & Scepter
-    Dasher, Trishula
-    Dasher, Pugil Stick
-    Dasher, Lightning Sword
-    Dasher, Boomerang
-    Dasher, Sword & Hook
-    Dasher, Swallow Swords
-    Dasher, Three Sectional Staff
-    Dasher, Shadow Fan
-    Dasher, Extension Blade
-    Dasher, Dual Hookblades
-    Dasher, Wingblades
-    Dasher, Throwing Axes
-    Dasher, Wired Gloves
-    Dasher, Flame Bow
-    Dasher, Art of War Scroll
-    Dasher, Formation Wand
-    
-    Shadow Sprinter, Flail
-    Shadow Sprinter, Podao
-    Shadow Sprinter, Double Pike
-    Shadow Sprinter, General's Sword
-    Shadow Sprinter, Nine Rings Blade
-    Shadow Sprinter, Double-Edge Trident
-    Shadow Sprinter, Short Rod
-    Shadow Sprinter, Javelin
-    Shadow Sprinter, Crossed Pike
-    
-    Diver, Dragon Spear
-    Diver, Crescent Blade
-    Diver, Dual Blade
-    Diver, Horsehair Whip
-    Diver, Striking Sword
-    Diver, Tailsman Cards
-    Diver, Flail Sword
-    Diver, Woven Cloth
+Whirl Wind, Spear
+Whirl Wind, Pike
+Whirl Wind, Double Voulge
+Whirl Wind, Great Sword
+Whirl Wind, Club
+Whirl Wind, Gloves
+Whirl Wind, Halberd
+Whirl Wind, Twin Axes
+Whirl Wind, Lance
+Whirl Wind, Twin Rods
+Whirl Wind, Axe
+Whirl Wind, Tonfa
+Whirl Wind, Crossbow
+Whirl Wind, Arm Cannon
+Whirl Wind, Brush
+Whirl Wind, Dagger Axe
+Whirl Wind, Bomb
+Whirl Wind, Short Pike
+Whirl Wind, Great Axes
+Whirl Wind, Mace
+Whirl Wind, Spiked Shield
+Whirl Wind, Arm Blade
+Whirl Wind, Circle Blade
+Whirl Wind, Siege Spear
+Whirl Wind, Bow & Rod
+Whirl Wind, Wheeled Halberd
+Whirl Wind, Rake
+Whirl Wind, Dual-Headed Mace
+Whirl Wind, Revolving Crossbow
+Whirl Wind, War Trident
+Whirl Wind, Stele
+Dasher, Sword
+Dasher, Rapier
+Dasher, War Fan
+Dasher, Twin Swords
+Dasher, Throwing Knives
+Dasher, Chain & Sickle
+Dasher, Nunchaku
+Dasher, Staff
+Dasher, Bow
+Dasher, Shaman Rod
+Dasher, Iron Fan
+Dasher, Sword & Shield
+Dasher, Flying Swords
+Dasher, Curved Sword
+Dasher, Claws
+Dasher, Wheels
+Dasher, Chain Whip
+Dasher, Spinner
+Dasher, Flute
+Dasher, Harp
+Dasher, Orb & Scepter
+Dasher, Trishula
+Dasher, Pugil Stick
+Dasher, Lightning Sword
+Dasher, Boomerang
+Dasher, Sword & Hook
+Dasher, Swallow Swords
+Dasher, Three Sectional Staff
+Dasher, Shadow Fan
+Dasher, Extension Blade
+Dasher, Dual Hookblades
+Dasher, Wingblades
+Dasher, Throwing Axes
+Dasher, Wired Gloves
+Dasher, Flame Bow
+Dasher, Art of War Scroll
+Dasher, Formation Wand
+Shadow Sprinter, Flail
+Shadow Sprinter, Podao
+Shadow Sprinter, Double Pike
+Shadow Sprinter, General's Sword
+Shadow Sprinter, Nine Rings Blade
+Shadow Sprinter, Double-Edge Trident
+Shadow Sprinter, Short Rod
+Shadow Sprinter, Javelin
+Shadow Sprinter, Crossed Pike
+Diver, Dragon Spear
+Diver, Crescent Blade
+Diver, Dual Blade
+Diver, Horsehair Whip
+Diver, Striking Sword
+Diver, Tailsman Cards
+Diver, Flail Sword
+Diver, Woven Cloth
