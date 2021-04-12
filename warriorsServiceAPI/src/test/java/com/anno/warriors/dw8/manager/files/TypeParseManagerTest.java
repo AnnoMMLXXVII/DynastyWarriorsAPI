@@ -38,7 +38,7 @@ class TypeParseManagerTest {
 
 	@Test
 	void testThatInstanceTypeIsTrue() {
-		assertTrue(instance.getObjectType() instanceof TypeParseManager);
+		assertEquals(instance.getState(), "TypeParseManager");
 	}
 
 	@Test

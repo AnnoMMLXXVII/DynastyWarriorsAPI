@@ -1,13 +1,14 @@
 package com.anno.warriors.dw8.manager;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.anno.warriors.dw8.manager.images.ParsingImages;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DW8StructuresTest {
 
@@ -26,7 +27,7 @@ class DW8StructuresTest {
 
 	@Test
 	void testThatInstanceTypeIsEqual() {
-		assertTrue(instance.getObjectType() instanceof DW8Structures);
+		assertEquals(instance.getState(), "DW8Structures");
 	}
 
 	@Test
