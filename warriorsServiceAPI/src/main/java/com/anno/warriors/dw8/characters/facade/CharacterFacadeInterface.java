@@ -6,10 +6,10 @@ import com.anno.warriors.dw8.characters.model.CharacterInterface;
 
 public interface CharacterFacadeInterface {
 
-	public List<CharacterInterface> callingGetAllCharacters();
+	public List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> callingGetAllCharacters();
 
-	public List<CharacterInterface> callingGetAllOfficers();
+	public List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> callingGetAllOfficers();
 
-	public List<CharacterInterface> callingGetAllSubOfficers();
+	public List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> callingGetAllSubOfficers();
 
 }

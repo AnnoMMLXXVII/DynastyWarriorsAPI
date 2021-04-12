@@ -1,4 +1,4 @@
-package com.anno.warriors.dw8.character.controller;
+package com.anno.warriors.dw8.characters.controller;
 
 import java.util.List;
 
@@ -25,17 +25,17 @@ public class CharacterController {
 	}
 
 	@RequestMapping(value = "characters/", method = RequestMethod.GET)
-	public ResponseEntity<List<CharacterInterface>> getAllCharacters() {
+	public ResponseEntity<List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>> getAllCharacters() {
 		return new ResponseEntity<>(facade.callingGetAllCharacters(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "characters/officers", method = RequestMethod.GET)
-	public ResponseEntity<List<CharacterInterface>> getAllOfficers() {
+	public ResponseEntity<List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>> getAllOfficers() {
 		return new ResponseEntity<>(facade.callingGetAllOfficers(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "characters/subOfficers", method = RequestMethod.GET)
-	public ResponseEntity<List<CharacterInterface>> getAllSubOfficers() {
+	public ResponseEntity<List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>> getAllSubOfficers() {
 		return new ResponseEntity<>(facade.callingGetAllSubOfficers(), HttpStatus.OK);
 	}
 }

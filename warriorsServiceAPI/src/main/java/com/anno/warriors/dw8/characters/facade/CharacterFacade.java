@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.anno.warriors.dw8.character.dao.CharacterDAOInterface;
+import com.anno.warriors.dw8.characters.dao.CharacterDAOInterface;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.shared.WarriorSorter;
 
 @Service("CharacterFacade")
 public class CharacterFacade implements CharacterFacadeInterface {
@@ -15,18 +16,18 @@ public class CharacterFacade implements CharacterFacadeInterface {
 	private CharacterDAOInterface dao;
 
 	@Override
-	public List<CharacterInterface> callingGetAllCharacters() {
-		return dao.getAllCharacters();
+	public List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> callingGetAllCharacters() {
+		return new WarriorSorter(dao.getAllCharacters()).getSortedList();
 	}
 
 	@Override
-	public List<CharacterInterface> callingGetAllOfficers() {
-		return dao.getAllOfficers();
+	public List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> callingGetAllOfficers() {
+		return new WarriorSorter(dao.getAllOfficers()).getSortedList();
 	}
 
 	@Override
-	public List<CharacterInterface> callingGetAllSubOfficers() {
-		return dao.getAllSubOfficers();
+	public List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> callingGetAllSubOfficers() {
+		return new WarriorSorter(dao.getAllSubOfficers()).getSortedList();
 	}
 
 }
