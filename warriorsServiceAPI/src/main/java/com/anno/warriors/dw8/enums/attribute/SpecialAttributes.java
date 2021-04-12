@@ -3,8 +3,6 @@
  */
 package com.anno.warriors.dw8.enums.attribute;
 
-import com.anno.warriors.dw8.enums.DW8Enumeration;
-
 /**
  * @author venividivicihofneondeion010101
  *
@@ -48,8 +46,8 @@ public enum SpecialAttributes implements AttributeInterface {
 	}
 
 	@Override
-	public DW8Enumeration<AttributeInterface> getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	@Override

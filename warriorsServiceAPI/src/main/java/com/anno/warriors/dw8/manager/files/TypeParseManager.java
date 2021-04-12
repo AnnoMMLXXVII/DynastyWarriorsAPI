@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
@@ -16,6 +19,8 @@ import com.anno.warriors.dw8.manager.MappingObjects;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager> {
+
+	private static Logger logger = LoggerFactory.getLogger(TypeParseManager.class);
 
 	private static DynastyWarriors8Object<TypeParseManager> instance;
 	private static List<Types> types = new ArrayList<>();
@@ -25,6 +30,7 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 		if (instance == null) {
 			synchronized (TypeParseManager.class) {
 				if (instance == null) {
+					logger.info("TypeParseManager instantiated");
 					return new TypeParseManager();
 				}
 			}
@@ -34,6 +40,7 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 
 	private TypeParseManager() {
 		readFileAndMap();
+		logger.info("Finished Type File and Mapping");
 	}
 
 	public static List<Types> getTypes() {
@@ -45,8 +52,8 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 	}
 
 	@Override
-	public TypeParseManager getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	private static void readFileAndMap() {
@@ -65,6 +72,7 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 				types.add(type);
 				typesMappingObject.mapKeyValueWithList(category, type);
 			}
+			logger.info("Mapped Types from " + DW8StaticObjects.getWeaponTypePath());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

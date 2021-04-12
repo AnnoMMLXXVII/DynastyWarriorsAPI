@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
@@ -19,6 +22,8 @@ import com.anno.warriors.dw8.shared.DW8Constants;
  * 
  */
 public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
+
+	private static Logger logger = LoggerFactory.getLogger(DW8Structures.class);
 
 	private static DynastyWarriors8Object<DW8Structures> instance;
 	private static Map<String, String> attributePath = new HashMap<>();
@@ -46,6 +51,7 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		if (instance == null) {
 			synchronized (DW8Structures.class) {
 				if (instance == null) {
+					logger.info("DW8Structures instantiated");
 					return new DW8Structures();
 				}
 			}
@@ -56,6 +62,7 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	private DW8Structures() {
 		mapPathFromConstants();
 		mapCharacterFiles();
+
 	}
 
 	public static Map<String, String> getAttributePath() {
@@ -115,20 +122,25 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	}
 
 	@Override
-	public DW8Structures getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	private static void mapPathFromConstants() {
 		mapAttributePath();
+		logger.info("Mapped Attributes");
 		mapOfficerPath();
 		mapSubOfficerPath();
+		logger.info("Mapped Characters Paths - Officers-SubOfficers");
 		mapDasherPath();
 		mapDiverPath();
 		mapShadowPath();
 		mapWhirlwindPath();
+		logger.info("Mapped Category Enums");
 		mapOfficerImagePath();
+		logger.info("Mapped Officer Images");
 		mapWeaponImagePath();
+		logger.info("Mapped Weapon Images");
 	}
 
 	private static void mapCharacterFiles() {
@@ -136,6 +148,7 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		mapParsedOfficers();
 		mapParsedSubOfficers();
 		mapParsedKingdomCharactersMap();
+		logger.info("Mapped Characters - Officers-SubOfficers");
 	}
 
 	private static void mapAttributePath() {
@@ -215,7 +228,7 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	}
 
 	private static void mapParsedSubOfficers() {
-		subOfficers = ParsingFiles.getAllOfficers();
+		subOfficers = ParsingFiles.getAllSubOfficers();
 	}
 
 	private static void mapParsedKingdomCharactersMap() {

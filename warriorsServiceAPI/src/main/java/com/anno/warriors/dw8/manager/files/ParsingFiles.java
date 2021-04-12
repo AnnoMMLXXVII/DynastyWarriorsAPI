@@ -3,6 +3,9 @@ package com.anno.warriors.dw8.manager.files;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
 import com.anno.warriors.dw8.enums.category.Category;
@@ -18,11 +21,13 @@ import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 
 	private static DynastyWarriors8Object<ParsingFiles> instance;
+	private static Logger logger = LoggerFactory.getLogger(ParsingFiles.class);
 
 	public static DynastyWarriors8Object<ParsingFiles> getInstance() {
 		if (instance == null) {
 			synchronized (ParsingFiles.class) {
 				if (instance == null) {
+					logger.info("ParsingFiles instantiated");
 					return new ParsingFiles();
 				}
 			}
@@ -34,12 +39,13 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 		AttributeParseManager.getInstance();
 		CharacterParseManager.getInstance();
 		TypeParseManager.getInstance();
+		// TODO : Parse weapons!
 
 	}
 
 	@Override
-	public ParsingFiles getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public static List<CharacterInterface> getAllOfficers() {
@@ -51,7 +57,7 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 	}
 
 	public static List<CharacterInterface> getAllCharacters() {
-		return CharacterParseManager.getOfficers();
+		return CharacterParseManager.getCharacters();
 	}
 
 	public static Map<Kingdom, List<CharacterInterface>> getMappedKingdomCharacters() {

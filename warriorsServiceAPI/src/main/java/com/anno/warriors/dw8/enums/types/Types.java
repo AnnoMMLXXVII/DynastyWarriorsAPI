@@ -33,8 +33,8 @@ public enum Types implements DW8Enumeration<Types> {
 	}
 
 	@Override
-	public DW8Enumeration<Types> getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	@Override

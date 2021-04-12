@@ -22,8 +22,8 @@ public enum Affinity implements DW8Enumeration<Affinity> {
 	}
 
 	@Override
-	public DW8Enumeration<Affinity> getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public static Affinity returnCorrectEnum(String str) {

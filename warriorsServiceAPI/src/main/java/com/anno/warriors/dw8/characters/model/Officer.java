@@ -20,8 +20,8 @@ public class Officer implements Comparable<Officer>, CharacterInterface {
 	}
 
 	@Override
-	public CharacterInterface getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	@Override

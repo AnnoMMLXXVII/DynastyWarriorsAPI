@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
 import com.anno.warriors.dw8.enums.attribute.NormalAttributes;
 import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
@@ -13,6 +16,7 @@ import com.anno.warriors.dw8.manager.MappingObjects;
 
 public class AttributeParseManager implements DynastyWarriors8Object<AttributeParseManager> {
 
+	private static Logger logger = LoggerFactory.getLogger(AttributeParseManager.class);
 	private static DynastyWarriors8Object<AttributeParseManager> instance;
 	private static List<AttributeInterface> attributes = new ArrayList<>();
 	private static List<AttributeInterface> normalAttributes = new ArrayList<>();
@@ -23,6 +27,7 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 		if (instance == null) {
 			synchronized (AttributeParseManager.class) {
 				if (instance == null) {
+					logger.info("AttributeParseManager instantiated");
 					return new AttributeParseManager();
 				}
 			}
@@ -32,6 +37,7 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 
 	private AttributeParseManager() {
 		initializeListsAndMaps();
+		logger.info("Finished initializing Attributes to List and Maps");
 	}
 
 	public static List<AttributeInterface> getAttributes() {
@@ -51,8 +57,8 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 	}
 
 	@Override
-	public AttributeParseManager getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	private static void initializeListsAndMaps() {

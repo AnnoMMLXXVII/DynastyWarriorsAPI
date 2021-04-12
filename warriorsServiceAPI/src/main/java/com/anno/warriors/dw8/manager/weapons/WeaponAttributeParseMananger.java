@@ -9,8 +9,8 @@ public class WeaponAttributeParseMananger implements DynastyWarriors8Object<Weap
 	}
 
 	@Override
-	public WeaponAttributeParseMananger getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 }

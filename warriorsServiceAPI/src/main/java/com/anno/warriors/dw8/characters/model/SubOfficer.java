@@ -18,8 +18,8 @@ public class SubOfficer implements Comparable<SubOfficer>, CharacterInterface {
 	}
 
 	@Override
-	public CharacterInterface getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public String getName() {

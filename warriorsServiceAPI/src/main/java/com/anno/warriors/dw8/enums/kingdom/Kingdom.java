@@ -17,8 +17,8 @@ public enum Kingdom implements DW8Enumeration<Kingdom> {
 	}
 
 	@Override
-	public DW8Enumeration<Kingdom> getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public static Kingdom returnCorrectEnum(String str) {

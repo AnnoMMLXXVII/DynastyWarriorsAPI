@@ -22,8 +22,8 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 	}
 
 	@Override
-	public WeaponParseManager getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 }

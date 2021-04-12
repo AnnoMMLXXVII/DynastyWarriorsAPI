@@ -18,8 +18,8 @@ public enum Rarity implements DW8Enumeration<Rarity> {
 	}
 
 	@Override
-	public DW8Enumeration<Rarity> getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public static Rarity returnCorrectEnum(String str) {

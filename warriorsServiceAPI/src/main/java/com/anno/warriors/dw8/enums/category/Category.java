@@ -18,8 +18,8 @@ public enum Category implements DW8Enumeration<Category> {
 	}
 
 	@Override
-	public DW8Enumeration<Category> getObjectType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public static Category returnCorrectEnum(String str) {
