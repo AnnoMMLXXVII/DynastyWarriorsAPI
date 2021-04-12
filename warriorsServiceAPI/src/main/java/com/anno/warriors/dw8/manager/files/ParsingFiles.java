@@ -48,19 +48,19 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 		return this.getClass().getSimpleName();
 	}
 
-	public static List<CharacterInterface> getAllOfficers() {
+	public static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> getAllOfficers() {
 		return CharacterParseManager.getOfficers();
 	}
 
-	public static List<CharacterInterface> getAllSubOfficers() {
+	public static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> getAllSubOfficers() {
 		return CharacterParseManager.getSubOfficers();
 	}
 
-	public static List<CharacterInterface> getAllCharacters() {
+	public static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> getAllCharacters() {
 		return CharacterParseManager.getCharacters();
 	}
 
-	public static Map<Kingdom, List<CharacterInterface>> getMappedKingdomCharacters() {
+	public static Map<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>> getMappedKingdomCharacters() {
 		return CharacterParseManager.getKingdomCharacterMap();
 	}
 
