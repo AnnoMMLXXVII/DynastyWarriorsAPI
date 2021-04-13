@@ -27,4 +27,9 @@ public class SubOfficer extends Character {
 		return getName().compareTo(o.getName());
 	}
 
+	@Override
+	public int compareTo(String o) {
+		return getName().compareTo(o);
+	}
+
 }

@@ -11,6 +11,8 @@ public interface CharacterInterface<T> extends Comparable<T>, DynastyWarriors8Ob
 	public abstract String getWeapon();
 
 	public abstract int compareTo(T o);
+	
+	public abstract int compareTo(String o);
 
 	public int hashCode();
 

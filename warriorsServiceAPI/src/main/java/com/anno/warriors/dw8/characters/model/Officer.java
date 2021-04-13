@@ -31,6 +31,11 @@ public class Officer extends Character {
 	}
 
 	@Override
+	public int compareTo(String o) {
+		return this.getName().compareTo(o);
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
