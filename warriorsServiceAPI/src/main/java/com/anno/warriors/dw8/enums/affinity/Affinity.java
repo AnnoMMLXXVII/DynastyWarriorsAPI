@@ -27,13 +27,12 @@ public enum Affinity implements DW8Enumeration<Affinity> {
 	}
 
 	public static Affinity returnCorrectEnum(String str) {
-		if (str.equals(Affinity.EARTH.getValue())) {
-			return Affinity.EARTH;
-		} else if (str.equals(Affinity.HEAVEN.getValue())) {
-			return Affinity.HEAVEN;
-		} else {
-			return Affinity.MAN;
+		for (Affinity a : values()) {
+			if (str.equals(a.getValue())) {
+				return a;
+			}
 		}
+		return null;
 	}
 
 }
