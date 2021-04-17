@@ -36,4 +36,27 @@ public class DW8StaticObjects {
 		return DW8Constants.TYPE_FILE;
 	}
 
+	public static String[] getDiverWeaponsFiles() {
+		return new String[] { DW8Constants.WEAPON_DIVER_ATTRIBUTES_FILE, DW8Constants.WEAPON_DIVER_NORMAL_FILE,
+				DW8Constants.WEAPON_DIVER_RARE_FILE, DW8Constants.WEAPON_DIVER_UNIQUE_FILE,
+				DW8Constants.WEAPON_DIVER_XTREME_FILE };
+	}
+
+	public static String[] getDasherWeaponsFiles() {
+		return new String[] { DW8Constants.WEAPON_DASHER_ATTRIBUTES_FILE, DW8Constants.WEAPON_DASHER_NORMAL_FILE,
+				DW8Constants.WEAPON_DASHER_RARE_FILE, DW8Constants.WEAPON_DASHER_UNIQUE_FILE,
+				DW8Constants.WEAPON_DASHER_XTREME_FILE };
+	}
+
+	public static String[] getShadowWeaponsFiles() {
+		return new String[] { DW8Constants.WEAPON_SHADOW_ATTRIBUTES_FILE, DW8Constants.WEAPON_SHADOW_NORMAL_FILE,
+				DW8Constants.WEAPON_SHADOW_RARE_FILE, DW8Constants.WEAPON_SHADOW_UNIQUE_FILE,
+				DW8Constants.WEAPON_SHADOW_XTREME_FILE };
+	}
+
+	public static String[] getWhirlWindWeaponsFiles() {
+		return new String[] { DW8Constants.WEAPON_WHIRLWIND_ATTRIBUTES_FILE, DW8Constants.WEAPON_WHIRLWIND_NORMAL_FILE,
+				DW8Constants.WEAPON_WHIRLWIND_RARE_FILE, DW8Constants.WEAPON_WHIRLWIND_UNIQUE_FILE,
+				DW8Constants.WEAPON_WHIRLWIND_XTREME_FILE };
+	}
 }
