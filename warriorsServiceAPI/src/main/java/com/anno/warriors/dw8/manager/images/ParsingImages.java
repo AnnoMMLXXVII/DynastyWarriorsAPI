@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
-import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
@@ -66,7 +66,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		File folder = new File(DW8Constants.OFFICER_IMAGES_PATH);
 		File[] file = folder.listFiles();
 		String shortName = "";
-		MappingObjects<String, List<String>, String> mappingObject = new MappingObjects<>(officerImages);
+		MappingObjectsWithReference<String, List<String>, String> mappingObject = new MappingObjectsWithReference<>(officerImages);
 		for (int i = 0; i < file.length; i++) {
 			shortName = formatOfficerImageFileNameForKey(file[i].getName());
 			mappingObject.mapKeyValueWithList(shortName, file[i].getPath());
@@ -90,7 +90,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		File folder = null;
 		File[] file = null;
 		Kingdom kingdom;
-		MappingObjects<OfficerKingdomKey, List<String>, String> imageMappingObject = new MappingObjects<>(weaponImages);
+		MappingObjectsWithReference<OfficerKingdomKey, List<String>, String> imageMappingObject = new MappingObjectsWithReference<>(weaponImages);
 //		MappingObjects<OfficerKingdomKey, Map<String, String>, String> officerWeaponNameMappingObject = new MappingObjects<>(
 //				officerNameToWeaponName);
 		for (String s : paths) {

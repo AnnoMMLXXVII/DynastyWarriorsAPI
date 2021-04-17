@@ -19,7 +19,7 @@ import com.anno.warriors.dw8.characters.model.SubOfficer;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
-import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 public class CharacterParseManager implements DynastyWarriors8Object<String> {
@@ -80,7 +80,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 
 	private static void parseCharacters(String[] paths) {
 		File file = null;
-		MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject = new MappingObjects<>(
+		MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject = new MappingObjectsWithReference<>(
 				kingdomCharacterMap);
 		if (isOfficer(paths[0])) {
 			for (String s : paths) {
@@ -101,7 +101,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void readOfficerFile(File file,
-			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String line = "";
 			String[] lineArr;
@@ -116,7 +116,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void parseOfficer(String[] arr,
-			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		CharacterInterface<Character> officer;
 		Kingdom kingdom = Kingdom.returnCorrectEnum(arr[1].trim());
 		// Instantiate and init officer Object with correct fields from lineArr
@@ -128,7 +128,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void readSubOfficerFile(File file,
-			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String line = "";
 			String[] lineArr;
@@ -143,7 +143,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void parseSubOfficer(String[] arr, Kingdom kingdom,
-			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		CharacterInterface<Character> subOfficer;
 		// Instantiate and init officer Object with correct fields from lineArr
 		subOfficer = new SubOfficer(arr[0].trim(), kingdom);

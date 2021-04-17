@@ -17,7 +17,7 @@ import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
-import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
@@ -60,7 +60,7 @@ public class WeaponAttributeParseMananger implements DynastyWarriors8Object<Weap
 	}
 
 	private static void parseWeaponAttributes(String[] arr) {
-		MappingObjects<WeaponName_TypesAttributesKey, List<AttributeSlot>, AttributeSlot> attributeSlotMappingObject = new MappingObjects<>(
+		MappingObjectsWithReference<WeaponName_TypesAttributesKey, List<AttributeSlot>, AttributeSlot> attributeSlotMappingObject = new MappingObjectsWithReference<>(
 				weapNameTypesKeyAttributesMap);
 		WeaponName_TypesAttributesKey key;
 		key = new WeaponName_TypesAttributesKey(arr[0].trim(), Types.returnCorrectEnum(arr[1].trim()));

@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
-import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager> {
@@ -59,7 +59,7 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 	private static void readFileAndMap() {
 		Category category;
 		Types type;
-		MappingObjects<Category, List<Types>, Types> typesMappingObject = new MappingObjects<>(categoryTypesMap);
+		MappingObjectsWithReference<Category, List<Types>, Types> typesMappingObject = new MappingObjectsWithReference<>(categoryTypesMap);
 		try (Scanner z = new Scanner(new FileReader(new File(DW8StaticObjects.getWeaponTypePath())))) {
 			String line = "";
 			String[] arr;

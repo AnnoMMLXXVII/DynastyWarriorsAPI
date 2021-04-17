@@ -12,7 +12,7 @@ import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
 import com.anno.warriors.dw8.enums.attribute.NormalAttributes;
 import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
-import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 
 public class AttributeParseManager implements DynastyWarriors8Object<AttributeParseManager> {
 
@@ -62,7 +62,7 @@ public class AttributeParseManager implements DynastyWarriors8Object<AttributePa
 	}
 
 	private static void initializeListsAndMaps() {
-		MappingObjects<String, List<AttributeInterface>, AttributeInterface> attributeListMappingObject = new MappingObjects<>(
+		MappingObjectsWithReference<String, List<AttributeInterface>, AttributeInterface> attributeListMappingObject = new MappingObjectsWithReference<>(
 				mappedListAttributes);
 		for (NormalAttributes a : NormalAttributes.values()) {
 			normalAttributes.add(a);

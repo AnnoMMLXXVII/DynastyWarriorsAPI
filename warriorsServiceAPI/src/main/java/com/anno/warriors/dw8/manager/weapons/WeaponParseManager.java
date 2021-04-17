@@ -19,7 +19,7 @@ import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
-import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 import com.anno.warriors.dw8.weapons.model.Extreme;
 import com.anno.warriors.dw8.weapons.model.Normal;
@@ -106,11 +106,11 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 		for (int j = 0; j < path.length; j++) {
 			file[j] = new File(path[j]);
 		}
-		MappingObjects<Category, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> categoryMappingObject = new MappingObjects<>(
+		MappingObjectsWithReference<Category, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> categoryMappingObject = new MappingObjectsWithReference<>(
 				categoryWeaponsMap);
-		MappingObjects<String, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> weaponNameMappingObject = new MappingObjects<>(
+		MappingObjectsWithReference<String, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> weaponNameMappingObject = new MappingObjectsWithReference<>(
 				weaponNameWeaponsMap);
-		MappingObjects<Types, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> typesWeaponsListObject = new MappingObjects<>(
+		MappingObjectsWithReference<Types, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> typesWeaponsListObject = new MappingObjectsWithReference<>(
 				typesWeaponListMap);
 		parseWeaponAttributesFile(file, path);
 		try (Scanner z = new Scanner(new FileReader(file[i]))) {
