@@ -54,7 +54,7 @@ public enum NormalAttributes implements AttributeInterface {
 
 	@Override
 	public String getName() {
-		return name();
+		return name;
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public enum NormalAttributes implements AttributeInterface {
 
 	public static AttributeInterface returnCorrectEnum(String str) {
 		for (NormalAttributes a : values()) {
-			if (a.name().equalsIgnoreCase(str)) {
+			if (a.getName().equalsIgnoreCase(str)) {
 				return a;
 			}
 		}
