@@ -40,6 +40,7 @@ public class DW8Manager implements DynastyWarriors8Object<DW8Manager> {
 //			--> ie Weapon class has images 
 //			--> Character needs to have officer images
 		DW8Structures.getInstance();
+		MapDependencyManager.getInstance();
 	}
 
 	@Override
