@@ -16,45 +16,45 @@ import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 
 @RestController
-@RequestMapping(value = "dw8/")
+@RequestMapping(value = "dw8/characters")
 public class CharacterController {
 
 	@Autowired
 	private CharacterFacadeInterface facade;
 
-	@RequestMapping(value = "characters/health-check", method = RequestMethod.GET)
+	@RequestMapping(value = "/health-check", method = RequestMethod.GET)
 	public ResponseEntity<String> getHealthStatus() {
 		return new ResponseEntity<>("Status UP!", HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "characters/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllCharacters() {
 		return new ResponseEntity<>(facade.callingGetAllCharacters(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "characters/officers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/officers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficers() {
 		return new ResponseEntity<>(facade.callingGetAllOfficers(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "characters/subOfficers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/subOfficers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllSubOfficers() {
 		return new ResponseEntity<>(facade.callingGetAllSubOfficers(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "characters", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getCharacter(
 			@RequestParam(required = true, value = "name") String... name) {
 		return new ResponseEntity<>(facade.callingGetCharactersByNames(name), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "characters/officers", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/officers", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getOfficersByName(
 			@RequestParam(required = true, value = "name") String... name) {
 		return new ResponseEntity<>(facade.callingGetOfficersByNames(name), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "characters/subOfficers", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/subOfficers", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getSubOfficersByName(
 			@RequestParam(required = true, value = "name") String... name) {
 		return new ResponseEntity<>(facade.callingGetSubOfficersByNames(name), HttpStatus.OK);
