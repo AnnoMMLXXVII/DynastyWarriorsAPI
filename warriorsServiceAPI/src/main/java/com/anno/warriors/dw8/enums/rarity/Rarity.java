@@ -23,13 +23,13 @@ public enum Rarity implements DW8Enumeration<Rarity> {
 	}
 
 	public static Rarity returnCorrectEnum(String str) {
-		if (str.equals(Rarity.NORMAL.getValue())) {
+		if (str.equalsIgnoreCase(Rarity.NORMAL.getValue())) {
 			return Rarity.NORMAL;
-		} else if (str.equals(Rarity.RARE.getValue())) {
+		} else if (str.equalsIgnoreCase(Rarity.RARE.getValue())) {
 			return Rarity.RARE;
-		} else if (str.equals(Rarity.UNIQUE.getValue())) {
+		} else if (str.equalsIgnoreCase(Rarity.UNIQUE.getValue())) {
 			return Rarity.UNIQUE;
-		} else if (str.equals(Rarity.EXTREME.getValue())) {
+		} else if (str.equalsIgnoreCase(Rarity.EXTREME.getValue())) {
 			return Rarity.EXTREME;
 		} else {
 			return Rarity.SPECIAL;
