@@ -20,9 +20,9 @@ Spring Thunder, 44, Heaven, 6, Flute
 Heaven's Banquet, 40, Heaven, 6, Harp
 Dazzling Lapis, 42, Heaven, 6, Orb & Scepter
 Surging Rebellion, 42, Heaven, 6, Trishula
-Mister Sticks, 38, Heaven, 6, Pugil Stick
+Misery Sticks, 38, Heaven, 6, Pugil Stick
 Hail Slicer, 44, Heaven, 6, Lightning Sword
-Enchanted Lotus, 44, Heaven, 6, Bommerang
+Enchanted Lotus, 44, Heaven, 6, Boomerang
 Flashing Arrow Sword, 52, Heaven, 6, Sword & Hook
 Glass Dart, 44, Heaven, 6, Swallow Swords
 Steel Tempest, 47, Heaven, 6, Three Sectional Staff

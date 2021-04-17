@@ -4,7 +4,7 @@ Peacock's Talons, 20, 4'9", 3, Trishula
 Ghostly Claws, 25, 5'11", 4, Claws
 Darkness Staff, 15, 6'11" - 10", 2, Orb & Scepter
 Rising Clouds, 26, 8'6", 3, Three Sectional Staff
-Iron Bommerang, 10, 3'11", 1, Bommerang
+Iron Boomerang, 10, 3'11", 1, Boomerang
 Qilin Bow, 35, 5'1" - 3'3", 4, Bow
 Spirit Song, 21, 3'9", 3, Flute
 Stormy Fan, 29, 7'3", 4, Shadow Fan
@@ -20,7 +20,7 @@ Guard Set, 14, 4'7" - 3'3", 1, Sword & Shield
 Sturdy Wingblade, 20, 5'7", 2, Wingblades
 Iron Needle, 10, 4'11", 1, Rapier
 Swallow's Fury, 28, 4'7", 4, Swallow Swords
-Azure Swords, 20, 4'5" - 4'7", 3, Twin
+Azure Swords, 20, 4'5" - 4'7", 3, Twin Swords
 Leopard Claws, 20, 5'11", 3, Claws
 Fury Hook, 36, 5'7", 3, Dual Hookblades
 Swooping Blade, 12, 5'7", 1, Wingblades
@@ -37,7 +37,7 @@ Staff of Hearts, 20, 3'11", 3, Pugil Stick
 Razor Claws, 21, 10", 3, Wired Gloves
 Long Bow, 14, 5'1" - 3'3", 1, Bow
 Bronze-Studded Staff, 21, 8'6", 3, Staff
-Chopper, 12, 7'11", 1, Spinnner
+Chopper, 12, 7'11", 1, Spinner
 Razor Dance, 14, 4'5", 1, Flying Swords
 Flashpoint, 10, 8'2", 1, Lightning Sword
 Shaman Rod, 14, 7'7", 1, Shaman Rod
@@ -50,7 +50,7 @@ Echo Blade, 27, 4'9" - 13'0", 4, Extension Blade
 Dancing Shadows, 10, 2'0", 1, Throwing Axes
 Swift Blade, 16, 4'7 - 3'11", 2, Curved Sword
 Steel Wingblade, 26, 5'7", 3, Wingblades
-Bloodspray, 26, 8'2", 3, Spinnner
+Bloodspray, 26, 8'2", 3, Spinner
 Twilight Blade, 31, 4'7 - 3'11", 4, Curved Sword
 Godly Apex, 10, 5'1", 1, Claws
 Bronze Trifork, 15, 4'7", 2, Trishula
@@ -63,7 +63,7 @@ Yellow Dragon Staff, 29, 8'10", 4, Staff
 Sanjiegun, 12, 8'6", 1, Three Sectional Staff
 Twin Hook, 14, 5'7", 1, Dual Hookblades
 Exquisite Swords, 27, 4'7", 4, Twin Swords
-Spinning Inferno, 32, 8'2", 4, Spinnner
+Spinning Inferno, 32, 8'2", 4, Spinner
 Piercing Blade, 16, 3'11" - 1'8", 1, Sword & Hook
 Silver Trifork, 28, 4'11", 4, Trishula
 Sparrow Foot, 14, -, 1, Sabatons
@@ -76,17 +76,17 @@ Peach Fan, 15, -, 2, Paired Fans
 Nine Heavens Fan, 25, 2'10", 4, Iron Fan
 Bamboo Scroll, 14, -, 1, Art of War Scroll
 Battle Staff, 10, 6'11" - 10", 1, Orb & Scepter
-Triple Edge, 24, 4'3", 3, Bommerang
+Triple Edge, 24, 4'3", 3, Boomerang
 Emerald Fan, 23, 7'3", 3, Shadow Fan
 Wind & Fire Wheels, 24, 3'11", 3, Wheels
 Temple Flame, 20, -, 2, Flaming Bow
 Imperial Set, 37, 4'7" - 3'3", 4, Sword & Shield
 Steel Whip, 16, 9'10", 2, Chain Whip
-Trident Tusk, 30, 4'5", 4, Bommerang
+Trident Tusk, 30, 4'5", 4, Boomerang
 Sword of Judgement, 35, 4'3", 4, Sword
 Phantom Piercer, 20, -, 3, Emei Piercers
 Stately Beauty, 25, -, 4, Paired Fans
-Flying Shadow, 18, 3'11", 2, Bommerang
+Flying Shadow, 18, 3'11", 2, Boomerang
 Floral Fan, 12, 7'1", 1, Shadow Fan
 Thunder Blades, 29, 1'0", 4, Throwing Knives
 Harvest Sickle, 10, 9'8", 1, Chain & Sickle
@@ -95,7 +95,7 @@ Dapeng Rod, 21, 6'11" - 10", 3, Orb & Scepter
 Comabt Blades, 16, 1'0", 2, Throwing Knives
 Dark Piercer, 29, -, 4, Emei Piercers
 Conical Blade, 42, 5'7", 4, Dual Hookblades
-Slasher, 18, 8'1", 2, Spinnner
+Slasher, 18, 8'1", 2, Spinner
 Battle Hoops, 16, 3'11", 2, Wheels
 Royal Harp, 28, 2'11", 4, Harp
 Dark Thresher, 21, 9'8", 3, Chain & Sickle

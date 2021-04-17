@@ -43,12 +43,12 @@ Demonlight, 14, Man, 1, Orb & Scepter
 Ball & Sky, 19, Earth, 2, Orb & Scepter
 Apex Tusk, 14, Man, 1, Trishula
 Sharp Claws, 23, Heaven, 3, Trishula
-Floral Rain, 19, Heavenly, 2, Pugil Stick
+Floral Rain, 19, Heaven, 2, Pugil Stick
 Heavenly Canopy, 23, Man, 3, Pugil Stick
 Numbness Cloud, 14, Heaven, 1, Lightning Sword
 Paralyzing Mist, 14, Earth, 3, Lightning Sword
-Eagle Bommerang, 14, Earth, 1, Bommerang
-Hawk Bommerang, 22, Heaven, 2, Bommerang
+Eagle Boomerang, 14, Earth, 1, Boomerang
+Hawk Boomerang, 22, Heaven, 2, Boomerang
 Dragonfly Blade, 21, Man, 1, Sword & Hook
 Windtail, 33, Earth, 3, Sword & Hook
 Raging Storm, 20, Man, 1, Swallow Swords
