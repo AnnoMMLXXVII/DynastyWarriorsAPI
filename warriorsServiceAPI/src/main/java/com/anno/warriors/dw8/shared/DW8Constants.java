@@ -37,7 +37,7 @@ public class DW8Constants {
 			+ "Text-Files/attributes/special/special.txt";
 
 	public static final String TYPE_FILE = ApplicationConstants.RESOURCE_PATH + "Text-Files/type/type.txt";
-	
+
 	public static final String OFFICER_JIN_FILE = ApplicationConstants.RESOURCE_PATH
 			+ "Text-Files/characters/officer/Officer-List-Jin.txt";
 	public static final String OFFICER_OTHER_FILE = ApplicationConstants.RESOURCE_PATH
@@ -60,48 +60,52 @@ public class DW8Constants {
 	public static final String SUBOFFICER_WU_FILE = ApplicationConstants.RESOURCE_PATH
 			+ "Text-Files/characters/sub-officer/SubOfficer-List-Wu.txt";
 
-	public static final String WEAPON_DASHER_NORMAL_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/dasher/NormalWeapons.txt";
-	public static final String WEAPON_DASHER_RARE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/dasher/RareWeapons.txt";
-	public static final String WEAPON_DASHER_UNIQUE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/dasher/UniqueWeapons-5-Stars.txt";
-	public static final String WEAPON_DASHER_XTREME_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/dasher/XLWeapons-6-Stars.txt";
-	public static final String WEAPON_DASHER_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/dasher/WeaponAttributeLevel.txt";
+	public static final String WEAPON_DASHER_FOLDER = ApplicationConstants.RESOURCE_PATH + "Text-Files/weapons/dasher/";
+	public static final String WEAPON_DIVER_FOLDER = ApplicationConstants.RESOURCE_PATH + "Text-Files/weapons/diver/";
+	public static final String WEAPON_SHADOW_FOLDER = ApplicationConstants.RESOURCE_PATH + "Text-Files/weapons/shadow/";
+	public static final String WEAPON_WHIRLWIND_FOLDER = ApplicationConstants.RESOURCE_PATH + "Text-Files/weapons/whirlwind/";
 
+	public static final String WEAPON_DASHER_NORMAL_FILE = ApplicationConstants.RESOURCE_PATH
+			+ "Text-Files/weapons/dasher/Normal-Dasher.txt";
+	public static final String WEAPON_DASHER_RARE_FILE = ApplicationConstants.RESOURCE_PATH
+			+ "Text-Files/weapons/dasher/Rare-Dasher.txt";
+	public static final String WEAPON_DASHER_UNIQUE_FILE = ApplicationConstants.RESOURCE_PATH
+			+ "Text-Files/weapons/dasher/Unique-Dasher.txt";
+	public static final String WEAPON_DASHER_XTREME_FILE = ApplicationConstants.RESOURCE_PATH
+			+ "Text-Files/weapons/dasher/Xtreme-Dasher.txt";
+	public static final String WEAPON_DASHER_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
+			+ "Text-Files/weapons/dasher/Attributes-Dasher.txt";
 	public static final String WEAPON_DIVER_NORMAL_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/diver/NormalWeapons.txt";
+			+ "Text-Files/weapons/diver/Normal-Diver.txt";
 	public static final String WEAPON_DIVER_RARE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/diver/RareWeapons.txt";
+			+ "Text-Files/weapons/diver/Rare-Diver.txt";
 	public static final String WEAPON_DIVER_UNIQUE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/diver/UniqueWeapons-5-Stars.txt";
+			+ "Text-Files/weapons/diver/Unique-Diver.txt";
 	public static final String WEAPON_DIVER_XTREME_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/diver/XLWeapons-6-Stars.txt";
+			+ "Text-Files/weapons/diver/Xtreme-Diver.txt";
 	public static final String WEAPON_DIVER_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/diver/WeaponAttributeLevel.txt";
+			+ "Text-Files/weapons/diver/Attributes-Diver.txt";
 
 	public static final String WEAPON_SHADOW_NORMAL_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/shadow/NormalWeapons.txt";
+			+ "Text-Files/weapons/shadow/Normal-Shadow_Sprinter.txt";
 	public static final String WEAPON_SHADOW_RARE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/shadow/RareWeapons.txt";
+			+ "Text-Files/weapons/shadow/Rare-Shadow_Sprinter.txt";
 	public static final String WEAPON_SHADOW_UNIQUE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/shadow/UniqueWeapons-5-Stars.txt";
+			+ "Text-Files/weapons/shadow/Unique-Shadow_Sprinter.txt";
 	public static final String WEAPON_SHADOW_XTREME_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/shadow/XLWeapons-6-Stars.txt";
+			+ "Text-Files/weapons/shadow/Xtreme-Shadow_Sprinter.txt";
 	public static final String WEAPON_SHADOW_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/shadow/WeaponAttributeLevel.txt";
+			+ "Text-Files/weapons/shadow/Attributes-Shadow_Sprinter.txt";
 
 	public static final String WEAPON_WHIRLWIND_NORMAL_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/whirlwind/NormalWeapons.txt";
+			+ "Text-Files/weapons/whirlwind/Normal-Whirl_Wind.txt";
 	public static final String WEAPON_WHIRLWIND_RARE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/whirlwind/RareWeapons.txt";
+			+ "Text-Files/weapons/whirlwind/Rare-Whirl_Wind.txt";
 	public static final String WEAPON_WHIRLWIND_UNIQUE_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/whirlwind/UniqueWeapons-5-Stars.txt";
+			+ "Text-Files/weapons/whirlwind/Unique-Whirl_Wind.txt";
 	public static final String WEAPON_WHIRLWIND_XTREME_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/whirlwind/XLWeapons-6-Stars.txt";
+			+ "Text-Files/weapons/whirlwind/Xtreme-Whirl_Wind.txt";
 	public static final String WEAPON_WHIRLWIND_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
-			+ "Text-Files/weapons/whirlwind/WeaponAttributeLevel.txt";
+			+ "Text-Files/weapons/whirlwind/Attributes-Whirl_Wind.txt";
 
 }
