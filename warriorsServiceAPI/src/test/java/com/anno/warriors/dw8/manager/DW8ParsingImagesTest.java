@@ -62,7 +62,7 @@ class DW8ParsingImagesTest {
 
 	@Test
 	void testThatOfficerWeaponMapIsNotEmpty() {
-		assertTrue(!ParsingImages.getOfficerWeaponMap().isEmpty());
+		assertTrue(!ParsingImages.getWeaponNamePathMap().isEmpty());
 	}
 
 }
