@@ -10,4 +10,8 @@ public interface AttributeInterface extends DW8Enumeration<AttributeInterface> {
 
 	abstract String getDescription();
 
+	int hashCode();
+
+	boolean equals(Object o);
+
 }
