@@ -1,5 +1,5 @@
-Hevenly Dragon, 52, Heaven, 5, Dragon Spear
-Beam Spaer, 55, Earth, 5, Dragon Spear
+Heavenly Dragon, 52, Heaven, 5, Dragon Spear
+Beam Spear, 55, Earth, 5, Dragon Spear
 Dragon Piercer, 57, Earth, 5, Dragon Spear
 Godly Dragon, 51, Heaven, 5, Crescent Blade
 Beam Slicer, 54, Heaven, 5, Crescent Blade

@@ -29,12 +29,12 @@ Imperial Tiger, Nine Rings Blade, Inferno: 10, Harmony: 9, Thorns: 9, Resolve
 Saw, Nine Rings Blade, Slash: 10, Triumph: 10, Explosive: 10, Roar: 10, Rigidity
 Radiant Tiger Blade, Nine Rings Blade, Flash: 10, Morass: 10, Awe: 10, Harmony: 10, Recovery: 10
 Falcon Flash, Nine Rings Blade, Thunder: 10, Protection: 9, Rigidity, Roar: 8, Uplift: 8
-Whirlwind Edge, Double Edge Trident, Triumph: 7, Survival: 8, Swiftness
-Tigerwolf Fang, Double Edge Trident, Barricade: 9, Fury, Awe: 9
-Qilin Trident, Double Edge Trident, Flash: 10, Barricade: 9, Whirlwind: 9, Desperation
-Sasumata, Double Edge Trident, Thunder: 10, Awareness, Agility, Recovery: 10, Uplift: 10
-Violent Flash, Double Edge Trident, Thunder: 10, Greed, Vigor: 10, Frenzy: 10, Barricade: 10
-Rising Flash, Double Edge Trident, Inferno: 10, Awe: 9, Explosive: 9, Fury, Morass: 8
+Whirlwind Edge, Double-Edge Trident, Triumph: 7, Survival: 8, Swiftness
+Tigerwolf Fang, Double-Edge Trident, Barricade: 9, Fury, Awe: 9
+Qilin Trident, Double-Edge Trident, Flash: 10, Barricade: 9, Whirlwind: 9, Desperation
+Sasumata, Double-Edge Trident, Thunder: 10, Awareness, Agility, Recovery: 10, Uplift: 10
+Violent Flash, Double-Edge Trident, Thunder: 10, Greed, Vigor: 10, Frenzy: 10, Barricade: 10
+Rising Flash, Double-Edge Trident, Inferno: 10, Awe: 9, Explosive: 9, Fury, Morass: 8
 // Fiery Desire, Short Rod, Venom: 7, Venom: 7, Spurt: 8
 Solemn Echo, Short Rod, Enlightenment: 9, Thorns: 9, Vigor: 7
 Golden Might, Short Rod, Thunder: 10, Whirlwind: 9, Rigidity, Protection: 8

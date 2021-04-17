@@ -3,8 +3,8 @@ Frozen Fang, 59, Heaven, 6, Podao
 Miraculous Serpent Blade, 67, Heaven, 6, Twin Pike
 Storm Sword, 52, Heaven, 6, General'S Sword
 Falcon Flash, 59, Heaven, 6, Nine Rings Blade
-Rising Flash, 61, Heaven, 6, Double Edge Trident
+Rising Flash, 61, Heaven, 6, Double-Edge Trident
 Piercing beams, 55, Heaven, 6, Short Rod
 Funeral Bringer, 62, Heaven, 6, Javelin
 Soaring Wings, 56, Heaven, 6, Crossed Pike
-Jade Destiny, 50, Heavn, 6, Mandarin Duck Hooks
+Jade Destiny, 50, Heaven, 6, Mandarin Duck Hooks

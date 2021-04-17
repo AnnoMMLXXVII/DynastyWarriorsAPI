@@ -16,14 +16,14 @@ Netherworld's Fury, Double Voulge, Harmony: 7, Vigor: 9, Fear: 7
 Stinging Barb, Double Voulge, Explosive: 9, Agility, Aggression: 8
 Hellish Voulge, Double Voulge, Thunder: 10, Recovery: 9, Uplift: 9, Spurt: 8
 Combat Slicer, Double Voulge, Cyclone: 10, Jubilation: 10, Morass: 10, Uplift: 10, Recovery: 10
-Twilight Flash, Double Voulge, Slash: 10, Frenzy: 10, Flurry: 10, Spurt: 10, Enightenment: 10
+Twilight Flash, Double Voulge, Slash: 10, Frenzy: 10, Flurry: 10, Spurt: 10, Enlightenment: 10
 Double Demon Flash, Double Voulge, Flash: 10, Fear: 9, Swiftness, Agility, Rigidity
 Sky Splitter, Great Sword, Roar: 7, Rigidity, Inferno: 9
 Sea Splitter, Great Sword, Resolve, Recovery: 8, Venom: 7
 Soring Dragon, Great Sword, Venom: 10, Recovery: 9, Enlightenment: 9, Protection: 8
 Suitcase, Great Sword, Frost: 10, Fear: 10, Recovery: 10, Resolve, Harmony: 10
 Thunder SLiver, Great Sword, Thunder: 10, Induction: 10, Triumph: 10, Agility, Rigidity
-Treasure Sword, Great Sword, , Shinning Warrior
+Treasure Sword, Great Sword, Shining Warrior
 Wing of Mortality, Great Sword, Slash: 10, Aggression: 9, Vigor: 9, Flurry: 8, Fear: 8
 Boulderstrike, Club, Uplift: 8, Fear: 9, Chain: 7
 Heavenly Summit, Club, Frost: 8, Rigidity, Awareness
@@ -33,8 +33,8 @@ Demonic Club, Club, Cyclone: 10, Fury, Vigor: 10, Harmony: 10, Awe: 10
 Crystal Cleaver, Club, Frost: 10, Recovery: 9, Jolt: 10, Awareness, Flurry: 8
 Sublimity, Gloves, Greed, Inferno: 7, Awareness
 Jawbreaker, Gloves, Fear: 9, Chain: 8, Resolve
-Shaman's Gloves, Gloves, Venom: 10, Awe: 9, Jolt: 9, Exposive: 8
-Alient Gauntlets Gloves, Venom: 10, Induction: 10, Jubilation: 10, Fear: 10, Flury: 10
+Shaman's Gloves, Gloves, Venom: 10, Awe: 9, Jolt: 9, Explosive: 8
+Alien Gauntlets, Gloves, Venom: 10, Induction: 10, Jubilation: 10, Fear: 10, Flurry: 10
 Chieftan Gauntlets, Gloves, Cyclone: 10, Morass: 10, Explosive: 10, Frenzy: 10, Recovery: 10
 Manic Thunder Gloves, Gloves, Thunder: 10, Roar: 9, Resolve, Spurt: 8, Harmony: 8
 Towerstopper, Halberd, Harmony: 7, Protection: 7, Slash: 7
@@ -46,7 +46,7 @@ Unearthly Halberd, Halberd, Slash: 10, Aggression: 10, Resolve, Barricade: 10, R
 Explosive Halberd, Halberd, Thunder: 10, Fury, Swiftness, Velocity: 8, Harmony: 8
 Snakedealer, Twin Axes, Venom: 8, Whirlwind: 8, Roar: 8
 Wolfbringer, Twin Axes, Swiftness, Enlightenment: 8, Morass: 8
-Dragon Axes, Twin Axes, Inferno: 10, Barricade: 9, Fury, Veolicty: 8
+Dragon Axes, Twin Axes, Inferno: 10, Barricade: 9, Fury, Velocity: 8
 Emergency Lights, Twin Axes, Thunder: 10, Uplift: 10, Awareness, Jubilation: 10, Rigidity
 Twin Sirius Axes, Twin Axes, Frost: 10, Harmony: 10, Thorns: 10, Induction: 10, Roar: 10
 Shadow Slayers, Twin Axes, Slash: 10, Agility, Chain: 9, Spurt: 8, Protection: 8
@@ -55,12 +55,12 @@ Endless Abyss, Lance, Thunder: 7, Aggression: 8, Greed
 Spear of Armageddon, Lance, Frost: 10, Barricade: 9, Flurry: 9, Protection: 8
 Ice Cream Cone, Lance, Frost: 10, Jubilation: 10, Protection: 10, Induction: 10, Morass: 10
 Spiral Blast, Lance, Flash: 10, Chain: 10, Aggression: 10, Vigor: 10, Awareness
-Spiral Thunder Lance, Lance, Thunder: 10, Thorns: 9, Veolicty: 9, Explosive: 8, Frenzy: 8
+Spiral Thunder Lance, Lance, Thunder: 10, Thorns: 9, Velocity: 9, Explosive: 8, Frenzy: 8
 Thunderpeal, Twin Rods, Awe: 7, Desperation, Flash: 8
 Windwhip, Twin Rods, Spurt: 7, Survival: 8, Thorns: 8
 Demon Rods, Twin Rods, Slash: 10, Aggression: 9, Rigidity, Thorns: 8
 Hot Dog, Twin Rods, Inferno: 10, Morass: 10, Jolt: 10, Flurry: 10, Harmony: 10
-Wailing Rods, Twin Rods, Flash: 10, Frnzy: 10, Triumph: 10, Chain: 10, Agility
+Wailing Rods, Twin Rods, Flash: 10, Frenzy: 10, Triumph: 10, Chain: 10, Agility
 Frozen Demon Rods, Twin Rods, Frost: 10, Morass: 9, Harmony: 9, Whirlwind: 8, Fury
 Dustscatter, Axe, Explosive: 9, Jolt: 8, Awe: 8
 Helmsplitter, Axe, Chain: 7, Velocity: 7, Barricade: 7
@@ -73,19 +73,19 @@ Thunderclap, Tonfa, Resolve, Induction: 7, Frost: 9
 Hellfire, Tonfa, Recovery: 9, Protection: 8, Survival: 7
 Conqueror's Roar, Tonfa, Flash: 10, Vigor: 9, Induction: 9, Aggression: 8
 Unicycle, Tonfa, Slash: 10, Recovery: 10, Frenzy: 10, Protection: 10, Swiftness
-Demon Tonfa, Tonfa, Inferno: 10, Frenzy: 10, Roaro: 10, Greed, Flurry: 10
-Icicle Tonfa, Tonfa, Frost: 10, Spurt: 9, Triumph: 9, Fear: 8, Veolicty: 8
+Demon Tonfa, Tonfa, Inferno: 10, Frenzy: 10, Roar: 10, Greed, Flurry: 10
+Icicle Tonfa, Tonfa, Frost: 10, Spurt: 9, Triumph: 9, Fear: 8, Velocity: 8
 Thunderstrike, Crossbow, Awe: 8, Awareness, Survival: 9
 Arctic Storm, Crossbow, Thunder: 9, Frenzy: 7, Jolt: 9
 Falcon Strike, Crossbow, Venom: 10, Morass: 9, Velocity: 9, Thorns: 8
-Harpoon Gun, Crossbow, Slash: 10, Harmony: 10, Fury, Jubilation: 10, Veolicty: 10
+Harpoon Gun, Crossbow, Slash: 10, Harmony: 10, Fury, Jubilation: 10, Velocity: 10
 Grand Crossbow, Crossbow, Thunder: 10, Fear: 10, Uplift: 10, Desperation, Fury
 Peng Crossbow, Crossbow, Frost: 10, Aggression: 9, Awe: 9, Triumph: 8, Jubilation: 8
-Evening Flame, Arm Cannon, Desparation, Barricade: 7, Venom: 7
+Evening Flame, Arm Cannon, Desperation, Barricade: 7, Venom: 7
 Chaotic Flame, Arm Cannon, Spurt: 7, Vigor: 9, Venom: 9
 Earthshaker, Arm Cannon, Venom: 10, Protection: 9, Induction: 9, Agility
 Submarine, Arm Cannon, Inferno: 10, Morass: 10, Induction: 10, Fury
-Nayuta Cannon, Arm Cannon, Cyclone: 10, Frenzy: 10, Exposive: 10, Rigidity, Triumph: 10
+Nayuta Cannon, Arm Cannon, Cyclone: 10, Frenzy: 10, Explosive: 10, Rigidity, Triumph: 10
 Spark Cannon, Arm Cannon, Thunder: 10, Greed, Thorns: 9, Enlightenment: 8, Awareness
 Nature's Beauty, Brush, Flurry: 8, Cyclone: 8, Swiftness
 Birds & Beasts, Brush, Awe: 8, Jubilation: 9, Fury
@@ -94,7 +94,7 @@ Kiseru Pipe, Brush, Thunder: 10, Rigidity, Velocity: 10, Jubilation: 10, Chain: 
 Kingfisher Brush, Brush, Venom: 10, Morass: 10, Thorns: 10, Frenzy: 10, Resolve
 Precious Frost Brush, Brush, Frost: 10, Induction: 9, Rigidity, Spurt: 8, Desperation
 Bottom Tide, Dagger Axe, Rigidity, Flash: 8, Flurry: 8
-Lotus Blossom, Dagger Axe, Venom: 9, Exposive: 7, Agility
+Lotus Blossom, Dagger Axe, Venom: 9, Explosive: 7, Agility
 Destruction, Dagger Axe, Cyclone: 10, Vigor: 9, Velocity: 9, Spurt: 9
 Three Wood, Dagger Axe, Inferno: 10, Explosive: 10, Barricade: 10, Enlightenment: 10, Resolve
 Shadow's Tear, Dagger Axe, Inferno: 10, Explosive: 10, Vigor: 10, Swiftness, Fury
@@ -102,7 +102,7 @@ Holy Light Striker, Dagger Axe, Flash: 10, Thorns: 9, Barricade: 9, Chain: 8, En
 Ego Booster, Bomb, Rigidity, Roar: 8, Fury
 Blooming Desire, Bomb, Fear: 9, Resolve, Fury
 Demon Bomb, Bomb, Venom: 10, Aggression: 9, Awareness, Thorns: 8
-Field Goal, Bomb, Frost: 10, Frenzy: 10, Enlightement: 10, Barricade: 10
+Field Goal, Bomb, Frost: 10, Frenzy: 10, Enlightenment: 10, Barricade: 10
 Destruction Bomb, Bomb, Frost: 10, Fury, Jolt: 10, Greed, Induction: 10
 Unavoidable Bomb, Bomb, Inferno: 10, Vigor: 9, Frenzy: 9, Swiftness, Morass: 8
 Triple Thunder, Short Pike, Chain: 7, Rigidity, Swiftness
@@ -115,13 +115,13 @@ Mistcleaver, Great Axe, Fury, Flash: 9, Rigidity
 Armbender, Great Axe, Survival: 9, Venom: 9, Awareness
 Soulcleaver, Great Axe, Frost: 10, Resolve, Vigor: 9, Induction: 8
 Matoi, Great Axe, Frost: 10, Protection: 10, Survival: 10, Chain: 10, Awareness
-Smoldering Cleaver, Great Axe, Thunder: 10, Velocity: 10, Swiftness: 10, Spurt: 10, Agility
+Smoldering Cleaver, Great Axe, Thunder: 10, Velocity: 10, Swiftness, Spurt: 10, Agility
 Sharp Destruction, Great Axe, Cyclone: 10, Barricade: 9, Aggression: 9, Jubilation: 8, Harmony: 8
 World Smasher, Mace, Frost: 10, Resolve, Velocity: 9, Flurry: 8
 Emergency Ladder, Mace, Cyclone: 10, Desperation, Jolt: 10, Awareness, Protection: 10
 Wave Breaker, Mace, Cyclone: 10, Harmony: 10, Awe: 10, Recovery: 10, Chain: 10
-Dream Wrecker, Mace, Venom: 10, Explosive: 9, Induction: 9, Awareness Roar: 8
-Victory Wall, Spiked Shield, Throns: 9, Cyclone: 9, Velocity: 7
+Dream Wrecker, Mace, Venom: 10, Explosive: 9, Induction: 9, Awareness, Roar: 8
+Victory Wall, Spiked Shield, Thorns: 9, Cyclone: 9, Velocity: 7
 Brightflash, Spiked Shield, Triumph: 9, Enlightenment: 9, Fear: 9
 Talon Wall, Spiked Shield, Venom: 10, Frenzy: 9, Greed, Jubilation: 8
 Notebook, Spiked Shield, Slash: 10, Recovery: 10, Resolve, Jolt: 10, Swiftness
@@ -162,10 +162,10 @@ Heavely Pillar, Rake, Whirlwind: 7, Fury, Induction: 8
 Deadly Incisors, Rake, Slash: 10, Thorns: 9, Survival: 9, Fear: 8
 Wooden Cutlery, Rake, Venom: 10, Resolve, Barricade: 10, Greed
 Ice Wolf Fangs, Rake, Frost: 10, Roar: 10, Protection: 10, Thorns: 10, Jolt: 10
-Suzaku's Claws, Rake, Inferno: 10, Greed, Swiftness, Velocit: 8, Flurry: 8
+Suzaku's Claws, Rake, Inferno: 10, Greed, Swiftness, Velocity: 8, Flurry: 8
 Flower Spindle, Dual-Headed Mace, Awe: 7, Recovery: 8, Explosive: 7
 Roaring Wave, Dual-Headed Mace, Harmony: 9, Greed, Aggression: 7
-Dragon Smasher, Dual-Headed Mace, Inferno: 10, Fear: 9, 11'6", Chain: 9, Roar: 8
+Dragon Smasher, Dual-Headed Mace, Inferno: 10, Fear: 9, Chain: 9, Roar: 8
 Shogi Staff, Dual-Headed Mace, Inferno: 10, Rigidity, Chain: 10, Enlightenment: 10, Desperation
 Chimera Mace, Dual-Headed Mace, Thunder: 10, Awareness, Aggression: 10, Harmony: 10, Uplift: 10
 Violet Storm, Dual-Headed Mace, Cyclone: 10, Induction: 9, Jolt: 9, Desperation, Resolve
