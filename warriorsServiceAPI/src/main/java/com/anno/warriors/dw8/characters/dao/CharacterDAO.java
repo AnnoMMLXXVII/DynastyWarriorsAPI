@@ -46,7 +46,7 @@ public class CharacterDAO implements CharacterDAOInterface {
 		WarriorSorter<Character> sorter = new WarriorSorter(paramList);
 		WarriorSearcher<Character> searcher = new WarriorSearcher(sorter.getSortedList());
 		for (String s : name) {
-			List<CharacterInterface<Character>> temp = searcher.search(s);
+			List<Character> temp = searcher.search(s);
 			for (CharacterInterface<Character> c : temp)
 				list.add(c);
 		}
