@@ -12,10 +12,12 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.characters.model.Officer;
 import com.anno.warriors.dw8.characters.model.SubOfficer;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
+import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjects;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
@@ -25,10 +27,10 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	private static Logger logger = LoggerFactory.getLogger(CharacterParseManager.class);
 
 	private static CharacterParseManager instance;
-	private static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> officers = new ArrayList<>();
-	private static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> subOfficers = new ArrayList<>();
-	private static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> characters = new ArrayList<>();
-	private static Map<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>> kingdomCharacterMap = new HashMap<>();
+	private static List<CharacterInterface<Character>> officers = new ArrayList<>();
+	private static List<CharacterInterface<Character>> subOfficers = new ArrayList<>();
+	private static List<CharacterInterface<Character>> characters = new ArrayList<>();
+	private static Map<Kingdom, List<CharacterInterface<Character>>> kingdomCharacterMap = new HashMap<>();
 
 	public static DynastyWarriors8Object<String> getInstance() {
 		if (instance == null) {
@@ -60,25 +62,25 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 		return this.getClass().getSimpleName();
 	}
 
-	public static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> getCharacters() {
+	public static List<CharacterInterface<Character>> getCharacters() {
 		return characters;
 	}
 
-	public static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> getOfficers() {
+	public static List<CharacterInterface<Character>> getOfficers() {
 		return officers;
 	}
 
-	public static List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> getSubOfficers() {
+	public static List<CharacterInterface<Character>> getSubOfficers() {
 		return subOfficers;
 	}
 
-	public static Map<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>> getKingdomCharacterMap() {
+	public static Map<Kingdom, List<CharacterInterface<Character>>> getKingdomCharacterMap() {
 		return kingdomCharacterMap;
 	}
 
 	private static void parseCharacters(String[] paths) {
 		File file = null;
-		MappingObjects<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>, CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> kingdomCharacterMappingObject = new MappingObjects<>(
+		MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject = new MappingObjects<>(
 				kingdomCharacterMap);
 		if (isOfficer(paths[0])) {
 			for (String s : paths) {
@@ -99,7 +101,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void readOfficerFile(File file,
-			MappingObjects<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>, CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> kingdomCharacterMappingObject) {
+			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String line = "";
 			String[] lineArr;
@@ -114,11 +116,11 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void parseOfficer(String[] arr,
-			MappingObjects<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>, CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> kingdomCharacterMappingObject) {
-		CharacterInterface<com.anno.warriors.dw8.characters.model.Character> officer;
+			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
+		CharacterInterface<Character> officer;
 		Kingdom kingdom = Kingdom.returnCorrectEnum(arr[1].trim());
 		// Instantiate and init officer Object with correct fields from lineArr
-		officer = new Officer(arr[0].trim(), kingdom, arr[2].trim());
+		officer = new Officer(arr[0].trim(), kingdom, Types.returnCorrectEnum(arr[2].trim()));
 		// Create a List of All Officers
 		officers.add(officer);
 //		Create Map Kingdom-List<Officer> Key-Value
@@ -126,7 +128,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void readSubOfficerFile(File file,
-			MappingObjects<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>, CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> kingdomCharacterMappingObject) {
+			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String line = "";
 			String[] lineArr;
@@ -141,8 +143,8 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 	}
 
 	private static void parseSubOfficer(String[] arr, Kingdom kingdom,
-			MappingObjects<Kingdom, List<CharacterInterface<com.anno.warriors.dw8.characters.model.Character>>, CharacterInterface<com.anno.warriors.dw8.characters.model.Character>> kingdomCharacterMappingObject) {
-		CharacterInterface<com.anno.warriors.dw8.characters.model.Character> subOfficer;
+			MappingObjects<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
+		CharacterInterface<Character> subOfficer;
 		// Instantiate and init officer Object with correct fields from lineArr
 		subOfficer = new SubOfficer(arr[0].trim(), kingdom);
 		// Create a List of All Officers
