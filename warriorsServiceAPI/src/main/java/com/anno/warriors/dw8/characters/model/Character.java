@@ -1,11 +1,14 @@
 package com.anno.warriors.dw8.characters.model;
 
+import java.util.List;
+
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 
 public abstract class Character implements CharacterInterface<Character> {
 
 	private String name;
 	private Kingdom kingdom;
+	protected List<String> image;
 
 	public Character() {
 
@@ -22,8 +25,13 @@ public abstract class Character implements CharacterInterface<Character> {
 	}
 
 	@Override
-	public String getKingdom() {
-		return kingdom.getValue();
+	public Kingdom getKingdom() {
+		return kingdom;
+	}
+
+	@Override
+	public int compareTo(Character o) {
+		return getName().compareTo(o.getName());
 	}
 
 	@Override

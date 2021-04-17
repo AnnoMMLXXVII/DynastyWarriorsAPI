@@ -1,6 +1,12 @@
 package com.anno.warriors.dw8.characters.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
+import com.anno.warriors.dw8.enums.types.Types;
+import com.anno.warriors.dw8.weapons.model.Weapon;
+import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
 public class SubOfficer extends Character {
 
@@ -18,8 +24,20 @@ public class SubOfficer extends Character {
 	}
 
 	@Override
-	public String getWeapon() {
-		return "";
+	public Types getWeaponType() {
+		return null;
+	}
+
+	@Override
+	public void setImage(List<String> image) {
+		/*
+		 * 
+		 */
+	}
+
+	@Override
+	public List<String> getImage() {
+		return new ArrayList<>();
 	}
 
 	@Override
@@ -30,6 +48,18 @@ public class SubOfficer extends Character {
 	@Override
 	public int compareTo(String o) {
 		return getName().compareTo(o);
+	}
+
+	@Override
+	public List<WeaponInterface<Weapon>> getWeapons() {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public void setWeapons(List<WeaponInterface<Weapon>> weapons) {
+		/*
+		 * 
+		 */
 	}
 
 }
