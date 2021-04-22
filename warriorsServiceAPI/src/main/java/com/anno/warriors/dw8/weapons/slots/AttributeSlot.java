@@ -18,6 +18,8 @@ public abstract class AttributeSlot
 		public String getName() {
 			return attribute.getName();
 		}
+		
+		public abstract Integer getLevel();
 
 		@Override
 		public int hashCode() {

@@ -11,6 +11,11 @@ public class PowerlessAttribute extends AttributeSlot {
 	public PowerlessAttribute(AttributeInterface attribute) {
 		super(attribute);
 	}
+	
+	@Override
+	public Integer getLevel() {
+		return 0;
+	}
 
 	@Override
 	public String getState() {
