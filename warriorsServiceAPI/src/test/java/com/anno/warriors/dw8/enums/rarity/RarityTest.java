@@ -14,6 +14,11 @@ class RarityTest {
 	void setUp() throws Exception {
 		expected = Rarity.NORMAL;
 	}
+	
+	@Test
+	void testRarityEnumStateNameMatchesExpected() {
+		assertEquals("Rarity", expected.getState());
+	}
 
 	@Test
 	void testRaritySizeIsFive() {
@@ -52,7 +57,7 @@ class RarityTest {
 
 	@Test
 	void testRarityDoesNOTMatchesExpected() {
-		assertNotEquals(Rarity.returnCorrectEnum("normaL"), expected);
+		assertNotEquals(Rarity.returnCorrectEnum("Xtreme"), expected);
 	}
 
 	@Test
