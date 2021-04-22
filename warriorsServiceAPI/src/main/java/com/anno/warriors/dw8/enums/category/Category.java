@@ -23,14 +23,11 @@ public enum Category implements DW8Enumeration<Category> {
 	}
 
 	public static Category returnCorrectEnum(String str) {
-		if (str.equalsIgnoreCase(Category.WHIRLD_WIND.getValue())) {
-			return Category.WHIRLD_WIND;
-		} else if (str.equalsIgnoreCase(Category.DASHER.getValue())) {
-			return Category.DASHER;
-		} else if (str.equalsIgnoreCase(Category.SHADOW_SPRINTER.getValue())) {
-			return Category.SHADOW_SPRINTER;
-		} else {
-			return Category.DIVER;
+		for (Category c : values()) {
+			if (c.getValue().equalsIgnoreCase(str.trim())) {
+				return c;
+			}
 		}
+		return null;
 	}
 }
