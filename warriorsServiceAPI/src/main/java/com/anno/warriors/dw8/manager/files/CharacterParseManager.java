@@ -22,17 +22,17 @@ import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
-public class CharacterParseManager implements DynastyWarriors8Object<String> {
+public class CharacterParseManager implements DynastyWarriors8Object<CharacterParseManager> {
 
 	private static Logger logger = LoggerFactory.getLogger(CharacterParseManager.class);
 
-	private static CharacterParseManager instance;
+	private static DynastyWarriors8Object<CharacterParseManager> instance;
 	private static List<CharacterInterface<Character>> officers = new ArrayList<>();
 	private static List<CharacterInterface<Character>> subOfficers = new ArrayList<>();
 	private static List<CharacterInterface<Character>> characters = new ArrayList<>();
 	private static Map<Kingdom, List<CharacterInterface<Character>>> kingdomCharacterMap = new HashMap<>();
 
-	public static DynastyWarriors8Object<String> getInstance() {
+	public static DynastyWarriors8Object<CharacterParseManager> getInstance() {
 		if (instance == null) {
 			synchronized (CharacterParseManager.class) {
 				if (instance == null) {
@@ -96,7 +96,6 @@ public class CharacterParseManager implements DynastyWarriors8Object<String> {
 				logger.info("parsed subofficers from " + s);
 			}
 			characters.addAll(subOfficers);
-			System.out.printf("Officer Size: %d\nSubOfficer Size: %d\n", officers.size(), subOfficers.size());
 		}
 	}
 

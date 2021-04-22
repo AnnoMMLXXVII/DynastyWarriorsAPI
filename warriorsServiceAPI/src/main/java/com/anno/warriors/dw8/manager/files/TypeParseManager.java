@@ -40,6 +40,7 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 
 	private TypeParseManager() {
 		readFileAndMap();
+		System.out.println(categoryTypesMap.toString());
 		logger.info("Finished Type File and Mapping");
 	}
 
@@ -67,8 +68,7 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 				line = z.nextLine();
 				arr = line.split(",");
 				category = Category.returnCorrectEnum(arr[0].trim());
-				String temp = formattedTypeEnumName(arr[1].trim());
-				type = Types.returnCorrectEnum(temp);
+				type = Types.returnCorrectEnum(arr[1].trim());
 				types.add(type);
 				typesMappingObject.mapKeyValueWithList(category, type);
 			}

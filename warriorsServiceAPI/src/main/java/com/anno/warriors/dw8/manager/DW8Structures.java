@@ -295,7 +295,7 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	private static void mapParsedWeaponsMap() {
 		weapNameTypesKeyAttributesMap = ParsingFiles.getWeapNameTypesKeyAttributesMap();
 	}
-	
+
 	private static void mapWeaponNamesList() {
 		weaponNames = ParsingFiles.getAllWeaponNames();
 	}
