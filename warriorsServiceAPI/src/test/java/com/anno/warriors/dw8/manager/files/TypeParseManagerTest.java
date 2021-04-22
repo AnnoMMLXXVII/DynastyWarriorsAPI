@@ -29,6 +29,7 @@ class TypeParseManagerTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		instance = TypeParseManager.getInstance();
+
 	}
 
 	@Test
@@ -138,6 +139,38 @@ class TypeParseManagerTest {
 		map = TypeParseManager.getMappedTypes();
 		types = map.get(testCategory);
 		assertFalse(types.contains(expected));
+	}
+
+	@Test
+	void testMapCategory_Diver_TypesListNotNull() {
+		testCategory = Category.returnCorrectEnum("Diver");
+		map = TypeParseManager.getMappedTypes();
+		types = map.get(testCategory);
+		assertNotNull(types.stream().map(e -> e != null));	
+	}
+	
+	@Test
+	void testMapCategory_Dasher_TypesListNotNull() {
+		testCategory = Category.returnCorrectEnum("Dasher");
+		map = TypeParseManager.getMappedTypes();
+		types = map.get(testCategory);
+		assertNotNull(types.stream().map(e -> e != null));	
+	}
+	
+	@Test
+	void testMapCategory_Shadow_TypesListNotNull() {
+		testCategory = Category.returnCorrectEnum("Shadow Sprinter");
+		map = TypeParseManager.getMappedTypes();
+		types = map.get(testCategory);
+		assertNotNull(types.stream().map(e -> e != null));	
+	}
+	
+	@Test
+	void testMapCategory_WhirlWind_TypesListNotNull() {
+		testCategory = Category.returnCorrectEnum("Whirl Wind");
+		map = TypeParseManager.getMappedTypes();
+		types = map.get(testCategory);
+		assertNotNull(types.stream().map(e -> e != null));	
 	}
 
 }
