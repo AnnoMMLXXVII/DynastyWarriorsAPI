@@ -16,7 +16,7 @@ Whirl Wind, Brush
 Whirl Wind, Dagger Axe
 Whirl Wind, Bomb
 Whirl Wind, Short Pike
-Whirl Wind, Great Axes
+Whirl Wind, Great Axe
 Whirl Wind, Mace
 Whirl Wind, Spiked Shield
 Whirl Wind, Arm Blade
@@ -80,6 +80,6 @@ Diver, Crescent Blade
 Diver, Dual Blade
 Diver, Horsehair Whip
 Diver, Striking Sword
-Diver, Tailsman Cards
+Diver, Talisman Cards
 Diver, Flail Sword
 Diver, Woven Cloth
