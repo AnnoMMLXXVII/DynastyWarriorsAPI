@@ -1,5 +1,6 @@
 package com.anno.warriors.dw8.characters.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
@@ -38,7 +39,7 @@ public class Officer extends Character {
 
 	@Override
 	public List<WeaponInterface<Weapon>> getWeapons() {
-		return weapons;
+		return weapons == null ? new ArrayList<>() : weapons;
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class Officer extends Character {
 
 	@Override
 	public List<String> getImage() {
-		return image;
+		return image == null ? new ArrayList<>() : image;
 	}
 
 	@Override
