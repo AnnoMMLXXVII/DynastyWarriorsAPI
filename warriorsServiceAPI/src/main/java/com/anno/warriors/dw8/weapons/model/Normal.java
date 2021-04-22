@@ -1,12 +1,9 @@
 package com.anno.warriors.dw8.weapons.model;
 
-import java.util.List;
-
 import com.anno.warriors.dw8.enums.affinity.Affinity;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
-import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 
 public class Normal extends Weapon {
 
@@ -29,7 +26,7 @@ public class Normal extends Weapon {
 
 	@Override
 	public Affinity getAffinity() {
-		return null;
+		return affinity;
 	}
 
 	@Override
@@ -51,26 +48,6 @@ public class Normal extends Weapon {
 	@Override
 	public Category getCategory() {
 		return category;
-	}
-
-	@Override
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	@Override
-	public String getImage() {
-		return image;
-	}
-
-	@Override
-	public void setAttributeSlots(List<AttributeSlot> attributeSlot) {
-		this.attributeSlot = attributeSlot;
-	}
-
-	@Override
-	public List<AttributeSlot> getAttributeSlots() {
-		return attributeSlot;
 	}
 
 	@Override

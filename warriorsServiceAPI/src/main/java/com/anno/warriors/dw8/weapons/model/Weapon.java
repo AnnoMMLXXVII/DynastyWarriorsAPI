@@ -1,7 +1,9 @@
 package com.anno.warriors.dw8.weapons.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.anno.warriors.dw8.enums.affinity.Affinity;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
@@ -13,10 +15,12 @@ public abstract class Weapon implements WeaponInterface<Weapon> {
 	private Integer power;
 	private Integer star;
 	private Types type;
+	private String image;
+	private List<AttributeSlot> attributeSlot;
+
 	protected Rarity rarity;
 	protected Category category;
-	protected String image;
-	protected List<AttributeSlot> attributeSlot;
+	protected Affinity affinity;
 
 	public Weapon(String name, Integer power, Integer star, Types type) {
 		this.name = name;
@@ -42,10 +46,28 @@ public abstract class Weapon implements WeaponInterface<Weapon> {
 	}
 
 	@Override
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	@Override
+	public String getImage() {
+		return image == null ? "N/A" : image;
+	}
+
+	@Override
+	public void setAttributeSlots(List<AttributeSlot> attributeSlot) {
+		this.attributeSlot = attributeSlot;
+	}
+
+	@Override
+	public List<AttributeSlot> getAttributeSlots() {
+		return attributeSlot == null ? new ArrayList<>() : attributeSlot;
+	}
+
+	@Override
 	public int compareTo(Weapon o) {
 		return this.getName().compareTo(o.getName());
-//		return (this.getStar() - (o.getStar()) == 0) ? this.getName().compareTo(o.getName())
-//				: this.getStar() - (o.getStar());
 	}
 
 	@Override

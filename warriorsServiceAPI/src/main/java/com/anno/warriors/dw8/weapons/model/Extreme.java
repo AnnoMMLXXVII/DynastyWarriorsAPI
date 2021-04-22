@@ -1,16 +1,11 @@
 package com.anno.warriors.dw8.weapons.model;
 
-import java.util.List;
-
 import com.anno.warriors.dw8.enums.affinity.Affinity;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
-import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 
 public class Extreme extends Weapon {
-
-	private Affinity affinity;
 
 	public Extreme(String name, Integer power, Integer star, Types type, Affinity affinity) {
 		super(name, power, star, type);
@@ -53,26 +48,6 @@ public class Extreme extends Weapon {
 	}
 
 	@Override
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	@Override
-	public String getImage() {
-		return image;
-	}
-
-	@Override
-	public void setAttributeSlots(List<AttributeSlot> attributeSlot) {
-		this.attributeSlot = attributeSlot;
-	}
-
-	@Override
-	public List<AttributeSlot> getAttributeSlots() {
-		return attributeSlot;
-	}
-
-	@Override
 	public String getState() {
 		return this.getClass().getSimpleName();
 	}
@@ -101,7 +76,7 @@ public class Extreme extends Weapon {
 
 	@Override
 	public String toString() {
-		return super.toString() + " affinity=" + affinity.name() + "]";
+		return super.toString() + " affinity=" + affinity + "]";
 	}
 
 }
