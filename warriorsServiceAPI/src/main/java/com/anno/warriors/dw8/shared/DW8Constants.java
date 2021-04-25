@@ -107,5 +107,17 @@ public class DW8Constants {
 			+ "Text-Files/weapons/whirlwind/Xtreme-Whirl_Wind.txt";
 	public static final String WEAPON_WHIRLWIND_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
 			+ "Text-Files/weapons/whirlwind/Attributes-Whirl_Wind.txt";
-
+	
+	public enum SortBy {
+		ATTACK_POWER, AFFINITY, STAR, NAME;
+	}
+	
+	public enum SearchBy {
+		ATTACK_POWER, AFFINITY, STAR, NAME;
+	}
+	
+	public enum OrderBy {
+		ASCENDING, DESCENDING;
+	}
+	
 }
