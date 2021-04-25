@@ -7,7 +7,7 @@ public class WeaponName_TypesAttributesKey {
 	private String weaponName;
 	private Types type;
 
-	public WeaponName_TypesAttributesKey() {
+	protected WeaponName_TypesAttributesKey() {
 		super();
 	}
 
