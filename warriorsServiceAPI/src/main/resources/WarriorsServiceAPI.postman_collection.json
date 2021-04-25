@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "e96cfd7b-6036-4d3c-a2eb-33447e35257b",
+		"name": "WarriorsServiceAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/health-check",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"health-check"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon Names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/names/",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"names",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon by Stars",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/filter/stars?value=1,5,6",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"filter",
+						"stars"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "1,5,6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon By Names",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/filter/names?value=Dark Dragon Spear",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"filter",
+						"names"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "Dark Dragon Spear"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Character By Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters?name=Zhao Yun",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Zhao Yun"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Officers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/officers",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"officers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Officers By Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/officers?name=Zhao Yun",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"officers"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Zhao Yun"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubOfficers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/subOfficers",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"subOfficers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubOfficers By Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/subOfficers?name=Zhang Yi, Sun Qian, Guo Shi, Guo Si",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"subOfficers"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Zhang Yi, Sun Qian, Guo Shi, Guo Si"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "be8bbb8d-da7b-42bf-817f-13f921160c9e",
+			"key": "warriorsHost",
+			"value": "http://localhost:8080/api/v1/"
+		}
+	]
+}
