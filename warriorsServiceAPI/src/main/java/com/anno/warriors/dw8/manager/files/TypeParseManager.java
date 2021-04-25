@@ -18,6 +18,7 @@ import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
+@SuppressWarnings("unused")
 public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager> {
 
 	private static Logger logger = LoggerFactory.getLogger(TypeParseManager.class);

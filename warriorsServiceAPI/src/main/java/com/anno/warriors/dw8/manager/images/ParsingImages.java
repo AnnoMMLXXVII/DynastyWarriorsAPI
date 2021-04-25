@@ -15,6 +15,7 @@ import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
+@SuppressWarnings("unused")
 public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 
 	private static Logger logger = LoggerFactory.getLogger(ParsingImages.class);
