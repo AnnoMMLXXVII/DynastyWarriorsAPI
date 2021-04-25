@@ -38,12 +38,21 @@ public class WeaponController {
 	}
 
 	@RequestMapping(value = "filter/names", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<WeaponInterface<Weapon>>> getWeaponByName(@RequestParam(required = true, value = "value") String...value) {
+	public ResponseEntity<List<WeaponInterface<Weapon>>> getWeaponByName(
+			@RequestParam(required = true, value = "value") String... value) {
 		return new ResponseEntity<>(facade.callingGetWeaponsByNames(value), HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "filter/stars", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<WeaponInterface<Weapon>>> getWeaponsByStarRank(@RequestParam(required = true, value = "value") int...value) {
+	public ResponseEntity<List<WeaponInterface<Weapon>>> getWeaponsByStarRank(
+			@RequestParam(required = true, value = "value") int... value) {
 		return new ResponseEntity<>(facade.callingGetWeaponsByStarRank(value), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "filter/power", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<WeaponInterface<Weapon>>> getWeaponsByStarRank(
+			@RequestParam(required = true, value = "low") int low,
+			@RequestParam(required = false, value = "high") int high) {
+		return new ResponseEntity<>(facade.callingGetWeaponsByAttackPower(low, high), HttpStatus.OK);
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e96cfd7b-6036-4d3c-a2eb-33447e35257b",
+		"_postman_id": "77cdaa78-6ea9-4217-be9d-a4df564bd4bf",
 		"name": "WarriorsServiceAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -173,6 +173,35 @@
 			"response": []
 		},
 		{
+			"name": "Character By Attack Power",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/filter/power?low=50&high=55",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"filter",
+						"power"
+					],
+					"query": [
+						{
+							"key": "low",
+							"value": "50"
+						},
+						{
+							"key": "high",
+							"value": "55"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Officers",
 			"request": {
 				"method": "GET",
@@ -279,7 +308,6 @@
 	],
 	"variable": [
 		{
-			"id": "be8bbb8d-da7b-42bf-817f-13f921160c9e",
 			"key": "warriorsHost",
 			"value": "http://localhost:8080/api/v1/"
 		}

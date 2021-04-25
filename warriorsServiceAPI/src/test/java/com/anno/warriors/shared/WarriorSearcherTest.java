@@ -102,65 +102,65 @@ class WarriorSearcherTest {
 		assertEquals(searchCharacterKey.getName(), searched.get(0).getName());
 	}
 
-//	@Test
-	void testIfSearchWeaponObjectsReturnsExpected() {
-		testNumber = 3;
-
-		Integer index = getRandomIndex(weapons.size() - 1);
-		searchWeaponKey = weapons.get(index);
-
-		weaponSorter = new WarriorSorter(weapons);
-		weaponSearcher = new WarriorSearcher(weaponSorter.getSortedList());
-
-		List<Weapon> searched = weaponSearcher.search(searchWeaponKey.getName());
-		searchedKey = String.format("%s, %s, %s", searchWeaponKey.getName(), searchWeaponKey.getCategory(),
-				searchWeaponKey.getType());
-
-		assertEquals(searchWeaponKey.getName(), searched.get(0).getName());
-	}
-
-//	@Test
-	void testIfSearchWeaponObjectOfOffierTypeReturnsExpected() {
-		testNumber = 4;
-//		DW8Manager.getInstance();
-//		DW8Manager.invokeMapingOfObjects();
-		characters = DW8Structures.getOfficers();
-		Integer index = getRandomIndex(characters.size() - 1);
-		searchCharacterKey = characters.get(index);
-		index = getRandomIndex(searchCharacterKey.getWeapons().size() - 1);
-		System.out.printf("%s weapon index --> %d\n", searchCharacterKey.getName(), index);
-		searchWeaponKey = searchCharacterKey.getWeapons().get(index);
-
-		weaponSorter = new WarriorSorter(weapons);
-		weaponSearcher = new WarriorSearcher(weaponSorter.getSortedList());
-
-		List<Weapon> searched = weaponSearcher.search(searchWeaponKey.getName());
-		searchedKey = String.format("%s, %s, %s > %s", searchWeaponKey.getName(), searchWeaponKey.getCategory(),
-				searchWeaponKey.getType(), searchCharacterKey.getName());
-
-		assertEquals(searchWeaponKey.getName(), searched.get(0).getName());
-	}
-
-//	@Test
-	void testIfSearchWeaponObjectOfOffierTypeReturnsNegativeOne() {
-		testNumber = 5;
-//		DW8Manager.getInstance();
-//		DW8Manager.invokeMapingOfObjects();
-		characters = DW8Structures.getOfficers();
-
-		Integer index = getRandomIndex(characters.size() - 1);
-		searchCharacterKey = characters.get(index);
-		List<WeaponInterface<Weapon>> charWeapon = searchCharacterKey.getWeapons();
-		assertFalse(charWeapon.isEmpty());
-		searchWeaponKey = searchCharacterKey.getWeapons().get(getRandomIndex(charWeapon.size() - 1));
-
-		weaponSorter = new WarriorSorter(weapons);
-		weaponSearcher = new WarriorSearcher(weaponSorter.getSortedList());
-
-		List<Weapon> searched = weaponSearcher.search("NOTHING");
-//		assertTrue(charWeapon.isEmpty());
-		assertTrue(searched.isEmpty());
-	}
+////	@Test
+//	void testIfSearchWeaponObjectsReturnsExpected() {
+//		testNumber = 3;
+//
+//		Integer index = getRandomIndex(weapons.size() - 1);
+//		searchWeaponKey = weapons.get(index);
+//
+//		weaponSorter = new WarriorSorter(weapons);
+//		weaponSearcher = new WarriorSearcher(weaponSorter.getSortedList());
+//
+//		List<Weapon> searched = weaponSearcher.search(searchWeaponKey.getName());
+//		searchedKey = String.format("%s, %s, %s", searchWeaponKey.getName(), searchWeaponKey.getCategory(),
+//				searchWeaponKey.getType());
+//
+//		assertEquals(searchWeaponKey.getName(), searched.get(0).getName());
+//	}
+//
+////	@Test
+//	void testIfSearchWeaponObjectOfOffierTypeReturnsExpected() {
+//		testNumber = 4;
+////		DW8Manager.getInstance();
+////		DW8Manager.invokeMapingOfObjects();
+//		characters = DW8Structures.getOfficers();
+//		Integer index = getRandomIndex(characters.size() - 1);
+//		searchCharacterKey = characters.get(index);
+//		index = getRandomIndex(searchCharacterKey.getWeapons().size() - 1);
+//		System.out.printf("%s weapon index --> %d\n", searchCharacterKey.getName(), index);
+//		searchWeaponKey = searchCharacterKey.getWeapons().get(index);
+//
+//		weaponSorter = new WarriorSorter(weapons);
+//		weaponSearcher = new WarriorSearcher(weaponSorter.getSortedList());
+//
+//		List<Weapon> searched = weaponSearcher.search(searchWeaponKey.getName());
+//		searchedKey = String.format("%s, %s, %s > %s", searchWeaponKey.getName(), searchWeaponKey.getCategory(),
+//				searchWeaponKey.getType(), searchCharacterKey.getName());
+//
+//		assertEquals(searchWeaponKey.getName(), searched.get(0).getName());
+//	}
+//
+////	@Test
+//	void testIfSearchWeaponObjectOfOffierTypeReturnsNegativeOne() {
+//		testNumber = 5;
+////		DW8Manager.getInstance();
+////		DW8Manager.invokeMapingOfObjects();
+//		characters = DW8Structures.getOfficers();
+//
+//		Integer index = getRandomIndex(characters.size() - 1);
+//		searchCharacterKey = characters.get(index);
+//		List<WeaponInterface<Weapon>> charWeapon = searchCharacterKey.getWeapons();
+//		assertFalse(charWeapon.isEmpty());
+//		searchWeaponKey = searchCharacterKey.getWeapons().get(getRandomIndex(charWeapon.size() - 1));
+//
+//		weaponSorter = new WarriorSorter(weapons);
+//		weaponSearcher = new WarriorSearcher(weaponSorter.getSortedList());
+//
+//		List<Weapon> searched = weaponSearcher.search("NOTHING");
+////		assertTrue(charWeapon.isEmpty());
+//		assertTrue(searched.isEmpty());
+//	}
 
 	@Test
 	void testIfSearchValueReturnsNegativeIndex() {

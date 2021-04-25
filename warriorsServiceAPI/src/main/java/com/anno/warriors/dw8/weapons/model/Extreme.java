@@ -13,8 +13,8 @@ public class Extreme extends Weapon {
 	}
 
 	@Override
-	public int compareToByAffinity(WeaponInterface<Weapon> o) {
-		return this.affinity.compareTo(o.getAffinity());
+	public int compareToByAffinity(Affinity o) {
+		return this.affinity.compareTo(o);
 	}
 
 	@Override

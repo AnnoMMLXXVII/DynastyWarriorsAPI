@@ -15,7 +15,8 @@ public interface WeaponDAOInterface {
 
 	public List<WeaponInterface<Weapon>> getWeaponsByStarRank(List<WeaponInterface<Weapon>> paramList, int... star);
 
-	public List<WeaponInterface<Weapon>> getWeaponsByAttackPower(List<WeaponInterface<Weapon>> paramList, int... power);
+	public List<WeaponInterface<Weapon>> getWeaponsByAttackPower(List<WeaponInterface<Weapon>> paramList, Integer low,
+			Integer high);
 
 	public List<WeaponInterface<Weapon>> getWeaponsByTypes(List<WeaponInterface<Weapon>> paramList, String... types);
 
