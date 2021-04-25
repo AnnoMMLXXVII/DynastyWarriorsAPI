@@ -40,7 +40,6 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 
 	private TypeParseManager() {
 		readFileAndMap();
-		System.out.println(categoryTypesMap.toString());
 		logger.info("Finished Type File and Mapping");
 	}
 
@@ -60,7 +59,8 @@ public class TypeParseManager implements DynastyWarriors8Object<TypeParseManager
 	private static void readFileAndMap() {
 		Category category;
 		Types type;
-		MappingObjectsWithReference<Category, List<Types>, Types> typesMappingObject = new MappingObjectsWithReference<>(categoryTypesMap);
+		MappingObjectsWithReference<Category, List<Types>, Types> typesMappingObject = new MappingObjectsWithReference<>(
+				categoryTypesMap);
 		try (Scanner z = new Scanner(new FileReader(new File(DW8StaticObjects.getWeaponTypePath())))) {
 			String line = "";
 			String[] arr;

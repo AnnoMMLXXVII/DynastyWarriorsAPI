@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
-import com.anno.warriors.dw8.characters.model.Officer;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
@@ -58,15 +57,14 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 	}
 
 	private static void mapDependenciesToOfficers() {
-		List<CharacterInterface<Character>> officers = DW8Structures.getOfficers();
 		Map<String, List<String>> officerImages = DW8Structures.getOfficerImages();
 		Map<Types, List<WeaponInterface<Weapon>>> weaponsMapped = DW8Structures.getTypeWeaponKeyKeyMap();
 
 		for (CharacterInterface<Character> c : DW8Structures.getOfficers()) {
-			if (c.getWeaponType() != null && c instanceof Officer) {
-				c.setWeapons(weaponsMapped.get(c.getWeaponType()));
-				c.setImage(officerImages.get(c.getName()));
-			}
+//			if (c.getWeaponType() != null) {
+			c.setWeapons(weaponsMapped.get(c.getWeaponType()));
+			c.setImage(officerImages.get(c.getName()));
+//			}
 		}
 	}
 

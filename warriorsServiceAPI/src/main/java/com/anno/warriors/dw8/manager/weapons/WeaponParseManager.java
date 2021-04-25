@@ -50,10 +50,6 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 		return instance;
 	}
 
-	public static void main(String args[]) {
-		WeaponParseManager.getInstance();
-	}
-
 	private WeaponParseManager() {
 //		Weapon MetaData
 //		 --> Rarity (Normal, Rare, Unique, Xtreme), Category (Dasher, Diver, Shadow_Sprinter, Whirlwind_Master)
@@ -67,6 +63,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 //		----------------------------------------------------------------------------------------------------
 //		Weapon Linking to Character
 //			-> Using WeaponTypeKey -> Type to link to Character -> Type
+
 		scanFiles(DW8StaticObjects.getDasherWeaponsFiles());
 		scanFiles(DW8StaticObjects.getDiverWeaponsFiles());
 		scanFiles(DW8StaticObjects.getShadowWeaponsFiles());
@@ -138,8 +135,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 					temp = parseExtremeWeapons(file[i].getName(), arr);
 					WeaponName_TypesAttributesKey key = new WeaponName_TypesAttributesKey(temp.getName(),
 							temp.getType());
-					List<AttributeSlot> slots = WeaponAttributeParseMananger.getWeapNameTypesKeyAttributesMap()
-							.get(key);
+					List<AttributeSlot> slots = WeaponAttributeParseManager.getWeapNameTypesKeyAttributesMap().get(key);
 					temp.setAttributeSlots(slots);
 					weapons.add(temp);
 					weaponNames.add(temp.getName());
@@ -156,7 +152,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 	private static void parseWeaponAttributesFile(File[] file, String[] path) {
 		try (Scanner z = new Scanner(new FileReader(file[0]))) {
 			logger.info("Reading Weapon Attribute file " + path[0]);
-			WeaponAttributeParseMananger.readWeaponAttributesFile(path[0]);
+			WeaponAttributeParseManager.readWeaponAttributesFile(path[0]);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -14,7 +14,7 @@ import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
-import com.anno.warriors.dw8.manager.weapons.WeaponAttributeParseMananger;
+import com.anno.warriors.dw8.manager.weapons.WeaponAttributeParseManager;
 import com.anno.warriors.dw8.manager.weapons.WeaponParseManager;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
@@ -47,7 +47,6 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 		CharacterParseManager.getInstance();
 		TypeParseManager.getInstance();
 		WeaponParseManager.getInstance();
-
 	}
 
 	@Override
@@ -92,7 +91,7 @@ public class ParsingFiles implements DynastyWarriors8Object<ParsingFiles> {
 	}
 
 	public static Map<WeaponName_TypesAttributesKey, List<AttributeSlot>> getWeapNameTypesKeyAttributesMap() {
-		return WeaponAttributeParseMananger.getWeapNameTypesKeyAttributesMap();
+		return WeaponAttributeParseManager.getWeapNameTypesKeyAttributesMap();
 	}
 
 	public static List<String> getAllWeaponNames() {

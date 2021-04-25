@@ -116,10 +116,10 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 
 	private static void parseOfficer(String[] arr,
 			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
-		CharacterInterface<Character> officer;
 		Kingdom kingdom = Kingdom.returnCorrectEnum(arr[1].trim());
 		// Instantiate and init officer Object with correct fields from lineArr
-		officer = new Officer(arr[0].trim(), kingdom, Types.returnCorrectEnum(arr[2].trim()));
+		CharacterInterface<Character> officer = new Officer(arr[0].trim(), kingdom,
+				Types.returnCorrectEnum(arr[2].trim()));
 		// Create a List of All Officers
 		officers.add(officer);
 //		Create Map Kingdom-List<Officer> Key-Value
@@ -143,9 +143,8 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 
 	private static void parseSubOfficer(String[] arr, Kingdom kingdom,
 			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
-		CharacterInterface<Character> subOfficer;
 		// Instantiate and init officer Object with correct fields from lineArr
-		subOfficer = new SubOfficer(arr[0].trim(), kingdom);
+		CharacterInterface<Character> subOfficer = new SubOfficer(arr[0].trim(), kingdom);
 		// Create a List of All Officers
 		subOfficers.add(subOfficer);
 //		Create Map Kingdom-List<Officer> Key-Value
