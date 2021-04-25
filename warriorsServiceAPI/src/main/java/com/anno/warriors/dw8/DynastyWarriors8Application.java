@@ -28,6 +28,7 @@ public class DynastyWarriors8Application {
 
 	private void run() {
 		DW8Manager.getInstance();
+		DW8Manager.invokeMapingOfObjects();
 
 	}
 
