@@ -15,8 +15,8 @@ public class Normal extends Weapon {
 	}
 
 	@Override
-	public int compareToByAffinity(WeaponInterface<Weapon> o) {
-		return this.getAffinity().compareTo(o.getAffinity());
+	public int compareToByAffinity(Affinity o) {
+		return this.getAffinity().compareTo(o);
 	}
 
 	@Override
