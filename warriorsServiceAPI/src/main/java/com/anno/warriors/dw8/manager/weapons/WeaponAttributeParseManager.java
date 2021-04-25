@@ -18,21 +18,15 @@ import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
-import com.anno.warriors.dw8.weapons.model.Weapon;
-import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 import com.anno.warriors.dw8.weapons.slots.PowerAttribute;
 import com.anno.warriors.dw8.weapons.slots.PowerlessAttribute;
 
-public class WeaponAttributeParseMananger implements DynastyWarriors8Object<WeaponAttributeParseMananger> {
+public class WeaponAttributeParseManager implements DynastyWarriors8Object<WeaponAttributeParseManager> {
 
-	private static Logger logger = LoggerFactory.getLogger(WeaponAttributeParseMananger.class);
+	private static Logger logger = LoggerFactory.getLogger(WeaponAttributeParseManager.class);
 	private static Map<WeaponName_TypesAttributesKey, List<AttributeSlot>> weapNameTypesKeyAttributesMap = new HashMap<>();
 //	private static int lineNum = 1;
-
-	public WeaponAttributeParseMananger() {
-		super();
-	}
 
 	public static Map<WeaponName_TypesAttributesKey, List<AttributeSlot>> getWeapNameTypesKeyAttributesMap() {
 		return weapNameTypesKeyAttributesMap;
@@ -43,7 +37,7 @@ public class WeaponAttributeParseMananger implements DynastyWarriors8Object<Weap
 		return this.getClass().getSimpleName();
 	}
 
-	public static void readWeaponAttributesFile(String path) {
+	public static void readWeaponAttributesFile(String path) throws FileNotFoundException {
 		File file = new File(path);
 		logger.info("Parsing file " + path);
 		try (Scanner z = new Scanner(new FileReader(file))) {
@@ -55,7 +49,7 @@ public class WeaponAttributeParseMananger implements DynastyWarriors8Object<Weap
 			}
 
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			throw new FileNotFoundException("File Not Found!");
 		}
 	}
 
