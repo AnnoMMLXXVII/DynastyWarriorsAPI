@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.anno.warriors.dw8.enums.category.Category;
@@ -17,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@TestInstance(Lifecycle.PER_CLASS)
 class TypeParseManagerTest {
 
 	@Autowired
@@ -26,7 +29,7 @@ class TypeParseManagerTest {
 	private List<Types> types;
 	private Map<Category, List<Types>> map;
 
-	@BeforeEach
+	@BeforeAll
 	void setUp() throws Exception {
 		instance = TypeParseManager.getInstance();
 
@@ -53,7 +56,6 @@ class TypeParseManagerTest {
 		expected = Types.TRISHULA;
 //		System.out.println(expected.toString());s
 		types = TypeParseManager.getTypes();
-		types.forEach(e -> System.out.println(e.toString()));
 		Optional<Types> opt = types.stream().filter(e -> e.getValue().equals(expected.getValue())).findFirst();
 		Types actual = null;
 		if (opt.isPresent()) {
@@ -146,31 +148,31 @@ class TypeParseManagerTest {
 		testCategory = Category.returnCorrectEnum("Diver");
 		map = TypeParseManager.getMappedTypes();
 		types = map.get(testCategory);
-		assertNotNull(types.stream().map(e -> e != null));	
+		assertNotNull(types.stream().map(e -> e != null));
 	}
-	
+
 	@Test
 	void testMapCategory_Dasher_TypesListNotNull() {
 		testCategory = Category.returnCorrectEnum("Dasher");
 		map = TypeParseManager.getMappedTypes();
 		types = map.get(testCategory);
-		assertNotNull(types.stream().map(e -> e != null));	
+		assertNotNull(types.stream().map(e -> e != null));
 	}
-	
+
 	@Test
 	void testMapCategory_Shadow_TypesListNotNull() {
 		testCategory = Category.returnCorrectEnum("Shadow Sprinter");
 		map = TypeParseManager.getMappedTypes();
 		types = map.get(testCategory);
-		assertNotNull(types.stream().map(e -> e != null));	
+		assertNotNull(types.stream().map(e -> e != null));
 	}
-	
+
 	@Test
 	void testMapCategory_WhirlWind_TypesListNotNull() {
 		testCategory = Category.returnCorrectEnum("Whirl Wind");
 		map = TypeParseManager.getMappedTypes();
 		types = map.get(testCategory);
-		assertNotNull(types.stream().map(e -> e != null));	
+		assertNotNull(types.stream().map(e -> e != null));
 	}
 
 }

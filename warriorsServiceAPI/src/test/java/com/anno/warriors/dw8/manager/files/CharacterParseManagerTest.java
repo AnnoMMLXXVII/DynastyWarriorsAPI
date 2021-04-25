@@ -5,9 +5,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
@@ -26,32 +29,37 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-//@TestInstance(Lifecycle.PER_CLASS)
+@TestInstance(Lifecycle.PER_CLASS)
 @SuppressWarnings({ "unchecked", "rawtypes" })
 class CharacterParseManagerTest {
 
-	@Autowired
 	private DynastyWarriors8Object<CharacterParseManager> instance;
+	private List<CharacterInterface<Character>> characterList;
+	private List<CharacterInterface<Character>> officerList;
+	private List<CharacterInterface<Character>> subOfficerList;
 	private List<CharacterInterface<Character>> list;
 	private Map<Kingdom, List<CharacterInterface<Character>>> charactersMappedByKingdomMap;
-//	private DynastyWarriors8Object<ParsingFiles> parsedFiles;
-//	private DynastyWarriors8Object<ParsingImages> parsedImages;
+
+	@BeforeAll
+	void beforeAll() throws Exception {
+		instance = CharacterParseManager.getInstance();
+	}
 
 	@BeforeEach
 	void setUp() throws Exception {
-		instance = CharacterParseManager.getInstance();
-//		parsedImages = ParsingImages.getInstance();
-//		parsedFiles = ParsingFiles.getInstance();
+		characterList = CharacterParseManager.getCharacters();
+		officerList = CharacterParseManager.getOfficers();
+		subOfficerList = CharacterParseManager.getSubOfficers();
+		charactersMappedByKingdomMap = CharacterParseManager.getKingdomCharacterMap();
 	}
 
-//	@AfterAll
-//	void breakDown() throws Exception {
-////		instance = null;
-////		parsedFiles = null;
-////		CharacterParseManager.getCharacters().clear();
-////		CharacterParseManager.getOfficers().clear();
-////		CharacterParseManager.getSubOfficers().clear();
-//	}
+	@AfterEach
+	void breakDown() throws Exception {
+//		characterList.clear();
+//		officerList.clear();
+//		subOfficerList.clear();
+//		charactersMappedByKingdomMap.clear();
+	}
 
 	@Test
 	void testInstanceMatchesExpected() {
@@ -60,41 +68,36 @@ class CharacterParseManagerTest {
 
 	@Test
 	void testCharacterListIsNotEmpty() {
-		list = CharacterParseManager.getCharacters();
-		assertFalse(list.isEmpty());
+		assertFalse(characterList.isEmpty());
 	}
 
 	@Test
 	void testCharacter_OfficerListIsNotEmpty() {
-		list = CharacterParseManager.getOfficers();
-		assertFalse(list.isEmpty());
+		assertFalse(officerList.isEmpty());
 	}
 
 	@Test
 	void testCharacter_SuOfficerListIsNotEmpty() {
-		list = CharacterParseManager.getSubOfficers();
-		assertFalse(list.isEmpty());
+		assertFalse(subOfficerList.isEmpty());
 	}
 
 	@Test
 	void testCharacterList_ByKingdomIsNotEmpty() {
-		charactersMappedByKingdomMap = CharacterParseManager.getKingdomCharacterMap();
 		list = charactersMappedByKingdomMap.get(Kingdom.OTHER);
 		assertNotNull(list); // checks if the list is null
 	}
 
 	@Test
 	void testCharacterValuesInReturnedList_ByKingdomIsNotEmpty() {
-		charactersMappedByKingdomMap = CharacterParseManager.getKingdomCharacterMap();
 		list = charactersMappedByKingdomMap.get(Kingdom.WEI);
 		assertNotNull(list.stream().map(e -> e != null)); // checks if each value in the list is not null
 	}
 
 	@Test
 	void testCharacterValuesInReturnedList_ByKingdomMatchesOfficersNameInList() {
-		charactersMappedByKingdomMap = CharacterParseManager.getKingdomCharacterMap();
-		List<CharacterInterface<Character>> localList = CharacterParseManager.getOfficers().stream()
+		List<CharacterInterface<Character>> localList = officerList.stream()
 				.filter(e -> e.getKingdom().equals(Kingdom.WEI)).collect(Collectors.toList());
+
 		list = charactersMappedByKingdomMap.get(Kingdom.WEI);
 		list = list.stream().filter(e -> e instanceof Officer).collect(Collectors.toList());
 
@@ -109,9 +112,9 @@ class CharacterParseManagerTest {
 
 	@Test
 	void testCharacterValuesInReturnedList_ByKingdomDoesNOTMatchesOfficersNameInList() {
-		charactersMappedByKingdomMap = CharacterParseManager.getKingdomCharacterMap();
-		List<CharacterInterface<Character>> localList = CharacterParseManager.getOfficers().stream()
+		List<CharacterInterface<Character>> localList = officerList.stream()
 				.filter(e -> e.getKingdom().equals(Kingdom.JIN)).collect(Collectors.toList());
+
 		list = charactersMappedByKingdomMap.get(Kingdom.WU);
 		list = list.stream().filter(e -> e instanceof Officer).collect(Collectors.toList());
 
@@ -125,9 +128,9 @@ class CharacterParseManagerTest {
 
 	@Test
 	void testCharacterValuesInReturnedList_ByKingdomMatchesSubOfficersNameInList() {
-		charactersMappedByKingdomMap = CharacterParseManager.getKingdomCharacterMap();
-		List<CharacterInterface<Character>> localList = CharacterParseManager.getSubOfficers().stream()
+		List<CharacterInterface<Character>> localList = subOfficerList.stream()
 				.filter(e -> e.getKingdom().equals(Kingdom.SHU)).collect(Collectors.toList());
+
 		list = charactersMappedByKingdomMap.get(Kingdom.SHU);
 		list = list.stream().filter(e -> e instanceof SubOfficer).collect(Collectors.toList());
 
@@ -141,9 +144,9 @@ class CharacterParseManagerTest {
 
 	@Test
 	void testCharacterValuesInReturnedList_ByKingdomDoesNOTMatchesSubOfficersNameInList() {
-		charactersMappedByKingdomMap = CharacterParseManager.getKingdomCharacterMap();
-		List<CharacterInterface<Character>> localList = CharacterParseManager.getSubOfficers().stream()
+		List<CharacterInterface<Character>> localList = subOfficerList.stream()
 				.filter(e -> e.getKingdom().equals(Kingdom.JIN)).collect(Collectors.toList());
+
 		list = charactersMappedByKingdomMap.get(Kingdom.WU);
 		list = list.stream().filter(e -> e instanceof SubOfficer).collect(Collectors.toList());
 
@@ -159,18 +162,19 @@ class CharacterParseManagerTest {
 	void testCharacterValues_ByNameMatchesExpectedValuesWithoutMapping() {
 		// Before mapping Images and Weapons
 		String expectedName = "Zhao Yun";
-		Optional<CharacterInterface<Character>> opt = CharacterParseManager.getOfficers().stream()
+		Optional<CharacterInterface<Character>> opt = officerList.stream()
 				.filter(e -> e.getName().equalsIgnoreCase(expectedName)).findFirst();
 
 		assertTrue(opt.isPresent());
-
 		CharacterInterface<Character> actual = opt.get();
+//		System.out.println("Test[11] --> " + actual.toString());
 		assertEquals(actual.getName(), expectedName);
 		assertEquals(actual.getKingdom(), Kingdom.SHU);
 		assertEquals(actual.getImage().size(), 0);
 		assertEquals(actual.getWeaponType(), Types.DRAGON_SPEAR);
 
 		List<WeaponInterface<Weapon>> actualWeapons = actual.getWeapons();
+		actualWeapons.clear();
 		assertEquals(actualWeapons.size(), 0);
 	}
 

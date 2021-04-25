@@ -1,15 +1,13 @@
 package com.anno.warriors.dw8.manager.files;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
@@ -17,6 +15,11 @@ import com.anno.warriors.dw8.enums.attribute.NormalAttributes;
 import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@TestInstance(Lifecycle.PER_CLASS)
 class AttributeParseManagerTest {
 
 	@Autowired
@@ -26,14 +29,14 @@ class AttributeParseManagerTest {
 	private AttributeInterface normal = NormalAttributes.THORNS;
 	private AttributeInterface special = SpecialAttributes.RIGIDITY;
 
-	@BeforeEach
+	@BeforeAll
 	void setUp() throws Exception {
 		instance = AttributeParseManager.getInstance();
 	}
 
 	@Test
 	void testMetaTypeMatches() {
-		assertEquals(instance.getState(), "AttributeParseManager");
+		assertEquals("AttributeParseManager", instance.getState());
 	}
 
 	@Test

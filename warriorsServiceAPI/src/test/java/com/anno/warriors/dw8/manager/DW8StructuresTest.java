@@ -1,7 +1,9 @@
 package com.anno.warriors.dw8.manager;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.anno.warriors.dw8.manager.images.ParsingImages;
@@ -10,12 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@TestInstance(Lifecycle.PER_CLASS)
 class DW8StructuresTest {
 
 	@Autowired
 	private DynastyWarriors8Object<DW8Structures> instance;
 
-	@BeforeEach
+	@BeforeAll
 	void setUp() throws Exception {
 		instance = DW8Structures.getInstance();
 	}
