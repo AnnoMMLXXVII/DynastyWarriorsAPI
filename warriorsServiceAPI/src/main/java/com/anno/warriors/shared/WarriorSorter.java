@@ -13,7 +13,11 @@ public class WarriorSorter<T extends Comparable<T>> {
 
 	public WarriorSorter(List<T> list, boolean ASC) {
 		this.list = list;
-		quickSortWithOrder(list, 0, this.list.size() - 1, ASC);
+		if (ASC) {
+			quickSort(list, 0, this.list.size() - 1);
+		} else {
+			quickSortDescending(list, 0, this.list.size() - 1);
+		}
 	}
 
 	public List<T> getSortedList() {
@@ -33,11 +37,11 @@ public class WarriorSorter<T extends Comparable<T>> {
 		return i + 1;
 	}
 
-	private int partitionWithOrder(List<T> list, int low, int high, boolean ASC) {
+	private int partitionDescending(List<T> list, int low, int high) {
 		T pivot = list.get(high);
 		int i = low - 1;
 		for (int j = low; j <= high - 1; j++) {
-			if (compareWithOrder(j, list, pivot, ASC)) {
+			if (list.get(j).compareTo(pivot) > 0) {
 				i++;
 				swap(list, i, j);
 			}
@@ -54,11 +58,11 @@ public class WarriorSorter<T extends Comparable<T>> {
 		}
 	}
 
-	private void quickSortWithOrder(List<T> list, int low, int high, boolean ASC) {
+	private void quickSortDescending(List<T> list, int low, int high) {
 		if (low < high) {
-			int pi = partitionWithOrder(list, low, high, ASC);
-			quickSortWithOrder(list, low, pi - 1, ASC);
-			quickSortWithOrder(list, pi + 1, high, ASC);
+			int pi = partitionDescending(list, low, high);
+			quickSortDescending(list, low, pi - 1);
+			quickSortDescending(list, pi + 1, high);
 		}
 	}
 
@@ -66,12 +70,6 @@ public class WarriorSorter<T extends Comparable<T>> {
 		T temp = list.get(first);
 		list.set(first, list.get(second));
 		list.set(second, temp);
-	}
-
-	private boolean compareWithOrder(int idx, List<T> list, T pivot, boolean ASC) {
-		return (ASC) ? list.get(idx).compareTo(pivot) < 0 :
-				list.get(idx).compareTo(pivot) > 0;
-
 	}
 
 }

@@ -86,7 +86,7 @@ public class Officer extends Character {
 
 	@Override
 	public String toString() {
-		return super.toString() + " weapon=" + weapon.getValue() + " Weapons " + weapons.toString();
+		return super.toString() + " weapon=" + weapon.getValue() + " Weapons " + getWeapons().toString();
 	}
 
 }

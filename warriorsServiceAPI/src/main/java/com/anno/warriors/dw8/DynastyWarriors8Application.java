@@ -5,6 +5,7 @@ import com.anno.warriors.dw8.manager.DW8Manager;
 public class DynastyWarriors8Application {
 
 	private static DynastyWarriors8Application instance;
+//	private DynastyWarriors8Object<DW8Manager> manager;
 
 	public static DynastyWarriors8Application getInstance() {
 		if (instance == null) {
@@ -22,11 +23,12 @@ public class DynastyWarriors8Application {
 		 * Static Service that reads all files when app starts
 		 */
 		run();
-		
+
 	}
-	
+
 	private void run() {
 		DW8Manager.getInstance();
+
 	}
 
 }

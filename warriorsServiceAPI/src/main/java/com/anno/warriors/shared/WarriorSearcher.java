@@ -33,10 +33,10 @@ public class WarriorSearcher<T extends Comparable<T>> {
 		int high = list.size() - 1;
 		while (low <= high) {
 			int mid = (low + high) / 2;
-			if (keyObj.compareTo(parseCharacterObjectToGetName(mid)) == 0) {
+			if (keyObj.compareTo(parseToStringObjectToString(mid)) == 0) {
 				return mid;
 			}
-			if (keyObj.compareTo(parseCharacterObjectToGetName(mid)) < 0) {
+			if (keyObj.compareTo(parseToStringObjectToString(mid)) < 0) {
 				high = mid - 1;
 			} else {
 				low = mid + 1;
@@ -53,11 +53,14 @@ public class WarriorSearcher<T extends Comparable<T>> {
 	public List<T> search(String object) {
 		List<T> temp = new ArrayList<>();
 		int idx = binarySearch(list, object);
+		if (idx < 0) {
+			return new ArrayList<>();
+		}
 		temp.add(list.get(idx));
 		return binaryResultDuplicate(idx, object, temp);
 	}
 
-	private String parseCharacterObjectToGetName(int idx) {
+	private String parseToStringObjectToString(int idx) {
 		String[] parsedStr = list.get(idx).toString().split(",");
 		String[] parsedEquals = parsedStr[0].split("=");
 		return parsedEquals[1];
@@ -65,9 +68,9 @@ public class WarriorSearcher<T extends Comparable<T>> {
 
 	private List<T> binaryResultDuplicate(int idx, String object, List<T> temp) {
 		int i = idx++;
-		if (idx != -1 && parseCharacterObjectToGetName(i).compareTo(object) == 0) {
+		if (idx != -1 && parseToStringObjectToString(i).compareTo(object) == 0) {
 			temp = new ArrayList<>();
-			while (i < list.size() - 1 && parseCharacterObjectToGetName(i).compareTo(object) == 0) {
+			while (i < list.size() - 1 && parseToStringObjectToString(i).compareTo(object) == 0) {
 				temp.add(list.get(i));
 				i++;
 			}
