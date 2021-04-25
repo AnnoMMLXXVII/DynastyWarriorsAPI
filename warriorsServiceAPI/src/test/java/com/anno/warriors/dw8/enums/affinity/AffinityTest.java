@@ -14,6 +14,11 @@ class AffinityTest {
 	void setUp() throws Exception {
 		expected = Affinity.HEAVEN;
 	}
+	
+	@Test
+	void testAffinityEnumStateNameMatchesExpected() {
+		assertEquals("Affinity", expected.getState());
+	}
 
 	@Test
 	void testAffinitySizeIsThree() {
