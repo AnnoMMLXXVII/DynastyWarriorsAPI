@@ -1,0 +1,22 @@
+Waterfall, 14, Man, 1, Flail
+Spiralchain, 19, Heaven, 2, Flail
+Soundshredder, 18, Heaven, 1, Podao
+Windstinger, 22, Earth, 2, Podao
+Tempest, 23, Heaven, 1, Twin Pike
+Wildheart, 28, Man, 2, Twin Pike
+Reincarnation, 25, Man, 2, General's Sword
+Chariotstrike, 28, Heaven, 3, General's Sword
+Earthshatter, 18, Heaven, 1, Nine Rings Blade
+Infinite Void, 22, Earth, 2, Nine Rings Blade
+Whirldwind Edge, 31, Heaven, 1, Double-Edge Trident
+Tigerwolf Fang, 31, Man, 3, Double-Edge Trident
+Fiery Desire, 24, Earth, 2, Short Rod
+Solemn Echo, 28, Man, 3, Short Rod
+Light Beam, 18, Man, 1, Javelin
+Sudden Flash, 31, Heaven, 3, Javelin
+Guiding Fire, 17, Earth, 1, Flaming Sword
+Vortex of Flame, 24, Man, 2, Flaming Sword
+Heaven's Door, 16, Earth, 1, Crossed Pike
+Gust of Wind, 30, Heaven, 3, Crossed Pike
+Avian Bonds, 18, Man, 1, Mandarin Duck Hooks
+Grindstone Fangs, 22, Earth, 2, Mandarin Duck Hooks

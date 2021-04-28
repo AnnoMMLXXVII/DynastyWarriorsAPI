@@ -9,35 +9,39 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import com.anno.warriors.dw8.characters.CharacterInterface;
-import com.anno.warriors.dw8.characters.Officer;
-import com.anno.warriors.dw8.characters.SubOfficer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.anno.warriors.dw8.characters.model.Character;
+import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.characters.model.Officer;
+import com.anno.warriors.dw8.characters.model.SubOfficer;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
-import com.anno.warriors.dw8.manager.MappingObjects;
+import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
+import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 public class CharacterParseManager implements DynastyWarriors8Object<CharacterParseManager> {
 
-	private static CharacterParseManager instance;
-	private static List<CharacterInterface> officers = new ArrayList<>();
-	private static List<CharacterInterface> subOfficers = new ArrayList<>();
-	private static List<CharacterInterface> characters = new ArrayList<>();
-	private static Map<Kingdom, List<CharacterInterface>> kingdomCharacterMap = new HashMap<>();
+	private static Logger logger = LoggerFactory.getLogger(CharacterParseManager.class);
+
+	private static DynastyWarriors8Object<CharacterParseManager> instance;
+	private static List<CharacterInterface<Character>> officers = new ArrayList<>();
+	private static List<CharacterInterface<Character>> subOfficers = new ArrayList<>();
+	private static List<CharacterInterface<Character>> characters = new ArrayList<>();
+	private static Map<Kingdom, List<CharacterInterface<Character>>> kingdomCharacterMap = new HashMap<>();
 
 	public static DynastyWarriors8Object<CharacterParseManager> getInstance() {
 		if (instance == null) {
 			synchronized (CharacterParseManager.class) {
 				if (instance == null) {
+					logger.info("CharacterParseManager instantiated");
 					return new CharacterParseManager();
 				}
 			}
 		}
 		return instance;
-	}
-
-	public static void main(String... args) {
-		new CharacterParseManager();
 	}
 
 	private CharacterParseManager() {
@@ -50,50 +54,53 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 		 */
 		parseCharacters(DW8StaticObjects.getAllOfficerPathList());
 		parseCharacters(DW8StaticObjects.getAllSubOfficerPathList());
+		logger.info("Finished parsing all Characters");
 	}
 
 	@Override
-	public CharacterParseManager getManagerType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
-	public static List<CharacterInterface> getCharacters() {
+	public static List<CharacterInterface<Character>> getCharacters() {
 		return characters;
 	}
 
-	public static List<CharacterInterface> getOfficers() {
+	public static List<CharacterInterface<Character>> getOfficers() {
 		return officers;
 	}
 
-	public static List<CharacterInterface> getSubOfficers() {
+	public static List<CharacterInterface<Character>> getSubOfficers() {
 		return subOfficers;
 	}
 
-	public static Map<Kingdom, List<CharacterInterface>> getKingdomCharacterMap() {
+	public static Map<Kingdom, List<CharacterInterface<Character>>> getKingdomCharacterMap() {
 		return kingdomCharacterMap;
 	}
 
 	private static void parseCharacters(String[] paths) {
 		File file = null;
-		MappingObjects<Kingdom, List<CharacterInterface>, CharacterInterface> kingdomCharacterMappingObject = new MappingObjects<>(
+		MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject = new MappingObjectsWithReference<>(
 				kingdomCharacterMap);
 		if (isOfficer(paths[0])) {
 			for (String s : paths) {
 				file = new File(s);
 				readOfficerFile(file, kingdomCharacterMappingObject);
+				logger.info("parsed officers from " + s);
 			}
 			characters.addAll(officers);
 		} else {
 			for (String s : paths) {
 				file = new File(s);
 				readSubOfficerFile(file, kingdomCharacterMappingObject);
+				logger.info("parsed subofficers from " + s);
 			}
 			characters.addAll(subOfficers);
 		}
 	}
 
 	private static void readOfficerFile(File file,
-			MappingObjects<Kingdom, List<CharacterInterface>, CharacterInterface> kingdomCharacterMappingObject) {
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String line = "";
 			String[] lineArr;
@@ -108,11 +115,11 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	}
 
 	private static void parseOfficer(String[] arr,
-			MappingObjects<Kingdom, List<CharacterInterface>, CharacterInterface> kingdomCharacterMappingObject) {
-		CharacterInterface officer;
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		Kingdom kingdom = Kingdom.returnCorrectEnum(arr[1].trim());
 		// Instantiate and init officer Object with correct fields from lineArr
-		officer = new Officer(arr[0].trim(), kingdom, arr[2].trim());
+		CharacterInterface<Character> officer = new Officer(arr[0].trim(), kingdom,
+				Types.returnCorrectEnum(arr[2].trim()));
 		// Create a List of All Officers
 		officers.add(officer);
 //		Create Map Kingdom-List<Officer> Key-Value
@@ -120,7 +127,7 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	}
 
 	private static void readSubOfficerFile(File file,
-			MappingObjects<Kingdom, List<CharacterInterface>, CharacterInterface> kingdomCharacterMappingObject) {
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			String line = "";
 			String[] lineArr;
@@ -135,10 +142,9 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	}
 
 	private static void parseSubOfficer(String[] arr, Kingdom kingdom,
-			MappingObjects<Kingdom, List<CharacterInterface>, CharacterInterface> kingdomCharacterMappingObject) {
-		CharacterInterface subOfficer;
+			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		// Instantiate and init officer Object with correct fields from lineArr
-		subOfficer = new SubOfficer(arr[0].trim(), kingdom);
+		CharacterInterface<Character> subOfficer = new SubOfficer(arr[0].trim(), kingdom);
 		// Create a List of All Officers
 		subOfficers.add(subOfficer);
 //		Create Map Kingdom-List<Officer> Key-Value

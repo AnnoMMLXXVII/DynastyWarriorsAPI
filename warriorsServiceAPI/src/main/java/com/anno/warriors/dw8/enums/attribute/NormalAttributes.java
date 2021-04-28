@@ -1,7 +1,5 @@
 package com.anno.warriors.dw8.enums.attribute;
 
-import com.anno.warriors.dw8.enums.DW8Enumeration;
-
 public enum NormalAttributes implements AttributeInterface {
 
 	THORNS("Thorns", "Inflicts a portion of damage received against the enemy"),
@@ -56,12 +54,12 @@ public enum NormalAttributes implements AttributeInterface {
 
 	@Override
 	public String getName() {
-		return name();
+		return name;
 	}
 
 	@Override
-	public DW8Enumeration<AttributeInterface> getManagerType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	@Override
@@ -76,7 +74,7 @@ public enum NormalAttributes implements AttributeInterface {
 
 	public static AttributeInterface returnCorrectEnum(String str) {
 		for (NormalAttributes a : values()) {
-			if (a.name().equalsIgnoreCase(str)) {
+			if (a.getName().equalsIgnoreCase(str)) {
 				return a;
 			}
 		}

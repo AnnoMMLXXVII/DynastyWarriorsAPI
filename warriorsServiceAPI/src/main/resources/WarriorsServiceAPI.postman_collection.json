@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "2f000dd9-081d-4477-b8f7-22d40a35a2c6",
+		"name": "WarriorsServiceAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/health-check",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"health-check"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Character By Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters?name=Zhao Yun",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Zhao Yun"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon Names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/names/",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"names",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon by Stars",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=2",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"search",
+						"stars"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon By Names",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/search/names?value=Dark Dragon Spear",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"search",
+						"names"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "Dark Dragon Spear"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon By Attack Power",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/search/power?low=55&high=70",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"search",
+						"power"
+					],
+					"query": [
+						{
+							"key": "low",
+							"value": "55"
+						},
+						{
+							"key": "high",
+							"value": "70"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Officers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/officers",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"officers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Officers By Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/officers/search/name?name=Xiahou Dun",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"officers",
+						"search",
+						"name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Xiahou Dun"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Officers By Weapon Type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/officers/search/type?type=Great Sword",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"officers",
+						"search",
+						"type"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Great Sword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubOfficers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/subOfficers",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"subOfficers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SubOfficers By Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/subOfficers/search/name?name=Zhang Yi, Sun Qian, Guo Shi, Guo Si",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"subOfficers",
+						"search",
+						"name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Zhang Yi, Sun Qian, Guo Shi, Guo Si"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "73b11c5a-2af3-462f-a59f-d42fcdd782c7",
+			"key": "warriorsHost",
+			"value": "http://localhost:8080/api/v1/"
+		}
+	]
+}

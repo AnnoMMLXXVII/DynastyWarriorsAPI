@@ -12,27 +12,28 @@ public enum Rarity implements DW8Enumeration<Rarity> {
 		this.value = value;
 	}
 
+	public String getFormatedString() {
+		String firstLetter = value.substring(0, 1).toUpperCase();
+		String latter = value.substring(1, value.length());
+		return firstLetter + latter;
+	}
+
 	@Override
 	public String getValue() {
 		return value;
 	}
 
 	@Override
-	public DW8Enumeration<Rarity> getManagerType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public static Rarity returnCorrectEnum(String str) {
-		if (str.equals(Rarity.NORMAL.getValue())) {
-			return Rarity.NORMAL;
-		} else if (str.equals(Rarity.RARE.getValue())) {
-			return Rarity.RARE;
-		} else if (str.equals(Rarity.UNIQUE.getValue())) {
-			return Rarity.UNIQUE;
-		} else if (str.equals(Rarity.EXTREME.getValue())) {
-			return Rarity.EXTREME;
-		} else {
-			return Rarity.SPECIAL;
+		for (Rarity r : values()) {
+			if (r.getValue().equals(str)) {
+				return r;
+			}
 		}
+		return null;
 	}
 }

@@ -18,19 +18,16 @@ public enum Category implements DW8Enumeration<Category> {
 	}
 
 	@Override
-	public DW8Enumeration<Category> getManagerType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	public static Category returnCorrectEnum(String str) {
-		if (str.equals(Category.WHIRLD_WIND.getValue())) {
-			return Category.WHIRLD_WIND;
-		} else if (str.equals(Category.DASHER.getValue())) {
-			return Category.DASHER;
-		} else if (str.equals(Category.SHADOW_SPRINTER.getValue())) {
-			return Category.SHADOW_SPRINTER;
-		} else {
-			return Category.DIVER;
+		for (Category c : values()) {
+			if (c.getValue().equalsIgnoreCase(str.trim())) {
+				return c;
+			}
 		}
+		return null;
 	}
 }

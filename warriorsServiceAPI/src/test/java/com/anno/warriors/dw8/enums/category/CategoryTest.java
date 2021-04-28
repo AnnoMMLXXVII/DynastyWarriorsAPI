@@ -1,10 +1,11 @@
 package com.anno.warriors.dw8.enums.category;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class CategoryTest {
 
@@ -13,6 +14,11 @@ class CategoryTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		expected = Category.DASHER;
+	}
+
+	@Test
+	void testCategoryEnumStateNameMatchesExpected() {
+		assertEquals("Category", expected.getState());
 	}
 
 	@Test
@@ -47,6 +53,11 @@ class CategoryTest {
 	@Test
 	void testCategoryDoesNotMatchesExpected() {
 		assertNotEquals(Category.returnCorrectEnum("diver"), expected);
+	}
+	
+	@Test
+	void testCategoryReturnsNull() {
+		assertNull(Category.returnCorrectEnum(""));
 	}
 
 	@Test

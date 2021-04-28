@@ -5,12 +5,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.anno.warriors.dw8.characters.CharacterInterface;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.anno.warriors.dw8.characters.model.Character;
+import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
+import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
+import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.files.ParsingFiles;
 import com.anno.warriors.dw8.manager.images.ParsingImages;
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.anno.warriors.dw8.weapons.model.Weapon;
+import com.anno.warriors.dw8.weapons.model.WeaponInterface;
+import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 
 /*
  * Class will deal w/ various data structures that 
@@ -19,6 +29,8 @@ import com.anno.warriors.dw8.shared.DW8Constants;
  * 
  */
 public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
+
+	private static Logger logger = LoggerFactory.getLogger(DW8Structures.class);
 
 	private static DynastyWarriors8Object<DW8Structures> instance;
 	private static Map<String, String> attributePath = new HashMap<>();
@@ -31,10 +43,17 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	private static Map<String, Map<String, String>> allPaths = new HashMap<>();
 	private static Map<String, List<String>> officerImages = new HashMap<>();
 	private static Map<OfficerKingdomKey, List<String>> weaponImages = new HashMap<>();
-	private static List<CharacterInterface> officers = new ArrayList<>();
-	private static List<CharacterInterface> subOfficers = new ArrayList<>();
-	private static List<CharacterInterface> characters = new ArrayList<>();
-	private static Map<Kingdom, List<CharacterInterface>> kingdomCharacterMap = new HashMap<>();
+	private static Map<String, String> weaponNamePathMap = new HashMap<>();
+	private static List<String> weaponNames = new ArrayList<>();
+	private static List<CharacterInterface<Character>> officers = new ArrayList<>();
+	private static List<CharacterInterface<Character>> subOfficers = new ArrayList<>();
+	private static List<CharacterInterface<Character>> characters = new ArrayList<>();
+	private static Map<Kingdom, List<CharacterInterface<Character>>> kingdomCharacterMap = new HashMap<>();
+	private static Map<WeaponName_TypesAttributesKey, List<AttributeSlot>> weapNameTypesKeyAttributesMap = new HashMap<>();
+	private static List<WeaponInterface<Weapon>> weapons = new ArrayList<>();
+	private static Map<Category, List<WeaponInterface<Weapon>>> categoryWeaponsMap = new HashMap<>();
+	private static Map<Types, List<WeaponInterface<Weapon>>> typesWeaponListMap = new HashMap<>();
+	private static Map<String, List<WeaponInterface<Weapon>>> weaponNameWeaponsMap = new HashMap<>();
 
 	private static final String NORMAL_STR = "normal";
 	private static final String UNIQUE_STR = "unqiue";
@@ -46,6 +65,7 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		if (instance == null) {
 			synchronized (DW8Structures.class) {
 				if (instance == null) {
+					logger.info("DW8Structures instantiated");
 					return new DW8Structures();
 				}
 			}
@@ -56,6 +76,8 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	private DW8Structures() {
 		mapPathFromConstants();
 		mapCharacterFiles();
+		mapWeaponsAndAttributes();
+
 	}
 
 	public static Map<String, String> getAttributePath() {
@@ -94,41 +116,75 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		return weaponImages;
 	}
 
+	public static Map<String, String> getMappedWeaponImagesPathMap() {
+		return weaponNamePathMap;
+	}
+
 	public static Map<String, Map<String, String>> getAllPaths() {
 		return allPaths;
 	}
 
-	public static List<CharacterInterface> getOfficers() {
+	public static List<CharacterInterface<Character>> getOfficers() {
 		return officers;
 	}
 
-	public static List<CharacterInterface> getSubOfficers() {
+	public static List<CharacterInterface<Character>> getSubOfficers() {
 		return subOfficers;
 	}
 
-	public static List<CharacterInterface> getCharacters() {
+	public static List<CharacterInterface<Character>> getCharacters() {
 		return characters;
 	}
 
-	public static Map<Kingdom, List<CharacterInterface>> getKingdomCharacterMap() {
+	public static Map<Kingdom, List<CharacterInterface<Character>>> getKingdomCharacterMap() {
 		return kingdomCharacterMap;
 	}
 
+	public static Map<WeaponName_TypesAttributesKey, List<AttributeSlot>> getWeapNameTypesKeyAttributesMap() {
+		return weapNameTypesKeyAttributesMap;
+	}
+
+	public static List<String> getWeaponNames() {
+		return weaponNames;
+	}
+
+	public static List<WeaponInterface<Weapon>> getWeapons() {
+		return weapons;
+	}
+
+	public static Map<Category, List<WeaponInterface<Weapon>>> getCategoryWeaponsMap() {
+		return categoryWeaponsMap;
+	}
+
+	public static Map<Types, List<WeaponInterface<Weapon>>> getTypeWeaponKeyKeyMap() {
+		return typesWeaponListMap;
+	}
+
+	public static Map<String, List<WeaponInterface<Weapon>>> getWeaponNameWeaponsMap() {
+		return weaponNameWeaponsMap;
+	}
+
 	@Override
-	public DW8Structures getManagerType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	private static void mapPathFromConstants() {
 		mapAttributePath();
+		logger.info("Mapped Attributes");
 		mapOfficerPath();
 		mapSubOfficerPath();
+		logger.info("Mapped Characters Paths - Officers-SubOfficers");
 		mapDasherPath();
 		mapDiverPath();
 		mapShadowPath();
 		mapWhirlwindPath();
+		logger.info("Mapped Category Enums");
 		mapOfficerImagePath();
+		logger.info("Mapped Officer Images");
 		mapWeaponImagePath();
+		mapWeaponImagesMapPath();
+		logger.info("Mapped Weapon Images");
 	}
 
 	private static void mapCharacterFiles() {
@@ -136,6 +192,16 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		mapParsedOfficers();
 		mapParsedSubOfficers();
 		mapParsedKingdomCharactersMap();
+		logger.info("Mapped Characters - Officers-SubOfficers");
+	}
+
+	private static void mapWeaponsAndAttributes() {
+		mapParsedWeaponsMap();
+		mapWeaponNamesList();
+		mapWeaponsList();
+		mapCategoryWeaponsMap();
+		mapTypesWeaponListMap();
+		mapWeaponNameWeaponsMap();
 	}
 
 	private static void mapAttributePath() {
@@ -206,6 +272,10 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		weaponImages = ParsingImages.getWeaponImages();
 	}
 
+	private static void mapWeaponImagesMapPath() {
+		weaponNamePathMap = ParsingImages.getWeaponNamePathMap();
+	}
+
 	private static void mapParsedCharacters() {
 		characters = ParsingFiles.getAllCharacters();
 	}
@@ -215,11 +285,35 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	}
 
 	private static void mapParsedSubOfficers() {
-		subOfficers = ParsingFiles.getAllOfficers();
+		subOfficers = ParsingFiles.getAllSubOfficers();
 	}
 
 	private static void mapParsedKingdomCharactersMap() {
 		kingdomCharacterMap = ParsingFiles.getMappedKingdomCharacters();
+	}
+
+	private static void mapParsedWeaponsMap() {
+		weapNameTypesKeyAttributesMap = ParsingFiles.getWeapNameTypesKeyAttributesMap();
+	}
+
+	private static void mapWeaponNamesList() {
+		weaponNames = ParsingFiles.getAllWeaponNames();
+	}
+
+	private static void mapWeaponsList() {
+		weapons = ParsingFiles.getWeaponsList();
+	}
+
+	private static void mapCategoryWeaponsMap() {
+		categoryWeaponsMap = ParsingFiles.getCategoryWeaponsMap();
+	}
+
+	private static void mapTypesWeaponListMap() {
+		typesWeaponListMap = ParsingFiles.getTypesWeaponListMap();
+	}
+
+	private static void mapWeaponNameWeaponsMap() {
+		weaponNameWeaponsMap = ParsingFiles.getWeaponNameWeaponsMap();
 	}
 
 }

@@ -3,8 +3,6 @@
  */
 package com.anno.warriors.dw8.enums.attribute;
 
-import com.anno.warriors.dw8.enums.DW8Enumeration;
-
 /**
  * @author venividivicihofneondeion010101
  *
@@ -14,7 +12,7 @@ public enum SpecialAttributes implements AttributeInterface {
 	AWARENESS("Awareness", "Can block attacks from the rear"),
 	DESPERATION("Desperation", "Doubles attack power when in critical condition"),
 	RESOLVE("Resolve", "Doubles defense power when in critical condition"),
-	SWITFTNESS("Switftness", "Doubles movement speed when in critical condition"),
+	SWIFTNESS("Swiftness", "Doubles movement speed when in critical condition"),
 	AGILITY("Agility", "Releases a damaging war cry when recovering from an attack in mid-air"),
 	GREED("Greed", "Produces money by attack blocking enemies"),
 	FURY("Fury", "Enables the use of True Mosou regardless of health"),
@@ -44,12 +42,12 @@ public enum SpecialAttributes implements AttributeInterface {
 
 	@Override
 	public String getName() {
-		return name();
+		return name;
 	}
 
 	@Override
-	public DW8Enumeration<AttributeInterface> getManagerType() {
-		return this;
+	public String getState() {
+		return this.getClass().getSimpleName();
 	}
 
 	@Override
@@ -64,7 +62,7 @@ public enum SpecialAttributes implements AttributeInterface {
 
 	public static AttributeInterface returnCorrectEnum(String str) {
 		for (SpecialAttributes a : values()) {
-			if (a.name().equalsIgnoreCase(str)) {
+			if (a.getName().equalsIgnoreCase(str)) {
 				return a;
 			}
 		}

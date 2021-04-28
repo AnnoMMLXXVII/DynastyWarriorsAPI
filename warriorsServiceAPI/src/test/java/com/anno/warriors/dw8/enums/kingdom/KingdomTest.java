@@ -14,6 +14,11 @@ class KingdomTest {
 	void setUp() throws Exception {
 		expected = Kingdom.SHU;
 	}
+	
+	@Test
+	void testKingdomEnumStateNameMatchesExpected() {
+		assertEquals("Kingdom", expected.getState());
+	}
 
 	@Test
 	void testKingdomSizeIsFive() {

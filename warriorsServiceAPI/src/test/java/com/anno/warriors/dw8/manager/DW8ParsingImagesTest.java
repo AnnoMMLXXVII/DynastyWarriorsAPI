@@ -1,26 +1,28 @@
 package com.anno.warriors.dw8.manager;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
 import java.util.Map;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.manager.images.ParsingImages;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@TestInstance(Lifecycle.PER_CLASS)
 class DW8ParsingImagesTest {
 
-	@Autowired
+//	@Autowired
 	private DynastyWarriors8Object<ParsingImages> instance;
 
-	@BeforeEach
-	void setUp() throws Exception {
+	@BeforeAll
+	void beforeAll() throws Exception {
 		instance = ParsingImages.getInstance();
 	}
 
@@ -31,7 +33,7 @@ class DW8ParsingImagesTest {
 
 	@Test
 	void testThatInstanceTypeIsTrue() {
-		assertTrue(instance.getManagerType() instanceof ParsingImages);
+		assertEquals(instance.getState(), ("ParsingImages"));
 	}
 
 	@Test
@@ -40,29 +42,27 @@ class DW8ParsingImagesTest {
 	}
 
 	@Test
-	void testThatWepaonImageIsNotEmpty() {
+	void testThatWeaponImageIsNotEmpty() {
 		assertTrue(!ParsingImages.getWeaponImages().isEmpty());
 	}
 
 	@Test
-	void testThatOfficerImageIsTheSameSizeAsDW8Structures() {
-		DW8Structures.getInstance();
+	void testThatOfficerImageSizeEqualsExpected() {
 		Map<String, List<String>> expected = ParsingImages.getOfficerImages();
-		Map<String, List<String>> actual = DW8Structures.getOfficerImages();
-		assertEquals(actual.size(), expected.size());
+//		Map<String, List<String>> actual = DW8Structures.getOfficerImages();
+		assertEquals(65, expected.size());
 	}
 
 	@Test
-	void testThatWeaponImageIsTheSameSizeAsDW8Structures() {
-		DW8Structures.getInstance();
+	void testThatWeaponImageizeEqualsExpected() {
 		Map<OfficerKingdomKey, List<String>> expected = ParsingImages.getWeaponImages();
-		Map<OfficerKingdomKey, List<String>> actual = DW8Structures.getWeaponImages();
-		assertEquals(actual.size(), expected.size());
+//		Map<OfficerKingdomKey, List<String>> actual = DW8Structures.getWeaponImages();
+		assertEquals(83, expected.size());
 	}
 
 	@Test
 	void testThatOfficerWeaponMapIsNotEmpty() {
-		assertTrue(!ParsingImages.getOfficerWeaponMap().isEmpty());
+		assertTrue(!ParsingImages.getWeaponNamePathMap().isEmpty());
 	}
 
 }
