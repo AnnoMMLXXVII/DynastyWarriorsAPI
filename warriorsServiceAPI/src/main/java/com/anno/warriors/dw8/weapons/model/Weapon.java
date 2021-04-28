@@ -71,13 +71,23 @@ public abstract class Weapon implements WeaponInterface<Weapon> {
 	}
 
 	@Override
-	public int compareToByPower(Integer o) {
+	public int compareTo(Integer o) {
 		return this.getPower().compareTo(o);
 	}
 
 	@Override
-	public int compareToByStar(Integer o) {
+	public int compareTo(int o) {
 		return this.getStar().compareTo(o);
+	}
+
+	@Override
+	public int compareTo(Types o) {
+		return this.getType().compareTo(o);
+	}
+
+	@Override
+	public int compareTo(Rarity o) {
+		return this.getRarity().compareTo(o);
 	}
 
 	@Override

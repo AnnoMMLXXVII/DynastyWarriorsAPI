@@ -15,7 +15,7 @@ public class Normal extends Weapon {
 	}
 
 	@Override
-	public int compareToByAffinity(Affinity o) {
+	public int compareTo(Affinity o) {
 		return this.getAffinity().compareTo(o);
 	}
 
@@ -52,7 +52,7 @@ public class Normal extends Weapon {
 
 	@Override
 	public String getState() {
-		return this.getClass().getSimpleName();
+		return this.getRarity().getFormatedString();
 	}
 
 	@Override

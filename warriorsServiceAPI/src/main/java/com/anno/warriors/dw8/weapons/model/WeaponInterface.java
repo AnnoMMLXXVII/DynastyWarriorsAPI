@@ -13,11 +13,15 @@ public interface WeaponInterface<T> extends Comparable<T>, DynastyWarriors8Objec
 
 	public int compareTo(T o);
 
-	public int compareToByPower(Integer o);
+	public int compareTo(Integer o);
 
-	public int compareToByStar(Integer o);
+	public int compareTo(int o);
 
-	public abstract int compareToByAffinity(Affinity o);
+	public abstract int compareTo(Affinity o);
+
+	public int compareTo(Types o);
+
+	public int compareTo(Rarity o);
 
 	public String getName();
 
