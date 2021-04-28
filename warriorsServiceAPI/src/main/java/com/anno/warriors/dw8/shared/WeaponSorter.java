@@ -3,6 +3,7 @@ package com.anno.warriors.dw8.shared;
 import java.util.List;
 
 import com.anno.warriors.dw8.enums.affinity.Affinity;
+import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
@@ -18,6 +19,8 @@ public class WeaponSorter {
 			quickSortByAffinity(this.list, 0, this.list.size() - 1);
 		} else if (sortBy.equals(DW8Constants.SortBy.STAR)) {
 			quickSortByStar(this.list, 0, this.list.size() - 1);
+		} else if (sortBy.equals(DW8Constants.SortBy.TYPES)) {
+			quickSortByType(this.list, 0, this.list.size() - 1);
 		} else {
 			quickSort(this.list, 0, this.list.size() - 1);
 		}
@@ -41,10 +44,10 @@ public class WeaponSorter {
 	}
 
 	private int partitionByStar(List<WeaponInterface<Weapon>> list, int low, int high) {
-		Integer pivot = list.get(high).getStar();
+		int pivot = list.get(high).getStar();
 		int i = low - 1;
 		for (int j = low; j <= high - 1; j++) {
-			if (list.get(j).compareToByStar(pivot) < 0) {
+			if (list.get(j).compareTo(pivot) < 0) {
 				i++;
 				swap(list, i, j);
 			}
@@ -57,7 +60,7 @@ public class WeaponSorter {
 		Affinity pivot = list.get(high).getAffinity();
 		int i = low - 1;
 		for (int j = low; j <= high - 1; j++) {
-			if (list.get(j).compareToByAffinity(pivot) < 0) {
+			if (list.get(j).compareTo(pivot) < 0) {
 				i++;
 				swap(list, i, j);
 			}
@@ -70,7 +73,21 @@ public class WeaponSorter {
 		Integer pivot = list.get(high).getPower();
 		int i = low - 1;
 		for (int j = low; j <= high - 1; j++) {
-			if (list.get(j).compareToByPower(pivot) < 0) {
+			if (list.get(j).compareTo(pivot) < 0) {
+				i++;
+				swap(list, i, j);
+			}
+		}
+		swap(list, i + 1, high);
+		return i + 1;
+	}
+
+	private int partitionByType(List<WeaponInterface<Weapon>> list, int low, int high) {
+		Types pivot = list.get(high).getType();
+		System.out.println("Pivot --> " + pivot);
+		int i = low - 1;
+		for (int j = low; j <= high - 1; j++) {
+			if (list.get(j).compareTo(pivot) < 0) {
 				i++;
 				swap(list, i, j);
 			}
@@ -108,6 +125,14 @@ public class WeaponSorter {
 			int pi = partitionByStar(list, low, high);
 			quickSortByStar(list, low, pi - 1);
 			quickSortByStar(list, pi + 1, high);
+		}
+	}
+
+	private void quickSortByType(List<WeaponInterface<Weapon>> list, int low, int high) {
+		if (low < high) {
+			int pi = partitionByType(list, low, high);
+			quickSortByType(list, low, pi - 1);
+			quickSortByType(list, pi + 1, high);
 		}
 	}
 
