@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "77cdaa78-6ea9-4217-be9d-a4df564bd4bf",
+		"_postman_id": "2f000dd9-081d-4477-b8f7-22d40a35a2c6",
 		"name": "WarriorsServiceAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -49,6 +49,29 @@
 							"key": "",
 							"value": null,
 							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Character By Name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters?name=Zhao Yun",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Zhao Yun"
 						}
 					]
 				}
@@ -105,19 +128,19 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/filter/stars?value=1,5,6",
+					"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=2",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
 					"path": [
 						"weapons",
-						"filter",
+						"search",
 						"stars"
 					],
 					"query": [
 						{
 							"key": "value",
-							"value": "1,5,6"
+							"value": "2"
 						}
 					]
 				}
@@ -130,13 +153,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/filter/names?value=Dark Dragon Spear",
+					"raw": "{{warriorsHost}}dw8/weapons/search/names?value=Dark Dragon Spear",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
 					"path": [
 						"weapons",
-						"filter",
+						"search",
 						"names"
 					],
 					"query": [
@@ -150,51 +173,28 @@
 			"response": []
 		},
 		{
-			"name": "Character By Name",
+			"name": "Weapon By Attack Power",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/characters?name=Zhao Yun",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "Zhao Yun"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Character By Attack Power",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/filter/power?low=50&high=55",
+					"raw": "{{warriorsHost}}dw8/weapons/search/power?low=55&high=70",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
 					"path": [
 						"weapons",
-						"filter",
+						"search",
 						"power"
 					],
 					"query": [
 						{
 							"key": "low",
-							"value": "50"
+							"value": "55"
 						},
 						{
 							"key": "high",
-							"value": "55"
+							"value": "70"
 						}
 					]
 				}
@@ -225,18 +225,46 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/officers?name=Zhao Yun",
+					"raw": "{{warriorsHost}}dw8/characters/officers/search/name?name=Xiahou Dun",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
 					"path": [
 						"characters",
-						"officers"
+						"officers",
+						"search",
+						"name"
 					],
 					"query": [
 						{
 							"key": "name",
-							"value": "Zhao Yun"
+							"value": "Xiahou Dun"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Officers By Weapon Type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/officers/search/type?type=Great Sword",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"officers",
+						"search",
+						"type"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Great Sword"
 						}
 					]
 				}
@@ -267,13 +295,15 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/subOfficers?name=Zhang Yi, Sun Qian, Guo Shi, Guo Si",
+					"raw": "{{warriorsHost}}dw8/characters/subOfficers/search/name?name=Zhang Yi, Sun Qian, Guo Shi, Guo Si",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
 					"path": [
 						"characters",
-						"subOfficers"
+						"subOfficers",
+						"search",
+						"name"
 					],
 					"query": [
 						{
@@ -308,6 +338,7 @@
 	],
 	"variable": [
 		{
+			"id": "73b11c5a-2af3-462f-a59f-d42fcdd782c7",
 			"key": "warriorsHost",
 			"value": "http://localhost:8080/api/v1/"
 		}
