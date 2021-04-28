@@ -48,15 +48,21 @@ public class CharacterController {
 		return new ResponseEntity<>(facade.callingGetCharactersByNames(name), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/officers", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/officers/search/name", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getOfficersByName(
 			@RequestParam(required = true, value = "name") String... name) {
 		return new ResponseEntity<>(facade.callingGetOfficersByNames(name), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/subOfficers", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/subOfficers/search/name", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getSubOfficersByName(
 			@RequestParam(required = true, value = "name") String... name) {
 		return new ResponseEntity<>(facade.callingGetSubOfficersByNames(name), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/officers/search/type", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CharacterInterface<Character>> getOfficersByWeaponType(
+			@RequestParam(required = true, value = "type") String type) {
+		return new ResponseEntity<>(facade.callingGetOfficerByWeaponType(type), HttpStatus.OK);
 	}
 }
