@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.anno.warriors.dw8.enums.affinity.Affinity;
+import com.anno.warriors.dw8.enums.rarity.Rarity;
+import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
@@ -74,7 +76,7 @@ public class WeaponSearcher {
 			List<WeaponInterface<Weapon>> temp) {
 		int i = idx++;
 		if (idx != -1 && parseToStringObjectToString(i).compareTo(object) == 0) {
-			temp = new ArrayList<>();
+//			temp = new ArrayList<>();
 			while (i < list.size() - 1 && parseToStringObjectToString(i).compareTo(object) == 0) {
 				temp.add(list.get(i));
 				i++;
@@ -88,10 +90,10 @@ public class WeaponSearcher {
 		int high = list.size() - 1;
 		while (low <= high) {
 			int mid = (low + high) / 2;
-			if (list.get(mid).compareToByPower(power) == 0) {
+			if (power - list.get(mid).getPower() == 0) {
 				return mid;
 			}
-			if (list.get(mid).compareToByPower(power) < 0) {
+			if (power - list.get(mid).getPower() < 0) {
 				high = mid - 1;
 			} else {
 				low = mid + 1;
@@ -113,9 +115,9 @@ public class WeaponSearcher {
 	private List<WeaponInterface<Weapon>> binaryAttackPowerResultDuplicate(int idx, Integer power,
 			List<WeaponInterface<Weapon>> temp) {
 		int i = idx++;
-		if (idx != -1 && this.list.get(idx).compareToByPower(power) == 0) {
-			temp = new ArrayList<>();
-			while (i < list.size() - 1 && this.list.get(i).compareToByPower(power) == 0) {
+		if (idx != -1 && this.list.get(idx).compareTo(power) == 0) {
+//			temp = new ArrayList<>();
+			while (i < list.size() - 1 && this.list.get(i).compareTo(power) == 0) {
 				temp.add(list.get(i));
 				i++;
 			}
@@ -128,10 +130,10 @@ public class WeaponSearcher {
 		int high = list.size() - 1;
 		while (low <= high) {
 			int mid = (low + high) / 2;
-			if (list.get(mid).compareToByAffinity(affinity) == 0) {
+			if (list.get(mid).compareTo(affinity) == 0) {
 				return mid;
 			}
-			if (list.get(mid).compareToByAffinity(affinity) < 0) {
+			if (list.get(mid).compareTo(affinity) < 0) {
 				high = mid - 1;
 			} else {
 				low = mid + 1;
@@ -153,9 +155,9 @@ public class WeaponSearcher {
 	private List<WeaponInterface<Weapon>> binaryAffinityResultDuplicate(int idx, Affinity affinity,
 			List<WeaponInterface<Weapon>> temp) {
 		int i = idx++;
-		if (idx != -1 && this.list.get(idx).compareToByAffinity(affinity) == 0) {
-			temp = new ArrayList<>();
-			while (i < list.size() - 1 && this.list.get(i).compareToByAffinity(affinity) == 0) {
+		if (idx != -1 && this.list.get(idx).compareTo(affinity) == 0) {
+//			temp = new ArrayList<>();
+			while (i < list.size() - 1 && this.list.get(i).compareTo(affinity) == 0) {
 				temp.add(list.get(i));
 				i++;
 			}
@@ -163,15 +165,15 @@ public class WeaponSearcher {
 		return temp;
 	}
 
-	private int binarySearchByStar(List<WeaponInterface<Weapon>> list, Integer star) {
+	private int binarySearchByStar(List<WeaponInterface<Weapon>> list, int star) {
 		int low = 0;
 		int high = list.size() - 1;
 		while (low <= high) {
 			int mid = (low + high) / 2;
-			if (list.get(mid).compareToByStar(star) == 0) {
+			if (star - list.get(mid).getStar() == 0) {
 				return mid;
 			}
-			if (list.get(mid).compareToByStar(star) < 0) {
+			if (star - list.get(mid).getStar() < 0) {
 				high = mid - 1;
 			} else {
 				low = mid + 1;
@@ -180,7 +182,7 @@ public class WeaponSearcher {
 		return -1;
 	}
 
-	public List<WeaponInterface<Weapon>> searchByStar(Integer star) {
+	public List<WeaponInterface<Weapon>> searchByType(int star) {
 		List<WeaponInterface<Weapon>> temp = new ArrayList<>();
 		int idx = binarySearchByStar(this.list, star);
 		if (idx < 0) {
@@ -190,12 +192,92 @@ public class WeaponSearcher {
 		return binaryStarResultDuplicate(idx, star, temp);
 	}
 
-	private List<WeaponInterface<Weapon>> binaryStarResultDuplicate(int idx, Integer star,
+	private List<WeaponInterface<Weapon>> binaryStarResultDuplicate(int idx, int star,
 			List<WeaponInterface<Weapon>> temp) {
 		int i = idx++;
-		if (idx != -1 && this.list.get(idx).compareToByStar(star) == 0) {
-			temp = new ArrayList<>();
-			while (i < list.size() - 1 && this.list.get(i).compareToByStar(star) == 0) {
+		if (idx != -1 && this.list.get(idx).compareTo(star) == 0) {
+//			temp = new ArrayList<>();
+			while (i < list.size() - 1 && this.list.get(i).compareTo(star) == 0) {
+				temp.add(list.get(i));
+				i++;
+			}
+		}
+		return temp;
+	}
+
+	public List<WeaponInterface<Weapon>> searchByType(Types type) {
+		List<WeaponInterface<Weapon>> temp = new ArrayList<>();
+		int idx = binarySearchByType(this.list, type);
+		if (idx < 0) {
+			return new ArrayList<>();
+		}
+		temp.add(list.get(idx));
+		return binaryTypeResultDuplicate(idx, type, temp);
+	}
+
+	private int binarySearchByType(List<WeaponInterface<Weapon>> list, Types type) {
+		int low = 0;
+		int high = list.size() - 1;
+		while (low <= high) {
+			int mid = (low + high) / 2;
+			if (type.compareTo(list.get(mid).getType()) == 0) {
+				return mid;
+			}
+			if (type.compareTo(list.get(mid).getType()) < 0) {
+				high = mid - 1;
+			} else {
+				low = mid + 1;
+			}
+		}
+		return -1;
+	}
+
+	private List<WeaponInterface<Weapon>> binaryTypeResultDuplicate(int idx, Types type,
+			List<WeaponInterface<Weapon>> temp) {
+		int i = idx++;
+		if (idx != -1 && this.list.get(idx).compareTo(type) == 0) {
+//			temp = new ArrayList<>();
+			while (i < list.size() - 1 && this.list.get(i).compareTo(type) == 0) {
+				temp.add(list.get(i));
+				i++;
+			}
+		}
+		return temp;
+	}
+
+	public List<WeaponInterface<Weapon>> searchByRarity(Rarity rarity) {
+		List<WeaponInterface<Weapon>> temp = new ArrayList<>();
+		int idx = binarySearchByRarity(this.list, rarity);
+		if (idx < 0) {
+			return new ArrayList<>();
+		}
+		temp.add(list.get(idx));
+		return binaryRarityResultDuplicate(idx, rarity, temp);
+	}
+
+	private int binarySearchByRarity(List<WeaponInterface<Weapon>> list, Rarity rarity) {
+		int low = 0;
+		int high = list.size() - 1;
+		while (low <= high) {
+			int mid = (low + high) / 2;
+			if (rarity.compareTo(list.get(mid).getRarity()) == 0) {
+				return mid;
+			}
+			if (rarity.compareTo(list.get(mid).getRarity()) < 0) {
+				high = mid - 1;
+			} else {
+				low = mid + 1;
+			}
+		}
+		return -1;
+	}
+
+	private List<WeaponInterface<Weapon>> binaryRarityResultDuplicate(int idx, Rarity rarity,
+			List<WeaponInterface<Weapon>> temp) {
+		int i = idx++;
+		if (idx != -1 && this.list.get(idx).compareTo(rarity) == 0) {
+//			temp = new ArrayList<>();
+			while (i < list.size() - 1 && this.list.get(i).compareTo(rarity) == 0) {
 				temp.add(list.get(i));
 				i++;
 			}
