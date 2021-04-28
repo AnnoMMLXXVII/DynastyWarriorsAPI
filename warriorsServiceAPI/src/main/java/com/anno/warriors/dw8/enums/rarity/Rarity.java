@@ -12,6 +12,12 @@ public enum Rarity implements DW8Enumeration<Rarity> {
 		this.value = value;
 	}
 
+	public String getFormatedString() {
+		String firstLetter = value.substring(0, 1).toUpperCase();
+		String latter = value.substring(1, value.length());
+		return firstLetter + latter;
+	}
+
 	@Override
 	public String getValue() {
 		return value;
@@ -23,16 +29,11 @@ public enum Rarity implements DW8Enumeration<Rarity> {
 	}
 
 	public static Rarity returnCorrectEnum(String str) {
-		if (str.equalsIgnoreCase(Rarity.NORMAL.getValue())) {
-			return Rarity.NORMAL;
-		} else if (str.equalsIgnoreCase(Rarity.RARE.getValue())) {
-			return Rarity.RARE;
-		} else if (str.equalsIgnoreCase(Rarity.UNIQUE.getValue())) {
-			return Rarity.UNIQUE;
-		} else if (str.equalsIgnoreCase(Rarity.EXTREME.getValue())) {
-			return Rarity.EXTREME;
-		} else {
-			return Rarity.SPECIAL;
+		for (Rarity r : values()) {
+			if (r.getValue().equals(str)) {
+				return r;
+			}
 		}
+		return null;
 	}
 }
