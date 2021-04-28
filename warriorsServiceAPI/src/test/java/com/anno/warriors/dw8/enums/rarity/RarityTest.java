@@ -1,10 +1,10 @@
 package com.anno.warriors.dw8.enums.rarity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class RarityTest {
 
@@ -14,7 +14,7 @@ class RarityTest {
 	void setUp() throws Exception {
 		expected = Rarity.NORMAL;
 	}
-	
+
 	@Test
 	void testRarityEnumStateNameMatchesExpected() {
 		assertEquals("Rarity", expected.getState());
