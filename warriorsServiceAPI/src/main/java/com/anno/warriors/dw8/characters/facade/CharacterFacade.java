@@ -1,6 +1,7 @@
 package com.anno.warriors.dw8.characters.facade;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,13 @@ public class CharacterFacade implements CharacterFacadeInterface {
 		List<CharacterInterface<Character>> returnedList = dao.getCharactersByName(DW8Structures.getSubOfficers(),
 				name);
 		return new WarriorSorter(returnedList).getSortedList();
+	}
+
+	@Override
+	public CharacterInterface<Character> callingGetOfficerByWeaponType(String type) {
+		Optional<CharacterInterface<Character>> opt = dao.getOfficerByWeaponType(DW8Structures.getOfficers(), type);
+		CharacterInterface<Character> temp = null;
+		return (opt.isPresent()) ? opt.get() : temp;
 	}
 
 }
