@@ -2,6 +2,7 @@ package com.anno.warriors.dw8.characters.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DW8Structures;
 import com.anno.warriors.shared.WarriorSearcher;
 import com.anno.warriors.shared.WarriorSorter;
@@ -51,6 +53,12 @@ public class CharacterDAO implements CharacterDAOInterface {
 				list.add(c);
 		}
 		return list;
+	}
+
+	@Override
+	public Optional<CharacterInterface<Character>> getOfficerByWeaponType(List<CharacterInterface<Character>> paramList,
+			String type) {
+		return paramList.stream().filter(e -> e.getWeaponType().equals(Types.returnCorrectEnum(type))).findFirst();
 	}
 
 }
