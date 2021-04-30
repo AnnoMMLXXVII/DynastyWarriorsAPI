@@ -1,0 +1,12 @@
+Pictures File Naming conventions
+	[4_Star_Weapon_Name]-4-[Character Last Name].png
+	- Camel Case
+
+This folder shall hold all 4-star weapon pictures for the DW8XL
+
+Other folders Shu, Wei, Wu, Jin, Other shall help separate the weapons
+with respect to their Kingdom. 
+
+Credit to All Pictures and Information :
+
+https://koei.fandom.com/wiki/Dynasty_Warriors_8/Weapons#Dive_Weapons 
