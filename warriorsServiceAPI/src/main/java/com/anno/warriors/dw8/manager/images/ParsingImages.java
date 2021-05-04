@@ -4,14 +4,18 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.anno.warriors.dw8.characters.model.Character;
+import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
+import com.anno.warriors.dw8.manager.files.CharacterParseManager;
 import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
@@ -24,6 +28,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	private static Map<String, String> weaponNamePathMap = new HashMap<>();
 	private static Map<OfficerKingdomKey, List<String>> weaponImages = new HashMap<>();
 	private static Map<OfficerKingdomKey, Map<String, String>> officerNameToWeaponName = new HashMap<>();
+	private static Map<Kingdom, List<CharacterInterface<Character>>> mappedCharsByKingom;
 	private String weaponName;
 	private String key;
 
@@ -38,6 +43,12 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		}
 		return instance;
 	}
+
+//	public static void main(String args[]) {
+////		CharacterParseManager.getInstance();
+////		mappedCharsByKingom = CharacterParseManager.getKingdomCharacterMap();
+//		new ParsingImages();
+//	}
 
 	private ParsingImages() {
 		readOfficerImageFolder();
@@ -67,7 +78,8 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		File folder = new File(DW8Constants.OFFICER_IMAGES_PATH);
 		File[] file = folder.listFiles();
 		String shortName = "";
-		MappingObjectsWithReference<String, List<String>, String> mappingObject = new MappingObjectsWithReference<>(officerImages);
+		MappingObjectsWithReference<String, List<String>, String> mappingObject = new MappingObjectsWithReference<>(
+				officerImages);
 		for (int i = 0; i < file.length; i++) {
 			shortName = formatOfficerImageFileNameForKey(file[i].getName());
 			mappingObject.mapKeyValueWithList(shortName, file[i].getPath());
@@ -83,6 +95,10 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	}
 
 	private void readWeaponImagesFolder() {
+		readWeaponsImagesByPath(DW8StaticObjects.getOneStarPathWeaponImageList());
+		readWeaponsImagesByPath(DW8StaticObjects.getTwoStarPathWeaponImageList());
+		readWeaponsImagesByPath(DW8StaticObjects.getThreeStarPathWeaponImageList());
+		readWeaponsImagesByPath(DW8StaticObjects.getFourStarPathWeaponImageList());
 		readWeaponsImagesByPath(DW8StaticObjects.getFiveStarPathWeaponImageList());
 		readWeaponsImagesByPath(DW8StaticObjects.getSixStarPathWeaponImageList());
 	}
@@ -91,11 +107,15 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		File folder = null;
 		File[] file = null;
 		Kingdom kingdom;
-		MappingObjectsWithReference<OfficerKingdomKey, List<String>, String> imageMappingObject = new MappingObjectsWithReference<>(weaponImages);
+		MappingObjectsWithReference<OfficerKingdomKey, List<String>, String> imageMappingObject = new MappingObjectsWithReference<>(
+				weaponImages);
 //		MappingObjects<OfficerKingdomKey, Map<String, String>, String> officerWeaponNameMappingObject = new MappingObjects<>(
 //				officerNameToWeaponName);
 		for (String s : paths) {
 			kingdom = getKingdomFromPath(s);
+//			List<CharacterInterface<Character>> characters = mappedCharsByKingom.get(kingdom);
+//			Optional<CharacterInterface<Character>> opt = null;
+//			CharacterInterface<Character> character = null;
 			folder = new File(s);
 			file = folder.listFiles();
 			for (int i = 0; i < file.length; i++) {
@@ -103,12 +123,28 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 				imageMappingObject.mapKeyValueWithList(new OfficerKingdomKey(key, kingdom), file[i].getPath());
 //				officerWeaponNameMappingObject.mapKeyValueWithMap(new OfficerKingdomKey(key, kingdom), weaponName,
 //						file[i].getPath());
+				String fileLastName = formatWeaponImageFileNameToGetLastName(file[i].getName());
+//				characters.forEach(e -> System.out.printf("%s, ", getCharactersLastName(e.getName())));
+//				System.out.println();
+//				opt = characters.stream().filter(e -> getCharactersLastName(e.getName()).equals(fileLastName))
+//						.findFirst();
+//				if (opt.isPresent()) {
+//					character = opt.get();
+//					System.out.printf("[%d]\t%-5s - %-18s - %s : %s\n", i, kingdom, weaponName, character.getName(),
+//							fileLastName);
+//				} else {
+//					System.out.printf("[%d]\t%-5s - %-18s - %s\n", i, kingdom, weaponName, fileLastName);
+//				}
 				weaponNamePathMap.put(weaponName, file[i].getPath());
 			}
-//			weaponImages = imageMappingObject.getMapObject();
+			weaponImages = imageMappingObject.getMapObject();
 //			officerNameToWeaponName = officerWeaponNameMappingObject.getMapObject();
 			logger.info("Parsed Images from " + s);
 		}
+	}
+
+	private String getCharactersLastName(String lastName) {
+		return (lastName.contains(" ")) ? lastName.split(" ")[1].trim() : lastName.trim();
 	}
 
 	private String formatWeaponImageFileName(String fileName) {
@@ -116,6 +152,12 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		String[] splitByHyphen = splitByPeriod[0].split("-");
 		key = splitByHyphen[splitByHyphen.length - 1];
 		return formatWeaponNameConditionally(splitByHyphen[0]).trim();
+	}
+
+	private String formatWeaponImageFileNameToGetLastName(String fileName) {
+		String[] splitByPeriod = fileName.split("\\.");
+		String[] splitByHyphen = splitByPeriod[0].split("-");
+		return splitByHyphen[splitByHyphen.length - 1].trim();
 	}
 
 	private String formatWeaponNameConditionally(String preFormattedName) {
