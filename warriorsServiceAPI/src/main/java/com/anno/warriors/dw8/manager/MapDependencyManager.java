@@ -1,5 +1,6 @@
 package com.anno.warriors.dw8.manager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,18 +41,32 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 		return this.getClass().getSimpleName();
 	}
 
+	@SuppressWarnings("null")
 	private static void mapWeaponImageToWeapons() {
 		List<String> weaponNames = DW8Structures.getWeaponNames();
 		Map<String, String> weaponImages = DW8Structures.getMappedWeaponImagesPathMap();
 		Map<String, List<WeaponInterface<Weapon>>> weaponsMapped = DW8Structures.getWeaponNameWeaponsMap();
-		List<WeaponInterface<Weapon>> weapons;
+		List<WeaponInterface<Weapon>> weapons = new ArrayList<>();
 
-		for (String s : weaponNames) {
+//		weaponImages.keySet().forEach(e -> System.out.print(e + " "));
+
+		for (String s : weaponImages.keySet()) {
+			System.out.printf("Mapping for --> %s ", s);
 			weapons = weaponsMapped.get(s);
-			for (WeaponInterface<Weapon> w : weapons) {
-				if (w.getName().equalsIgnoreCase(s)) {
-					w.setImage(weaponImages.get(s));
+			if (weapons != null) {
+				if (weapons.isEmpty()) {
+					System.err.printf(":: ![%s] NOT FOUND\n", s);
+				} else {
+					System.out.printf(":: [%s] || ", weapons.get(0).getName());
+					for (WeaponInterface<Weapon> w : weapons) {
+						if (w.getName().equals(s)) {
+							w.setImage(weaponImages.get(s));
+						}
+					}
 				}
+				System.out.println();
+			} else {
+				System.err.printf(":: ![%s] NOT FOUND\n", s);
 			}
 		}
 	}

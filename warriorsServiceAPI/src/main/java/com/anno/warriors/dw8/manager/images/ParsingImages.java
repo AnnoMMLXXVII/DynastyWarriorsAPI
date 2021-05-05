@@ -96,11 +96,11 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 
 	private void readWeaponImagesFolder() {
 		readWeaponsImagesByPath(DW8StaticObjects.getOneStarPathWeaponImageList());
-		readWeaponsImagesByPath(DW8StaticObjects.getTwoStarPathWeaponImageList());
-		readWeaponsImagesByPath(DW8StaticObjects.getThreeStarPathWeaponImageList());
-		readWeaponsImagesByPath(DW8StaticObjects.getFourStarPathWeaponImageList());
-		readWeaponsImagesByPath(DW8StaticObjects.getFiveStarPathWeaponImageList());
-		readWeaponsImagesByPath(DW8StaticObjects.getSixStarPathWeaponImageList());
+//		readWeaponsImagesByPath(DW8StaticObjects.getTwoStarPathWeaponImageList());
+//		readWeaponsImagesByPath(DW8StaticObjects.getThreeStarPathWeaponImageList());
+//		readWeaponsImagesByPath(DW8StaticObjects.getFourStarPathWeaponImageList());
+//		readWeaponsImagesByPath(DW8StaticObjects.getFiveStarPathWeaponImageList());
+//		readWeaponsImagesByPath(DW8StaticObjects.getSixStarPathWeaponImageList());
 	}
 
 	private void readWeaponsImagesByPath(String[] paths) {
