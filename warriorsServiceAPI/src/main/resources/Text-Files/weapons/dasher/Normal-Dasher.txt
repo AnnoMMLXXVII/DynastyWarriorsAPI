@@ -52,7 +52,7 @@ Swift Blade, 16, 4'7 - 3'11", 2, Curved Sword
 Steel Wingblade, 26, 5'7", 3, Wingblades
 Bloodspray, 26, 8'2", 3, Spinner
 Twilight Blade, 31, 4'7 - 3'11", 4, Curved Sword
-Godly Apex, 10, 5'1", 1, Claws
+Iron Claws, 10, 5'1", 1, Claws
 Bronze Trifork, 15, 4'7", 2, Trishula
 Twin Swords, 10, 4'5", 1, Twin Swords
 Oaken Staff, 10, 8'6", 1, Staff
@@ -92,7 +92,7 @@ Thunder Blades, 29, 1'0", 4, Throwing Knives
 Harvest Sickle, 10, 9'8", 1, Chain & Sickle
 Astral Wheels, 31, 4'5, 4, Wheels
 Dapeng Rod, 21, 6'11" - 10", 3, Orb & Scepter
-Comabt Blades, 16, 1'0", 2, Throwing Knives
+Combat Blades, 16, 1'0", 2, Throwing Knives
 Dark Piercer, 29, -, 4, Emei Piercers
 Conical Blade, 42, 5'7", 4, Dual Hookblades
 Slasher, 18, 8'1", 2, Spinner
