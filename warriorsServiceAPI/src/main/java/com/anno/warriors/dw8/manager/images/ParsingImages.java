@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,6 @@ import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
-import com.anno.warriors.dw8.manager.files.CharacterParseManager;
 import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
@@ -95,12 +93,13 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	}
 
 	private void readWeaponImagesFolder() {
-		readWeaponsImagesByPath(DW8StaticObjects.getOneStarPathWeaponImageList());
+//		readWeaponsImagesByPath(DW8StaticObjects.getOneStarPathWeaponImageList());
 //		readWeaponsImagesByPath(DW8StaticObjects.getTwoStarPathWeaponImageList());
 //		readWeaponsImagesByPath(DW8StaticObjects.getThreeStarPathWeaponImageList());
 //		readWeaponsImagesByPath(DW8StaticObjects.getFourStarPathWeaponImageList());
-//		readWeaponsImagesByPath(DW8StaticObjects.getFiveStarPathWeaponImageList());
+		readWeaponsImagesByPath(DW8StaticObjects.getFiveStarPathWeaponImageList());
 //		readWeaponsImagesByPath(DW8StaticObjects.getSixStarPathWeaponImageList());
+		hyphenateKeys();
 	}
 
 	private void readWeaponsImagesByPath(String[] paths) {
@@ -140,7 +139,14 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 			weaponImages = imageMappingObject.getMapObject();
 //			officerNameToWeaponName = officerWeaponNameMappingObject.getMapObject();
 			logger.info("Parsed Images from " + s);
+
 		}
+	}
+
+	private void hyphenateKeys() {
+		addHyphenToKey("Nine Layered Heaven", "Nine-layered Heaven");
+		addHyphenToKey("Bronze Studded Staff", "Bronze-studded Staff");
+		addHyphenToKey("Light Breaking Staff", "Light-Breaking Staff");
 	}
 
 	private String getCharactersLastName(String lastName) {
@@ -162,6 +168,15 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 
 	private String formatWeaponNameConditionally(String preFormattedName) {
 		return preFormattedName.contains("_") ? preFormattedName.replace("_", " ") : preFormattedName;
+	}
+
+	private void addHyphenToKey(String original, String key) {
+		String temp = weaponNamePathMap.get(original);
+		if (temp == null) {
+			return;
+		}
+		weaponNamePathMap.remove(original);
+		weaponNamePathMap.put(key, temp);
 	}
 
 	private Kingdom getKingdomFromPath(String path) {

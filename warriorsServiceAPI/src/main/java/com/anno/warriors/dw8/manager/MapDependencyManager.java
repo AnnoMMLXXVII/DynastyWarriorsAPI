@@ -54,10 +54,9 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 			System.out.printf("Mapping for --> %s ", s);
 			weapons = weaponsMapped.get(s);
 			if (weapons != null) {
-				if (weapons.isEmpty()) {
+				if (weapons.get(0).getImage().isEmpty() || weapons.get(0).getImage() == null) {
 					System.err.printf(":: ![%s] NOT FOUND\n", s);
 				} else {
-					System.out.printf(":: [%s] || ", weapons.get(0).getName());
 					for (WeaponInterface<Weapon> w : weapons) {
 						if (w.getName().equals(s)) {
 							w.setImage(weaponImages.get(s));
