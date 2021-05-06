@@ -20,7 +20,7 @@ Sharp Destruction, 61, Heaven, 6, Great Axe
 Dream Wrecker, 56, Heaven, 6, Mace
 Steel Fang and Scale, 62, Heaven, 6, Spiked Shield
 Imperial Warship, 66, Heaven, 6, Arm Blade
-Flashing Wind Gold, 61, Heaven, 6, Circle Blade
+Flashing Wind God, 61, Heaven, 6, Circle Blade
 Frost Breaker, 67, Heaven, 6, Siege Spear
 Dawn Bringer, 52, Heaven, 6, Bow & Rod
 Sirius Wind, 61, Heaven, 6, Wheeled Halberd

@@ -36,7 +36,7 @@ Iron Hoops, 12, 3'7", 1, Wheels
 Staff of Hearts, 20, 3'11", 3, Pugil Stick
 Razor Claws, 21, 10", 3, Wired Gloves
 Long Bow, 14, 5'1" - 3'3", 1, Bow
-Bronze-Studded Staff, 21, 8'6", 3, Staff
+Bronze-studded Staff, 21, 8'6", 3, Staff
 Chopper, 12, 7'11", 1, Spinner
 Razor Dance, 14, 4'5", 1, Flying Swords
 Flashpoint, 10, 8'2", 1, Lightning Sword
@@ -44,7 +44,7 @@ Shaman Rod, 14, 7'7", 1, Shaman Rod
 Swallow Wing, 15, 2'11", 2, War Fan
 Swallow's Edge, 16, 4'7", 2, Swallow Swords
 Distant Blade, 10, 4'9" - 13'0", 1, Extension Blade
-Solder Set, 22, 4'7" - 3'3", 2, Sword & Shield
+Soldier Set, 22, 4'7" - 3'3", 2, Sword & Shield
 Thorny Blade, 21, 4'9" - 13'0", 3, Extension Blade
 Echo Blade, 27, 4'9" - 13'0", 4, Extension Blade
 Dancing Shadows, 10, 2'0", 1, Throwing Axes
@@ -111,7 +111,7 @@ Ornate Piercer, 15, -, 2, Emei Piercers
 Claw Blade, 12, 4'7" - 3'9", 1, Curved Sword
 Wolf's Fang, 20, 4'3", 2, Sword
 Dancing Peng, 29, 2'0", 4, Throwing Axes
-Soaring Blace, 28, -, 3, Flaming Bow
+Soaring Blaze, 28, -, 3, Flaming Bow
 Elegant Beauty, 22, -, 3, Paired Fans
 Elegant Staff, 15, 3'5", 2, Pugil Stick
 Throwing Blades, 10, 1'0", 1, Throwing Knives
@@ -122,7 +122,7 @@ Teak Staff, 15, 8'6", 2, Staff
 Sparkling Draft, 23, 2'8", 3, Iron Fan
 Dragon Bone, 32, 9'10", 4, Chain Whip
 Crimson Wing, 29, 2'11", 4, War Fan
-Distance Bronze Blade, 15, 4'9" - 13'0", 2, Extension Blade
+Distant Bronze Blade, 15, 4'9" - 13'0", 2, Extension Blade
 Iron Nunchaku, 20, 2'8", 2, Nunchaku
 Stinger Claws, 29, 10", 4, Wired Gloves
 General's Command Scroll, 27, -, 3, Art of War Scroll
