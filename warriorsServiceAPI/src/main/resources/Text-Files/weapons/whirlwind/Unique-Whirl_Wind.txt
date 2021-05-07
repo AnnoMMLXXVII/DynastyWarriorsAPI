@@ -13,14 +13,14 @@ Thunder Slicer, 62, Man, 5, Great Sword
 Bull Club, 47, Heaven, 5, Club
 Roast Chicken, 49, Earth, 5, Club
 Demonic Club, 52, Man, 5, Club
-Shaman's Goves, 54, Heaven, 5, Gloves
+Shaman's Gloves, 54, Heaven, 5, Gloves
 Alien Gauntlets, 57, Earth, 5, Gloves
-Chieftan Gauntlets, 59, Heaven, 5, Gloves
+Chieftain Gauntlets, 59, Heaven, 5, Gloves
 Soul Crusher, 66, Heaven, 5, Halberd
 Stringed Piercer, 40, Heaven, 5, Halberd
 Skewer Halberd, 69, Earth, 5, Halberd
 Unearthly Halberd, 73, Earth, 5, Halberd
-Dragon Aes, 47, Heaen, 5, Twin Axes
+Dragon Axes, 47, Heaven, 5, Twin Axes
 Emergency Lights, 49, Earth, 5, Twin Axes
 Twin Sirius Axes, 52, Heaven, 5, Twin Axes
 Spear of Armageddon, 48, Heaven, 5, Lance
@@ -53,19 +53,19 @@ Destruction Bomb, 56, Heaven, 5, Bomb
 Stormy Pike, 47, Heaven, 5, Short Pike
 Pick Axe, 49, Earth, 5, Short Pike
 Fiery Ko, 52, Heaven, 5, Short Pike
-Soulcleave, 51, Heaven, 5, Great Axe
+Soulcleaver, 51, Heaven, 5, Great Axe
 Matoi, 54, Man, 5, Great Axe
 Smoldering Cleaver, 56, Man, 5, Great Axe
 World Smasher, 47, Heaven, 5, Mace
 Emergency Ladder, 49, Heaven, 5, Mace
-Wave Breaker, 52, Heave, 5, Mace
+Wave Breaker, 52, Heaven, 5, Mace
 Talon Wall, 52, Heaven, 5, Spiked Shield
 Notebook, 55, Man, 5, Spiked Shield
 Crystal Scales, 57, Earth, 5, Spiked Shield
 Tiger's Edge, 55, Heaven, 5, Arm Blade
 Snowboard, 58, Man, 5, Arm Blade
 Tortoise Edge, 61, Man, 5, Arm Blade
-Golbin Chakram, 51, Heaven, 5, Circle Blade
+Goblin Chakram, 51, Heaven, 5, Circle Blade
 Hazard Triangle, 54, Heaven, 5, Circle Blade
 Dragon Slicer, 56, Earth, 5, Circle Blade
 Spear of Conquest, 56, Heaven, 5, Siege Spear
@@ -76,7 +76,7 @@ Penknife, 45, Earth, 5, Bow & Rod
 Sacred Lion Bow, 47, Earth, 5, Bow & Rod
 Heavenly Destruction, 51, Heaven, 5, Wheeled Halberd
 Pizza Peel, 54, Man, 5, Wheeled Halberd
-Demonic Chao, 56, Earth, 5, Wheeled Halberd
+Demonic Chaos, 56, Earth, 5, Wheeled Halberd
 Deadly Incisors, 50, Heaven, 5, Rake
 Wooden Cutlery, 53, Earth, 5, Rake
 Ice Wolf Fangs, 55, Heaven, 5, Rake
@@ -85,6 +85,6 @@ Shogi Staff, 60, Heaven, 5, Dual-Headed Mace
 Chimera Mace, 63, Earth, 5, Dual-Headed Mace
 Blinding Crossbow, 40, Man, 5, Revolving Crossbow
 Telescope, 42, Earth, 5, Revolving Crossbow
-Heavely Tempest, 44, Man, 5, Revolving Crossbow
-Hedes Judgement, 47, Heaven, 5, War Trident
+Heavenly Tempest, 44, Man, 5, Revolving Crossbow
+Hades Judgement, 47, Heaven, 5, War Trident
 Basilisk's Bane, 47, Heaven, 5, Stele
