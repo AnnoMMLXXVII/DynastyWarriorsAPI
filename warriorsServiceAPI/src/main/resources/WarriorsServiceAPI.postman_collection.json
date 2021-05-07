@@ -22,7 +22,7 @@
 					"query": [
 						{
 							"key": "",
-							"value": null,
+							"value": "",
 							"disabled": true
 						}
 					]
@@ -47,7 +47,7 @@
 					"query": [
 						{
 							"key": "",
-							"value": null,
+							"value": "",
 							"disabled": true
 						}
 					]
@@ -61,7 +61,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/characters?name=Zhao Yun",
+					"raw": "{{warriorsHost}}dw8/characters?name=Guan Ping",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
@@ -71,7 +71,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "Zhao Yun"
+							"value": "Guan Ping"
 						}
 					]
 				}
@@ -95,7 +95,7 @@
 					"query": [
 						{
 							"key": "",
-							"value": null,
+							"value": "",
 							"disabled": true
 						}
 					]
@@ -128,7 +128,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=2",
+					"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=1,2,3,4,5,6",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
@@ -140,7 +140,7 @@
 					"query": [
 						{
 							"key": "value",
-							"value": "2"
+							"value": "1,2,3,4,5,6"
 						}
 					]
 				}
@@ -195,6 +195,127 @@
 						{
 							"key": "high",
 							"value": "70"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon By Type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Dragon Spear",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"search",
+						"type"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Dragon Spear"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon By Rarity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/search/rarity?rarity=Xtreme",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"search",
+						"rarity"
+					],
+					"query": [
+						{
+							"key": "rarity",
+							"value": "Xtreme"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon By Attribute N",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"Fury\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/search/attributes",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"search",
+						"attributes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weapon By Attribute N and Level",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"Venom\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{warriorsHost}}dw8/weapons/search/attributes&level?level=10",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"weapons",
+						"search",
+						"attributes&level"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "10"
 						}
 					]
 				}
@@ -338,7 +459,6 @@
 	],
 	"variable": [
 		{
-			"id": "73b11c5a-2af3-462f-a59f-d42fcdd782c7",
 			"key": "warriorsHost",
 			"value": "http://localhost:8080/api/v1/"
 		}
