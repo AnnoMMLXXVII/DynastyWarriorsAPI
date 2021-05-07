@@ -1,4 +1,5 @@
 Emperor's Blade, 30, Heaven, 1, Sword
+Emperor's Might, 52, Heaven, 5, Sword
 Winner's Trophy, 52, Man, 5, Sword
 Turquoise Blade, 57, Heaven, 5, Sword
 Verdant Thrust, 37, Heaven, 5, Rapier
@@ -12,7 +13,7 @@ Commander's Swords, 36, Earth, 5, Twin Swords
 Heavenly Sabers, 37, Man, 5, Twin Swords
 Rain Blades, 35, Heaven, 5, Throwing Knives
 Bromide, 37, Earth, 5, Throwing Knives
-Violet Shower, 39, Man, 5, Throwing, Knives
+Violet Shower, 39, Man, 5, Throwing Knives
 Heavenly Sickle, 36, Heaven, 5, Chain & Sickle
 Gas Pump, 38, Heaven, 5, Chain & Sickle
 Gloom Sickle, 40, Heaven, 5, Chain & Sickle
@@ -70,9 +71,9 @@ Malign Staff, 35, Heaven, 5, Pugil Stick
 Emperor's Light, 37, Heaven, 5, Lightning Sword
 Marking Pin, 39, Earth, 5, Lightning Sword
 Scarlet Rapier, 41, Earth, 5, Lightning Sword
-Heaven's Return, 37, Heaven, 5, Bommerang
-Travel Bag, 39, Heaven, 5, Bommerang
-Shard Bommerang, 41, Earth, 5, Bommerang
+Heaven's Return, 37, Heaven, 5, Boomerang
+Travel Bag, 39, Heaven, 5, Boomerang
+Shard Boomerang, 41, Earth, 5, Boomerang
 Dispersion Blade, 43, Heaven, 5, Sword & Hook
 Whip Crop, 45, Heaven, 5, Sword & Hook
 Etch Blade, 47, Earth, 5, Sword & Hook
