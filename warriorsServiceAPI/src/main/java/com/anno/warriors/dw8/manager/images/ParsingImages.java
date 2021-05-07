@@ -15,6 +15,7 @@ import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.anno.warriors.dw8.shared.DW8Constants.UpdatedHyphenKey;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 @SuppressWarnings("unused")
@@ -75,7 +76,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	private void readOfficerImageFolder() {
 		File folder = new File(DW8Constants.OFFICER_IMAGES_PATH);
 		File[] file = folder.listFiles();
-		String shortName = "";
+		String shortName = DW8Constants.Split.EMPTY.getValue();
 		MappingObjectsWithReference<String, List<String>, String> mappingObject = new MappingObjectsWithReference<>(
 				officerImages);
 		for (int i = 0; i < file.length; i++) {
@@ -86,9 +87,10 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	}
 
 	private String formatOfficerImageFileNameForKey(String fileName) {
-		String[] firstParse = fileName.split("\\.");
+		String[] firstParse = fileName.split(DW8Constants.Split.PERIOD.getValue());
 		String removeLastChar = firstParse[0].substring(0, firstParse[0].length() - 2);
-		String replaceUnderScore = removeLastChar.replace("_", " ");
+		String replaceUnderScore = removeLastChar.replace(DW8Constants.Split.HYPHEN.getValue(),
+				DW8Constants.Split.WHITE_SPACE.getValue());
 		return replaceUnderScore.trim();
 	}
 
@@ -123,17 +125,6 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 //				officerWeaponNameMappingObject.mapKeyValueWithMap(new OfficerKingdomKey(key, kingdom), weaponName,
 //						file[i].getPath());
 				String fileLastName = formatWeaponImageFileNameToGetLastName(file[i].getName());
-//				characters.forEach(e -> System.out.printf("%s, ", getCharactersLastName(e.getName())));
-//				System.out.println();
-//				opt = characters.stream().filter(e -> getCharactersLastName(e.getName()).equals(fileLastName))
-//						.findFirst();
-//				if (opt.isPresent()) {
-//					character = opt.get();
-//					System.out.printf("[%d]\t%-5s - %-18s - %s : %s\n", i, kingdom, weaponName, character.getName(),
-//							fileLastName);
-//				} else {
-//					System.out.printf("[%d]\t%-5s - %-18s - %s\n", i, kingdom, weaponName, fileLastName);
-//				}
 				weaponNamePathMap.put(weaponName, file[i].getPath());
 			}
 			weaponImages = imageMappingObject.getMapObject();
@@ -144,30 +135,36 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	}
 
 	private void hyphenateKeys() {
-		addHyphenToKey("Nine Layered Heaven", "Nine-layered Heaven");
-		addHyphenToKey("Bronze Studded Staff", "Bronze-studded Staff");
-		addHyphenToKey("Light Breaking Staff", "Light-Breaking Staff");
+		addHyphenToKey(DW8Constants.NINE_LAYERED_HEAVEN_FORMAL,
+				DW8Constants.UpdatedHyphenKey.NINE_LAYERED_HEAVEN.getValue());
+		addHyphenToKey(DW8Constants.BRONZE_STUDDED_STAFF_FORMAL, UpdatedHyphenKey.BRONZE_STUDDED_STAFF.getValue());
+		addHyphenToKey(DW8Constants.LIGHT_BREAKING_STAFF_FORMAL,
+				DW8Constants.UpdatedHyphenKey.LIGHT_BREAKING_STAFF.getValue());
 	}
 
 	private String getCharactersLastName(String lastName) {
-		return (lastName.contains(" ")) ? lastName.split(" ")[1].trim() : lastName.trim();
+		return (lastName.contains(DW8Constants.Split.WHITE_SPACE.getValue()))
+				? lastName.split(DW8Constants.Split.WHITE_SPACE.getValue())[1].trim()
+				: lastName.trim();
 	}
 
 	private String formatWeaponImageFileName(String fileName) {
-		String[] splitByPeriod = fileName.split("\\.");
-		String[] splitByHyphen = splitByPeriod[0].split("-");
+		String[] splitByPeriod = fileName.split(DW8Constants.Split.PERIOD.getValue());
+		String[] splitByHyphen = splitByPeriod[0].split(DW8Constants.Split.HYPHEN.getValue());
 		key = splitByHyphen[splitByHyphen.length - 1];
 		return formatWeaponNameConditionally(splitByHyphen[0]).trim();
 	}
 
 	private String formatWeaponImageFileNameToGetLastName(String fileName) {
-		String[] splitByPeriod = fileName.split("\\.");
-		String[] splitByHyphen = splitByPeriod[0].split("-");
+		String[] splitByPeriod = fileName.split(DW8Constants.Split.PERIOD.getValue());
+		String[] splitByHyphen = splitByPeriod[0].split(DW8Constants.Split.HYPHEN.getValue());
 		return splitByHyphen[splitByHyphen.length - 1].trim();
 	}
 
 	private String formatWeaponNameConditionally(String preFormattedName) {
-		return preFormattedName.contains("_") ? preFormattedName.replace("_", " ") : preFormattedName;
+		return preFormattedName.contains(DW8Constants.Split.UNDER_SCORE.getValue()) ? preFormattedName
+				.replace(DW8Constants.Split.UNDER_SCORE.getValue(), DW8Constants.Split.WHITE_SPACE.getValue())
+				: preFormattedName;
 	}
 
 	private void addHyphenToKey(String original, String key) {
@@ -180,7 +177,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	}
 
 	private Kingdom getKingdomFromPath(String path) {
-		String[] splitByForwardSlash = path.split("/");
+		String[] splitByForwardSlash = path.split(DW8Constants.Split.FWD_SLASH.getValue());
 		String str = splitByForwardSlash[splitByForwardSlash.length - 1];
 		String caseKingdom = str.substring(0, 1).toUpperCase() + str.substring(1);
 		return Kingdom.returnCorrectEnum(caseKingdom.trim());

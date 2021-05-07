@@ -20,6 +20,7 @@ import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
+import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 
 public class CharacterParseManager implements DynastyWarriors8Object<CharacterParseManager> {
@@ -102,11 +103,11 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	private static void readOfficerFile(File file,
 			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
-			String line = "";
+			String line = DW8Constants.Split.EMPTY.getValue();
 			String[] lineArr;
 			while (z.hasNextLine()) {
 				line = z.nextLine();
-				lineArr = line.split(",");
+				lineArr = line.split(DW8Constants.Split.COMMA.getValue());
 				parseOfficer(lineArr, kingdomCharacterMappingObject);
 			}
 		} catch (FileNotFoundException e) {
@@ -129,11 +130,11 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	private static void readSubOfficerFile(File file,
 			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
 		try (Scanner z = new Scanner(new FileReader(file))) {
-			String line = "";
+			String line = DW8Constants.Split.EMPTY.getValue();
 			String[] lineArr;
 			while (z.hasNextLine()) {
 				line = z.nextLine();
-				lineArr = line.split(",");
+				lineArr = line.split(DW8Constants.Split.COMMA.getValue());
 				parseSubOfficer(lineArr, getKingdomFromFileName(file.getName()), kingdomCharacterMappingObject);
 			}
 		} catch (FileNotFoundException e) {
@@ -152,9 +153,9 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	}
 
 	private static boolean isOfficer(String path) {
-		String[] splitByForwardSlash = path.split("/");
+		String[] splitByForwardSlash = path.split(DW8Constants.Split.FWD_SLASH.getValue());
 		for (int i = 0; i < splitByForwardSlash.length; i++) {
-			if (splitByForwardSlash[i].equalsIgnoreCase("Officer")) {
+			if (splitByForwardSlash[i].equalsIgnoreCase(DW8Constants.MetaData.OFFICER.getValue())) {
 				return true;
 			}
 		}
@@ -164,8 +165,8 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 	private static Kingdom getKingdomFromFileName(String name) {
 //		  File format --> Officer-List-[kingdom].txt 
 //		  --> Extract and return [kingdom] value
-		String[] splitByDash = name.split("-");
-		String[] splitByPeriod = splitByDash[2].split("\\.");
+		String[] splitByDash = name.split(DW8Constants.Split.HYPHEN.getValue());
+		String[] splitByPeriod = splitByDash[2].split(DW8Constants.Split.PERIOD.getValue());
 		return Kingdom.returnCorrectEnum(splitByPeriod[0]);
 	}
 }

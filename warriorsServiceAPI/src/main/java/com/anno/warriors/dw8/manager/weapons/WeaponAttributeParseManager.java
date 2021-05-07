@@ -18,6 +18,7 @@ import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
+import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 import com.anno.warriors.dw8.weapons.slots.PowerAttribute;
 import com.anno.warriors.dw8.weapons.slots.PowerlessAttribute;
@@ -43,7 +44,7 @@ public class WeaponAttributeParseManager implements DynastyWarriors8Object<Weapo
 		try (Scanner z = new Scanner(new FileReader(file))) {
 			while (z.hasNextLine()) {
 				String line = z.nextLine();
-				String[] arr = line.split(",");
+				String[] arr = line.split(DW8Constants.Split.COMMA.getValue());
 				parseWeaponAttributes(arr);
 //				lineNum++;
 			}
@@ -72,9 +73,9 @@ public class WeaponAttributeParseManager implements DynastyWarriors8Object<Weapo
 	}
 
 	private static DynastyWarriors8Object<AttributeSlot> parseAttributeSlot(String str) {
-		if (str.contains(":")) {
+		if (str.contains(DW8Constants.Split.COLON.getValue())) {
 //			logger.info(String.format("Parsing split => %s", str));
-			String[] splitByColon = str.split(":");
+			String[] splitByColon = str.split(DW8Constants.Split.COLON.getValue());
 			return new PowerAttribute(NormalAttributes.returnCorrectEnum(splitByColon[0].trim()),
 					Integer.parseInt(splitByColon[1].trim()));
 		}

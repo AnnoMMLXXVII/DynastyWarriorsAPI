@@ -20,6 +20,7 @@ import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
+import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
 import com.anno.warriors.dw8.weapons.model.Extreme;
 import com.anno.warriors.dw8.weapons.model.Normal;
@@ -114,7 +115,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 			logger.info("Reading file - " + path[i]);
 			while (z.hasNextLine()) {
 				String line = z.nextLine();
-				String[] arr = line.split(",");
+				String[] arr = line.split(DW8Constants.Split.COMMA.getValue());
 				temp = parseNormalWeapons(file[i].getName(), arr);
 				weapons.add(temp);
 				weaponNames.add(temp.getName());
@@ -131,7 +132,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 				logger.info("Reading file - " + path[i]);
 				while (z.hasNextLine()) {
 					String line = z.nextLine();
-					String[] arr = line.split(",");
+					String[] arr = line.split(DW8Constants.Split.COMMA.getValue());
 					temp = parseExtremeWeapons(file[i].getName(), arr);
 					WeaponName_TypesAttributesKey key = new WeaponName_TypesAttributesKey(temp.getName(),
 							temp.getType());
@@ -178,10 +179,11 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 	}
 
 	private static DW8Enumeration<?> parsePathToGetEnum(String path, boolean isRarity) {
-		String[] splitByPeriod = path.split("\\.");
-		String[] splitByDash = splitByPeriod[0].split("-");
-		if (splitByDash[1].contains("_")) {
-			splitByDash[1] = splitByDash[1].replace("_", " ");
+		String[] splitByPeriod = path.split(DW8Constants.Split.PERIOD.getValue());
+		String[] splitByDash = splitByPeriod[0].split(DW8Constants.Split.HYPHEN.getValue());
+		if (splitByDash[1].contains(DW8Constants.Split.UNDER_SCORE.getValue())) {
+			splitByDash[1] = splitByDash[1].replace(DW8Constants.Split.UNDER_SCORE.getValue(),
+					DW8Constants.Split.WHITE_SPACE.getValue());
 		}
 		return (isRarity) ? Rarity.returnCorrectEnum(splitByDash[0])
 				: Category.returnCorrectEnum(splitByDash[1].trim());
