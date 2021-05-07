@@ -156,6 +156,55 @@ public class DW8Constants {
 	public static final String WEAPON_WHIRLWIND_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
 			+ "Text-Files/weapons/whirlwind/Attributes-Whirl_Wind.txt";
 
+	public static final String NINE_LAYERED_HEAVEN_FORMAL = "Nine Layered Heaven";
+	public static final String BRONZE_STUDDED_STAFF_FORMAL = "Bronze Studded Staff";
+	public static final String LIGHT_BREAKING_STAFF_FORMAL = "Light Breaking Staff";
+
+	public enum UpdatedHyphenKey {
+		NINE_LAYERED_HEAVEN("Nine-layered Heaven"), BRONZE_STUDDED_STAFF("Bronze-studded Staff"),
+		LIGHT_BREAKING_STAFF("Light-Breaking Staff");
+
+		private String string;
+
+		UpdatedHyphenKey(String string) {
+			this.string = string;
+		}
+
+		public String getValue() {
+			return string;
+		}
+
+	}
+
+	public enum Split {
+		PERIOD("\\."), UNDER_SCORE("_"), HYPHEN("-"), WHITE_SPACE(" "), FWD_SLASH("/"), COMMA(","), AMPERSAND("&"),
+		APOSTROPHE("\'"), EMPTY(""), COLON(":");
+
+		private String string;
+
+		Split(String string) {
+			this.string = string;
+		}
+
+		public String getValue() {
+			return string;
+		}
+	}
+
+	public enum MetaData {
+		OFFICER("Officer"), SUBOFFICER("SubOfficer"), SPECIAL("Special"), ATTRIBUTE("Attribute"), NORMAL("Normal");
+
+		public String string;
+
+		MetaData(String string) {
+			this.string = string;
+		}
+
+		public String getValue() {
+			return string;
+		}
+	}
+
 	public enum SortBy {
 		ATTACK_POWER, AFFINITY, STAR, NAME, TYPES, RARITY, ATTRIBUTE;
 	}
