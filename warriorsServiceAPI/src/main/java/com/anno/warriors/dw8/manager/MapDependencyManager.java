@@ -41,31 +41,18 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 		return this.getClass().getSimpleName();
 	}
 
-	@SuppressWarnings("null")
 	private static void mapWeaponImageToWeapons() {
 		List<String> weaponNames = DW8Structures.getWeaponNames();
 		Map<String, String> weaponImages = DW8Structures.getMappedWeaponImagesPathMap();
 		Map<String, List<WeaponInterface<Weapon>>> weaponsMapped = DW8Structures.getWeaponNameWeaponsMap();
 		List<WeaponInterface<Weapon>> weapons = new ArrayList<>();
 
-//		weaponImages.keySet().forEach(e -> System.out.print(e + " "));
-
-		for (String s : weaponImages.keySet()) {
-			System.out.printf("Mapping for --> %s ", s);
+		for (String s : weaponNames) {
 			weapons = weaponsMapped.get(s);
-			if (weapons != null) {
-				if (weapons.get(0).getImage().isEmpty() || weapons.get(0).getImage() == null) {
-					System.err.printf(":: ![%s] NOT FOUND\n", s);
-				} else {
-					for (WeaponInterface<Weapon> w : weapons) {
-						if (w.getName().equals(s)) {
-							w.setImage(weaponImages.get(s));
-						}
-					}
+			for (WeaponInterface<Weapon> w : weapons) {
+				if (w.getName().equals(s)) {
+					w.setImage(weaponImages.get(s));
 				}
-				System.out.println();
-			} else {
-				System.err.printf(":: ![%s] NOT FOUND\n", s);
 			}
 		}
 	}
