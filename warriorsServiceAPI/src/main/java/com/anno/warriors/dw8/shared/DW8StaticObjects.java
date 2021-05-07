@@ -2,6 +2,30 @@ package com.anno.warriors.dw8.shared;
 
 public class DW8StaticObjects {
 
+	public static String[] getOneStarPathWeaponImageList() {
+		return new String[] { DW8Constants.WEAPON_IMAGES_JIN_1_STAR_PATH, DW8Constants.WEAPON_IMAGES_SHU_1_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_WU_1_STAR_PATH, DW8Constants.WEAPON_IMAGES_WEI_1_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_OTHER_1_STAR_PATH };
+	}
+
+	public static String[] getTwoStarPathWeaponImageList() {
+		return new String[] { DW8Constants.WEAPON_IMAGES_JIN_2_STAR_PATH, DW8Constants.WEAPON_IMAGES_SHU_2_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_WU_2_STAR_PATH, DW8Constants.WEAPON_IMAGES_WEI_2_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_OTHER_2_STAR_PATH };
+	}
+
+	public static String[] getThreeStarPathWeaponImageList() {
+		return new String[] { DW8Constants.WEAPON_IMAGES_JIN_3_STAR_PATH, DW8Constants.WEAPON_IMAGES_SHU_3_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_WU_3_STAR_PATH, DW8Constants.WEAPON_IMAGES_WEI_3_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_OTHER_3_STAR_PATH };
+	}
+
+	public static String[] getFourStarPathWeaponImageList() {
+		return new String[] { DW8Constants.WEAPON_IMAGES_JIN_4_STAR_PATH, DW8Constants.WEAPON_IMAGES_SHU_4_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_WU_4_STAR_PATH, DW8Constants.WEAPON_IMAGES_WEI_4_STAR_PATH,
+				DW8Constants.WEAPON_IMAGES_OTHER_4_STAR_PATH };
+	}
+
 	public static String[] getFiveStarPathWeaponImageList() {
 		return new String[] { DW8Constants.WEAPON_IMAGES_JIN_5_STAR_PATH, DW8Constants.WEAPON_IMAGES_SHU_5_STAR_PATH,
 				DW8Constants.WEAPON_IMAGES_WU_5_STAR_PATH, DW8Constants.WEAPON_IMAGES_WEI_5_STAR_PATH,
