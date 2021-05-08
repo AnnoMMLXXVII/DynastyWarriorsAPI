@@ -6,6 +6,427 @@
 	},
 	"item": [
 		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "Characters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Character By Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Zhao Yun\",\n    \"Guan Ping\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/search/name",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"search",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers By Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/name?name=Xiahou Dun",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers",
+								"search",
+								"name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Xiahou Dun"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers By Weapon Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/type?type=Great Sword",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers",
+								"search",
+								"type"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Great Sword"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubOfficers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/subOfficers",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"subOfficers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubOfficers By Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/subOfficers/search/name?name=Zhang Yi, Sun Qian, Guo Shi, Guo Si",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"subOfficers",
+								"search",
+								"name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Zhang Yi, Sun Qian, Guo Shi, Guo Si"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Weapon",
+			"item": [
+				{
+					"name": "Weapons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon by Stars",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=1,2,3,4,5,6",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"stars"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "1,2,3,4,5,6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon Names",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/names/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"names",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Names",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/names?value=Dark Dragon Spear",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"names"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "Dark Dragon Spear"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Attack Power",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/power?low=55&high=70",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"power"
+							],
+							"query": [
+								{
+									"key": "low",
+									"value": "55"
+								},
+								{
+									"key": "high",
+									"value": "70"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Dragon Spear",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"type"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Dragon Spear"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Rarity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/rarity?rarity=Xtreme",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"rarity"
+							],
+							"query": [
+								{
+									"key": "rarity",
+									"value": "Xtreme"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Attribute N",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Fury\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/attributes",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Attribute N and Level",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Venom\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/attributes&level?level=10",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"attributes&level"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Health Check",
 			"request": {
 				"method": "GET",
@@ -24,412 +445,6 @@
 							"key": "",
 							"value": "",
 							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Characters",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters",
-						""
-					],
-					"query": [
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Character By Name",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/characters?name=Guan Ping",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "Guan Ping"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapons",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						""
-					],
-					"query": [
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon Names",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/names/",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"names",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon by Stars",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=1,2,3,4,5,6",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"search",
-						"stars"
-					],
-					"query": [
-						{
-							"key": "value",
-							"value": "1,2,3,4,5,6"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon By Names",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/names?value=Dark Dragon Spear",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"search",
-						"names"
-					],
-					"query": [
-						{
-							"key": "value",
-							"value": "Dark Dragon Spear"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon By Attack Power",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/power?low=55&high=70",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"search",
-						"power"
-					],
-					"query": [
-						{
-							"key": "low",
-							"value": "55"
-						},
-						{
-							"key": "high",
-							"value": "70"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon By Type",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Dragon Spear",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"search",
-						"type"
-					],
-					"query": [
-						{
-							"key": "type",
-							"value": "Dragon Spear"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon By Rarity",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/rarity?rarity=Xtreme",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"search",
-						"rarity"
-					],
-					"query": [
-						{
-							"key": "rarity",
-							"value": "Xtreme"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon By Attribute N",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n    \"Fury\"\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/attributes",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"search",
-						"attributes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Weapon By Attribute N and Level",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n    \"Venom\"\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{warriorsHost}}dw8/weapons/search/attributes&level?level=10",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"weapons",
-						"search",
-						"attributes&level"
-					],
-					"query": [
-						{
-							"key": "level",
-							"value": "10"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Officers",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/officers",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters",
-						"officers"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Officers By Name",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/officers/search/name?name=Xiahou Dun",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters",
-						"officers",
-						"search",
-						"name"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "Xiahou Dun"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Officers By Weapon Type",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/officers/search/type?type=Great Sword",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters",
-						"officers",
-						"search",
-						"type"
-					],
-					"query": [
-						{
-							"key": "type",
-							"value": "Great Sword"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SubOfficers",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/subOfficers",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters",
-						"subOfficers"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SubOfficers By Name",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/subOfficers/search/name?name=Zhang Yi, Sun Qian, Guo Shi, Guo Si",
-					"host": [
-						"{{warriorsHost}}dw8"
-					],
-					"path": [
-						"characters",
-						"subOfficers",
-						"search",
-						"name"
-					],
-					"query": [
-						{
-							"key": "name",
-							"value": "Zhang Yi, Sun Qian, Guo Shi, Guo Si"
 						}
 					]
 				}
