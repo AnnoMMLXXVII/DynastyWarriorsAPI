@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2f000dd9-081d-4477-b8f7-22d40a35a2c6",
+		"_postman_id": "39525983-b9ad-41f2-aaa6-76c2826bcba3",
 		"name": "WarriorsServiceAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -84,8 +84,17 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"Huang Gai\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/officers/search/name?name=Xiahou Dun",
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/name",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
@@ -94,12 +103,6 @@
 								"officers",
 								"search",
 								"name"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "Xiahou Dun"
-								}
 							]
 						}
 					},
@@ -110,8 +113,17 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"Spear\",\r\n    \"Pike\",\r\n    \"Double Voulge\",\r\n    \"Great Sword\",\r\n    \"Club\",\r\n    \"Gloves\",\r\n    \"Halberd\",\r\n    \"Twin Axes\",\r\n    \"Lance\",\r\n    \"Twin Rods\",\r\n    \"Axe\",\r\n    \"Tonfa\",\r\n    \"Crossbow\",\r\n    \"Arm Cannon\",\r\n    \"Brush\",\r\n    \"Dagger Axe\",\r\n    \"Bomb\",\r\n    \"Short Pike\",\r\n    \"Great Axe\",\r\n    \"Mace\",\r\n    \"Spiked Shield\",\r\n    \"Arm Blade\",\r\n    \"Circle Blade\",\r\n    \"Siege Spear\",\r\n    \"Bow & Rod\",\r\n    \"Wheeled Halberd\",\r\n    \"Rake\",\r\n    \"Dual-Headed Mace\",\r\n    \"Revolving Crossbow\",\r\n    \"War Trident\",\r\n    \"Stele\",\r\n    \"Sword\",\r\n    \"Rapier\",\r\n    \"War Fan\",\r\n    \"Twin Swords\",\r\n    \"Throwing Knives\",\r\n    \"Chain & Sickle\",\r\n    \"Nunchaku\",\r\n    \"Staff\",\r\n    \"Bow\",\r\n    \"Shaman Rod\",\r\n    \"Iron Fan\",\r\n    \"Sword & Shield\",\r\n    \"Flying Swords\",\r\n    \"Curved Sword\",\r\n    \"Claws\",\r\n    \"Wheels\",\r\n    \"Chain Whip\",\r\n    \"Spinner\",\r\n    \"Flute\",\r\n    \"Harp\",\r\n    \"Orb & Scepter\",\r\n    \"Trishula\",\r\n    \"Pugil Stick\",\r\n    \"Lightning Sword\",\r\n    \"Boomerang\",\r\n    \"Sword & Hook\",\r\n    \"Swallow Swords\",\r\n    \"Three Sectional Staff\",\r\n    \"Shadow Fan\",\r\n    \"Extension Blade\",\r\n    \"Dual Hookblades\",\r\n    \"Wingblades\",\r\n    \"Throwing Axes\",\r\n    \"Wired Gloves\",\r\n    \"Flame Bow\",\r\n    \"Art of War Scroll\",\r\n    \"Formation Wand\",\r\n    \"Flail\",\r\n    \"Podao\",\r\n    \"Double Pike\",\r\n    \"General's Sword\",\r\n    \"Nine Rings Blade\",\r\n    \"Double-Edge Trident\",\r\n    \"Short Rod\",\r\n    \"Javelin\",\r\n    \"Crossed Pike\",\r\n    \"Dragon Spear\",\r\n    \"Crescent Blade\",\r\n    \"Dual Blade\",\r\n    \"Horsehair Whip\",\r\n    \"Striking Sword\",\r\n    \"Talisman Cards\",\r\n    \"Flail Sword\",\r\n    \"Woven Cloth\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/officers/search/type?type=Great Sword",
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/type",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
@@ -120,12 +132,6 @@
 								"officers",
 								"search",
 								"type"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "Great Sword"
-								}
 							]
 						}
 					},
@@ -154,8 +160,17 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"Zhang Yi\",\r\n    \"Sun Qian\",\r\n    \"Guo Shi\",\r\n    \"Guo Si\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/subOfficers/search/name?name=Zhang Yi, Sun Qian, Guo Shi, Guo Si",
+							"raw": "{{warriorsHost}}dw8/characters/subOfficers/search/name",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
@@ -164,12 +179,6 @@
 								"subOfficers",
 								"search",
 								"name"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "Zhang Yi, Sun Qian, Guo Shi, Guo Si"
-								}
 							]
 						}
 					},
