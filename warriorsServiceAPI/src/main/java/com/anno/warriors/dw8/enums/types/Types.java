@@ -1,8 +1,10 @@
 package com.anno.warriors.dw8.enums.types;
 
+import java.util.Comparator;
+
 import com.anno.warriors.dw8.enums.DW8Enumeration;
 
-public enum Types implements DW8Enumeration<Types> {
+public enum Types implements DW8Enumeration<Types>, Comparator<Types> {
 	SPEAR("Spear"), PIKE("Pike"), DOUBLE_VOULGE("Double Voulge"), GREAT_SWORD("Great Sword"), CLUB("Club"),
 	GLOVES("Gloves"), HALBERD("Halberd"), TWIN_AXES("Twin Axes"), LANCE("Lance"), TWIN_RODS("Twin Rods"), AXE("Axe"),
 	TONFA("Tonfa"), CROSSBOW("Crossbow"), ARM_CANNON("Arm Cannon"), BRUSH("Brush"), DAGGER_AXE("Dagger Axe"),
@@ -24,9 +26,7 @@ public enum Types implements DW8Enumeration<Types> {
 	SHORT_ROD("Short Rod"), JAVELIN("Javelin"), CROSSED_PIKE("Crossed Pike"), DRAGON_SPEAR("Dragon Spear"),
 	CRESCENT_BLADE("Crescent Blade"), DUAL_BLADE("Dual Blade"), HORSEHAIR_WHIP("Horsehair Whip"),
 	STRIKING_SWORD("Striking Sword"), TALISMAN_CARDS("Talisman Cards"), FLAIL_SWORD("Flail Sword"),
-	WOVEN_CLOTH("Woven Cloth"), FLAMING_BOW("Flaming Bow"), MANDARIN_DUCK_HOOKS("Mandarin Duck Hooks"),
-	TWIN_PIKE("Twin Pike"), FLAMING_SWORD("Flaming Sword"), DRAGON_COLUMN("Dragon Column"), FLAIL_BLADE("Flail Blade"),
-	BLADEBOW("Bladebow"), PAIRED_FANS("Paired Fans"), EMEI_PIERCERS("Emei Piercers"), SABATONS("Sabatons");
+	WOVEN_CLOTH("Woven Cloth");
 
 	private String value;
 
@@ -42,6 +42,11 @@ public enum Types implements DW8Enumeration<Types> {
 	@Override
 	public String getValue() {
 		return value;
+	}
+
+	@Override
+	public int compare(Types o1, Types o2) {
+		return o1.getValue().compareTo(o2.getValue());
 	}
 
 	public static Types returnCorrectEnum(String str) {
