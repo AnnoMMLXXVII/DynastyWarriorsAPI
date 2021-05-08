@@ -2,7 +2,6 @@ package com.anno.warriors.dw8.characters.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +11,9 @@ import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DW8Structures;
+import com.anno.warriors.dw8.shared.CharacterSearcher;
+import com.anno.warriors.dw8.shared.CharacterSorter;
+import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.shared.WarriorSearcher;
 import com.anno.warriors.shared.WarriorSorter;
 
@@ -49,16 +51,29 @@ public class CharacterDAO implements CharacterDAOInterface {
 		WarriorSearcher<Character> searcher = new WarriorSearcher(sorter.getSortedList());
 		for (String s : name) {
 			List<Character> temp = searcher.search(s);
-			for (CharacterInterface<Character> c : temp)
-				list.add(c);
+			for (CharacterInterface<Character> c : temp) {
+				if (c != null) {
+					list.add(c);
+				}
+			}
 		}
 		return list;
 	}
 
 	@Override
-	public Optional<CharacterInterface<Character>> getOfficerByWeaponType(List<CharacterInterface<Character>> paramList,
-			String type) {
-		return paramList.stream().filter(e -> e.getWeaponType().equals(Types.returnCorrectEnum(type))).findFirst();
+	public List<CharacterInterface<Character>> getOfficerByWeaponType(List<CharacterInterface<Character>> paramList,
+			String... type) {
+		list = new ArrayList<>();
+		CharacterSorter sorter = new CharacterSorter(paramList, DW8Constants.SortBy.TYPES);
+		CharacterSearcher searcher = new CharacterSearcher(sorter.getSortedList());
+		for (String s : type) {
+			Types t = Types.returnCorrectEnum(s);
+			CharacterInterface<Character> temp = searcher.search(t);
+			if (temp != null) {
+				list.add(temp);
+			}
+		}
+		return list;
 	}
 
 }

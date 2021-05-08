@@ -18,7 +18,7 @@ public interface CharacterFacadeInterface {
 	public List<CharacterInterface<Character>> callingGetOfficersByNames(String[] name);
 
 	public List<CharacterInterface<Character>> callingGetSubOfficersByNames(String[] name);
-	
-	public CharacterInterface<Character> callingGetOfficerByWeaponType(String type);
+
+	public List<CharacterInterface<Character>> callingGetOfficerByWeaponType(String... type);
 
 }

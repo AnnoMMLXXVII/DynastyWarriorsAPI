@@ -51,6 +51,11 @@ public class SubOfficer extends Character {
 	}
 
 	@Override
+	public int compareTo(Types o) {
+		return -1;
+	}
+
+	@Override
 	public List<WeaponInterface<Weapon>> getWeapons() {
 		return new ArrayList<>();
 	}
