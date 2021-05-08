@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,9 +43,9 @@ public class CharacterController {
 		return new ResponseEntity<>(facade.callingGetAllSubOfficers(), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/search/name", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getCharacter(
-			@RequestParam(required = true, value = "name") String... name) {
+			@RequestBody(required = true) String... name) {
 		return new ResponseEntity<>(facade.callingGetCharactersByNames(name), HttpStatus.OK);
 	}
 
