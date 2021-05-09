@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anno.warriors.dw8.characters.facade.CharacterFacadeInterface;
@@ -27,6 +28,7 @@ public class CharacterController {
 		return new ResponseEntity<>("Status UP!", HttpStatus.OK);
 	}
 
+	// http://localhost:8080/api/v1/dw8/characters/
 	@RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllCharacters() {
 		return new ResponseEntity<>(facade.callingGetAllCharacters(), HttpStatus.OK);
