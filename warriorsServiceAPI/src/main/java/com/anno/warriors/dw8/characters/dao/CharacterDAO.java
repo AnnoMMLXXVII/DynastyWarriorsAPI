@@ -9,11 +9,16 @@ import org.springframework.stereotype.Repository;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DW8Structures;
 import com.anno.warriors.dw8.shared.CharacterSearcher;
 import com.anno.warriors.dw8.shared.CharacterSorter;
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.anno.warriors.dw8.shared.WeaponSearcher;
+import com.anno.warriors.dw8.shared.WeaponSorter;
+import com.anno.warriors.dw8.weapons.model.Weapon;
+import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 import com.anno.warriors.shared.WarriorSearcher;
 import com.anno.warriors.shared.WarriorSorter;
 
@@ -74,6 +79,96 @@ public class CharacterDAO implements CharacterDAOInterface {
 			}
 		}
 		return list;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByKingdom(List<CharacterInterface<Character>> officers,
+			String... kingdom) {
+		list = new ArrayList<>();
+		for (String s : kingdom) {
+			Kingdom k = Kingdom.returnCorrectEnum(s);
+			officers.forEach(e -> {
+				if (e.getKingdom().equals(k)) {
+					list.add(e);
+				}
+			});
+		}
+		return list;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponName(List<CharacterInterface<Character>> officers,
+			String... weaponNames) {
+		List<CharacterInterface<Character>> tempOfficers = officers;
+		list = new ArrayList<>();
+		List<WeaponInterface<Weapon>> allWeaponsTemp = new ArrayList<>();
+		tempOfficers.forEach(e -> {
+			allWeaponsTemp.addAll(e.getWeapons());
+//			logger.info("{} Weapon Size : {} ", e.getName(), allWeaponsTemp.size());
+			WeaponSorter weapSorter = new WeaponSorter(allWeaponsTemp, DW8Constants.SortBy.NAME,
+					DW8Constants.OrderBy.ASCENDING);
+			WeaponSearcher weapSearcher = new WeaponSearcher(weapSorter.getSortedList());
+
+			for (String s : weaponNames) {
+				List<WeaponInterface<Weapon>> temp = weapSearcher.search(s);
+				if (!temp.isEmpty()) {
+					logger.info("{} Weapon Size : {} ", e.getName(), temp.size());
+					logger.info("Found Weapon -> {} for {}", s, e.getName());
+					e.getWeapons().clear();
+					logger.info("Cleared Weapon Size : {} for {}", e.getWeapons().size(), e.getName());
+					temp.forEach(z -> {
+						logger.info("Temp : {}, {}", z.getName(), z.getType());
+					});
+					e.getWeapons().addAll(temp);
+					list.add(e);
+				}
+			}
+			allWeaponsTemp.clear();
+		});
+
+		return list;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponPower(List<CharacterInterface<Character>> officers,
+			int... weaponPower) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponStar(List<CharacterInterface<Character>> officers,
+			int... weaponStar) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponRarity(
+			List<CharacterInterface<Character>> officers, String... weaponRarity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponCategory(
+			List<CharacterInterface<Character>> officers, String... weaponCategory) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponAffinity(
+			List<CharacterInterface<Character>> officers, String... weaponAffinity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponLength(
+			List<CharacterInterface<Character>> officers, String... weaponLength) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
