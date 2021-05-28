@@ -182,7 +182,7 @@ public class WeaponSearcher {
 		return -1;
 	}
 
-	public List<WeaponInterface<Weapon>> searchByType(int star) {
+	public List<WeaponInterface<Weapon>> searchByStar(int star) {
 		List<WeaponInterface<Weapon>> temp = new ArrayList<>();
 		int idx = binarySearchByStar(this.list, star);
 		if (idx < 0) {

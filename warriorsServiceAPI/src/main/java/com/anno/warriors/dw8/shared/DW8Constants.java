@@ -194,7 +194,7 @@ public class DW8Constants {
 	public enum MetaData {
 		OFFICER("Officer"), SUBOFFICER("SubOfficer"), SPECIAL("Special"), ATTRIBUTE("Attribute"), NORMAL("Normal");
 
-		public String string;
+		private String string;
 
 		MetaData(String string) {
 			this.string = string;

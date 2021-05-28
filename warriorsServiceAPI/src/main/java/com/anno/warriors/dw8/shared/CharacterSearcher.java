@@ -35,4 +35,16 @@ public class CharacterSearcher {
 		int idx = binarySearch(this.list, type);
 		return (idx == -1) ? null : list.get(idx);
 	}
+
+//	public CharacterInterface<Character> search(List<WeaponInterface<Weapon>> list, String name) {
+//		callWeaponSearcher(list, name);
+////		int idx = 0; 
+////		return (idx == -1) ? null : list.get(idx);
+//	}
+
+//	private List<CharacterInterface<Character>> callWeaponSearcher(List<WeaponInterface<Weapon>> weapons, String name) {
+//		WeaponSearcher searcher = new WeaponSearcher(weapons);
+//		searcher.search(name);
+//	}
+
 }
