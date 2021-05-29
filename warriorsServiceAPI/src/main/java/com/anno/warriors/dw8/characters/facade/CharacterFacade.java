@@ -80,39 +80,4 @@ public class CharacterFacade implements CharacterFacadeInterface {
 		return new WarriorSorter(returnedList).getSortedList();
 	}
 
-	@Override
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponStar(int... weaponStar) {
-		List<CharacterInterface<Character>> returnedList = dao.getAllOfficersByWeaponStar(DW8Structures.getOfficers(),
-				weaponStar);
-		return new WarriorSorter(returnedList).getSortedList();
-	}
-
-	@Override
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponRarity(String... weaponRarity) {
-		List<CharacterInterface<Character>> returnedList = dao.getAllOfficersByWeaponRarity(DW8Structures.getOfficers(),
-				weaponRarity);
-		return new WarriorSorter(returnedList).getSortedList();
-	}
-
-	@Override
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponCategory(String... weaponCategory) {
-		List<CharacterInterface<Character>> returnedList = dao
-				.getAllOfficersByWeaponCategory(DW8Structures.getOfficers(), weaponCategory);
-		return new WarriorSorter(returnedList).getSortedList();
-	}
-
-	@Override
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponAffinity(String... weaponAffinity) {
-		List<CharacterInterface<Character>> returnedList = dao
-				.getAllOfficersByWeaponAffinity(DW8Structures.getOfficers(), weaponAffinity);
-		return new WarriorSorter(returnedList).getSortedList();
-	}
-
-	@Override
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponLength(String... weaponLength) {
-		List<CharacterInterface<Character>> returnedList = dao.getAllOfficersByWeaponLength(DW8Structures.getOfficers(),
-				weaponLength);
-		return new WarriorSorter(returnedList).getSortedList();
-	}
-
 }

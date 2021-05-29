@@ -27,14 +27,4 @@ public interface CharacterFacadeInterface {
 
 	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponPower(int... weaponPower);
 
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponStar(int... weaponStar);
-
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponRarity(String... weaponRarity);
-
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponCategory(String... weaponCategory);
-
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponAffinity(String... weaponAffinity);
-
-	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponLength(String... weaponLength);
-
 }

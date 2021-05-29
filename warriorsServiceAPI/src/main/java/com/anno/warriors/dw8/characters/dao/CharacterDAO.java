@@ -1,7 +1,9 @@
 package com.anno.warriors.dw8.characters.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +28,6 @@ import com.anno.warriors.shared.WarriorSorter;
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class CharacterDAO implements CharacterDAOInterface {
 
-//			Dependency Classes --> DW8Structures
 	private static Logger logger = LoggerFactory.getLogger(CharacterDAO.class);
 	private List<CharacterInterface<Character>> list;
 
@@ -100,11 +101,10 @@ public class CharacterDAO implements CharacterDAOInterface {
 	public List<CharacterInterface<Character>> getAllOfficersByWeaponName(List<CharacterInterface<Character>> officers,
 			String... weaponNames) {
 		List<CharacterInterface<Character>> tempOfficers = officers;
-		list = new ArrayList<>();
+		Map<String, CharacterInterface<Character>> charactersMapped = new HashMap<>();
 		List<WeaponInterface<Weapon>> allWeaponsTemp = new ArrayList<>();
 		tempOfficers.forEach(e -> {
 			allWeaponsTemp.addAll(e.getWeapons());
-//			logger.info("{} Weapon Size : {} ", e.getName(), allWeaponsTemp.size());
 			WeaponSorter weapSorter = new WeaponSorter(allWeaponsTemp, DW8Constants.SortBy.NAME,
 					DW8Constants.OrderBy.ASCENDING);
 			WeaponSearcher weapSearcher = new WeaponSearcher(weapSorter.getSortedList());
@@ -112,63 +112,38 @@ public class CharacterDAO implements CharacterDAOInterface {
 			for (String s : weaponNames) {
 				List<WeaponInterface<Weapon>> temp = weapSearcher.search(s);
 				if (!temp.isEmpty()) {
-					logger.info("{} Weapon Size : {} ", e.getName(), temp.size());
-					logger.info("Found Weapon -> {} for {}", s, e.getName());
-					e.getWeapons().clear();
-					logger.info("Cleared Weapon Size : {} for {}", e.getWeapons().size(), e.getName());
-					temp.forEach(z -> {
-						logger.info("Temp : {}, {}", z.getName(), z.getType());
-					});
-					e.getWeapons().addAll(temp);
-					list.add(e);
+					charactersMapped.put(e.getName(), e);
 				}
 			}
 			allWeaponsTemp.clear();
 		});
 
-		return list;
+		return new ArrayList<>(charactersMapped.values());
 	}
 
 	@Override
 	public List<CharacterInterface<Character>> getAllOfficersByWeaponPower(List<CharacterInterface<Character>> officers,
 			int... weaponPower) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		List<CharacterInterface<Character>> tempOfficers = officers;
+		Map<String, CharacterInterface<Character>> charactersMapped = new HashMap<>();
+		List<WeaponInterface<Weapon>> allWeaponsTemp = new ArrayList<>();
 
-	@Override
-	public List<CharacterInterface<Character>> getAllOfficersByWeaponStar(List<CharacterInterface<Character>> officers,
-			int... weaponStar) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		tempOfficers.forEach(e -> {
+			allWeaponsTemp.addAll(e.getWeapons());
+			WeaponSorter weapSorter = new WeaponSorter(allWeaponsTemp, DW8Constants.SortBy.NAME,
+					DW8Constants.OrderBy.ASCENDING);
+			WeaponSearcher weapSearcher = new WeaponSearcher(weapSorter.getSortedList());
 
-	@Override
-	public List<CharacterInterface<Character>> getAllOfficersByWeaponRarity(
-			List<CharacterInterface<Character>> officers, String... weaponRarity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+			for (int p : weaponPower) {
+				List<WeaponInterface<Weapon>> temp = weapSearcher.searchByAttackPower(p);
+				if (!temp.isEmpty()) {
+					charactersMapped.put(e.getName(), e);
+				}
+			}
+			allWeaponsTemp.clear();
+		});
 
-	@Override
-	public List<CharacterInterface<Character>> getAllOfficersByWeaponCategory(
-			List<CharacterInterface<Character>> officers, String... weaponCategory) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<CharacterInterface<Character>> getAllOfficersByWeaponAffinity(
-			List<CharacterInterface<Character>> officers, String... weaponAffinity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<CharacterInterface<Character>> getAllOfficersByWeaponLength(
-			List<CharacterInterface<Character>> officers, String... weaponLength) {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<>(charactersMapped.values());
 	}
 
 }

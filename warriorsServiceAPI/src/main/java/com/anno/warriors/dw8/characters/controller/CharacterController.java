@@ -90,34 +90,4 @@ public class CharacterController {
 		return new ResponseEntity<>(facade.callingGetAllOfficerByWeaponPower(weaponPower), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/officers/search/weapon/star", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficersByWeaponStar(
-			@RequestBody(required = true) int... weaponStar) {
-		return new ResponseEntity<>(facade.callingGetAllOfficerByWeaponStar(weaponStar), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/officers/search/weapon/rarity", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficersByWeaponRarity(
-			@RequestBody(required = true) String... weaponRarity) {
-		return new ResponseEntity<>(facade.callingGetAllOfficerByWeaponRarity(weaponRarity), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/officers/search/weapon/category", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficersByWeaponCategory(
-			@RequestBody(required = true) String... weaponCategory) {
-		return new ResponseEntity<>(facade.callingGetAllOfficerByWeaponCategory(weaponCategory), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/officers/search/weapon/affinity", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficersByWeaponAffinity(
-			@RequestBody(required = true) String... weaponAffinity) {
-		return new ResponseEntity<>(facade.callingGetAllOfficerByWeaponAffinity(weaponAffinity), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/officers/search/weapon/length", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficersByWeaponLength(
-			@RequestBody(required = true) String... weaponLength) {
-		return new ResponseEntity<>(facade.callingGetAllOfficerByWeaponLength(weaponLength), HttpStatus.OK);
-	}
-
 }
