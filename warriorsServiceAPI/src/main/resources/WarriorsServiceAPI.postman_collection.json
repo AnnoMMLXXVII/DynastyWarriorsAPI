@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6ce9dae4-746d-4554-97f2-9aa970bed3b8",
+		"_postman_id": "a905463e-8e36-4b35-8aff-c3fc612528db",
 		"name": "WarriorsServiceAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -86,7 +86,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    \"Zhao Yun\"\r\n]",
+							"raw": "[\r\n    \"Zhao Yun\",\r\n    \"Zhou Tai\"\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -144,7 +144,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n   \"Dark Dragon Spear\",\r\n   \"Beam Spear\"\r\n]",
+							"raw": "[\r\n   \r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -174,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n   \"\"\r\n]",
+							"raw": "[\r\n   58,\r\n   35\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -192,36 +192,6 @@
 								"search",
 								"weapon",
 								"power"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Officers By Weapon Star",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n   \"\"\r\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/officers/search/weapon/star",
-							"host": [
-								"{{warriorsHost}}dw8"
-							],
-							"path": [
-								"characters",
-								"officers",
-								"search",
-								"weapon",
-								"star"
 							]
 						}
 					},
@@ -251,126 +221,6 @@
 								"officers",
 								"search",
 								"type"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Officers By Weapon Rarity",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n   \"\"\r\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/officers/search/weapon/rarity",
-							"host": [
-								"{{warriorsHost}}dw8"
-							],
-							"path": [
-								"characters",
-								"officers",
-								"search",
-								"weapon",
-								"rarity"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Officers By Weapon Category",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n   \"\"\r\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/officers/search/weapon/category",
-							"host": [
-								"{{warriorsHost}}dw8"
-							],
-							"path": [
-								"characters",
-								"officers",
-								"search",
-								"weapon",
-								"category"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Officers By Weapon Affinity",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n   \"\"\r\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/officers/search/weapon/affinity",
-							"host": [
-								"{{warriorsHost}}dw8"
-							],
-							"path": [
-								"characters",
-								"officers",
-								"search",
-								"weapon",
-								"affinity"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Officers By Weapon length",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\r\n   \"\"\r\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{warriorsHost}}dw8/characters/officers/search/weapon/length",
-							"host": [
-								"{{warriorsHost}}dw8"
-							],
-							"path": [
-								"characters",
-								"officers",
-								"search",
-								"weapon",
-								"length"
 							]
 						}
 					},
@@ -566,7 +416,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Dragon Spear",
+							"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Curved Sword",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
@@ -578,7 +428,7 @@
 							"query": [
 								{
 									"key": "type",
-									"value": "Dragon Spear"
+									"value": "Curved Sword"
 								}
 							]
 						}
