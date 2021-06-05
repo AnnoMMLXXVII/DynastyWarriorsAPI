@@ -1,10 +1,123 @@
 {
 	"info": {
-		"_postman_id": "a905463e-8e36-4b35-8aff-c3fc612528db",
+		"_postman_id": "4e4fca8b-4796-4869-aaed-4ad3082b1dba",
 		"name": "WarriorsServiceAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Attributes",
+			"item": [
+				{
+					"name": "All Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Normal Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/normal",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"normal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Normal By Names",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Flash\",\n    \"Roar\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/normal",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"normal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Special Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/special",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"special"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Special By Names",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Awareness\",\n    \"War Shoes\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/special",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"special"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Character",
 			"item": [
