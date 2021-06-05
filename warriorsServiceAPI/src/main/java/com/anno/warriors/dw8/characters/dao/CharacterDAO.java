@@ -1,8 +1,9 @@
 package com.anno.warriors.dw8.characters.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +11,16 @@ import org.springframework.stereotype.Repository;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DW8Structures;
+import com.anno.warriors.dw8.shared.CharacterSearcher;
+import com.anno.warriors.dw8.shared.CharacterSorter;
+import com.anno.warriors.dw8.shared.DW8Constants;
+import com.anno.warriors.dw8.shared.WeaponSearcher;
+import com.anno.warriors.dw8.shared.WeaponSorter;
+import com.anno.warriors.dw8.weapons.model.Weapon;
+import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 import com.anno.warriors.shared.WarriorSearcher;
 import com.anno.warriors.shared.WarriorSorter;
 
@@ -19,7 +28,6 @@ import com.anno.warriors.shared.WarriorSorter;
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class CharacterDAO implements CharacterDAOInterface {
 
-//			Dependency Classes --> DW8Structures
 	private static Logger logger = LoggerFactory.getLogger(CharacterDAO.class);
 	private List<CharacterInterface<Character>> list;
 
@@ -49,16 +57,93 @@ public class CharacterDAO implements CharacterDAOInterface {
 		WarriorSearcher<Character> searcher = new WarriorSearcher(sorter.getSortedList());
 		for (String s : name) {
 			List<Character> temp = searcher.search(s);
-			for (CharacterInterface<Character> c : temp)
-				list.add(c);
+			for (CharacterInterface<Character> c : temp) {
+				if (c != null) {
+					list.add(c);
+				}
+			}
 		}
 		return list;
 	}
 
 	@Override
-	public Optional<CharacterInterface<Character>> getOfficerByWeaponType(List<CharacterInterface<Character>> paramList,
-			String type) {
-		return paramList.stream().filter(e -> e.getWeaponType().equals(Types.returnCorrectEnum(type))).findFirst();
+	public List<CharacterInterface<Character>> getOfficerByWeaponType(List<CharacterInterface<Character>> paramList,
+			String... type) {
+		list = new ArrayList<>();
+		CharacterSorter sorter = new CharacterSorter(paramList, DW8Constants.SortBy.TYPES);
+		CharacterSearcher searcher = new CharacterSearcher(sorter.getSortedList());
+		for (String s : type) {
+			Types t = Types.returnCorrectEnum(s);
+			CharacterInterface<Character> temp = searcher.search(t);
+			if (temp != null) {
+				list.add(temp);
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByKingdom(List<CharacterInterface<Character>> officers,
+			String... kingdom) {
+		list = new ArrayList<>();
+		for (String s : kingdom) {
+			Kingdom k = Kingdom.returnCorrectEnum(s);
+			officers.forEach(e -> {
+				if (e.getKingdom().equals(k)) {
+					list.add(e);
+				}
+			});
+		}
+		return list;
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponName(List<CharacterInterface<Character>> officers,
+			String... weaponNames) {
+		List<CharacterInterface<Character>> tempOfficers = officers;
+		Map<String, CharacterInterface<Character>> charactersMapped = new HashMap<>();
+		List<WeaponInterface<Weapon>> allWeaponsTemp = new ArrayList<>();
+		tempOfficers.forEach(e -> {
+			allWeaponsTemp.addAll(e.getWeapons());
+			WeaponSorter weapSorter = new WeaponSorter(allWeaponsTemp, DW8Constants.SortBy.NAME,
+					DW8Constants.OrderBy.ASCENDING);
+			WeaponSearcher weapSearcher = new WeaponSearcher(weapSorter.getSortedList());
+
+			for (String s : weaponNames) {
+				List<WeaponInterface<Weapon>> temp = weapSearcher.search(s);
+				if (!temp.isEmpty()) {
+					charactersMapped.put(e.getName(), e);
+				}
+			}
+			allWeaponsTemp.clear();
+		});
+
+		return new ArrayList<>(charactersMapped.values());
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> getAllOfficersByWeaponPower(List<CharacterInterface<Character>> officers,
+			int... weaponPower) {
+		List<CharacterInterface<Character>> tempOfficers = officers;
+		Map<String, CharacterInterface<Character>> charactersMapped = new HashMap<>();
+		List<WeaponInterface<Weapon>> allWeaponsTemp = new ArrayList<>();
+
+		tempOfficers.forEach(e -> {
+			allWeaponsTemp.addAll(e.getWeapons());
+			WeaponSorter weapSorter = new WeaponSorter(allWeaponsTemp, DW8Constants.SortBy.NAME,
+					DW8Constants.OrderBy.ASCENDING);
+			WeaponSearcher weapSearcher = new WeaponSearcher(weapSorter.getSortedList());
+
+			for (int p : weaponPower) {
+				List<WeaponInterface<Weapon>> temp = weapSearcher.searchByAttackPower(p);
+				if (!temp.isEmpty()) {
+					charactersMapped.put(e.getName(), e);
+				}
+			}
+			allWeaponsTemp.clear();
+		});
+
+		return new ArrayList<>(charactersMapped.values());
 	}
 
 }

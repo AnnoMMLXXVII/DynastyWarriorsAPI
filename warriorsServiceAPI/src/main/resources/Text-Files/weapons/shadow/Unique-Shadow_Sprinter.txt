@@ -2,7 +2,7 @@ Godly Flail, 40, Heaven, 5, Flail
 Leg Iron, 42, Man, 5, Flail
 Dragonstone Flail, 44, Man, 5, Flail
 Demon Slayer, 49, Heaven, 5, Podao
-Gold Phoenix, 24, Earth, 5, Podao
+Gold Phoenix Beak, 24, Earth, 5, Podao
 Vintage Wine, 51, Earth, 5, Podao
 Violent Tusk, 54, Man, 5, Podao
 Heaven's Venom, 56, Heaven, 5, Twin Pike
@@ -14,9 +14,9 @@ Purgatory Blade, 47, Man, 5, General's Sword
 Imperial Tiger, 49, Heaven, 5, Nine Rings Blade
 Saw, 51, Heaven, 5, Nine Rings Blade
 Radiant Tiger Blade, 54, Earth, 5, Nine Rings Blade
-Qilin Trident, 51, Heaven, 5, Double Edge Trident
-Sasumata, 54, Earth, 5, Double Edge Trident
-Violent Flash, 56, Man, 5, Double Edge Trident
+Qilin Trident, 51, Heaven, 5, Double-Edge Trident
+Sasumata, 54, Earth, 5, Double-Edge Trident
+Violet Flash, 56, Man, 5, Double-Edge Trident
 Golden Might, 46, Heaven, 5, Short Rod
 Pointer, 45, Man, 5, Short Rod
 Firestrike, 47, Man, 5, Short Rod

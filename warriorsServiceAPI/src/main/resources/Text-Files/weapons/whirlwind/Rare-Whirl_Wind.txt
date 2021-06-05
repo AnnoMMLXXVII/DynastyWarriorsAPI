@@ -29,7 +29,7 @@ Chaotic Flame, 33, Man, 3, Arm Cannon
 Nature's Beauty, 14, Man, 1, Brush
 Birds & Beasts, 20, Heaven, 2, Brush
 Bottom Tide, 16, Heaven, 1, Dagger Axe
-Lotus Bottom, 25, Earth, 3, Dagger Axe
+Lotus Blossom, 25, Earth, 3, Dagger Axe
 Ego Booster, 26, Heaven, 2, Bomb
 Blooming Desire, 31, Earth, 3, Bomb
 Triple Thunder, 21, Earth, 1, Short Pike

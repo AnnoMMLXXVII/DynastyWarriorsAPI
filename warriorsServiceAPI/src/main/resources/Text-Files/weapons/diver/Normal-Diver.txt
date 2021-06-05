@@ -21,7 +21,7 @@ Skymaster, 34, 5'3", 4, Striking Sword
 Taoist Deck, 12, 1'4", 1, Talisman Cards
 Cursed Deck, 27, 1'4", 2, Talisman Cards
 Spirit Deck, 34, 1'4", 3, Talisman Cards
-Mystic Desk, 41, 1'4", 4, Talisman Cards
+Mystic Deck, 41, 1'4", 4, Talisman Cards
 Iron Flailblade, 12, 3'7", 1, Flail Sword
 Elite Edge, 18, 3'7", 2, Flail Blade
 Gravity Blade, 23, 3'7", 3, Flail Blade

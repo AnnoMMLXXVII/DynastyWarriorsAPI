@@ -12,6 +12,7 @@ import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
+import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
@@ -54,12 +55,6 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	private static Map<Category, List<WeaponInterface<Weapon>>> categoryWeaponsMap = new HashMap<>();
 	private static Map<Types, List<WeaponInterface<Weapon>>> typesWeaponListMap = new HashMap<>();
 	private static Map<String, List<WeaponInterface<Weapon>>> weaponNameWeaponsMap = new HashMap<>();
-
-	private static final String NORMAL_STR = "normal";
-	private static final String UNIQUE_STR = "unqiue";
-	private static final String RARE_STR = "rare";
-	private static final String XL_STR = "xtreme";
-	private static final String ATTR_STR = "attirbutes";
 
 	public static DynastyWarriors8Object<DW8Structures> getInstance() {
 		if (instance == null) {
@@ -205,63 +200,67 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	}
 
 	private static void mapAttributePath() {
-		attributePath.put(NORMAL_STR, DW8Constants.ATTRIBUTES_NORMAL_FILE);
-		attributePath.put("special", DW8Constants.ATTRIBUTES_SPECIAL_FILE);
-		allPaths.put("attribute", attributePath);
+		attributePath.put(DW8Constants.MetaData.NORMAL.getValue().toLowerCase(), DW8Constants.ATTRIBUTES_NORMAL_FILE);
+		attributePath.put(DW8Constants.MetaData.SPECIAL.getValue().toLowerCase(), DW8Constants.ATTRIBUTES_SPECIAL_FILE);
+		allPaths.put(DW8Constants.MetaData.ATTRIBUTE.getValue().toLowerCase(), attributePath);
 	}
 
 	private static void mapOfficerPath() {
-		officerPath.put("shu", DW8Constants.OFFICER_SHU_FILE);
-		officerPath.put("wu", DW8Constants.OFFICER_WU_FILE);
-		officerPath.put("wei", DW8Constants.OFFICER_WEI_FILE);
-		officerPath.put("jin", DW8Constants.OFFICER_JIN_FILE);
-		officerPath.put("other", DW8Constants.OFFICER_OTHER_FILE);
-		allPaths.put("officer", officerPath);
+		officerPath.put(Kingdom.SHU.getValue().toLowerCase(), DW8Constants.OFFICER_SHU_FILE);
+		officerPath.put(Kingdom.WU.getValue().toLowerCase(), DW8Constants.OFFICER_WU_FILE);
+		officerPath.put(Kingdom.WEI.getValue().toLowerCase(), DW8Constants.OFFICER_WEI_FILE);
+		officerPath.put(Kingdom.JIN.getValue().toLowerCase(), DW8Constants.OFFICER_JIN_FILE);
+		officerPath.put(Kingdom.OTHER.getValue().toLowerCase(), DW8Constants.OFFICER_OTHER_FILE);
+		allPaths.put(DW8Constants.MetaData.OFFICER.getValue().toLowerCase(), officerPath);
 	}
 
 	private static void mapSubOfficerPath() {
-		subOfficerPath.put("shu", DW8Constants.SUBOFFICER_SHU_FILE);
-		subOfficerPath.put("wu", DW8Constants.SUBOFFICER_WU_FILE);
-		subOfficerPath.put("wei", DW8Constants.SUBOFFICER_WEI_FILE);
-		subOfficerPath.put("jin", DW8Constants.SUBOFFICER_JIN_FILE);
-		subOfficerPath.put("other", DW8Constants.SUBOFFICER_OTHER_FILE);
-		allPaths.put("subOfficer", subOfficerPath);
+		subOfficerPath.put(Kingdom.SHU.getValue().toLowerCase(), DW8Constants.SUBOFFICER_SHU_FILE);
+		subOfficerPath.put(Kingdom.WU.getValue().toLowerCase(), DW8Constants.SUBOFFICER_WU_FILE);
+		subOfficerPath.put(Kingdom.WEI.getValue().toLowerCase(), DW8Constants.SUBOFFICER_WEI_FILE);
+		subOfficerPath.put(Kingdom.JIN.getValue().toLowerCase(), DW8Constants.SUBOFFICER_JIN_FILE);
+		subOfficerPath.put(Kingdom.OTHER.getValue().toLowerCase(), DW8Constants.SUBOFFICER_OTHER_FILE);
+		allPaths.put(DW8Constants.MetaData.SUBOFFICER.getValue().toLowerCase(), subOfficerPath);
 	}
 
 	private static void mapDasherPath() {
-		dasherPath.put(NORMAL_STR, DW8Constants.WEAPON_DASHER_NORMAL_FILE);
-		dasherPath.put(RARE_STR, DW8Constants.WEAPON_DASHER_RARE_FILE);
-		dasherPath.put(UNIQUE_STR, DW8Constants.WEAPON_DASHER_UNIQUE_FILE);
-		dasherPath.put(XL_STR, DW8Constants.WEAPON_DASHER_XTREME_FILE);
-		dasherPath.put(ATTR_STR, DW8Constants.WEAPON_DASHER_ATTRIBUTES_FILE);
-		allPaths.put("dasher", dasherPath);
+		dasherPath.put(Rarity.NORMAL.getValue().toLowerCase(), DW8Constants.WEAPON_DASHER_NORMAL_FILE);
+		dasherPath.put(Rarity.RARE.getValue().toLowerCase(), DW8Constants.WEAPON_DASHER_RARE_FILE);
+		dasherPath.put(Rarity.UNIQUE.getValue().toLowerCase(), DW8Constants.WEAPON_DASHER_UNIQUE_FILE);
+		dasherPath.put(Rarity.EXTREME.getValue().toLowerCase(), DW8Constants.WEAPON_DASHER_XTREME_FILE);
+		dasherPath.put(DW8Constants.MetaData.SUBOFFICER.getValue().toLowerCase() + "s",
+				DW8Constants.WEAPON_DASHER_ATTRIBUTES_FILE);
+		allPaths.put(Category.DASHER.getValue().toLowerCase(), dasherPath);
 	}
 
 	private static void mapDiverPath() {
-		diverPath.put(NORMAL_STR, DW8Constants.WEAPON_DIVER_NORMAL_FILE);
-		diverPath.put(RARE_STR, DW8Constants.WEAPON_DIVER_RARE_FILE);
-		diverPath.put(UNIQUE_STR, DW8Constants.WEAPON_DIVER_UNIQUE_FILE);
-		diverPath.put(XL_STR, DW8Constants.WEAPON_DIVER_XTREME_FILE);
-		diverPath.put(ATTR_STR, DW8Constants.WEAPON_DIVER_ATTRIBUTES_FILE);
-		allPaths.put("diver", diverPath);
+		diverPath.put(Rarity.NORMAL.getValue().toLowerCase(), DW8Constants.WEAPON_DIVER_NORMAL_FILE);
+		diverPath.put(Rarity.RARE.getValue().toLowerCase(), DW8Constants.WEAPON_DIVER_RARE_FILE);
+		diverPath.put(Rarity.UNIQUE.getValue().toLowerCase(), DW8Constants.WEAPON_DIVER_UNIQUE_FILE);
+		diverPath.put(Rarity.EXTREME.getValue().toLowerCase(), DW8Constants.WEAPON_DIVER_XTREME_FILE);
+		diverPath.put(DW8Constants.MetaData.SUBOFFICER.getValue().toLowerCase() + "s",
+				DW8Constants.WEAPON_DIVER_ATTRIBUTES_FILE);
+		allPaths.put(Category.DIVER.getValue().toLowerCase(), diverPath);
 	}
 
 	private static void mapShadowPath() {
-		shadowPath.put(NORMAL_STR, DW8Constants.WEAPON_SHADOW_NORMAL_FILE);
-		shadowPath.put(RARE_STR, DW8Constants.WEAPON_SHADOW_RARE_FILE);
-		shadowPath.put(UNIQUE_STR, DW8Constants.WEAPON_SHADOW_UNIQUE_FILE);
-		shadowPath.put(XL_STR, DW8Constants.WEAPON_SHADOW_XTREME_FILE);
-		shadowPath.put(ATTR_STR, DW8Constants.WEAPON_SHADOW_ATTRIBUTES_FILE);
-		allPaths.put("shadow", shadowPath);
+		shadowPath.put(Rarity.NORMAL.getValue().toLowerCase(), DW8Constants.WEAPON_SHADOW_NORMAL_FILE);
+		shadowPath.put(Rarity.RARE.getValue().toLowerCase(), DW8Constants.WEAPON_SHADOW_RARE_FILE);
+		shadowPath.put(Rarity.UNIQUE.getValue().toLowerCase(), DW8Constants.WEAPON_SHADOW_UNIQUE_FILE);
+		shadowPath.put(Rarity.EXTREME.getValue().toLowerCase(), DW8Constants.WEAPON_SHADOW_XTREME_FILE);
+		shadowPath.put(DW8Constants.MetaData.SUBOFFICER.getValue().toLowerCase() + "s",
+				DW8Constants.WEAPON_SHADOW_ATTRIBUTES_FILE);
+		allPaths.put(Category.SHADOW_SPRINTER.getValue().toLowerCase(), shadowPath);
 	}
 
 	private static void mapWhirlwindPath() {
-		whirlwindPath.put(NORMAL_STR, DW8Constants.WEAPON_WHIRLWIND_NORMAL_FILE);
-		whirlwindPath.put(RARE_STR, DW8Constants.WEAPON_WHIRLWIND_RARE_FILE);
-		whirlwindPath.put(UNIQUE_STR, DW8Constants.WEAPON_WHIRLWIND_UNIQUE_FILE);
-		whirlwindPath.put(XL_STR, DW8Constants.WEAPON_WHIRLWIND_XTREME_FILE);
-		whirlwindPath.put(ATTR_STR, DW8Constants.WEAPON_WHIRLWIND_ATTRIBUTES_FILE);
-		allPaths.put("whirlwind", whirlwindPath);
+		whirlwindPath.put(Rarity.NORMAL.getValue().toLowerCase(), DW8Constants.WEAPON_WHIRLWIND_NORMAL_FILE);
+		whirlwindPath.put(Rarity.RARE.getValue().toLowerCase(), DW8Constants.WEAPON_WHIRLWIND_RARE_FILE);
+		whirlwindPath.put(Rarity.UNIQUE.getValue().toLowerCase(), DW8Constants.WEAPON_WHIRLWIND_UNIQUE_FILE);
+		whirlwindPath.put(Rarity.EXTREME.getValue().toLowerCase(), DW8Constants.WEAPON_WHIRLWIND_XTREME_FILE);
+		whirlwindPath.put(DW8Constants.MetaData.SUBOFFICER.getValue().toLowerCase() + "s",
+				DW8Constants.WEAPON_WHIRLWIND_ATTRIBUTES_FILE);
+		allPaths.put(Category.WHIRLD_WIND.getValue().toLowerCase(), whirlwindPath);
 	}
 
 	private static void mapOfficerImagePath() {

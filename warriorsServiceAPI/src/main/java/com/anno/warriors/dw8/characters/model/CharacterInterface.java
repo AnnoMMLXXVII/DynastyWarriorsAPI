@@ -24,6 +24,8 @@ public interface CharacterInterface<T> extends Comparable<T>, DynastyWarriors8Ob
 
 	public abstract int compareTo(String o);
 
+	public abstract int compareTo(Types o);
+
 	public abstract void setImage(List<String> path);
 
 	public abstract List<String> getImage();

@@ -63,6 +63,11 @@ public class Officer extends Character {
 	}
 
 	@Override
+	public int compareTo(Types o) {
+		return this.getWeaponType().getValue().compareTo(o.getValue());
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();

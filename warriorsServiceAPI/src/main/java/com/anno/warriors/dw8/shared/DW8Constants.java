@@ -11,6 +11,51 @@ public class DW8Constants {
 	public static final Integer MAX_ATTRIBUTE_LEVEL = 10;
 
 	public static final String OFFICER_IMAGES_PATH = ApplicationConstants.RESOURCE_PATH + "Officer_Images/";
+
+	public static final String WEAPON_IMAGES_JIN_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/1-Star/jin/";
+	public static final String WEAPON_IMAGES_SHU_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/1-Star/shu/";
+	public static final String WEAPON_IMAGES_OTHER_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/1-Star/other/";
+	public static final String WEAPON_IMAGES_WU_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/1-Star/wu/";
+	public static final String WEAPON_IMAGES_WEI_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/1-Star/wei/";
+
+	public static final String WEAPON_IMAGES_JIN_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/2-Star/jin/";
+	public static final String WEAPON_IMAGES_SHU_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/2-Star/shu/";
+	public static final String WEAPON_IMAGES_OTHER_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/2-Star/other/";
+	public static final String WEAPON_IMAGES_WU_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/2-Star/wu/";
+	public static final String WEAPON_IMAGES_WEI_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/2-Star/wei/";
+
+	public static final String WEAPON_IMAGES_JIN_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/3-Star/jin/";
+	public static final String WEAPON_IMAGES_SHU_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/3-Star/shu/";
+	public static final String WEAPON_IMAGES_OTHER_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/3-Star/other/";
+	public static final String WEAPON_IMAGES_WU_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/3-Star/wu/";
+	public static final String WEAPON_IMAGES_WEI_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/3-Star/wei/";
+
+	public static final String WEAPON_IMAGES_JIN_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/4-Star/jin/";
+	public static final String WEAPON_IMAGES_SHU_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/4-Star/shu/";
+	public static final String WEAPON_IMAGES_OTHER_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/4-Star/other/";
+	public static final String WEAPON_IMAGES_WU_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/4-Star/wu/";
+	public static final String WEAPON_IMAGES_WEI_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/4-Star/wei/";
+
 	public static final String WEAPON_IMAGES_JIN_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
 			+ "Weapon-Pictures/5-Star/jin/";
 	public static final String WEAPON_IMAGES_SHU_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
@@ -110,6 +155,55 @@ public class DW8Constants {
 			+ "Text-Files/weapons/whirlwind/Xtreme-Whirl_Wind.txt";
 	public static final String WEAPON_WHIRLWIND_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
 			+ "Text-Files/weapons/whirlwind/Attributes-Whirl_Wind.txt";
+
+	public static final String NINE_LAYERED_HEAVEN_FORMAL = "Nine Layered Heaven";
+	public static final String BRONZE_STUDDED_STAFF_FORMAL = "Bronze Studded Staff";
+	public static final String LIGHT_BREAKING_STAFF_FORMAL = "Light Breaking Staff";
+
+	public enum UpdatedHyphenKey {
+		NINE_LAYERED_HEAVEN("Nine-layered Heaven"), BRONZE_STUDDED_STAFF("Bronze-studded Staff"),
+		LIGHT_BREAKING_STAFF("Light-Breaking Staff");
+
+		private String string;
+
+		UpdatedHyphenKey(String string) {
+			this.string = string;
+		}
+
+		public String getValue() {
+			return string;
+		}
+
+	}
+
+	public enum Split {
+		PERIOD("\\."), UNDER_SCORE("_"), HYPHEN("-"), WHITE_SPACE(" "), FWD_SLASH("/"), COMMA(","), AMPERSAND("&"),
+		APOSTROPHE("\'"), EMPTY(""), COLON(":");
+
+		private String string;
+
+		Split(String string) {
+			this.string = string;
+		}
+
+		public String getValue() {
+			return string;
+		}
+	}
+
+	public enum MetaData {
+		OFFICER("Officer"), SUBOFFICER("SubOfficer"), SPECIAL("Special"), ATTRIBUTE("Attribute"), NORMAL("Normal");
+
+		private String string;
+
+		MetaData(String string) {
+			this.string = string;
+		}
+
+		public String getValue() {
+			return string;
+		}
+	}
 
 	public enum SortBy {
 		ATTACK_POWER, AFFINITY, STAR, NAME, TYPES, RARITY, ATTRIBUTE;

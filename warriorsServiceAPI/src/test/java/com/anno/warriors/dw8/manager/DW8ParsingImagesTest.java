@@ -54,10 +54,10 @@ class DW8ParsingImagesTest {
 	}
 
 	@Test
-	void testThatWeaponImageizeEqualsExpected() {
+	void testThatWeaponImageSizeEqualsExpected() {
 		Map<OfficerKingdomKey, List<String>> expected = ParsingImages.getWeaponImages();
 //		Map<OfficerKingdomKey, List<String>> actual = DW8Structures.getWeaponImages();
-		assertEquals(83, expected.size());
+		assertEquals(95, expected.size());
 	}
 
 	@Test

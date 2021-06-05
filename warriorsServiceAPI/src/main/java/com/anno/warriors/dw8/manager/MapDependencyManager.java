@@ -1,5 +1,6 @@
 package com.anno.warriors.dw8.manager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -44,12 +45,12 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 		List<String> weaponNames = DW8Structures.getWeaponNames();
 		Map<String, String> weaponImages = DW8Structures.getMappedWeaponImagesPathMap();
 		Map<String, List<WeaponInterface<Weapon>>> weaponsMapped = DW8Structures.getWeaponNameWeaponsMap();
-		List<WeaponInterface<Weapon>> weapons;
+		List<WeaponInterface<Weapon>> weapons = new ArrayList<>();
 
 		for (String s : weaponNames) {
 			weapons = weaponsMapped.get(s);
 			for (WeaponInterface<Weapon> w : weapons) {
-				if (w.getName().equalsIgnoreCase(s)) {
+				if (w.getName().equals(s)) {
 					w.setImage(weaponImages.get(s));
 				}
 			}

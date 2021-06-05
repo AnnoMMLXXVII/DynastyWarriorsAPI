@@ -20,9 +20,7 @@ import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @SuppressWarnings({ "unchecked", "rawtypes", "unused" })

@@ -21,8 +21,8 @@ Infinity, 22, Man, 2, Shaman Rod
 Profusion, 27, Heaven, 3, Shaman Rod
 Mirage, 14, Heaven, 1, Iron Fan
 Distant Thunder, 25, Earth, 3, Iron Fan
-Endless Sky, 25, Heaven, 1, Sword & Shield
-Silent Moon, 28, Earth, 2, Sword & Shield
+Endless Sky, 25, Heaven, 2, Sword & Shield
+Silent Moon, 28, Earth, 3, Sword & Shield
 Heavenly Ambition, 24, Man, 2, Flying Swords
 Surging Conquest, 28, Heaven, 3, Flying Swords
 Darkness, 16, Heaven, 1, Curved Sword
@@ -51,8 +51,8 @@ Eagle Boomerang, 14, Earth, 1, Boomerang
 Hawk Boomerang, 22, Heaven, 2, Boomerang
 Dragonfly Blade, 21, Man, 1, Sword & Hook
 Windtail, 33, Earth, 3, Sword & Hook
-Raging Storm, 20, Man, 1, Swallow Swords
-Scorched Earth, 25, Earth, 2, Swallow Swords
+Raging Storm, 20, Man, 2, Swallow Swords
+Scorched Earth, 25, Earth, 3, Swallow Swords
 Armbreaker, 16, Earth, 1, Three Sectional Staff
 Icebug, 22, Heaven, 2, Three Sectional Staff
 Timely Winds, 20, Earth, 2, Shadow Fan

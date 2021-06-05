@@ -1,7 +1,6 @@
 package com.anno.warriors.dw8.characters.facade;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,10 +53,31 @@ public class CharacterFacade implements CharacterFacadeInterface {
 	}
 
 	@Override
-	public CharacterInterface<Character> callingGetOfficerByWeaponType(String type) {
-		Optional<CharacterInterface<Character>> opt = dao.getOfficerByWeaponType(DW8Structures.getOfficers(), type);
-		CharacterInterface<Character> temp = null;
-		return (opt.isPresent()) ? opt.get() : temp;
+	public List<CharacterInterface<Character>> callingGetOfficerByWeaponType(String... type) {
+		List<CharacterInterface<Character>> returnedList = dao.getOfficerByWeaponType(DW8Structures.getOfficers(),
+				type);
+		return new WarriorSorter(returnedList).getSortedList();
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> callingGetAllOfficerByKingdom(String... kingdom) {
+		List<CharacterInterface<Character>> returnedList = dao.getAllOfficersByKingdom(DW8Structures.getOfficers(),
+				kingdom);
+		return new WarriorSorter(returnedList).getSortedList();
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponName(String... weaponNames) {
+		List<CharacterInterface<Character>> returnedList = dao.getAllOfficersByWeaponName(DW8Structures.getOfficers(),
+				weaponNames);
+		return new WarriorSorter(returnedList).getSortedList();
+	}
+
+	@Override
+	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponPower(int... weaponPower) {
+		List<CharacterInterface<Character>> returnedList = dao.getAllOfficersByWeaponPower(DW8Structures.getOfficers(),
+				weaponPower);
+		return new WarriorSorter(returnedList).getSortedList();
 	}
 
 }
