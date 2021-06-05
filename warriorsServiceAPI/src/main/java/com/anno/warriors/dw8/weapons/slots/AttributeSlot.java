@@ -1,6 +1,6 @@
 package com.anno.warriors.dw8.weapons.slots;
 
-import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
+import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 
 public abstract class AttributeSlot implements Comparable<AttributeSlot>, DynastyWarriors8Object<AttributeSlot> {

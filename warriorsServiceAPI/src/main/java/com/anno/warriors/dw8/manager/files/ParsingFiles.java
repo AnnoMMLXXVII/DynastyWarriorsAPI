@@ -6,9 +6,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
-import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
