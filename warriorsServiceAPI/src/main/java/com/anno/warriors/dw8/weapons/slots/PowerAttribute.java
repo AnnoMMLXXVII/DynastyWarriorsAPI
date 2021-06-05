@@ -1,6 +1,6 @@
 package com.anno.warriors.dw8.weapons.slots;
 
-import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
+import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 
 public class PowerAttribute extends AttributeSlot {
 	private Integer level;

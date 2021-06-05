@@ -1,5 +1,8 @@
 package com.anno.warriors.dw8.enums.attribute;
 
+import com.anno.warriors.dw8.attributes.model.AttributeInterface;
+import com.anno.warriors.dw8.shared.DW8Constants;
+
 public enum NormalAttributes implements AttributeInterface {
 
 	THORNS("Thorns", "Inflicts a portion of damage received against the enemy"),
@@ -64,7 +67,7 @@ public enum NormalAttributes implements AttributeInterface {
 
 	@Override
 	public String getType() {
-		return "Normal";
+		return DW8Constants.MetaData.NORMAL.getValue();
 	}
 
 	@Override

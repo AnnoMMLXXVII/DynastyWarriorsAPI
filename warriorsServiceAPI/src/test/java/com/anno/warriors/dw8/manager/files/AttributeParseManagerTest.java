@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
+import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 import com.anno.warriors.dw8.enums.attribute.NormalAttributes;
 import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;

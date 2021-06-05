@@ -3,6 +3,9 @@
  */
 package com.anno.warriors.dw8.enums.attribute;
 
+import com.anno.warriors.dw8.attributes.model.AttributeInterface;
+import com.anno.warriors.dw8.shared.DW8Constants;
+
 /**
  * @author venividivicihofneondeion010101
  *
@@ -52,7 +55,7 @@ public enum SpecialAttributes implements AttributeInterface {
 
 	@Override
 	public String getType() {
-		return "Special";
+		return DW8Constants.MetaData.SPECIAL.getValue();
 	}
 
 	@Override
