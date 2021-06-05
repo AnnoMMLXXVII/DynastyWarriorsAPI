@@ -8,7 +8,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.anno.warriors.dw8.enums.attribute.AttributeInterface;
+import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 import com.anno.warriors.dw8.enums.attribute.NormalAttributes;
 import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
