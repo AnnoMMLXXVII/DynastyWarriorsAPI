@@ -1,4 +1,4 @@
-package com.anno.warriors.dw8.enums.attribute;
+package com.anno.warriors.dw8.attributes.model;
 
 import com.anno.warriors.dw8.enums.DW8Enumeration;
 
