@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class MappingObjectsWithReference<K, V, E> {
 
-	private Map<K, V> mapObject; 
+	private Map<K, V> mapObject;
 
 	public MappingObjectsWithReference(Map<K, V> mapObject) {
 		this.mapObject = mapObject;
