@@ -199,6 +199,7 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 //				weaponNamePathMap.put(weaponName, file[i].getPath());
 				mappedWeaponImages = imageMappingObject.getMapObject();
 				weaponEncoded64Strings.clear();
+//				TODO: Test w/ HTTP REQUEST
 			}
 
 //			weaponByteImages.clear();
