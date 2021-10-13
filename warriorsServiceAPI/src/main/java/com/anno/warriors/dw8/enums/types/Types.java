@@ -26,7 +26,7 @@ public enum Types implements DW8Enumeration<Types>, Comparator<Types> {
 	SHORT_ROD("Short Rod"), JAVELIN("Javelin"), CROSSED_PIKE("Crossed Pike"), DRAGON_SPEAR("Dragon Spear"),
 	CRESCENT_BLADE("Crescent Blade"), DUAL_BLADE("Dual Blade"), HORSEHAIR_WHIP("Horsehair Whip"),
 	STRIKING_SWORD("Striking Sword"), TALISMAN_CARDS("Talisman Cards"), FLAIL_SWORD("Flail Sword"),
-	WOVEN_CLOTH("Woven Cloth");
+	WOVEN_CLOTH("Woven Cloth"), FLAMING_BOW("Flaming Bow");
 
 	private String value;
 

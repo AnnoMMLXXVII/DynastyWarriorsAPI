@@ -155,7 +155,10 @@ public class DW8Constants {
 			+ "Text-Files/weapons/whirlwind/Xtreme-Whirl_Wind.txt";
 	public static final String WEAPON_WHIRLWIND_ATTRIBUTES_FILE = ApplicationConstants.RESOURCE_PATH
 			+ "Text-Files/weapons/whirlwind/Attributes-Whirl_Wind.txt";
-
+	public static final String WEAPON_IMAGE_CSV = ApplicationConstants.RESOURCE_PATH 
+			+ "Weapon-Pictures/WeaponImagesMap.csv";
+	
+	
 	public static final String NINE_LAYERED_HEAVEN_FORMAL = "Nine Layered Heaven";
 	public static final String BRONZE_STUDDED_STAFF_FORMAL = "Bronze Studded Staff";
 	public static final String LIGHT_BREAKING_STAFF_FORMAL = "Light Breaking Staff";
