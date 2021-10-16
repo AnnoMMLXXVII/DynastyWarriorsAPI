@@ -27,7 +27,6 @@ public class WeaponAttributeParseManager implements DynastyWarriors8Object<Weapo
 
 	private static Logger logger = LoggerFactory.getLogger(WeaponAttributeParseManager.class);
 	private static Map<WeaponName_TypesAttributesKey, List<AttributeSlot>> weapNameTypesKeyAttributesMap = new HashMap<>();
-//	private static int lineNum = 1;
 
 	public static Map<WeaponName_TypesAttributesKey, List<AttributeSlot>> getWeapNameTypesKeyAttributesMap() {
 		return weapNameTypesKeyAttributesMap;
@@ -46,11 +45,10 @@ public class WeaponAttributeParseManager implements DynastyWarriors8Object<Weapo
 				String line = z.nextLine();
 				String[] arr = line.split(DW8Constants.Split.COMMA.getValue());
 				parseWeaponAttributes(arr);
-//				lineNum++;
 			}
 
 		} catch (FileNotFoundException e) {
-			throw new FileNotFoundException("File Not Found!");
+			System.err.println("File Not Found!");
 		}
 	}
 
@@ -64,17 +62,12 @@ public class WeaponAttributeParseManager implements DynastyWarriors8Object<Weapo
 		AttributeSlot temp = null;
 		for (int i = 2; i < fixedLength; i++) {
 			slots.add(temp = (AttributeSlot) parseAttributeSlot(arr[i]));
-//			logger.info("Parsed --> " + temp.toString());
 			attributeSlotMappingObject.mapKeyValueWithList(key, temp);
 		}
-//		System.out.printf("[%3d] - (%s,%s) => ", lineNum, key.getWeaponName(), key.getType().name());
-//		slots.stream().forEach(e -> System.out.print(String.format(" %s, ", e.toString())));
-//		System.out.println();
 	}
 
 	private static DynastyWarriors8Object<AttributeSlot> parseAttributeSlot(String str) {
 		if (str.contains(DW8Constants.Split.COLON.getValue())) {
-//			logger.info(String.format("Parsing split => %s", str));
 			String[] splitByColon = str.split(DW8Constants.Split.COLON.getValue());
 			return new PowerAttribute(NormalAttributes.returnCorrectEnum(splitByColon[0].trim()),
 					Integer.parseInt(splitByColon[1].trim()));

@@ -57,6 +57,11 @@ public class WeaponFacade implements WeaponFacadeInterface {
 		if (type == null || type.isEmpty()) {
 			return new ArrayList<>();
 		}
+		for(Types t : Types.values()) {
+			for(WeaponInterface<Weapon> w :DW8Structures.getTypeWeaponKeyKeyMap().get(t)) {
+				System.out.printf("%s,%s,\n", t.getValue(), w.getName());
+			}
+		}
 		return dao.getWeaponsByTypes(DW8Structures.getTypeWeaponKeyKeyMap().get(Types.returnCorrectEnum(type)));
 	}
 

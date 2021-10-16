@@ -14,6 +14,7 @@ import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
+import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 import com.anno.warriors.dw8.keys.OfficerKingdomKey;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.files.ParsingFiles;
@@ -42,8 +43,8 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 	private static Map<String, String> shadowPath = new HashMap<>();
 	private static Map<String, String> whirlwindPath = new HashMap<>();
 	private static Map<String, Map<String, String>> allPaths = new HashMap<>();
-	private static Map<String, List<String>> officerImages = new HashMap<>();
-	private static Map<OfficerKingdomKey, List<String>> weaponImages = new HashMap<>();
+	private static Map<String, List<DynastyWarriors8Image>> officerImages = new HashMap<>();
+	private static Map<Types, List<DynastyWarriors8Image>> weaponImages = new HashMap<>();
 	private static Map<String, String> weaponNamePathMap = new HashMap<>();
 	private static List<String> weaponNames = new ArrayList<>();
 	private static List<CharacterInterface<Character>> officers = new ArrayList<>();
@@ -103,11 +104,11 @@ public class DW8Structures implements DynastyWarriors8Object<DW8Structures> {
 		return whirlwindPath;
 	}
 
-	public static Map<String, List<String>> getOfficerImages() {
+	public static Map<String, List<DynastyWarriors8Image>> getOfficerImages() {
 		return officerImages;
 	}
 
-	public static Map<OfficerKingdomKey, List<String>> getWeaponImages() {
+	public static Map<Types, List<DynastyWarriors8Image>> getWeaponImages() {
 		return weaponImages;
 	}
 

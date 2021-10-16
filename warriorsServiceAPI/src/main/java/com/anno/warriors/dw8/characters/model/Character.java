@@ -3,12 +3,13 @@ package com.anno.warriors.dw8.characters.model;
 import java.util.List;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
+import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 
 public abstract class Character implements CharacterInterface<Character> {
 
 	private String name;
 	private Kingdom kingdom;
-	protected List<String> image;
+	protected List<DynastyWarriors8Image> image;
 
 	public Character() {
 

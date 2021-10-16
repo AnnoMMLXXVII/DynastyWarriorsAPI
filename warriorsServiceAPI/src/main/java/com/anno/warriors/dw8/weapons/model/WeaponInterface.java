@@ -6,6 +6,7 @@ import com.anno.warriors.dw8.enums.affinity.Affinity;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
+import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 
@@ -43,9 +44,9 @@ public interface WeaponInterface<T> extends Comparable<T>, DynastyWarriors8Objec
 
 	public Category getCategory();
 
-	public abstract void setImage(String path);
+	public abstract void setImage(List<DynastyWarriors8Image> path);
 
-	public abstract String getImage();
+	public abstract List<DynastyWarriors8Image> getImage();
 
 	public abstract void setAttributeSlots(List<AttributeSlot> attributeSlot);
 
