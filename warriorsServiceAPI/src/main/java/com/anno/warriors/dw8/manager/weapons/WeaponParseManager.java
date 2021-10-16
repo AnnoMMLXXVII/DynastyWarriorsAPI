@@ -161,6 +161,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 
 	private static WeaponInterface<Weapon> parseNormalWeapons(String fileName, String... args) {
 		Types temp = Types.returnCorrectEnum(args[4].trim());
+//		System.out.printf("%s,%s,\n", args[0].trim(), args[4].trim());
 		WeaponInterface<Weapon> local = new Normal(args[0].trim(), Integer.parseInt(args[1].trim()),
 				Integer.parseInt(args[3].trim()), temp, args[2].trim());
 		local.setRarity((Rarity) parsePathToGetEnum(fileName, true));
@@ -170,6 +171,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 	}
 
 	private static WeaponInterface<Weapon> parseExtremeWeapons(String fileName, String... args) {
+//		System.out.printf("%s,%s,\n", args[0].trim(), args[4].trim());
 		WeaponInterface<Weapon> local = new Extreme(args[0].trim(), Integer.parseInt(args[1].trim()),
 				Integer.parseInt(args[3].trim()), Types.returnCorrectEnum(args[4].trim()),
 				Affinity.returnCorrectEnum(args[2].trim()));

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
+import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
@@ -26,9 +27,9 @@ public interface CharacterInterface<T> extends Comparable<T>, DynastyWarriors8Ob
 
 	public abstract int compareTo(Types o);
 
-	public abstract void setImage(List<String> path);
+	public abstract void setImage(List<DynastyWarriors8Image> path);
 
-	public abstract List<String> getImage();
+	public abstract List<DynastyWarriors8Image> getImage();
 
 	public int hashCode();
 

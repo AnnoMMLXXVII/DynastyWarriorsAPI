@@ -37,8 +37,8 @@ public class DW8Manager implements DynastyWarriors8Object<DW8Manager> {
 	}
 
 	private DW8Manager() {
-		parsingImages = ParsingImages.getInstance();
 		parsingFiles = ParsingFiles.getInstance();
+		parsingImages = ParsingImages.getInstance();
 		// Logic Class that handles mapping dependent objects
 //			--> ie Weapon class has images 
 //			--> Character needs to have officer images
