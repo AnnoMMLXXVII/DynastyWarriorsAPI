@@ -1,10 +1,8 @@
 package com.anno.warriors.dw8.images.model;
 
-import java.util.List;
-
 public abstract class DynastyWarriors8Image {
 	private String name;
-	private List<?> images;
+	private String image;
 	protected String imageType;
 
 	public DynastyWarriors8Image() {
@@ -17,25 +15,17 @@ public abstract class DynastyWarriors8Image {
 	 * @param name
 	 * @param images
 	 */
-	public DynastyWarriors8Image(String name, List<?> images) {
+	public DynastyWarriors8Image(String name, String image) {
 		super();
 		this.name = name;
-		this.images = images;
+		this.image = image;
 	}
-	
 
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
-	}
-
-	/**
-	 * @return the images
-	 */
-	public List<?> getImages() {
-		return images;
 	}
 
 	/**
@@ -46,57 +36,19 @@ public abstract class DynastyWarriors8Image {
 	}
 
 	/**
-	 * @param images the images to set
+	 * @return the image
 	 */
-	public void setImages(List<?> images) {
-		this.images = images;
+	public String getImage() {
+		return image;
 	}
 
-	public abstract void setImageType(String imageType);
+	/**
+	 * @param image the image to set
+	 */
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public abstract String getImageType();
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((imageType == null) ? 0 : imageType.hashCode());
-		result = prime * result + ((images == null) ? 0 : images.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		DynastyWarriors8Image other = (DynastyWarriors8Image) obj;
-		if (imageType == null) {
-			if (other.imageType != null)
-				return false;
-		} else if (!imageType.equals(other.imageType))
-			return false;
-		if (images == null) {
-			if (other.images != null)
-				return false;
-		} else if (!images.equals(other.images))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "DynastyWarriors8Image [name=" + name + ", images=[BASE64]"+ ", imageType=" + imageType
-				+ "]";
-	}
 
 }

@@ -7,6 +7,7 @@ import com.anno.warriors.dw8.enums.affinity.Affinity;
 import com.anno.warriors.dw8.enums.category.Category;
 import com.anno.warriors.dw8.enums.rarity.Rarity;
 import com.anno.warriors.dw8.enums.types.Types;
+import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 
 public abstract class Weapon implements WeaponInterface<Weapon> {
@@ -15,7 +16,7 @@ public abstract class Weapon implements WeaponInterface<Weapon> {
 	private Integer power;
 	private Integer star;
 	private Types type;
-	private String image;
+	private List<DynastyWarriors8Image> image;
 	private List<AttributeSlot> attributeSlot;
 
 	protected Rarity rarity;
@@ -46,13 +47,13 @@ public abstract class Weapon implements WeaponInterface<Weapon> {
 	}
 
 	@Override
-	public void setImage(String image) {
+	public void setImage(List<DynastyWarriors8Image> image) {
 		this.image = image;
 	}
 
 	@Override
-	public String getImage() {
-		return image == null ? "N/A" : image;
+	public List<DynastyWarriors8Image> getImage() {
+		return image == null ? new ArrayList<>() : image;
 	}
 
 	@Override

@@ -1,22 +1,22 @@
 package com.anno.warriors.dw8.images.model;
 
-import java.util.List;
-
 public class WeaponImage extends DynastyWarriors8Image {
-	
-	public WeaponImage(String name, List<?> images) {
-		super(name, images);
-		this.imageType = "Weapon";
-	}
 
-	@Override
-	public void setImageType(String imageType) {
-		this.imageType = imageType;
+	public WeaponImage(String name, String image) {
+		super(name, image);
+		this.imageType = "Weapon";
 	}
 
 	@Override
 	public String getImageType() {
 		return imageType;
 	}
+
+	@Override
+	public String toString() {
+		return "WeaponImage [ " + super.toString() + "imageType=" + imageType + "]";
+	}
+	
+	
 
 }

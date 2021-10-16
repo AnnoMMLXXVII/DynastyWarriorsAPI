@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
+import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
@@ -43,12 +44,12 @@ public class Officer extends Character {
 	}
 
 	@Override
-	public void setImage(List<String> image) {
+	public void setImage(List<DynastyWarriors8Image> image) {
 		this.image = image;
 	}
 
 	@Override
-	public List<String> getImage() {
+	public List<DynastyWarriors8Image> getImage() {
 		return image == null ? new ArrayList<>() : image;
 	}
 

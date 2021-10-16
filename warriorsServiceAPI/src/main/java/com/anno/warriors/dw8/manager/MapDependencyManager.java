@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.types.Types;
+import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
@@ -43,7 +44,7 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 
 	private static void mapWeaponImageToWeapons() {
 		List<String> weaponNames = DW8Structures.getWeaponNames();
-		Map<String, String> weaponImages = DW8Structures.getMappedWeaponImagesPathMap();
+		Map<Types, List<DynastyWarriors8Image>> weaponImages = DW8Structures.getWeaponImages();
 		Map<String, List<WeaponInterface<Weapon>>> weaponsMapped = DW8Structures.getWeaponNameWeaponsMap();
 		List<WeaponInterface<Weapon>> weapons = new ArrayList<>();
 
@@ -51,21 +52,19 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 			weapons = weaponsMapped.get(s);
 			for (WeaponInterface<Weapon> w : weapons) {
 				if (w.getName().equals(s)) {
-					w.setImage(weaponImages.get(s));
+					w.setImage(weaponImages.get(w.getType()));
 				}
 			}
 		}
 	}
 
 	private static void mapDependenciesToOfficers() {
-		Map<String, List<String>> officerImages = DW8Structures.getOfficerImages();
+		Map<String, List<DynastyWarriors8Image>> officerImages = DW8Structures.getOfficerImages();
 		Map<Types, List<WeaponInterface<Weapon>>> weaponsMapped = DW8Structures.getTypeWeaponKeyKeyMap();
 
 		for (CharacterInterface<Character> c : DW8Structures.getOfficers()) {
-//			if (c.getWeaponType() != null) {
 			c.setWeapons(weaponsMapped.get(c.getWeaponType()));
 			c.setImage(officerImages.get(c.getName()));
-//			}
 		}
 	}
 
