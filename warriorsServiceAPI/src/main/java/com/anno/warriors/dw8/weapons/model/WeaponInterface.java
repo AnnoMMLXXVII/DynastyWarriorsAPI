@@ -44,9 +44,9 @@ public interface WeaponInterface<T> extends Comparable<T>, DynastyWarriors8Objec
 
 	public Category getCategory();
 
-	public abstract void setImage(List<DynastyWarriors8Image> path);
+	public abstract void setImage(DynastyWarriors8Image path);
 
-	public abstract List<DynastyWarriors8Image> getImage();
+	public abstract DynastyWarriors8Image getImage();
 
 	public abstract void setAttributeSlots(List<AttributeSlot> attributeSlot);
 

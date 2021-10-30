@@ -43,19 +43,23 @@ public class MapDependencyManager implements DynastyWarriors8Object<MapDependenc
 	}
 
 	private static void mapWeaponImageToWeapons() {
-		List<String> weaponNames = DW8Structures.getWeaponNames();
 		Map<Types, List<DynastyWarriors8Image>> weaponImages = DW8Structures.getWeaponImages();
-		Map<String, List<WeaponInterface<Weapon>>> weaponsMapped = DW8Structures.getWeaponNameWeaponsMap();
-		List<WeaponInterface<Weapon>> weapons = new ArrayList<>();
+		List<WeaponInterface<Weapon>> weapons = DW8Structures.getWeapons();
 
-		for (String s : weaponNames) {
-			weapons = weaponsMapped.get(s);
-			for (WeaponInterface<Weapon> w : weapons) {
-				if (w.getName().equals(s)) {
-					w.setImage(weaponImages.get(w.getType()));
+		weapons.forEach(w -> {
+			String name = w.getName();
+			Types type = w.getType();
+			weaponImages.forEach((e, v) -> {
+				if (e.equals(type)) {
+					v.forEach(s -> {
+						if (s.getName().equals(name)) {
+							w.setImage(s);
+						}
+					});
 				}
-			}
-		}
+			});
+		});
+
 	}
 
 	private static void mapDependenciesToOfficers() {
