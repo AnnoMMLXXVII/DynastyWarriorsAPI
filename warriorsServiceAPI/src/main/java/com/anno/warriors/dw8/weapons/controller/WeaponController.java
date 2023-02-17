@@ -46,7 +46,7 @@ public class WeaponController {
 
 	@RequestMapping(value = "search/stars", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<WeaponInterface<Weapon>>> getWeaponsByStarRank(
-			@RequestParam(required = true, value = "value") int... value) {
+			@RequestParam(required = true, value = "stars") int... value) {
 		return new ResponseEntity<>(facade.callingGetWeaponsByStarRank(value), HttpStatus.OK);
 	}
 
