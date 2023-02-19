@@ -8,12 +8,18 @@ public interface AttributesFacadeInterface {
 
 	public List<AttributeInterface> callingGetAllAttributes();
 
-	public List<AttributeInterface> callingGetNormalAttributes();
+	public AttributeInterface callingGetAllAttribute(String name);
 
-	public List<AttributeInterface> callingGetSpecialAttributes();
+	public List<AttributeInterface> callingGetAllAttributes(String type);
 
-	public List<AttributeInterface> callingGetNormalAttributesByNames(String... names);
+	public List<AttributeInterface> callingGetAllAttributes(String... name);
 
-	public List<AttributeInterface> callingGetSpecialAttributesByNames(String... names);
+	public AttributeInterface callingUpdateAttribute(String key, AttributeInterface attribute);
+
+//	public List<AttributeInterface> callingGetSpecialAttributes();
+
+//	public List<AttributeInterface> callingGetNormalAttributesByNames(String... names);
+
+//	public List<AttributeInterface> callingGetSpecialAttributesByNames(String... names);
 
 }

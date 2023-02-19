@@ -15,7 +15,7 @@ public class DBConnection {
 
 	public static void connectToDB() throws SQLException {
 		PGSimpleDataSource ds = new PGSimpleDataSource();
-		url = PREFIX + "://" + System.getProperty("HOST") + ":" + PORT + "/" + DBConstants.DATABASE + "?"
+		url = PREFIX + "://" + System.getProperty("HOST") + ":" + PORT + "/" + DYNConstants.DATABASE + "?"
 				+ SSL_MODE_REQUIRE;
 		ds.setUrl(url);
 		ds.setUser(System.getProperty("DB_USER"));
