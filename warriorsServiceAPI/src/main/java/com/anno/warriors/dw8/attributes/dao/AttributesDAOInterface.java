@@ -8,11 +8,14 @@ public interface AttributesDAOInterface {
 
 	public List<AttributeInterface> getAllAttributes();
 
-	public List<AttributeInterface> getNormalAttributes();
+	public List<AttributeInterface> getAttributeByType(String type);
 
-	public List<AttributeInterface> getSpecialAttributes();
+	public AttributeInterface getAttributeByName(String name);
 
-	public List<AttributeInterface> getNormalAttributesByNames(String...names);
+	public List<AttributeInterface> getAttributesByName(String... name);
 
-	public List<AttributeInterface> getSpecialAttributesByNames(String...names);
+	public List<AttributeInterface> getAttributeByContainedDescription(String name);
+
+	public AttributeInterface updateAttribute(AttributeInterface object);
+
 }

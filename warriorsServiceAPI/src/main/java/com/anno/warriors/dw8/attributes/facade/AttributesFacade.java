@@ -1,11 +1,15 @@
 package com.anno.warriors.dw8.attributes.facade;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.anno.warriors.dw8.attributes.dao.AttributesDAOInterface;
+import com.anno.warriors.dw8.attributes.model.Attribute;
 import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 
 @Service("attributeFacade")
@@ -20,23 +24,52 @@ public class AttributesFacade implements AttributesFacadeInterface {
 	}
 
 	@Override
-	public List<AttributeInterface> callingGetNormalAttributes() {
-		return dao.getNormalAttributes();
+	public List<AttributeInterface> callingGetAllAttributes(String type) {
+		if (StringUtils.isBlank(type)) {
+			return Optional.of(new ArrayList<AttributeInterface>()).get();
+		}
+		return dao.getAttributeByType(type);
 	}
 
 	@Override
-	public List<AttributeInterface> callingGetSpecialAttributes() {
-		return dao.getSpecialAttributes();
+	public List<AttributeInterface> callingGetAllAttributes(String... name) {
+		if (name == null || name.length == 0) {
+			return Optional.of(new ArrayList<AttributeInterface>()).get();
+		}
+		return dao.getAttributesByName(name);
 	}
 
 	@Override
-	public List<AttributeInterface> callingGetNormalAttributesByNames(String... names) {
-		return dao.getNormalAttributesByNames(names);
+	public AttributeInterface callingGetAllAttribute(String name) {
+		if (StringUtils.isBlank(name)) {
+			// Update Return Object to be More Generic
+			return Optional.ofNullable(new Attribute()).get();
+		}
+		return dao.getAttributeByName(name);
 	}
 
 	@Override
-	public List<AttributeInterface> callingGetSpecialAttributesByNames(String... names) {
-		return dao.getSpecialAttributesByNames(names);
+	public AttributeInterface callingUpdateAttribute(String key, AttributeInterface attribute) {
+		if (attribute == null || (!key.equalsIgnoreCase(attribute.getName()))) {
+			// Update Return Object to be More Generic
+			return Optional.ofNullable(new Attribute()).get();
+		}
+		return dao.updateAttribute(attribute);
 	}
+
+//	@Override
+//	public List<AttributeInterface> callingGetSpecialAttributes() {
+//		return dao.getSpecialAttributes();
+//	}
+
+//	@Override
+//	public List<AttributeInterface> callingGetNormalAttributesByNames(String... names) {
+//		return dao.getNormalAttributesByNames(names);
+//	}
+//
+//	@Override
+//	public List<AttributeInterface> callingGetSpecialAttributesByNames(String... names) {
+//		return dao.getSpecialAttributesByNames(names);
+//	}
 
 }

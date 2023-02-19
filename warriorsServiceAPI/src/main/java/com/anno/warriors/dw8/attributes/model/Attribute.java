@@ -1,12 +1,18 @@
 package com.anno.warriors.dw8.attributes.model;
 
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+@JsonDeserialize(as = Attribute.class)
 public class Attribute implements AttributeInterface {
 
 	private String name;
 	private String description;
 	private String type;
+
+	public Attribute() {
+
+	}
 
 	public Attribute(String name, String description, String type) {
 		this.name = name;
@@ -37,6 +43,18 @@ public class Attribute implements AttributeInterface {
 	@Override
 	public String getDescription() {
 		return description;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override

@@ -1,10 +1,12 @@
 package com.anno.warriors.dw8.enums.affinity;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class AffinityTest {
 
@@ -14,21 +16,21 @@ class AffinityTest {
 	void setUp() throws Exception {
 		expected = Affinity.HEAVEN;
 	}
-	
+
 	@Test
 	void testAffinityEnumStateNameMatchesExpected() {
-		assertEquals("Affinity", expected.getState());
+		assertThat("Affinity").as("Enum State is not Affinity").isEqualTo(expected.getState());
 	}
 
 	@Test
 	void testAffinitySizeIsThree() {
 		Affinity[] affinities = Affinity.values();
-		assertEquals(3, affinities.length);
+		assertThat(affinities.length).as("Affinity Count is not 3").isEqualTo(3);
 	}
 
 	@Test
 	void testAffinityMatchesExpected_HEAVEN() {
-		assertEquals(Affinity.returnCorrectEnum("Heaven"), expected);
+		assertThat(Affinity.returnCorrectEnum("Heaven")).as("Affinity Heaven did not return").isEqualTo(expected);
 	}
 
 	@Test
