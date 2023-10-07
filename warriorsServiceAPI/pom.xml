@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.2.7</version>
+			<version>42.3.8</version>
 		</dependency>
 		<!-- Thanks for using https://jar-download.com -->
 
