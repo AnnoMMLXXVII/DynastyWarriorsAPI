@@ -1,4 +1,4 @@
-package com.anno.warriors.dw8.shared;
+package com.anno.warriors.dw8.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.anno.warriors.dw8.shared.DYNConstants.COLUMNS;
-import com.anno.warriors.dw8.shared.DYNConstants.TABLES;
+import com.anno.warriors.dw8.database.DatabaseDYNConstants.COLUMNS;
+import com.anno.warriors.dw8.database.DatabaseDYNConstants.TABLES;
 
 /**
  * 
@@ -31,7 +31,7 @@ public class DYNDatabaseLibrary {
 	// SELECT
 
 	public static ResultSet executeSelectAll(TABLES table) {
-		final String query = SELECT_ALL_PREFIX + DYNConstants.getTable(table) + ";";
+		final String query = SELECT_ALL_PREFIX + DatabaseDYNConstants.getTable(table) + ";";
 		Connection conn = DBConnection.getConnection();
 		ResultSet rs = null;
 		try {
@@ -52,7 +52,7 @@ public class DYNDatabaseLibrary {
 
 	public static ResultSet executeSelectAllWhere(TABLES table, COLUMNS column, String value) {
 		String where = String.format(" %s %s = ?", WHERE, column.getColumn());
-		final String query = SELECT_ALL_PREFIX + DYNConstants.getTable(table) + where + ";";
+		final String query = SELECT_ALL_PREFIX + DatabaseDYNConstants.getTable(table) + where + ";";
 		Connection conn = DBConnection.getConnection();
 		ResultSet rs = null;
 		try {
@@ -74,7 +74,7 @@ public class DYNDatabaseLibrary {
 
 	public static ResultSet executeSelectAllWhereLike(TABLES table, COLUMNS column, String value) {
 		String where = String.format(" %s %s %s %%?%%", WHERE, column.getColumn(), LIKE);
-		final String query = SELECT_ALL_PREFIX + DYNConstants.getTable(table) + where + ";";
+		final String query = SELECT_ALL_PREFIX + DatabaseDYNConstants.getTable(table) + where + ";";
 		Connection conn = DBConnection.getConnection();
 		ResultSet rs = null;
 		try {
@@ -101,7 +101,7 @@ public class DYNDatabaseLibrary {
 		}
 		String where = String.format(" %s %s %s ( %s )", WHERE, column.getColumn(), IN,
 				sb.substring(0, sb.length() - 1));
-		final String query = SELECT_ALL_PREFIX + DYNConstants.getTable(table) + where + ";";
+		final String query = SELECT_ALL_PREFIX + DatabaseDYNConstants.getTable(table) + where + ";";
 		Connection conn = DBConnection.getConnection();
 		ResultSet rs = null;
 		try {
@@ -134,7 +134,7 @@ public class DYNDatabaseLibrary {
 		}
 		String where = String.format("%s %s='%s'", WHERE, pk.getColumn(), pkValue);
 		String fields = String.format(" %s %s ", SET, sb.toString().substring(0, sb.length() - 1));
-		final String query = UPDATE_PREFIX + DYNConstants.getTable(table) + fields + where + ";";
+		final String query = UPDATE_PREFIX + DatabaseDYNConstants.getTable(table) + fields + where + ";";
 		Connection conn = DBConnection.getConnection();
 		boolean isUpdated = false;
 		try {

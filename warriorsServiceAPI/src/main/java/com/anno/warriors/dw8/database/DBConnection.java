@@ -1,4 +1,4 @@
-package com.anno.warriors.dw8.shared;
+package com.anno.warriors.dw8.database;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ public class DBConnection {
 
 	public static void connectToDB() throws SQLException {
 		PGSimpleDataSource ds = new PGSimpleDataSource();
-		url = PREFIX + "://" + System.getProperty("HOST") + ":" + PORT + "/" + DYNConstants.DATABASE + "?"
+		url = PREFIX + "://" + DatabaseDYNConstants.HOST + ":" + PORT + "/" + DatabaseDYNConstants.DATABASE + "?"
 				+ SSL_MODE_REQUIRE;
 		ds.setUrl(url);
 		ds.setUser(System.getProperty("DB_USER"));

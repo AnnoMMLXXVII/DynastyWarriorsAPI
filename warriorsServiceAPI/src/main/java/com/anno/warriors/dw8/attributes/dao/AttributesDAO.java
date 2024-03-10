@@ -1,6 +1,6 @@
 package com.anno.warriors.dw8.attributes.dao;
 
-import static com.anno.warriors.dw8.shared.DYNConstants.TABLES.ATTRIBUTES;
+import static com.anno.warriors.dw8.database.DatabaseDYNConstants.TABLES.ATTRIBUTES;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,11 +17,11 @@ import org.springframework.stereotype.Repository;
 
 import com.anno.warriors.dw8.attributes.model.Attribute;
 import com.anno.warriors.dw8.attributes.model.AttributeInterface;
+import com.anno.warriors.dw8.database.DYNDatabaseLibrary;
+import com.anno.warriors.dw8.database.DatabaseDYNConstants;
+import com.anno.warriors.dw8.database.DatabaseDYNConstants.COLUMNS;
 import com.anno.warriors.dw8.enums.attribute.NormalAttributes;
 import com.anno.warriors.dw8.enums.attribute.SpecialAttributes;
-import com.anno.warriors.dw8.shared.DYNConstants;
-import com.anno.warriors.dw8.shared.DYNConstants.COLUMNS;
-import com.anno.warriors.dw8.shared.DYNDatabaseLibrary;
 
 @Repository
 public class AttributesDAO implements AttributesDAOInterface {
@@ -38,7 +38,7 @@ public class AttributesDAO implements AttributesDAOInterface {
 
 	@Override
 	public List<AttributeInterface> getAttributeByType(String type) {
-		final String TYPE = type.equalsIgnoreCase(DYNConstants.NORMAL) ? DYNConstants.NORMAL : DYNConstants.SPECIAL;
+		final String TYPE = type.equalsIgnoreCase(DatabaseDYNConstants.NORMAL) ? DatabaseDYNConstants.NORMAL : DatabaseDYNConstants.SPECIAL;
 		clearAttributes();
 		ResultSet rs = DYNDatabaseLibrary.executeSelectAllWhere(ATTRIBUTES, COLUMNS.ATTRTYPE, TYPE);
 		return convertToPojoAndGetList(rs);
