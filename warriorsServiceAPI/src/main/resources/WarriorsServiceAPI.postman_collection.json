@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "4e4fca8b-4796-4869-aaed-4ad3082b1dba",
+		"name": "WarriorsServiceAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Attributes",
+			"item": [
+				{
+					"name": "All Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Normal Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/normal",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"normal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Normal By Names",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Flash\",\n    \"Roar\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/normal",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"normal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Special Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/special",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"special"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Special By Names",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Awareness\",\n    \"War Shoes\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/special",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"special"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "Characters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Character By Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Zhao Yun\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/search/name",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"search",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers By Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"Zhao Yun\",\r\n    \"Zhou Tai\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/name",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers",
+								"search",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers By Kingdom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   \"Shu\",\r\n   \"Other\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/kingdom",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers",
+								"search",
+								"kingdom"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers By Weapon Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   \r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/weapon/name",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers",
+								"search",
+								"weapon",
+								"name"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers By Weapon Power",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   58,\r\n   35\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/weapon/power",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers",
+								"search",
+								"weapon",
+								"power"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Officers By Weapon Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"Spear\",\r\n    \"Pike\",\r\n    \"Double Voulge\",\r\n    \"Great Sword\",\r\n    \"Club\",\r\n    \"Gloves\",\r\n    \"Halberd\",\r\n    \"Twin Axes\",\r\n    \"Lance\",\r\n    \"Twin Rods\",\r\n    \"Axe\",\r\n    \"Tonfa\",\r\n    \"Crossbow\",\r\n    \"Arm Cannon\",\r\n    \"Brush\",\r\n    \"Dagger Axe\",\r\n    \"Bomb\",\r\n    \"Short Pike\",\r\n    \"Great Axe\",\r\n    \"Mace\",\r\n    \"Spiked Shield\",\r\n    \"Arm Blade\",\r\n    \"Circle Blade\",\r\n    \"Siege Spear\",\r\n    \"Bow & Rod\",\r\n    \"Wheeled Halberd\",\r\n    \"Rake\",\r\n    \"Dual-Headed Mace\",\r\n    \"Revolving Crossbow\",\r\n    \"War Trident\",\r\n    \"Stele\",\r\n    \"Sword\",\r\n    \"Rapier\",\r\n    \"War Fan\",\r\n    \"Twin Swords\",\r\n    \"Throwing Knives\",\r\n    \"Chain & Sickle\",\r\n    \"Nunchaku\",\r\n    \"Staff\",\r\n    \"Bow\",\r\n    \"Shaman Rod\",\r\n    \"Iron Fan\",\r\n    \"Sword & Shield\",\r\n    \"Flying Swords\",\r\n    \"Curved Sword\",\r\n    \"Claws\",\r\n    \"Wheels\",\r\n    \"Chain Whip\",\r\n    \"Spinner\",\r\n    \"Flute\",\r\n    \"Harp\",\r\n    \"Orb & Scepter\",\r\n    \"Trishula\",\r\n    \"Pugil Stick\",\r\n    \"Lightning Sword\",\r\n    \"Boomerang\",\r\n    \"Sword & Hook\",\r\n    \"Swallow Swords\",\r\n    \"Three Sectional Staff\",\r\n    \"Shadow Fan\",\r\n    \"Extension Blade\",\r\n    \"Dual Hookblades\",\r\n    \"Wingblades\",\r\n    \"Throwing Axes\",\r\n    \"Wired Gloves\",\r\n    \"Flame Bow\",\r\n    \"Art of War Scroll\",\r\n    \"Formation Wand\",\r\n    \"Flail\",\r\n    \"Podao\",\r\n    \"Double Pike\",\r\n    \"General's Sword\",\r\n    \"Nine Rings Blade\",\r\n    \"Double-Edge Trident\",\r\n    \"Short Rod\",\r\n    \"Javelin\",\r\n    \"Crossed Pike\",\r\n    \"Dragon Spear\",\r\n    \"Crescent Blade\",\r\n    \"Dual Blade\",\r\n    \"Horsehair Whip\",\r\n    \"Striking Sword\",\r\n    \"Talisman Cards\",\r\n    \"Flail Sword\",\r\n    \"Woven Cloth\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers/search/type",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers",
+								"search",
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubOfficers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/subOfficers",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"subOfficers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubOfficers By Name",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"Zhang Yi\",\r\n    \"Sun Qian\",\r\n    \"Guo Shi\",\r\n    \"Guo Si\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/subOfficers/search/name",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"subOfficers",
+								"search",
+								"name"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Weapon",
+			"item": [
+				{
+					"name": "Weapons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon by Stars",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=1,2,3,4,5,6",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"stars"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "1,2,3,4,5,6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon Names",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/names/",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"names",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Names",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/names?value=Dark Dragon Spear",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"names"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "Dark Dragon Spear"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Attack Power",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/power?low=55&high=70",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"power"
+							],
+							"query": [
+								{
+									"key": "low",
+									"value": "55"
+								},
+								{
+									"key": "high",
+									"value": "70"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Curved Sword",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"type"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Curved Sword"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Rarity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/rarity?rarity=Xtreme",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"rarity"
+							],
+							"query": [
+								{
+									"key": "rarity",
+									"value": "Xtreme"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Attribute N",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Fury\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/attributes",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Weapon By Attribute N and Level",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"Venom\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/weapons/search/attributes&level?level=10",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"weapons",
+								"search",
+								"attributes&level"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{warriorsHost}}dw8/characters/health-check",
+					"host": [
+						"{{warriorsHost}}dw8"
+					],
+					"path": [
+						"characters",
+						"health-check"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "warriorsHost",
+			"value": "http://localhost:8080/api/v1/"
+		}
+	]
+}

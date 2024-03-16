@@ -1,0 +1,62 @@
+Waterfall, Flail, Uplift: 8, Awe: 9, Harmony: 9
+Spiralchain, Flail, Resolve, Desperation, Induction: 9
+Godly Flail, Flail, Venom: 10, Resolve, Induction: 9, Velocity: 8
+Leg Iron, Flail, Thunder: 10, Chain: 10, Recovery: 10, Vigor: 10, Jolt: 10
+Dragonstone Flail, Flail, Cyclone: 10, Greed, Fear: 10, Jolt: 10, Awe: 10
+Scorching Chain, Flail, Cyclone: 10, Greed, Fear: 10, Jolt: 10, Awe: 10
+Soundshredder, Podao, Harmony: 9, Flash: 9: Triumph: 8
+Windstinger, Podao, Morass: 7, Venom: 8, Fury
+Demon Slayer, Podao, Slash: 10, Chain: 9, Uplift: 9, Awareness
+Gold Phoenix Beak, Podao, Cyclone: 5, Flurry: 4, Desperation
+Vintage Wine, Podao, Thunder: 10, Harmony: 10, Triumph: 10, Flurry: 10, Rigidity
+Violent Tusk, Podao, Inferno: 10, Enlightenment: 10, Jolt: 10, Greed, Uplift: 10
+Frozen Fang, Podao, Frost: 10, Barricade: 9, Fear: 9, Induction: 8, Desperation
+Tempest, Twin Pike, Fear: 9, Triumph: 9, Chain: 8
+Wildheart, Twin Pike, Chain: 8, Protection: 9, Greed
+Heaven's Venom, Twin Pike, Slash: 10, Recovery: 9, Swiftness, Spurt: 8
+Beam Blade, Twin Pike, Slash: 10, Explosive: 10, Flurry: 10, Greed, Enlightenment: 10
+Wave Slicer, Twin Pike, Flash: 10, Jolt: 10, Recovery: 10, Survival: 10, Frenzy: 10
+Miraculous Serpent Blade, Twin Pike, Inferno: 10, Thorns: 9, Whirlwind: 9, Protection: 8, Aggression: 8
+Reincarnation, General's Sword, Desperation, Swiftness, Whirlwind: 8
+Chariotstrike, General's Sword, Enlightenment: 9, Awareness, Fear: 8
+Conqueror's Blade, General's Sword, Flash: 10, Protection: 9, Whirlwind: 9, Roar: 8
+Daikon, General's Sword, Thunder: 10, Chain: 10, Flurry: 10, Velocity: 10, Roar: 10
+Purgatory Blade, General's Sword, Slash: 10, Enlightenment: 10, Jubilation: 10, Awe: 10, Awareness
+Storm Sword, General's Sword, Cyclone: 10, Harmony: 9, Fear: 9, Chain: 8, Spurt: 8
+Earthshatter, Nine Rings Blade, Protection: 9, Resolve, Fury
+Infinite Void, Nine Rings Blade, Rigidity, Swiftness, Induction: 7
+Imperial Tiger, Nine Rings Blade, Inferno: 10, Harmony: 9, Thorns: 9, Resolve
+Saw, Nine Rings Blade, Slash: 10, Triumph: 10, Explosive: 10, Roar: 10, Rigidity
+Radiant Tiger Blade, Nine Rings Blade, Flash: 10, Morass: 10, Awe: 10, Harmony: 10, Recovery: 10
+Falcon Flash, Nine Rings Blade, Thunder: 10, Protection: 9, Rigidity, Roar: 8, Uplift: 8
+Whirlwind Edge, Double-Edge Trident, Triumph: 7, Survival: 8, Swiftness
+Tigerwolf Fang, Double-Edge Trident, Barricade: 9, Fury, Awe: 9
+Qilin Trident, Double-Edge Trident, Flash: 10, Barricade: 9, Whirlwind: 9, Desperation
+Sasumata, Double-Edge Trident, Thunder: 10, Awareness, Agility, Recovery: 10, Uplift: 10
+Violent Flash, Double-Edge Trident, Thunder: 10, Greed, Vigor: 10, Frenzy: 10, Barricade: 10
+Rising Flash, Double-Edge Trident, Inferno: 10, Awe: 9, Explosive: 9, Fury, Morass: 8
+// Fiery Desire, Short Rod, Venom: 7, Venom: 7, Spurt: 8
+Solemn Echo, Short Rod, Enlightenment: 9, Thorns: 9, Vigor: 7
+Golden Might, Short Rod, Thunder: 10, Whirlwind: 9, Rigidity, Protection: 8
+Pointer, Short Rod, Venom: 10, Barricade: 10, Swiftness, Spurt: 10, Morass: 10
+Firestrike, Short Rod, Inferno: 10, Desperation, Harmony: 10, Aggression: 10, Flurry: 10
+Piercing Beams, Short Rod, Flash: 10, Frenzy: 9, Vigor: 9, Jolt: 8, Spurt: 8
+Light Beam, Javelin, Jubilation: 8, Whirlwind: 8, Aggression: 8
+Sudden Flash, Javelin, Fear: 8, Recovery: 9, Venom: 7
+Skycrusher, Javelin, Thunder: 10, Jubilation: 9, Uplift: 9, Desperation
+Harpoon, Javelin, Thunder: 10, Awe: 10, Resolve, Roar: 10, Velocity: 10
+Eclipse Spear, Javelin, Inferno: 10, Thorns: 10, Spurt: 10, Fury, Recovery: 10
+Funeral Bringer, Javelin, Slash: 10, Vigor: 9, Triumph: 9, Fear: 8, Protection: 8
+Guiding Fire, Flaming Sword, Frost: 9, Aggression: 9, Protection: 8
+Vortex of Flame, Flaming Sword, Inferno: 7, Induction: 9, Jubilation: 9
+Phoenix Fire Blade, Flaming Sword, Flash: 10, Thorns: 9, Uplift: 9, Vigor: 9
+Matchstick, Flaming Sword, Inferno: 10, Fury, Triumph: 10, Morass: 10, Harmony: 10
+Triumphant Blade, Flaming Sword, Frost: 10, Uplift: 10, Spurt: 10, Jolt: 10, Vigor: 10
+Heaven's Door, Crossed Pike, Jolt: 9, Chain: 8, Protection: 7
+Gust of Wind, Crossed Pike, Uplift: 8, Aggression: 8, Recovery: 8
+Ultimate Collapse, Crossed Pike, Slash: 10, Agility, Enlightenment: 9, Resolve
+Soaring Wings, Crossed Pike, Frost: 10, Protection: 9, Chain: 9, Fury, Greed
+Avian Bonds, Mandarin Duck Hooks, Frost: 7, Triumph: 7, Uplift: 9
+Grindstone Fangs, Mandarin Duck Hooks, Desperation, Jubilation: 8, Rigidity
+Golden Spikes, Mandarin Duck Hooks, Slash: 10, Protection: 9, Agility, Flurry: 8
+Jade Destiny, Mandarin Duck Hooks, Venom: 10, Induction: 9, Awe: 9, Fear: 8, Velocity: 8
