@@ -2,7 +2,6 @@ package com.anno.warriors.dw8.shared;
 
 import static com.anno.warriors.dw8.database.DatabaseDYNConstants.TABLES.AFFINITY;
 import static com.anno.warriors.dw8.database.DatabaseDYNConstants.TABLES.ATTRIBUTES;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -74,13 +73,14 @@ class DBConnectionTest {
 			PreparedStatement ps = conn.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 			AttributeInterface actual = null;
-			while (rs.next()) {
+
+			do {
 				String name = rs.getString(COLUMNS.ATTRNAME.getColumn());
 				String desc = rs.getString(COLUMNS.ATTRDESC.getColumn());
 				String type = rs.getString(COLUMNS.ATTRTYPE.getColumn());
 				actual = new Attribute(name, desc, type);
 				System.out.printf("%s\n", actual.toString());
-			}
+			} while (rs.next());
 //			AttributeInterface a = new AttributesDAO().getNormalAttributesByNames(actual.getName()).get(0);
 //			assertEquals(a, actual);
 //			System.out.printf("%s\n%s\n", a.toString(), actual.toString());

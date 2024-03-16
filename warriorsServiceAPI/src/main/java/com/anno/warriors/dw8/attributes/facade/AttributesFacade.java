@@ -47,6 +47,15 @@ public class AttributesFacade implements AttributesFacadeInterface {
 		}
 		return dao.getAttributeByName(name);
 	}
+	
+	@Override
+	public AttributeInterface callingCreateAttribute(AttributeInterface attribute) {
+		if (attribute == null) {
+			// Update Return Object to be More Generic
+			return Optional.ofNullable(new Attribute()).get();
+		}
+		return dao.createAttribute(attribute);
+	}
 
 	@Override
 	public AttributeInterface callingUpdateAttribute(String key, AttributeInterface attribute) {
@@ -57,19 +66,12 @@ public class AttributesFacade implements AttributesFacadeInterface {
 		return dao.updateAttribute(attribute);
 	}
 
-//	@Override
-//	public List<AttributeInterface> callingGetSpecialAttributes() {
-//		return dao.getSpecialAttributes();
-//	}
-
-//	@Override
-//	public List<AttributeInterface> callingGetNormalAttributesByNames(String... names) {
-//		return dao.getNormalAttributesByNames(names);
-//	}
-//
-//	@Override
-//	public List<AttributeInterface> callingGetSpecialAttributesByNames(String... names) {
-//		return dao.getSpecialAttributesByNames(names);
-//	}
-
+	@Override
+	public AttributeInterface callingRemoveAttribute(String key) {
+		if(key==null) {
+			return Optional.ofNullable(new Attribute()).get();
+		}
+		return dao.removeAttribute(key);
+	}
+	
 }

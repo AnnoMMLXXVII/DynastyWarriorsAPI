@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Repository;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.characters.model.Officer;
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.manager.DW8Structures;
+import com.anno.warriors.dw8.requests.pojos.CharacterPojo;
 import com.anno.warriors.dw8.shared.CharacterSearcher;
 import com.anno.warriors.dw8.shared.CharacterSorter;
 import com.anno.warriors.dw8.shared.DW8Constants;
@@ -144,6 +147,30 @@ public class CharacterDAO implements CharacterDAOInterface {
 		});
 
 		return new ArrayList<>(charactersMapped.values());
+	}
+
+	@Override
+	public CharacterInterface<Character> createOfficer(CharacterPojo officer) {
+		if (officer == null) {
+			logger.info("Officer Record is not valid");
+			return null;
+		}
+		List<CharacterInterface<Character>> duplicate = getCharactersByName(DW8Structures.getOfficers(),
+				officer.getName());
+		if (!duplicate.isEmpty()) {
+			logger.info("Duplicate Record: {}", officer.getName());
+			return null;
+		}
+		CharacterInterface<Character> temp = new Officer();
+//		@formatter:off
+		temp.setId(UUID.randomUUID())
+		.setName(officer.getName())
+		.setKingdom(officer.getKingdom())
+		.setWeaponType(officer.getWeaponType())
+		.setImage(new ArrayList<>())
+		.setWeapons(new ArrayList());
+//		@formatter:on		
+		return temp;
 	}
 
 }

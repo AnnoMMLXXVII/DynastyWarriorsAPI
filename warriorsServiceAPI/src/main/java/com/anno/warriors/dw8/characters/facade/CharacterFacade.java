@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.anno.warriors.dw8.characters.dao.CharacterDAOInterface;
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.characters.model.Officer;
 import com.anno.warriors.dw8.manager.DW8Structures;
+import com.anno.warriors.dw8.requests.pojos.CharacterPojo;
 import com.anno.warriors.shared.WarriorSorter;
 
 @Service("CharacterFacade")
@@ -78,6 +80,18 @@ public class CharacterFacade implements CharacterFacadeInterface {
 		List<CharacterInterface<Character>> returnedList = dao.getAllOfficersByWeaponPower(DW8Structures.getOfficers(),
 				weaponPower);
 		return new WarriorSorter(returnedList).getSortedList();
+	}
+
+	@Override
+	public CharacterInterface<Character> callingCreateOfficer(CharacterPojo officer) {
+		if (officer == null) {
+			return new Officer();
+		}
+		CharacterInterface<Character> newOfficer = dao.createOfficer(officer);
+		if (newOfficer == null) {
+			return new Officer();
+		}
+		return newOfficer;
 	}
 
 }

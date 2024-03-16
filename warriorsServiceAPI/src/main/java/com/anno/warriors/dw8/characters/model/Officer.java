@@ -2,6 +2,7 @@ package com.anno.warriors.dw8.characters.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
@@ -19,7 +20,7 @@ public class Officer extends Character {
 	}
 
 	public Officer(String name, Kingdom kingdom, Types weapon) {
-		super(name, kingdom);
+		super(UUID.randomUUID(), name, kingdom);
 		this.weapon = weapon;
 	}
 
@@ -29,13 +30,20 @@ public class Officer extends Character {
 	}
 
 	@Override
+	public Character setWeaponType(String type) {
+		weapon = Types.valueOf(type);
+		return this;
+	}
+
+	@Override
 	public Types getWeaponType() {
 		return weapon;
 	}
 
 	@Override
-	public void setWeapons(List<WeaponInterface<Weapon>> weapons) {
+	public Character setWeapons(List<WeaponInterface<Weapon>> weapons) {
 		this.weapons = weapons;
+		return this;
 	}
 
 	@Override
@@ -44,8 +52,9 @@ public class Officer extends Character {
 	}
 
 	@Override
-	public void setImage(List<DynastyWarriors8Image> image) {
+	public Character setImage(List<DynastyWarriors8Image> image) {
 		this.image = image;
+		return this;
 	}
 
 	@Override

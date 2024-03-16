@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.requests.pojos.CharacterPojo;
 
 public interface CharacterDAOInterface {
 
@@ -27,5 +28,7 @@ public interface CharacterDAOInterface {
 
 	public List<CharacterInterface<Character>> getAllOfficersByWeaponPower(List<CharacterInterface<Character>> officers,
 			int... weaponPower);
+
+	public CharacterInterface<Character> createOfficer(CharacterPojo officer);
 
 }

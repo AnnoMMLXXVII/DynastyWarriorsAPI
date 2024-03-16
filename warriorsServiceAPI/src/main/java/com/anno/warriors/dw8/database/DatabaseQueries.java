@@ -3,15 +3,20 @@ package com.anno.warriors.dw8.database;
 import com.anno.warriors.dw8.database.DatabaseDYNConstants.COLUMNS;
 import com.anno.warriors.dw8.database.DatabaseDYNConstants.TABLES;
 
+import io.micrometer.core.instrument.util.StringUtils;
+
 public class DatabaseQueries {
+
+	private DatabaseQueries() {
+		// Empty
+	}
 
 	/**
 	 * @param table String
 	 * @return String
 	 */
 	public static String queryAll(String table) {
-		String query = String.format("SELECT * FROM %s", table);
-		return query;
+		return String.format("SELECT * FROM %s", table);
 	}
 
 	/**
@@ -25,11 +30,10 @@ public class DatabaseQueries {
 	public static String queryAllWithInnerJoin(TABLES table, TABLES innerJoinTable, COLUMNS joinPK,
 			String joinPKValue) {
 		String join = appendInnerJoin(table.name(), innerJoinTable.name(), joinPK.name());
-		String query = String.format("%s %s %s", String.format("SELECT * FROM %s", table), join,
-				!(joinPKValue.isBlank() || joinPKValue == null || joinPKValue.isEmpty() || join.equals(""))
+		return String.format("%s %s %s", String.format("SELECT * FROM %s", table), join,
+				!(StringUtils.isBlank(joinPKValue) || joinPKValue == null || joinPKValue.isEmpty() || join.equals(""))
 						? String.format("WHERE %s.%s = %s", innerJoinTable, joinPK.name(), joinPKValue)
 						: "");
-		return query;
 	}
 
 	/**
@@ -39,8 +43,7 @@ public class DatabaseQueries {
 	 * @return String
 	 */
 	public static String queryAllByCondition(String table, String colName, String value) {
-		String query = String.format("SELECT * FROM %s WHERE %s = %s", table, colName, value);
-		return query;
+		return String.format("SELECT * FROM %s WHERE %s = %s", table, colName, value);
 	}
 
 	/**
@@ -60,8 +63,7 @@ public class DatabaseQueries {
 			sb.append(String.format("%s = %s AND", colName[i], value[i]));
 		}
 		String formattedSB = sb.substring(0, sb.toString().length() - 3);
-		String query = String.format("SELECT * FROM %s WHERE %s", table, formattedSB.trim());
-		return query;
+		return String.format("SELECT * FROM %s WHERE %s", table, formattedSB.trim());
 	}
 
 	/**
@@ -70,8 +72,7 @@ public class DatabaseQueries {
 	 * @return String
 	 */
 	public static String createInsertQuery(String table, int rsCount) {
-		String query = String.format("INSERT INTO `%s` VALUES ( %s )", table, createQuestionMarksForQuery(rsCount));
-		return query;
+		return String.format("INSERT INTO `%s` VALUES ( %s )", table, createQuestionMarksForQuery(rsCount));
 	}
 
 	/**
@@ -82,9 +83,8 @@ public class DatabaseQueries {
 	 * @return String
 	 */
 	public static String createUpdateQuery(String table, String primaryKey, String value, COLUMNS... COLUMNS) {
-		String query = String.format("UPDATE `%s` SET %s WHERE %s = %s", table,
+		return String.format("UPDATE `%s` SET %s WHERE %s = %s", table,
 				createColumnQuestionMarkMapForUpdateQuery(COLUMNS), primaryKey, value);
-		return query;
 	}
 
 	/**
@@ -94,8 +94,7 @@ public class DatabaseQueries {
 	 * @return String
 	 */
 	public static String createDeleteQueryByCondition(String table, String colNum, String value) {
-		String query = String.format("DELETE FROM `%s` WHERE %s = %s", table, colNum, value);
-		return query;
+		return String.format("DELETE FROM `%s` WHERE %s = %s", table, colNum, value);
 	}
 
 	/**
@@ -116,7 +115,6 @@ public class DatabaseQueries {
 	 */
 	private static String createQuestionMarksForQuery(int count) {
 		StringBuilder sb = new StringBuilder();
-//			sb.append("");
 		for (int i = 0; i < count; i++) {
 			sb.append("?,");
 		}

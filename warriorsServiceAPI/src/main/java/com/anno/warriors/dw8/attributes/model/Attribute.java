@@ -1,13 +1,17 @@
 package com.anno.warriors.dw8.attributes.model;
 
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(as = Attribute.class)
 public class Attribute implements AttributeInterface {
 
+	@JsonAlias("name")
 	private String name;
+	@JsonAlias("description")
 	private String description;
+	@JsonAlias("type")
 	private String type;
 
 	public Attribute() {
