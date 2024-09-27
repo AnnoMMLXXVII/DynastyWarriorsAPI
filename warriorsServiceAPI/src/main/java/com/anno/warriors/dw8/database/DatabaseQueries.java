@@ -34,6 +34,7 @@ public class DatabaseQueries {
 				!(joinPKValue == null || joinPKValue.isEmpty() || join.equals(""))
 						? String.format("WHERE %s.%s = %s", innerJoinTable, joinPK.name(), joinPKValue)
 						: "");
+		return query;
 	}
 
 	/**
