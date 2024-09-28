@@ -29,29 +29,29 @@ class TypeParseManagerTest {
 	private List<Types> types;
 	private Map<Category, List<Types>> map;
 
-	@BeforeAll
+//	@BeforeAll
 	void setUp() throws Exception {
 		instance = TypeParseManager.getInstance();
 
 	}
 
-	@Test
+@Test
 	void testInstanceIsNotNull() {
 		assertNotNull(instance);
 	}
 
-	@Test
+@Test
 	void testThatInstanceTypeIsTrue() {
 		assertEquals(instance.getState(), "TypeParseManager");
 	}
 
-	@Test
+@Test
 	void testTypesListIsNotEmpty() {
 		types = TypeParseManager.getTypes();
 		assertFalse(types.isEmpty());
 	}
 
-	@Test
+@Test
 	void testTypesListContainsExpected() {
 		expected = Types.TRISHULA;
 //		System.out.println(expected.toString());s
@@ -64,14 +64,14 @@ class TypeParseManagerTest {
 		assertEquals(actual, expected);
 	}
 
-	@Test
+@Test
 	void testTypesListDoesNotContainsExpected() {
 		types = TypeParseManager.getTypes();
 		Optional<Types> opt = types.stream().filter(e -> e.name().equals("NOTHING")).findFirst();
 		assertEquals(opt, Optional.empty());
 	}
 
-	@Test
+@Test
 	void testMapCategory_Whirlwind_containsExpected() {
 		expected = Types.MACE;
 		testCategory = Category.returnCorrectEnum("Whirl Wind");
@@ -80,7 +80,7 @@ class TypeParseManagerTest {
 		assertTrue(types.contains(expected));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Whirlwind_DoesNotContainsExpected() {
 		expected = Types.TRISHULA;
 		testCategory = Category.returnCorrectEnum("Whirl Wind");
@@ -89,7 +89,7 @@ class TypeParseManagerTest {
 		assertFalse(types.contains(expected));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Dasher_containsExpected() {
 		expected = Types.TRISHULA;
 		testCategory = Category.returnCorrectEnum("Dasher");
@@ -98,7 +98,7 @@ class TypeParseManagerTest {
 		assertTrue(types.contains(expected));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Dasher_DoesNotContainsExpected() {
 		expected = Types.GENERALS_SWORD;
 		testCategory = Category.returnCorrectEnum("Dasher");
@@ -107,7 +107,7 @@ class TypeParseManagerTest {
 		assertFalse(types.contains(expected));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Diver_containsExpected() {
 		expected = Types.DRAGON_SPEAR;
 		testCategory = Category.returnCorrectEnum("Diver");
@@ -116,7 +116,7 @@ class TypeParseManagerTest {
 		assertTrue(types.contains(expected));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Diver_DoesNotContainsExpected() {
 		expected = Types.TRISHULA;
 		testCategory = Category.returnCorrectEnum("Diver");
@@ -134,7 +134,7 @@ class TypeParseManagerTest {
 		assertTrue(types.contains(expected));
 	}
 
-	@Test
+@Test
 	void testMapCategory_ShadowSprinter_DoesNotContainsExpected() {
 		expected = Types.TRISHULA;
 		testCategory = Category.returnCorrectEnum("Shadow Sprinter");
@@ -143,7 +143,7 @@ class TypeParseManagerTest {
 		assertFalse(types.contains(expected));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Diver_TypesListNotNull() {
 		testCategory = Category.returnCorrectEnum("Diver");
 		map = TypeParseManager.getMappedTypes();
@@ -151,7 +151,7 @@ class TypeParseManagerTest {
 		assertNotNull(types.stream().map(e -> e != null));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Dasher_TypesListNotNull() {
 		testCategory = Category.returnCorrectEnum("Dasher");
 		map = TypeParseManager.getMappedTypes();
@@ -159,7 +159,7 @@ class TypeParseManagerTest {
 		assertNotNull(types.stream().map(e -> e != null));
 	}
 
-	@Test
+@Test
 	void testMapCategory_Shadow_TypesListNotNull() {
 		testCategory = Category.returnCorrectEnum("Shadow Sprinter");
 		map = TypeParseManager.getMappedTypes();
@@ -167,7 +167,7 @@ class TypeParseManagerTest {
 		assertNotNull(types.stream().map(e -> e != null));
 	}
 
-	@Test
+@Test
 	void testMapCategory_WhirlWind_TypesListNotNull() {
 		testCategory = Category.returnCorrectEnum("Whirl Wind");
 		map = TypeParseManager.getMappedTypes();

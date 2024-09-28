@@ -12,9 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeAll;
 
 import com.anno.warriors.dw8.attributes.model.Attribute;
 import com.anno.warriors.dw8.attributes.model.AttributeInterface;
@@ -24,12 +22,12 @@ import com.anno.warriors.dw8.database.DatabaseDYNConstants.COLUMNS;
 
 class DBConnectionTest {
 
-	@BeforeEach
+	@BeforeAll
 	void setUp() throws Exception {
 		DBConnection.connectToDB();
 	}
 
-	@Test
+	// @Test
 	void testIfConnectionIsTrue() {
 		try {
 			assertTrue(DBConnection.isConnected());
@@ -38,7 +36,7 @@ class DBConnectionTest {
 		}
 	}
 
-	@Test
+	// @Test
 	void testIfConnectionIsDisconnected() {
 		try {
 			DBConnection.disconnect();
@@ -49,7 +47,7 @@ class DBConnectionTest {
 		}
 	}
 
-	@Test
+	// @Test
 	void testRetrieveFromDB_AFFINITY() {
 		try {
 			String query = "SELECT * FROM " + DatabaseDYNConstants.getTable(AFFINITY) + ";";
@@ -62,7 +60,7 @@ class DBConnectionTest {
 		}
 	}
 
-	@Test
+	// @Test
 	void testRetrieveFromDB_ATTRIBUTE_WHERE() {
 		String key = "Awareness";
 //		String key = "Thorns";

@@ -1,5 +1,9 @@
 package com.anno.warriors.dw8.manager.weapons;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +19,8 @@ import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.anno.warriors.shared.WarriorSearcher;
+import com.anno.warriors.shared.WarriorSorter;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class WeaponAttributeParseManagerTest {
@@ -65,19 +67,19 @@ class WeaponAttributeParseManagerTest {
 		assertEquals("File Not Found!", e.getMessage());
 	}
 
-//	@Test
-//	void testWeapNameTypesMapKeyGetValueContainsExpectedWeaponName() {
-//		slots = weapNameTypesKeyAttributesMap.get(expectedKey);
-//
-//		WarriorSorter<AttributeSlot> sorter = new WarriorSorter(slots);
-//		WarriorSearcher<AttributeSlot> searcher = new WarriorSearcher(sorter.getSortedList());
-//
-//		AttributeSlot searched;
-//		for (AttributeSlot e : sorter.getSortedList()) {
-//			searched = searcher.search(e);
-//			assertEquals(e.getName(), searched.getName());
-//			assertEquals(e.getLevel(), searched.getLevel());
-//		}
-//	}
+	@Test
+	void testWeapNameTypesMapKeyGetValueContainsExpectedWeaponName() {
+		slots = weapNameTypesKeyAttributesMap.get(expectedKey);
+
+		WarriorSorter<AttributeSlot> sorter = new WarriorSorter(slots);
+		WarriorSearcher<AttributeSlot> searcher = new WarriorSearcher(sorter.getSortedList());
+
+		AttributeSlot searched;
+		for (AttributeSlot e : sorter.getSortedList()) {
+			searched = searcher.search(e);
+			assertEquals(e.getName(), searched.getName());
+			assertEquals(e.getLevel(), searched.getLevel());
+		}
+	}
 
 }
