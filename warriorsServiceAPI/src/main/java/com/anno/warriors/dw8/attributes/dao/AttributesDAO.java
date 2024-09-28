@@ -37,7 +37,9 @@ public class AttributesDAO implements AttributesDAOInterface {
 	public List<AttributeInterface> getAllAttributes() {
 		clearAttributes();
 		ResultSet rs = DYNDatabaseLibrary.executeSelectAll(ATTRIBUTES);
-		return convertToPojoAndGetList(rs);
+		attributes = convertToPojoAndGetList(rs);
+		DYNDatabaseLibrary.closeDB();
+		return attributes;
 	}
 
 	@Override
@@ -46,7 +48,9 @@ public class AttributesDAO implements AttributesDAOInterface {
 				: DatabaseDYNConstants.SPECIAL;
 		clearAttributes();
 		ResultSet rs = DYNDatabaseLibrary.executeSelectAllWhere(ATTRIBUTES, COLUMNS.ATTRTYPE, TYPE);
-		return convertToPojoAndGetList(rs);
+		attributes = convertToPojoAndGetList(rs);
+		DYNDatabaseLibrary.closeDB();
+		return attributes;
 	}
 
 	@Override
@@ -64,6 +68,8 @@ public class AttributesDAO implements AttributesDAOInterface {
 		} catch (SQLException e) {
 			attribute = new Attribute();
 			e.printStackTrace();
+		} finally {
+			DYNDatabaseLibrary.closeDB();
 		}
 		return attribute;
 	}
@@ -75,7 +81,9 @@ public class AttributesDAO implements AttributesDAOInterface {
 			return attributes;
 		}
 		ResultSet rs = DYNDatabaseLibrary.executeSelectAllWhere(ATTRIBUTES, COLUMNS.ATTRNAME, name);
-		return convertToPojoAndGetList(rs);
+		attributes = convertToPojoAndGetList(rs);
+		DYNDatabaseLibrary.closeDB();
+		return attributes;
 	}
 
 	@Override
@@ -85,7 +93,9 @@ public class AttributesDAO implements AttributesDAOInterface {
 			return attributes;
 		}
 		ResultSet rs = DYNDatabaseLibrary.executeSelectAllWhereLike(ATTRIBUTES, COLUMNS.ATTRDESC, description);
-		return convertToPojoAndGetList(rs);
+		attributes = convertToPojoAndGetList(rs);
+		DYNDatabaseLibrary.closeDB();
+		return attributes;
 	}
 
 	@Override

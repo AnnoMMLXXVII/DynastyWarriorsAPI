@@ -85,11 +85,18 @@ public class DYNDatabaseLibrary {
 		if (conn != null) {
 			try {
 				conn.close();
+				if (ps != null && !ps.isClosed()) {
+					ps.close();
+				}
 				DBConnection.disconnect();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public static void closeDB() {
+		closeDB(DBConnection.getConnection());
 	}
 
 	// DELETE
@@ -166,7 +173,6 @@ public class DYNDatabaseLibrary {
 			rs = ps.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
 			closeDB(conn);
 		}
 		return rs;
@@ -188,10 +194,9 @@ public class DYNDatabaseLibrary {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
 			closeDB(conn);
 		}
 		return isUpdated;
 	}
-
+	
 }

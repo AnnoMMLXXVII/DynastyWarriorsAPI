@@ -12,7 +12,7 @@ import com.anno.warriors.dw8.attributes.dao.AttributesDAOInterface;
 import com.anno.warriors.dw8.attributes.model.Attribute;
 import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 
-@Service("attributeFacade")
+@Service
 public class AttributesFacade implements AttributesFacadeInterface {
 
 	@Autowired
@@ -47,7 +47,7 @@ public class AttributesFacade implements AttributesFacadeInterface {
 		}
 		return dao.getAttributeByName(name);
 	}
-	
+
 	@Override
 	public AttributeInterface callingCreateAttribute(AttributeInterface attribute) {
 		if (attribute == null) {
@@ -68,10 +68,10 @@ public class AttributesFacade implements AttributesFacadeInterface {
 
 	@Override
 	public AttributeInterface callingRemoveAttribute(String key) {
-		if(key==null) {
+		if (key == null) {
 			return Optional.ofNullable(new Attribute()).get();
 		}
 		return dao.removeAttribute(key);
 	}
-	
+
 }

@@ -9,74 +9,78 @@ public class DW8Constants {
 	}
 
 	public static final Integer MAX_ATTRIBUTE_LEVEL = 10;
-
+	
 	public static final String OFFICER_IMAGES_PATH = ApplicationConstants.RESOURCE_PATH + "Officer_Images/";
-
+	
 	public static final String WEAPON_IMAGES_JIN_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/1-Star/jin/";
+			+ "Weapon-Pictures/images/1-Star/jin/";
 	public static final String WEAPON_IMAGES_SHU_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/1-Star/shu/";
+			+ "Weapon-Pictures/images/1-Star/shu/";
 	public static final String WEAPON_IMAGES_OTHER_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/1-Star/other/";
+			+ "Weapon-Pictures/images/1-Star/other/";
 	public static final String WEAPON_IMAGES_WU_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/1-Star/wu/";
+			+ "Weapon-Pictures/images/1-Star/wu/";
 	public static final String WEAPON_IMAGES_WEI_1_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/1-Star/wei/";
+			+ "Weapon-Pictures/images/1-Star/wei/";
 
 	public static final String WEAPON_IMAGES_JIN_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/2-Star/jin/";
+			+ "Weapon-Pictures/images/2-Star/jin/";
 	public static final String WEAPON_IMAGES_SHU_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/2-Star/shu/";
+			+ "Weapon-Pictures/images/2-Star/shu/";
 	public static final String WEAPON_IMAGES_OTHER_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/2-Star/other/";
+			+ "Weapon-Pictures/images/2-Star/other/";
 	public static final String WEAPON_IMAGES_WU_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/2-Star/wu/";
+			+ "Weapon-Pictures/images/2-Star/wu/";
 	public static final String WEAPON_IMAGES_WEI_2_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/2-Star/wei/";
+			+ "Weapon-Pictures/images/2-Star/wei/";
 
 	public static final String WEAPON_IMAGES_JIN_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/3-Star/jin/";
+			+ "Weapon-Pictures/images/3-Star/jin/";
 	public static final String WEAPON_IMAGES_SHU_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/3-Star/shu/";
+			+ "Weapon-Pictures/images/3-Star/shu/";
 	public static final String WEAPON_IMAGES_OTHER_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/3-Star/other/";
+			+ "Weapon-Pictures/images/3-Star/other/";
 	public static final String WEAPON_IMAGES_WU_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/3-Star/wu/";
+			+ "Weapon-Pictures/images/3-Star/wu/";
 	public static final String WEAPON_IMAGES_WEI_3_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/3-Star/wei/";
+			+ "Weapon-Pictures/images/3-Star/wei/";
 
 	public static final String WEAPON_IMAGES_JIN_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/4-Star/jin/";
+			+ "Weapon-Pictures/images/4-Star/jin/";
 	public static final String WEAPON_IMAGES_SHU_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/4-Star/shu/";
+			+ "Weapon-Pictures/images/4-Star/shu/";
 	public static final String WEAPON_IMAGES_OTHER_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/4-Star/other/";
+			+ "Weapon-Pictures/images/4-Star/other/";
 	public static final String WEAPON_IMAGES_WU_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/4-Star/wu/";
+			+ "Weapon-Pictures/images/4-Star/wu/";
 	public static final String WEAPON_IMAGES_WEI_4_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/4-Star/wei/";
+			+ "Weapon-Pictures/images/4-Star/wei/";
 
+	public static final String WEAPON_IMAGES_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/images/5-Star/";
 	public static final String WEAPON_IMAGES_JIN_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/5-Star/jin/";
+			+ "Weapon-Pictures/images/5-Star/jin/";
 	public static final String WEAPON_IMAGES_SHU_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/5-Star/shu/";
+			+ "Weapon-Pictures/images/5-Star/shu/";
 	public static final String WEAPON_IMAGES_OTHER_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/5-Star/other/";
+			+ "Weapon-Pictures/images/5-Star/other/";
 	public static final String WEAPON_IMAGES_WU_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/5-Star/wu/";
+			+ "Weapon-Pictures/images/5-Star/wu/";
 	public static final String WEAPON_IMAGES_WEI_5_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/5-Star/wei/";
+			+ "Weapon-Pictures/images/5-Star/wei/";
 
+	public static final String WEAPON_IMAGES_6_STAR_PATH = ApplicationConstants.RESOURCE_PATH
+			+ "Weapon-Pictures/images/6-Star/";
 	public static final String WEAPON_IMAGES_JIN_6_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/6-Star/jin/";
+			+ "Weapon-Pictures/images/6-Star/jin/";
 	public static final String WEAPON_IMAGES_SHU_6_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/6-Star/shu/";
+			+ "Weapon-Pictures/images/6-Star/shu/";
 	public static final String WEAPON_IMAGES_OTHER_6_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/6-Star/other/";
+			+ "Weapon-Pictures/images/6-Star/other/";
 	public static final String WEAPON_IMAGES_WU_6_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/6-Star/wu/";
+			+ "Weapon-Pictures/images/6-Star/wu/";
 	public static final String WEAPON_IMAGES_WEI_6_STAR_PATH = ApplicationConstants.RESOURCE_PATH
-			+ "Weapon-Pictures/6-Star/wei/";
+			+ "Weapon-Pictures/images/6-Star/wei/";
 
 	public static final String ATTRIBUTES_NORMAL_FILE = ApplicationConstants.RESOURCE_PATH
 			+ "Text-Files/attributes/normal/normal.txt";

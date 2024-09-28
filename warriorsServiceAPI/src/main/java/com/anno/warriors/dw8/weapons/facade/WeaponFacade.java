@@ -3,6 +3,8 @@ package com.anno.warriors.dw8.weapons.facade;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,8 @@ import com.anno.warriors.shared.WarriorSorter;
 @Service("WeaponFacade")
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class WeaponFacade implements WeaponFacadeInterface {
+
+	private static Logger logger = LogManager.getLogger();
 
 	@Autowired
 	private WeaponDAOInterface dao;
@@ -57,9 +61,9 @@ public class WeaponFacade implements WeaponFacadeInterface {
 		if (type == null || type.isEmpty()) {
 			return new ArrayList<>();
 		}
-		for(Types t : Types.values()) {
-			for(WeaponInterface<Weapon> w :DW8Structures.getTypeWeaponKeyKeyMap().get(t)) {
-				System.out.printf("%s,%s,\n", t.getValue(), w.getName());
+		for (Types t : Types.values()) {
+			for (WeaponInterface<Weapon> w : DW8Structures.getTypeWeaponKeyKeyMap().get(t)) {
+				logger.info("{},{},\n", t.getValue(), w.getName());
 			}
 		}
 		return dao.getWeaponsByTypes(DW8Structures.getTypeWeaponKeyKeyMap().get(Types.returnCorrectEnum(type)));
@@ -86,7 +90,7 @@ public class WeaponFacade implements WeaponFacadeInterface {
 		return ((level > -1 && level <= DW8Constants.MAX_ATTRIBUTE_LEVEL) || attributes.length == 0) ? new ArrayList<>()
 				: new WarriorSorter(
 						dao.getWeaponsWithAttributeNAndLevelX(DW8Structures.getWeapons(), level, attributes))
-								.getSortedList();
+						.getSortedList();
 	}
 
 }

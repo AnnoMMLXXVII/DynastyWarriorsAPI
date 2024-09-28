@@ -2,6 +2,9 @@ package com.anno.warriors.dw8.shared;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.anno.warriors.dw8.enums.affinity.Affinity;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.weapons.model.Weapon;
@@ -10,6 +13,7 @@ import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 public class WeaponSorter {
 
 	private List<WeaponInterface<Weapon>> list;
+	private static Logger logger = LogManager.getLogger();
 
 	public WeaponSorter(List<WeaponInterface<Weapon>> list, DW8Constants.SortBy sortBy, DW8Constants.OrderBy orderBy) {
 		this.list = list;
@@ -84,7 +88,7 @@ public class WeaponSorter {
 
 	private int partitionByType(List<WeaponInterface<Weapon>> list, int low, int high) {
 		Types pivot = list.get(high).getType();
-		System.out.println("Pivot --> " + pivot);
+		logger.info("Pivot --> {}", pivot);
 		int i = low - 1;
 		for (int j = low; j <= high - 1; j++) {
 			if (list.get(j).compareTo(pivot) < 0) {

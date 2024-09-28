@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,8 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anno.warriors.dw8.attributes.facade.AttributesFacadeInterface;
 import com.anno.warriors.dw8.attributes.model.AttributeInterface;
+import com.anno.warriors.shared.ApplicationConstants;
 
 @RestController
+@CrossOrigin(origins = { ApplicationConstants.CROSS_ORIGIN_LOCAL_HOST })
 @RequestMapping(value = "dw8/attributes")
 public class AttributesController {
 	private Logger logger = LogManager.getLogger();
@@ -45,9 +48,10 @@ public class AttributesController {
 	public ResponseEntity<List<AttributeInterface>> getAttributeByType(@RequestBody(required = true) String... names) {
 		return new ResponseEntity<>(facade.callingGetAllAttributes(names), HttpStatus.OK);
 	}
-	
+
 	@PostMapping(value = "/attribute/", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<AttributeInterface> createAttribute(@RequestBody(required = true) AttributeInterface attribute) {
+	public ResponseEntity<AttributeInterface> createAttribute(
+			@RequestBody(required = true) AttributeInterface attribute) {
 		return new ResponseEntity<>(facade.callingCreateAttribute(attribute), HttpStatus.OK);
 	}
 
