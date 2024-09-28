@@ -1,5 +1,8 @@
 package com.anno.warriors.dw8.characters.controller;
 
+import static com.anno.warriors.shared.ApplicationConstants.CROSS_ORIGIN_LOCAL_HOST;
+import static com.anno.warriors.shared.ApplicationConstants.LEGENDARY_WARRIORS_NETLIFY;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +20,9 @@ import com.anno.warriors.dw8.characters.facade.CharacterFacadeInterface;
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.requests.pojos.CharacterPojo;
-import com.anno.warriors.shared.ApplicationConstants;
 
 @RestController
-@CrossOrigin(origins = { ApplicationConstants.CROSS_ORIGIN_LOCAL_HOST })
+@CrossOrigin(origins = { CROSS_ORIGIN_LOCAL_HOST, LEGENDARY_WARRIORS_NETLIFY })
 @RequestMapping(value = "dw8/characters")
 public class CharacterController {
 

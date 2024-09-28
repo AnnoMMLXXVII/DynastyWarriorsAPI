@@ -1,5 +1,8 @@
 package com.anno.warriors.dw8.attributes.controller;
 
+import static com.anno.warriors.shared.ApplicationConstants.CROSS_ORIGIN_LOCAL_HOST;
+import static com.anno.warriors.shared.ApplicationConstants.LEGENDARY_WARRIORS_NETLIFY;
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -19,10 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anno.warriors.dw8.attributes.facade.AttributesFacadeInterface;
 import com.anno.warriors.dw8.attributes.model.AttributeInterface;
-import com.anno.warriors.shared.ApplicationConstants;
 
 @RestController
-@CrossOrigin(origins = { ApplicationConstants.CROSS_ORIGIN_LOCAL_HOST })
+@CrossOrigin(origins = { CROSS_ORIGIN_LOCAL_HOST, LEGENDARY_WARRIORS_NETLIFY })
 @RequestMapping(value = "dw8/attributes")
 public class AttributesController {
 	private Logger logger = LogManager.getLogger();
