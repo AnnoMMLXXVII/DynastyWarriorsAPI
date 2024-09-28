@@ -31,7 +31,7 @@ public class DatabaseQueries {
 			String joinPKValue) {
 		String join = appendInnerJoin(table.name(), innerJoinTable.name(), joinPK.name());
 		return String.format("%s %s %s", String.format("SELECT * FROM %s", table), join,
-				!(StringUtils.isBlank(joinPKValue) || joinPKValue == null || joinPKValue.isEmpty() || join.equals(""))
+				!(joinPKValue == null || joinPKValue.isEmpty() || join.equals(""))
 						? String.format("WHERE %s.%s = %s", innerJoinTable, joinPK.name(), joinPKValue)
 						: "");
 	}

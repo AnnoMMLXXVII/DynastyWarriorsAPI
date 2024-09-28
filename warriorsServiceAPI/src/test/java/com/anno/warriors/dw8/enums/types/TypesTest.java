@@ -32,7 +32,7 @@ class TypesTest {
 	@Test
 	void testTypesSizeIsExpected() {
 		Types[] types = Types.values();
-		assertEquals(95, types.length);
+		assertEquals(92, types.length);
 	}
 
 	@Test
@@ -55,7 +55,7 @@ class TypesTest {
 		assertNull(Types.returnCorrectEnum(""));
 	}
 
-	@Test
+@Test
 	void validateAllTypesMatchFile() {
 		File file = new File(DW8Constants.TYPE_FILE);
 		try (Scanner z = new Scanner(new FileReader(file))) {

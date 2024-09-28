@@ -100,7 +100,7 @@ class WarriorSearcherTest {
 		assertEquals(searchCharacterKey.getName(), searched.get(0).getName());
 	}
 
-////	@Test
+//@Test
 //	void testIfSearchWeaponObjectsReturnsExpected() {
 //		testNumber = 3;
 //
@@ -117,7 +117,7 @@ class WarriorSearcherTest {
 //		assertEquals(searchWeaponKey.getName(), searched.get(0).getName());
 //	}
 //
-////	@Test
+//@Test
 //	void testIfSearchWeaponObjectOfOffierTypeReturnsExpected() {
 //		testNumber = 4;
 ////		DW8Manager.getInstance();
@@ -139,7 +139,7 @@ class WarriorSearcherTest {
 //		assertEquals(searchWeaponKey.getName(), searched.get(0).getName());
 //	}
 //
-////	@Test
+//@Test
 //	void testIfSearchWeaponObjectOfOffierTypeReturnsNegativeOne() {
 //		testNumber = 5;
 ////		DW8Manager.getInstance();
