@@ -1,13 +1,13 @@
 package com.anno.warriors.dw8.manager.weapons;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +19,8 @@ import com.anno.warriors.dw8.keys.WeaponName_TypesAttributesKey;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.anno.warriors.dw8.utils.FileStreamHandler;
+import com.anno.warriors.dw8.utils.WarriorsParingException;
 import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 import com.anno.warriors.dw8.weapons.slots.PowerAttribute;
 import com.anno.warriors.dw8.weapons.slots.PowerlessAttribute;
@@ -38,17 +40,16 @@ public class WeaponAttributeParseManager implements DynastyWarriors8Object<Weapo
 	}
 
 	public static void readWeaponAttributesFile(String path) throws FileNotFoundException {
-		File file = new File(path);
 		logger.info("Parsing file " + path);
-		try (Scanner z = new Scanner(new FileReader(file))) {
-			while (z.hasNextLine()) {
-				String line = z.nextLine();
-				String[] arr = line.split(DW8Constants.Split.COMMA.getValue());
-				parseWeaponAttributes(arr);
+		try (BufferedReader br = new FileStreamHandler(path).getBufferedReader()) {
+			String raw = "";
+			while ((raw = br.readLine()) != null) {
+				String[] line = raw.split(DW8Constants.Split.COMMA.getValue());
+				parseWeaponAttributes(line);
 			}
 
-		} catch (FileNotFoundException e) {
-			System.err.println("File Not Found!");
+		} catch (IOException ex) {
+			throw new WarriorsParingException(ex);
 		}
 	}
 

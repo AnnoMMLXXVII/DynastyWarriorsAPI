@@ -1,13 +1,12 @@
 package com.anno.warriors.dw8.manager.weapons;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,6 +21,8 @@ import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
+import com.anno.warriors.dw8.utils.FileStreamHandler;
+import com.anno.warriors.dw8.utils.WarriorsParingException;
 import com.anno.warriors.dw8.weapons.model.Extreme;
 import com.anno.warriors.dw8.weapons.model.Normal;
 import com.anno.warriors.dw8.weapons.model.Weapon;
@@ -100,9 +101,13 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 
 	private static void scanFiles(String... path) {
 		int i = 1;
-		File[] file = new File[path.length];
+		FileStreamHandler[] fshList = new FileStreamHandler[path.length];
 		for (int j = 0; j < path.length; j++) {
-			file[j] = new File(path[j]);
+			try {
+				fshList[j] = new FileStreamHandler(path[j]);
+			} catch (FileNotFoundException e) {
+				throw new WarriorsParingException(e);
+			}
 		}
 		MappingObjectsWithReference<Category, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> categoryMappingObject = new MappingObjectsWithReference<>(
 				categoryWeaponsMap);
@@ -110,13 +115,13 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 				weaponNameWeaponsMap);
 		MappingObjectsWithReference<Types, List<WeaponInterface<Weapon>>, WeaponInterface<Weapon>> typesWeaponsListObject = new MappingObjectsWithReference<>(
 				typesWeaponListMap);
-		parseWeaponAttributesFile(file, path);
-		try (Scanner z = new Scanner(new FileReader(file[i]))) {
+		parseWeaponAttributesFile(fshList, path);
+		try (BufferedReader br = fshList[i].getBufferedReader()) {
 			logger.info("Reading file - " + path[i]);
-			while (z.hasNextLine()) {
-				String line = z.nextLine();
-				String[] arr = line.split(DW8Constants.Split.COMMA.getValue());
-				temp = parseNormalWeapons(file[i].getName(), arr);
+			String raw = "";
+			while ((raw = br.readLine()) != null) {
+				String[] arr = raw.split(DW8Constants.Split.COMMA.getValue());
+				temp = parseNormalWeapons(fshList[i].getFileName(), arr);
 				weapons.add(temp);
 				weaponNames.add(temp.getName());
 //				typesWeaponListMap.put(temp.getType(), temp);
@@ -124,16 +129,16 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 				categoryMappingObject.mapKeyValueWithList(temp.getCategory(), temp);
 				weaponNameMappingObject.mapKeyValueWithList(temp.getName(), temp);
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		} catch (IOException e) {
+			throw new WarriorsParingException(e);
 		}
 		for (i = 2; i < path.length; i++) {
-			try (Scanner z = new Scanner(new FileReader(file[i]))) {
+			try (BufferedReader br = fshList[i].getBufferedReader()) {
 				logger.info("Reading file - " + path[i]);
-				while (z.hasNextLine()) {
-					String line = z.nextLine();
-					String[] arr = line.split(DW8Constants.Split.COMMA.getValue());
-					temp = parseExtremeWeapons(file[i].getName(), arr);
+				String raw = "";
+				while ((raw = br.readLine()) != null) {
+					String[] arr = raw.split(DW8Constants.Split.COMMA.getValue());
+					temp = parseExtremeWeapons(fshList[i].getFileName(), arr);
 					WeaponName_TypesAttributesKey key = new WeaponName_TypesAttributesKey(temp.getName(),
 							temp.getType());
 					List<AttributeSlot> slots = WeaponAttributeParseManager.getWeapNameTypesKeyAttributesMap().get(key);
@@ -144,18 +149,18 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 					categoryMappingObject.mapKeyValueWithList(temp.getCategory(), temp);
 					weaponNameMappingObject.mapKeyValueWithList(temp.getName(), temp);
 				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+			} catch (IOException e) {
+				throw new WarriorsParingException(e);
 			}
 		}
 	}
 
-	private static void parseWeaponAttributesFile(File[] file, String[] path) {
-		try (Scanner z = new Scanner(new FileReader(file[0]))) {
+	private static void parseWeaponAttributesFile(FileStreamHandler[] file, String[] path) {
+		try (BufferedReader br = new FileStreamHandler(path[0]).getBufferedReader()) {
 			logger.info("Reading Weapon Attribute file " + path[0]);
 			WeaponAttributeParseManager.readWeaponAttributesFile(path[0]);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		} catch (IOException ex) {
+			throw new WarriorsParingException(ex);
 		}
 	}
 

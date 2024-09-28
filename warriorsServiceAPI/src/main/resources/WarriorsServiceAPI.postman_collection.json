@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4e4fca8b-4796-4869-aaed-4ad3082b1dba",
+		"_postman_id": "3c3737c1-9881-4e75-ac68-a16aaebedb04",
 		"name": "WarriorsServiceAPI",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12625056"
 	},
 	"item": [
 		{
@@ -11,6 +12,9 @@
 				{
 					"name": "All Attributes",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -27,17 +31,43 @@
 					"response": []
 				},
 				{
-					"name": "Normal Attributes",
+					"name": "Attribute - Name",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{warriorsHost}}dw8/attributes/normal",
+							"raw": "{{warriorsHost}}dw8/attributes/attribute/Voidable",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
 							"path": [
 								"attributes",
+								"attribute",
+								"Voidable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attribute - Type",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/type/normal",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"type",
 								"normal"
 							]
 						}
@@ -45,13 +75,13 @@
 					"response": []
 				},
 				{
-					"name": "Normal By Names",
+					"name": "Attributes - Names",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    \"Flash\",\n    \"Roar\"\n]",
+							"raw": "[\n    \"Voidable\",\n    \"Explosive\",\n    \"Flurry\"\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -59,44 +89,26 @@
 							}
 						},
 						"url": {
-							"raw": "{{warriorsHost}}dw8/attributes/normal",
+							"raw": "{{warriorsHost}}dw8/attributes/",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
 							"path": [
 								"attributes",
-								"normal"
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Special Attributes",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{warriorsHost}}dw8/attributes/special",
-							"host": [
-								"{{warriorsHost}}dw8"
-							],
-							"path": [
-								"attributes",
-								"special"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Special By Names",
+					"name": "Attribute - Create",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    \"Awareness\",\n    \"War Shoes\"\n]",
+							"raw": "{\n    \"name\": \"Voidable\",\n    \"description\": \"Can cancel or reduce elemental attacks\",\n    \"type\": \"Normal\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -104,17 +116,120 @@
 							}
 						},
 						"url": {
-							"raw": "{{warriorsHost}}dw8/attributes/special",
+							"raw": "{{warriorsHost}}dw8/attributes/attribute/",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
 							"path": [
 								"attributes",
-								"special"
+								"attribute",
+								""
 							]
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Attribute - Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Voidable\",\n    \"description\": \"Can cancel or reduce elemental range attacks\",\n    \"type\": \"Normal\",\n    \"value\": \"VOIDABLE\",\n    \"state\": \"Attribute\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/attribute/Voidable",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"attribute",
+								"Voidable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attribute - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/attributes/attribute/Voidable",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"attributes",
+								"attribute",
+								"Voidable"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": [
+					{
+						"key": "username",
+						"value": "user",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "23ba1331-434c-4330-8abc-a2c37bdc9eab",
+						"type": "string"
+					},
+					{
+						"key": "grant_type",
+						"value": "password_credentials",
+						"type": "string"
+					},
+					{
+						"key": "useBrowser",
+						"value": false,
+						"type": "boolean"
+					},
+					{
+						"key": "headerPrefix",
+						"value": "",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -153,7 +268,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    \"Zhao Yun\"\n]",
+							"raw": "[\n   \"Dian Wei\",\n   \"Zhao Yun\"\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -194,12 +309,15 @@
 				},
 				{
 					"name": "Officers By Name",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    \"Zhao Yun\",\r\n    \"Zhou Tai\"\r\n]",
+							"raw": "[\r\n    \"Zhao Yun\",\r\n    \"Lu Lingqi\"\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -228,7 +346,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n   \"Shu\",\r\n   \"Other\"\r\n]",
+							"raw": "[\r\n   \"Wei\"\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -257,7 +375,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n   \r\n]",
+							"raw": "[\r\n   \"Talisman Cards\"\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -385,6 +503,33 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create Officer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Zhao Yun\",\n    \"kingdom\": \"SHU\",\n    \"weaponType\": \"DRAGON_SPEAR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{warriorsHost}}dw8/characters/officers",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"characters",
+								"officers"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -422,7 +567,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{warriorsHost}}dw8/weapons/search/stars?value=1,2,3,4,5,6",
+							"raw": "{{warriorsHost}}dw8/weapons/search/stars?stars=1,3",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
@@ -433,8 +578,8 @@
 							],
 							"query": [
 								{
-									"key": "value",
-									"value": "1,2,3,4,5,6"
+									"key": "stars",
+									"value": "1,3"
 								}
 							]
 						}
@@ -466,7 +611,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{warriorsHost}}dw8/weapons/search/names?value=Dark Dragon Spear",
+							"raw": "{{warriorsHost}}dw8/weapons/search/names?value=Chopper",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
@@ -478,7 +623,7 @@
 							"query": [
 								{
 									"key": "value",
-									"value": "Dark Dragon Spear"
+									"value": "Chopper"
 								}
 							]
 						}
@@ -529,7 +674,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Curved Sword",
+							"raw": "{{warriorsHost}}dw8/weapons/search/type?type=Double Pike",
 							"host": [
 								"{{warriorsHost}}dw8"
 							],
@@ -541,7 +686,7 @@
 							"query": [
 								{
 									"key": "type",
-									"value": "Curved Sword"
+									"value": "Double Pike"
 								}
 							]
 						}
@@ -638,17 +783,102 @@
 			]
 		},
 		{
+			"name": "UserService",
+			"item": [
+				{
+					"name": "Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{warriorsHost}}configs/users",
+							"host": [
+								"{{warriorsHost}}configs"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OAuth",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DW8Images",
+			"item": [
+				{
+					"name": "Weapon Images",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Character Images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{warriorsHost}}dw8/images/character",
+							"host": [
+								"{{warriorsHost}}dw8"
+							],
+							"path": [
+								"images",
+								"character"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Health Check",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/characters/health-check",
+					"raw": "{{warriorsHost}}dw8/health-check",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
 					"path": [
-						"characters",
 						"health-check"
 					],
 					"query": [
@@ -656,6 +886,36 @@
 							"key": "",
 							"value": "",
 							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API-GEONAMES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.geonames.org/searchJSON?q=&username=annommlxxvii",
+					"protocol": "https",
+					"host": [
+						"api",
+						"geonames",
+						"org"
+					],
+					"path": [
+						"searchJSON"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": ""
+						},
+						{
+							"key": "username",
+							"value": "annommlxxvii"
 						}
 					]
 				}

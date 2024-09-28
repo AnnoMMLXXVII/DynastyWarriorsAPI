@@ -1,26 +1,22 @@
 package com.anno.warriors.dw8.manager.images;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
-import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.images.model.CharacterImage;
 import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
@@ -28,6 +24,8 @@ import com.anno.warriors.dw8.images.model.WeaponImage;
 import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.files.ParsingFiles;
 import com.anno.warriors.dw8.shared.DW8Constants;
+import com.anno.warriors.dw8.utils.FileStreamHandler;
+import com.anno.warriors.dw8.utils.WarriorsParingException;
 
 public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 
@@ -87,51 +85,39 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 	}
 
 	private void readOfficerImageFolder() {
-		File file = new File(DW8Constants.OFFICER_IMAGE_CSV);
-		file.setWritable(true, true);
-		file.setReadable(true, true);
-		file.setExecutable(true, true);
-		try (Scanner z = new Scanner(new FileReader(file))) {
-			while (z.hasNextLine()) {
-				String[] line = z.nextLine().split(DW8Constants.Split.COMMA.getValue());
-				try {
-					officerImages.get(line[0].trim()).add(new CharacterImage(line[0].trim(), line[1].trim()));
-				} catch (NullPointerException n) {
-					logger.error("COULD NOT FIND {}", line[0].trim());
-				}
+		try (BufferedReader br = new FileStreamHandler(DW8Constants.OFFICER_IMAGE_CSV).getBufferedReader()) {
+			String raw = "";
+			while ((raw = br.readLine()) != null) {
+				String[] line = raw.split(DW8Constants.Split.COMMA.getValue());
+				officerImages.get(line[0].trim()).add(new CharacterImage(line[0].trim(), line[1].trim()));
 			}
-		} catch (FileNotFoundException e) {
+		} catch (IOException ex) {
 			logger.error("Attempted to read from CharacterImages.csv but FILE NOT FOUND!");
+			throw new WarriorsParingException(ex.getMessage());
+		} catch (NullPointerException ex) {
+			throw new WarriorsParingException(ex.getMessage());
 		}
-		file.setWritable(true, true);
-		file.setReadable(true, true);
-		file.setExecutable(false, true);
-
 		logger.info("Officer CSV Image mapped");
 	}
 
 	private void readWeaponImagesFolder() {
-		readWeaponsImagesByPath(DW8Constants.WEAPON_IMAGE_CSV);
+		readWeaponsImagesByPath();
 	}
 
-	private void readWeaponsImagesByPath(String path) {
-		File file = new File(path);
-		file.setWritable(true, true);
-		file.setReadable(true, true);
-		file.setExecutable(true, true);
-		try (Scanner z = new Scanner(new FileReader(file))) {
-			while (z.hasNextLine()) {
-				String[] line = z.nextLine().split(DW8Constants.Split.COMMA.getValue());
+	private void readWeaponsImagesByPath() {
+		try (BufferedReader br = new FileStreamHandler(DW8Constants.WEAPON_IMAGE_CSV).getBufferedReader()) {
+			String raw = "";
+			while ((raw = br.readLine()) != null) {
+				String[] line = raw.split(DW8Constants.Split.COMMA.getValue());
 				weaponImages.get(Types.returnCorrectEnum(line[1].trim()))
 						.add(new WeaponImage(line[0].trim(), line[2].trim()));
 			}
-
-		} catch (FileNotFoundException e) {
+		} catch (IOException ex) {
 			logger.error("Attempted to read from WeaponImagesMap.csv but FILE NOT FOUND!");
+			throw new WarriorsParingException(ex.getMessage());
+		} catch (NullPointerException ex) {
+			throw new WarriorsParingException(ex.getMessage());
 		}
-		file.setWritable(true, true);
-		file.setReadable(true, true);
-		file.setExecutable(false, true);
 //		printImage(weaponImages);
 		logger.info("Weapon CSV Image mapped");
 	}

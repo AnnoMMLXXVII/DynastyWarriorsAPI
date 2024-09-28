@@ -1,13 +1,12 @@
 package com.anno.warriors.dw8.manager.files;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +21,8 @@ import com.anno.warriors.dw8.manager.DynastyWarriors8Object;
 import com.anno.warriors.dw8.manager.MappingObjectsWithReference;
 import com.anno.warriors.dw8.shared.DW8Constants;
 import com.anno.warriors.dw8.shared.DW8StaticObjects;
+import com.anno.warriors.dw8.utils.FileStreamHandler;
+import com.anno.warriors.dw8.utils.WarriorsParingException;
 
 public class CharacterParseManager implements DynastyWarriors8Object<CharacterParseManager> {
 
@@ -83,35 +84,36 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 		File file = null;
 		MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject = new MappingObjectsWithReference<>(
 				kingdomCharacterMap);
-		if (isOfficer(paths[0])) {
-			for (String s : paths) {
-				file = new File(s);
-				readOfficerFile(file, kingdomCharacterMappingObject);
-				logger.info("parsed officers from " + s);
+		try {
+			if (isOfficer(paths[0])) {
+				for (String s : paths) {
+//				file = new File(s);
+					readOfficerFile(new FileStreamHandler(s), kingdomCharacterMappingObject);
+					logger.info("parsed officers from " + s);
+				}
+				characters.addAll(officers);
+			} else {
+				for (String s : paths) {
+					readSubOfficerFile(new FileStreamHandler(s), kingdomCharacterMappingObject);
+					logger.info("parsed subofficers from " + s);
+				}
+				characters.addAll(subOfficers);
 			}
-			characters.addAll(officers);
-		} else {
-			for (String s : paths) {
-				file = new File(s);
-				readSubOfficerFile(file, kingdomCharacterMappingObject);
-				logger.info("parsed subofficers from " + s);
-			}
-			characters.addAll(subOfficers);
+		} catch (Exception e) {
+			throw new WarriorsParingException(e);
 		}
 	}
 
-	private static void readOfficerFile(File file,
+	private static void readOfficerFile(FileStreamHandler fsh,
 			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
-		try (Scanner z = new Scanner(new FileReader(file))) {
-			String line = DW8Constants.Split.EMPTY.getValue();
-			String[] lineArr;
-			while (z.hasNextLine()) {
-				line = z.nextLine();
-				lineArr = line.split(DW8Constants.Split.COMMA.getValue());
-				parseOfficer(lineArr, kingdomCharacterMappingObject);
+		try (BufferedReader br = fsh.getBufferedReader()) {
+			String raw = "";
+			while ((raw = br.readLine()) != null) {
+				String[] line = raw.split(DW8Constants.Split.COMMA.getValue());
+				parseOfficer(line, kingdomCharacterMappingObject);
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		} catch (IOException | NullPointerException ex) {
+			throw new WarriorsParingException(ex.getMessage());
 		}
 	}
 
@@ -127,18 +129,16 @@ public class CharacterParseManager implements DynastyWarriors8Object<CharacterPa
 		kingdomCharacterMappingObject.mapKeyValueWithList(kingdom, officer);
 	}
 
-	private static void readSubOfficerFile(File file,
+	private static void readSubOfficerFile(FileStreamHandler fsh,
 			MappingObjectsWithReference<Kingdom, List<CharacterInterface<Character>>, CharacterInterface<Character>> kingdomCharacterMappingObject) {
-		try (Scanner z = new Scanner(new FileReader(file))) {
-			String line = DW8Constants.Split.EMPTY.getValue();
-			String[] lineArr;
-			while (z.hasNextLine()) {
-				line = z.nextLine();
-				lineArr = line.split(DW8Constants.Split.COMMA.getValue());
-				parseSubOfficer(lineArr, getKingdomFromFileName(file.getName()), kingdomCharacterMappingObject);
+		try (BufferedReader br = fsh.getBufferedReader()) {
+			String raw = "";
+			while ((raw = br.readLine()) != null) {
+				String[] line = raw.split(DW8Constants.Split.COMMA.getValue());
+				parseSubOfficer(line, getKingdomFromFileName(fsh.getFileName()), kingdomCharacterMappingObject);
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		} catch (IOException | NullPointerException ex) {
+			throw new WarriorsParingException(ex.getMessage());
 		}
 	}
 
