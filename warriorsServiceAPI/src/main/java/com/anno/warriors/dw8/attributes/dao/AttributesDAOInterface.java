@@ -16,6 +16,10 @@ public interface AttributesDAOInterface {
 
 	public List<AttributeInterface> getAttributeByContainedDescription(String name);
 
+	public AttributeInterface createAttribute(AttributeInterface attribute);
+
 	public AttributeInterface updateAttribute(AttributeInterface object);
+
+	public AttributeInterface removeAttribute(String key);
 
 }

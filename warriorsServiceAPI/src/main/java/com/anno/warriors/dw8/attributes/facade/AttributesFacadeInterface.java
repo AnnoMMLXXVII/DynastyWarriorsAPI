@@ -15,11 +15,9 @@ public interface AttributesFacadeInterface {
 	public List<AttributeInterface> callingGetAllAttributes(String... name);
 
 	public AttributeInterface callingUpdateAttribute(String key, AttributeInterface attribute);
+	
+	public AttributeInterface callingRemoveAttribute(String key);
 
-//	public List<AttributeInterface> callingGetSpecialAttributes();
-
-//	public List<AttributeInterface> callingGetNormalAttributesByNames(String... names);
-
-//	public List<AttributeInterface> callingGetSpecialAttributesByNames(String... names);
+	public AttributeInterface callingCreateAttribute(AttributeInterface attribute);
 
 }

@@ -3,18 +3,24 @@ package com.anno.warriors.dw8.manager.images;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.enums.types.Types;
 import com.anno.warriors.dw8.images.model.CharacterImage;
 import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
@@ -25,7 +31,7 @@ import com.anno.warriors.dw8.shared.DW8Constants;
 
 public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 
-	private static Logger logger = LoggerFactory.getLogger(ParsingImages.class);
+	private static Logger logger = LogManager.getLogger();
 	private static DynastyWarriors8Object<ParsingImages> instance;
 	private static Map<String, List<DynastyWarriors8Image>> officerImages = new HashMap<>();
 	private static Map<String, String> weaponNamePathMap = new HashMap<>();
@@ -91,14 +97,14 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 				try {
 					officerImages.get(line[0].trim()).add(new CharacterImage(line[0].trim(), line[1].trim()));
 				} catch (NullPointerException n) {
-					System.err.println("COULD NOT FIND : " + line[0].trim());
+					logger.error("COULD NOT FIND {}", line[0].trim());
 				}
 			}
 		} catch (FileNotFoundException e) {
 			logger.error("Attempted to read from CharacterImages.csv but FILE NOT FOUND!");
 		}
-		file.setWritable(false, true);
-		file.setReadable(false, true);
+		file.setWritable(true, true);
+		file.setReadable(true, true);
 		file.setExecutable(false, true);
 
 		logger.info("Officer CSV Image mapped");
@@ -123,8 +129,8 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		} catch (FileNotFoundException e) {
 			logger.error("Attempted to read from WeaponImagesMap.csv but FILE NOT FOUND!");
 		}
-		file.setWritable(false, true);
-		file.setReadable(false, true);
+		file.setWritable(true, true);
+		file.setReadable(true, true);
 		file.setExecutable(false, true);
 //		printImage(weaponImages);
 		logger.info("Weapon CSV Image mapped");
@@ -132,12 +138,40 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 
 	private void printImage(Map<?, List<DynastyWarriors8Image>> images) {
 		images.forEach((e, v) -> {
-			System.out.printf("%s -> {\n\t", e);
+			StringBuilder sb = new StringBuilder();
+			sb.append(String.format("%s -> {\n\t", e));
 			v.stream().forEach(i -> {
-				System.out.printf("\"%s\":\"%s\",\n\t", i.getName(), i.getImage());
+				sb.append(String.format("\"%s\":\"%s\",\n\t", i.getName(), i.getImage()));
 			});
-			System.out.printf("%s\n", "}");
+			sb.append(String.format("%s\n", "}"));
+			logger.info("{}\n", sb.toString());
+
 		});
+	}
+
+	public static void main(String... args) {
+		temp();
+	}
+
+	public static void temp() {
+		final String assetPrefix = "assets/Weapons";
+		String imgTags = ("<img src=\"%s\" alt=\"%s\">");
+		final String star = "6-Star";
+		Kingdom[] kingdoms = Kingdom.values();
+		for (Kingdom k : kingdoms) {
+			final String kingdom = k.getValue().toLowerCase();
+			// Use try-with-resources to ensure the stream is closed automatically
+			try (Stream<Path> paths = Files.list(Paths.get(DW8Constants.WEAPON_IMAGES_6_STAR_PATH + kingdom + "/"))) {
+				paths.forEach(path -> {
+					// Print the file name
+					String src = String.format("%s/%s/%s/%s", assetPrefix, star, kingdom, path.getFileName());
+					String tagLine = String.format(imgTags, src, path.getFileName());
+					logger.info("{}\n", tagLine);
+				});
+			} catch (IOException e) {
+				System.err.println("Error reading directory: " + e.getMessage());
+			}
+		}
 	}
 
 }

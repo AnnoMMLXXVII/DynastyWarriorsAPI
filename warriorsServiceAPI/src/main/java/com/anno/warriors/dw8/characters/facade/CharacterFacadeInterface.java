@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
+import com.anno.warriors.dw8.requests.pojos.CharacterPojo;
 
 public interface CharacterFacadeInterface {
 
@@ -26,5 +27,7 @@ public interface CharacterFacadeInterface {
 	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponName(String... weaponNames);
 
 	public List<CharacterInterface<Character>> callingGetAllOfficerByWeaponPower(int... weaponPower);
+	
+	public CharacterInterface<Character> callingCreateOfficer(CharacterPojo officer);
 
 }

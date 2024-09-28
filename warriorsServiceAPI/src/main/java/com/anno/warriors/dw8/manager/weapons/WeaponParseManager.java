@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.anno.warriors.dw8.enums.DW8Enumeration;
 import com.anno.warriors.dw8.enums.affinity.Affinity;
@@ -30,7 +30,7 @@ import com.anno.warriors.dw8.weapons.slots.AttributeSlot;
 
 public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseManager> {
 
-	private static Logger logger = LoggerFactory.getLogger(WeaponParseManager.class);
+	private static Logger logger = LogManager.getLogger();
 
 	private static DynastyWarriors8Object<WeaponParseManager> instance;
 	private static WeaponInterface<Weapon> temp = null;
@@ -161,7 +161,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 
 	private static WeaponInterface<Weapon> parseNormalWeapons(String fileName, String... args) {
 		Types temp = Types.returnCorrectEnum(args[4].trim());
-//		System.out.printf("%s,%s,\n", args[0].trim(), args[4].trim());
+//		logger.info("{},{},\n", args[0].trim(), args[4].trim());
 		WeaponInterface<Weapon> local = new Normal(args[0].trim(), Integer.parseInt(args[1].trim()),
 				Integer.parseInt(args[3].trim()), temp, args[2].trim());
 		local.setRarity((Rarity) parsePathToGetEnum(fileName, true));
@@ -171,7 +171,7 @@ public class WeaponParseManager implements DynastyWarriors8Object<WeaponParseMan
 	}
 
 	private static WeaponInterface<Weapon> parseExtremeWeapons(String fileName, String... args) {
-//		System.out.printf("%s,%s,\n", args[0].trim(), args[4].trim());
+//		logger.info("{},{},\n", args[0].trim(), args[4].trim());
 		WeaponInterface<Weapon> local = new Extreme(args[0].trim(), Integer.parseInt(args[1].trim()),
 				Integer.parseInt(args[3].trim()), Types.returnCorrectEnum(args[4].trim()),
 				Affinity.returnCorrectEnum(args[2].trim()));

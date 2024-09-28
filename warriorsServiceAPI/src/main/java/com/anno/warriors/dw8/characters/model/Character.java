@@ -1,12 +1,15 @@
 package com.anno.warriors.dw8.characters.model;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 import com.anno.warriors.dw8.enums.kingdom.Kingdom;
 import com.anno.warriors.dw8.images.model.DynastyWarriors8Image;
 
 public abstract class Character implements CharacterInterface<Character> {
 
+	private String id;
 	private String name;
 	private Kingdom kingdom;
 	protected List<DynastyWarriors8Image> image;
@@ -15,14 +18,43 @@ public abstract class Character implements CharacterInterface<Character> {
 
 	}
 
-	public Character(String name, Kingdom kingdom) {
-		this.name = name;
+	public Character(UUID id, String name, Kingdom kingdom) {
+		setId(id);
+		setName(name);
 		this.kingdom = kingdom;
+	}
+
+	public Character(UUID id, String name, String kingdom) {
+		setId(id);
+		setName(name);
+		setKingdom(kingdom);
+	}
+
+	@Override
+	public String getId() {
+		return id;
+	}
+
+	public Character setId(UUID id) {
+		this.id = id.toString();
+		return this;
 	}
 
 	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public Character setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	@Override
+	public Character setKingdom(String kingdom) {
+		this.kingdom = Kingdom.valueOf(kingdom);
+		return this;
 	}
 
 	@Override
@@ -37,30 +69,19 @@ public abstract class Character implements CharacterInterface<Character> {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((kingdom == null) ? 0 : kingdom.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+		return Objects.hash(id, kingdom, name);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (!(obj instanceof Character)) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		Character other = (Character) obj;
-		if (kingdom != other.kingdom)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+		return Objects.equals(id, other.id) && kingdom == other.kingdom && Objects.equals(name, other.name);
 	}
 
 	@Override

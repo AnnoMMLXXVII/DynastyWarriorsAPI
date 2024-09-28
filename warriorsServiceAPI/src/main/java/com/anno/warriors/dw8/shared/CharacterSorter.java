@@ -5,8 +5,6 @@ import java.util.List;
 import com.anno.warriors.dw8.characters.model.Character;
 import com.anno.warriors.dw8.characters.model.CharacterInterface;
 import com.anno.warriors.dw8.enums.types.Types;
-import com.anno.warriors.dw8.weapons.model.Weapon;
-import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
 public class CharacterSorter {
 

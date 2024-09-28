@@ -1,10 +1,10 @@
-package com.anno.warriors.dw8.shared;
+package com.anno.warriors.dw8.database;
 
-public class DYNConstants {
+public class DatabaseDYNConstants {
 
 	private static final String SCHEMA = "DYN";
-	static final String DATABASE = "DYN_WARRIORS_SERVICE";
-	static String HOST = System.getProperty("HOST");
+	protected static final String DATABASE = "DYN_WARRIORS_SERVICE";
+	protected static String HOST = System.getProperty("HOST");
 
 	public static final String NORMAL = "Normal";
 	public static final String SPECIAL = "Special";
@@ -12,6 +12,11 @@ public class DYNConstants {
 	public static enum TABLES {
 		AFFINITY, ATTRIBUTES
 	}
+
+	private static final String ATTRIBUTENAME = "ATTRNAME";
+	private static final String ATTRIBUTEDESC = "ATTRDESC";
+	private static final String ATTRIBUTETYPE = "ATTRTYPE";
+	private static final String AFFINITYNAME = "AFFINITYNAME";
 
 	public static enum COLUMNS {
 		ATTRNAME("ATTR_NAME"), ATTRDESC("ATTR_DESC"), ATTRTYPE("ATTR_TYPE"), AFFINITYNAME("NAME");

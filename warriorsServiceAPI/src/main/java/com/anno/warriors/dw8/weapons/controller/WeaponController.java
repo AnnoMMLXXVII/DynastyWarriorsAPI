@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anno.warriors.dw8.weapons.facade.WeaponFacadeInterface;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
+import com.anno.warriors.shared.ApplicationConstants;
 
 @RestController
+@CrossOrigin(origins = { ApplicationConstants.CROSS_ORIGIN_LOCAL_HOST })
 @RequestMapping(value = "dw8/weapons")
 public class WeaponController {
 

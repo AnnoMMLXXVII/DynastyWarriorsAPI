@@ -1,4 +1,4 @@
-package com.anno.warriors.dw8.shared;
+package com.anno.warriors.dw8.database;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -10,12 +10,11 @@ public class DBConnection {
 	private static final String PORT = "26257";
 	private static final String SSL_MODE_FULL = "sslmode=verify-full";
 	private static final String SSL_MODE_REQUIRE = "sslmode=require";
-	private static String url;
 	private static Connection conn;
 
 	public static void connectToDB() throws SQLException {
 		PGSimpleDataSource ds = new PGSimpleDataSource();
-		url = PREFIX + "://" + System.getProperty("HOST") + ":" + PORT + "/" + DYNConstants.DATABASE + "?"
+		String url = PREFIX + "://" + DatabaseDYNConstants.HOST + ":" + PORT + "/" + DatabaseDYNConstants.DATABASE + "?"
 				+ SSL_MODE_REQUIRE;
 		ds.setUrl(url);
 		ds.setUser(System.getProperty("DB_USER"));
@@ -35,7 +34,7 @@ public class DBConnection {
 	}
 
 	public static boolean isConnected() throws SQLException {
-		return conn == null ? false : !conn.isClosed();
+		return conn != null && !conn.isClosed();
 	}
 
 }

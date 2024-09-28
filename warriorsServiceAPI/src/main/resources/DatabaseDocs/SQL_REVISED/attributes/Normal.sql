@@ -14,7 +14,6 @@ INSERT INTO Attribute_Normal VALUES
     ("Thunder",    "Electrocutes enemies, doing additional damage against them while stunning them"),
     ("Whirlwind",  "Raises damage caused by knock back attacks"),
     ("Frost",      "Freezes enemies, preventing them from moving momentarily"),
-    
     ("Survival",   "Raises attack power while lowering overall health"),
     ("Frenzy",     "Raises attack power while lowering overall defense"),
     ("Barricade",  "Raises defense power while lowering overall defense"),

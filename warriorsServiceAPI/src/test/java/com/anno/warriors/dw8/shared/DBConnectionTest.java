@@ -1,8 +1,7 @@
 package com.anno.warriors.dw8.shared;
 
-import static com.anno.warriors.dw8.shared.DYNConstants.TABLES.AFFINITY;
-import static com.anno.warriors.dw8.shared.DYNConstants.TABLES.ATTRIBUTES;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.anno.warriors.dw8.database.DatabaseDYNConstants.TABLES.AFFINITY;
+import static com.anno.warriors.dw8.database.DatabaseDYNConstants.TABLES.ATTRIBUTES;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -13,13 +12,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.anno.warriors.dw8.attributes.dao.AttributesDAO;
 import com.anno.warriors.dw8.attributes.model.Attribute;
 import com.anno.warriors.dw8.attributes.model.AttributeInterface;
-import com.anno.warriors.dw8.shared.DYNConstants.COLUMNS;
+import com.anno.warriors.dw8.database.DBConnection;
+import com.anno.warriors.dw8.database.DatabaseDYNConstants;
+import com.anno.warriors.dw8.database.DatabaseDYNConstants.COLUMNS;
 
 class DBConnectionTest {
 
@@ -51,7 +52,7 @@ class DBConnectionTest {
 	@Test
 	void testRetrieveFromDB_AFFINITY() {
 		try {
-			String query = "SELECT * FROM " + DYNConstants.getTable(AFFINITY) + ";";
+			String query = "SELECT * FROM " + DatabaseDYNConstants.getTable(AFFINITY) + ";";
 			Connection conn = DBConnection.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
@@ -66,7 +67,7 @@ class DBConnectionTest {
 		String key = "Awareness";
 //		String key = "Thorns";
 		try {
-			String query = "SELECT * FROM " + DYNConstants.getTable(ATTRIBUTES)
+			String query = "SELECT * FROM " + DatabaseDYNConstants.getTable(ATTRIBUTES)
 					+ String.format(" WHERE ATTR_NAME ='%s'", key) + ";";
 			Connection conn = DBConnection.getConnection();
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -77,7 +78,7 @@ class DBConnectionTest {
 				String desc = rs.getString(COLUMNS.ATTRDESC.getColumn());
 				String type = rs.getString(COLUMNS.ATTRTYPE.getColumn());
 				actual = new Attribute(name, desc, type);
-				System.out.printf("%s\n", actual.toString());
+//				System.out.printf("%s\n", actual.toString());
 			}
 //			AttributeInterface a = new AttributesDAO().getNormalAttributesByNames(actual.getName()).get(0);
 //			assertEquals(a, actual);
