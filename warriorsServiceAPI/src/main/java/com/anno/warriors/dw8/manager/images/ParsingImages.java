@@ -149,29 +149,29 @@ public class ParsingImages implements DynastyWarriors8Object<ParsingImages> {
 		});
 	}
 
-	public static void main(String... args) {
-		temp();
-	}
-
-	public static void temp() {
-		final String assetPrefix = "assets/Weapons";
-		String imgTags = ("<img src=\"%s\" alt=\"%s\">");
-		final String star = "6-Star";
-		Kingdom[] kingdoms = Kingdom.values();
-		for (Kingdom k : kingdoms) {
-			final String kingdom = k.getValue().toLowerCase();
-			// Use try-with-resources to ensure the stream is closed automatically
-			try (Stream<Path> paths = Files.list(Paths.get(DW8Constants.WEAPON_IMAGES_6_STAR_PATH + kingdom + "/"))) {
-				paths.forEach(path -> {
-					// Print the file name
-					String src = String.format("%s/%s/%s/%s", assetPrefix, star, kingdom, path.getFileName());
-					String tagLine = String.format(imgTags, src, path.getFileName());
-					logger.info("{}\n", tagLine);
-				});
-			} catch (IOException e) {
-				System.err.println("Error reading directory: " + e.getMessage());
-			}
-		}
-	}
+//	public static void main(String... args) {
+//		temp();
+//	}
+//
+//	public static void temp() {
+//		final String assetPrefix = "assets/Weapons";
+//		String imgTags = ("<img src=\"%s\" alt=\"%s\">");
+//		final String star = "6-Star";
+//		Kingdom[] kingdoms = Kingdom.values();
+//		for (Kingdom k : kingdoms) {
+//			final String kingdom = k.getValue().toLowerCase();
+//			// Use try-with-resources to ensure the stream is closed automatically
+//			try (Stream<Path> paths = Files.list(Paths.get(DW8Constants.WEAPON_IMAGES_6_STAR_PATH + kingdom + "/"))) {
+//				paths.forEach(path -> {
+//					// Print the file name
+//					String src = String.format("%s/%s/%s/%s", assetPrefix, star, kingdom, path.getFileName());
+//					String tagLine = String.format(imgTags, src, path.getFileName());
+//					logger.info("{}\n", tagLine);
+//				});
+//			} catch (IOException e) {
+//				System.err.println("Error reading directory: " + e.getMessage());
+//			}
+//		}
+//	}
 
 }
