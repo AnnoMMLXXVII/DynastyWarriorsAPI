@@ -268,7 +268,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n   \"Dian Wei\",\n   \"Zhao Yun\"\n]",
+							"raw": "[\n   \"Dian Wei\",\n   \"Zhao Yun\",\n   \"Lu Xun\"\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -874,12 +874,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{warriorsHost}}dw8/health-check",
+					"raw": "{{warriorsHost}}dw8/actuator/health",
 					"host": [
 						"{{warriorsHost}}dw8"
 					],
 					"path": [
-						"health-check"
+						"actuator",
+						"health"
 					],
 					"query": [
 						{
@@ -946,7 +947,22 @@
 	"variable": [
 		{
 			"key": "warriorsHost",
-			"value": "http://localhost:8080/api/v1/"
+			"value": "{{liveHost}}{{contextPath}}"
+		},
+		{
+			"key": "localHost",
+			"value": "http://localhost:8080/api/v1/",
+			"type": "string"
+		},
+		{
+			"key": "liveHost",
+			"value": "https://warriors-service-anno.onrender.com",
+			"type": "string"
+		},
+		{
+			"key": "contextPath",
+			"value": "/api/v1/",
+			"type": "string"
 		}
 	]
 }
