@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 import com.anno.warriors.dw8.enums.rarity.Rarity;
@@ -24,24 +24,22 @@ import com.anno.warriors.shared.WarriorSorter;
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class WeaponDAO implements WeaponDAOInterface {
 
-	private static Logger logger = LoggerFactory.getLogger(WeaponDAO.class);
+	private Logger logger = LogManager.getLogger();
 	private List<WeaponInterface<Weapon>> list;
 
 	@Override
 	public List<WeaponInterface<Weapon>> getAllWeapons() {
-		logger.info("Returning all Weapons");
 		return DW8Structures.getWeapons();
 	}
 
 	@Override
 	public List<String> getAllWeaponNames() {
-		logger.info("Returning all weapon names");
 		return DW8Structures.getWeaponNames();
 	}
 
 	@Override
 	public List<WeaponInterface<Weapon>> getWeaponsByNames(List<WeaponInterface<Weapon>> paramList, String... name) {
-		logger.info("Returning weapon by name : " + name);
+		logger.info(name);
 		list = new ArrayList<>();
 		WarriorSorter<Weapon> sorter = new WarriorSorter(paramList);
 		WarriorSearcher<Weapon> searcher = new WarriorSearcher(sorter.getSortedList());

@@ -5,6 +5,7 @@ import java.util.List;
 import com.anno.warriors.dw8.weapons.model.Weapon;
 import com.anno.warriors.dw8.weapons.model.WeaponInterface;
 
+// implemented by WeaponDAO
 public interface WeaponDAOInterface {
 
 	public List<WeaponInterface<Weapon>> getAllWeapons();

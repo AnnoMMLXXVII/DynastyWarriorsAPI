@@ -5,6 +5,8 @@ import static com.anno.warriors.shared.ApplicationConstants.LEGENDARY_WARRIORS_N
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,62 +27,67 @@ import com.anno.warriors.dw8.requests.pojos.CharacterPojo;
 @CrossOrigin(origins = { CROSS_ORIGIN_LOCAL_HOST, LEGENDARY_WARRIORS_NETLIFY })
 @RequestMapping(value = "dw8/characters")
 public class CharacterController {
+	private Logger logger = LogManager.getLogger();
 
 	@Autowired
 	private CharacterFacadeInterface facade;
 
-	@GetMapping(value = "/health-check")
-	public ResponseEntity<String> getHealthStatus() {
-		return new ResponseEntity<>("Status UP!", HttpStatus.OK);
-	}
-
 	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllCharacters() {
+		logger.info("Requesting All Characters");
 		return new ResponseEntity<>(facade.callingGetAllCharacters(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/officers", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficers() {
+		logger.info("Requesting All Officers");
 		return new ResponseEntity<>(facade.callingGetAllOfficers(), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/officers", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CharacterInterface<Character>> createOfficer(@RequestBody CharacterPojo character) {
+		logger.info("Creating New Officer");
 		return new ResponseEntity<>(facade.callingCreateOfficer(character), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/subOfficers", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllSubOfficers() {
+		logger.info("Creating New Sub-Officer");
 		return new ResponseEntity<>(facade.callingGetAllSubOfficers(), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/search/name", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getCharacter(
 			@RequestBody(required = true) String... name) {
+		logger.info("Requesting Characters by name(s)");
 		return new ResponseEntity<>(facade.callingGetCharactersByNames(name), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/officers/search/name", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getOfficersByName(
 			@RequestBody(required = true) String... name) {
+		logger.info("Requesting Officers by name(s)");
 		return new ResponseEntity<>(facade.callingGetOfficersByNames(name), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/subOfficers/search/name", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getSubOfficersByName(
 			@RequestBody(required = true) String... name) {
+		logger.info("Requesting Sub-Officers by name(s)");
 		return new ResponseEntity<>(facade.callingGetSubOfficersByNames(name), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/officers/search/type", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getOfficersByWeaponType(
 			@RequestBody(required = true) String... type) {
+		logger.info("Requesting Officer's by their Weapon Type(s)");
 		return new ResponseEntity<>(facade.callingGetOfficerByWeaponType(type), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/officers/search/kingdom", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<CharacterInterface<Character>>> getAllOfficersByKingdom(
 			@RequestBody(required = true) String... kingdom) {
+		logger.info("Requesting Officers by kingdom(s)");
 		return new ResponseEntity<>(facade.callingGetAllOfficerByKingdom(kingdom), HttpStatus.OK);
 	}
 

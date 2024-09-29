@@ -6,13 +6,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.4</version>
+		<version>2.6.7</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>warriorsServiceAPI</artifactId>
 	<packaging>jar</packaging>
-	<version>24.09.27.01</version>
+	<version>24.09.04</version>
 	<name>warriorsServiceAPI</name>
 	<description>Rest Application for Dynasty Warriors Series</description>
 	<properties>

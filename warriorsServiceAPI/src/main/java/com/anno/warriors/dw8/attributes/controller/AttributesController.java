@@ -28,43 +28,51 @@ import com.anno.warriors.dw8.attributes.model.AttributeInterface;
 @RequestMapping(value = "dw8/attributes")
 public class AttributesController {
 	private Logger logger = LogManager.getLogger();
+
 	@Autowired
 	private AttributesFacadeInterface facade;
 
 	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<AttributeInterface>> getAllAttributes() {
+		logger.info("Request All Attribtues");
 		return new ResponseEntity<>(facade.callingGetAllAttributes(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/attribute/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<AttributeInterface> getAllAttributes(@PathVariable(required = true) String name) {
+		logger.info("Request Attribute by name: {}", name);
 		return new ResponseEntity<>(facade.callingGetAllAttribute(name), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/type/{type:normal|special}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<AttributeInterface>> getAttributeByType(@PathVariable(required = true) String type) {
+		logger.info("Request Attribute by type: {}", type);
 		return new ResponseEntity<>(facade.callingGetAllAttributes(type), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<AttributeInterface>> getAttributeByType(@RequestBody(required = true) String... names) {
+		logger.info("Request Attribute by names");
 		return new ResponseEntity<>(facade.callingGetAllAttributes(names), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/attribute/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<AttributeInterface> createAttribute(
 			@RequestBody(required = true) AttributeInterface attribute) {
+		logger.info("Creating New Attribute: {}", attribute.getName());
 		return new ResponseEntity<>(facade.callingCreateAttribute(attribute), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/attribute/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<AttributeInterface> updateAttribute(@PathVariable(required = true) String name,
 			@RequestBody(required = true) AttributeInterface attribute) {
+		logger.info("Updating Attribute: {}", name);
 		return new ResponseEntity<>(facade.callingUpdateAttribute(name, attribute), HttpStatus.OK);
 	}
 
 	@DeleteMapping(value = "/attribute/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<AttributeInterface> removeAttribute(@PathVariable(required = true) String name) {
+		logger.info("Removing Attribute: {}", name);
 		return new ResponseEntity<>(facade.callingRemoveAttribute(name), HttpStatus.OK);
 	}
 }
