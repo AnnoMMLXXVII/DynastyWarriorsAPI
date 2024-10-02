@@ -12,7 +12,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>warriorsServiceAPI</artifactId>
 	<packaging>jar</packaging>
-	<version>24.09.04</version>
+	<version>${buildVersion}</version>
 	<name>warriorsServiceAPI</name>
 	<description>Rest Application for Dynasty Warriors Series</description>
 	<properties>
